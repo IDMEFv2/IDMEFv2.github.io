@@ -1,0 +1,11 @@
+digraph Sensor {
+	graph [bb="0,0,176,176",
+		rankdir=LR
+	];
+	node [label="\N"];
+	Sensor	[height=2.4444,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv2/Sensor.html" TITLE="The Sensor class describes the module that captured the data before sending it to an analyzer. The Sensor may be a subpart of the Analyzer. "><FONT FACE="Nimbus Sans L">Sensor</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv2/Sensor.html" TITLE="The sensor&#39;s IP address."><FONT FACE="Nimbus Sans L">[Mandatory] IP ()</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Sensor.html" TITLE="however still bear some meaningful sense."><FONT FACE="Nimbus Sans L">[] Name ()</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Sensor.html" TITLE="The sensor&#39;s hostname."><FONT FACE="Nimbus Sans L">[] Hostname (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Sensor.html" TITLE="Expires 18 April 2023                [Page 37]"><FONT FACE="Nimbus Sans L">[] Model ()</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Sensor.html" TITLE="Standard UN/Locode for the sensor."><FONT FACE="Nimbus Sans L">[] UnLocation (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Sensor.html" TITLE="Internal name for the location of the sensor."><FONT FACE="Nimbus Sans L">[] Location (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Sensor.html" TITLE="A string that describes the &quot;capture zone&quot; of the sensor, as a JSON-serialized string."><FONT FACE="Nimbus Sans L">[] CaptureZone (Optional)</FONT></td></tr>%</table>>,
+		pos="88,88",
+		shape=plaintext,
+		width=2.4444];
+}

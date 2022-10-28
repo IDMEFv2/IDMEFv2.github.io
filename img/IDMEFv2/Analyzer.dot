@@ -1,0 +1,11 @@
+digraph Analyzer {
+	graph [bb="0,0,175,260",
+		rankdir=LR
+	];
+	node [label="\N"];
+	Analyzer	[height=3.6111,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv2/Analyzer.html" TITLE="The Analyzer class describes the module that has analyzed the data captured by the sensors, identified an event of interest and decided to create an alert. "><FONT FACE="Nimbus Sans L">Analyzer</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv2/Analyzer.html" TITLE="Analyzer IP address."><FONT FACE="Nimbus Sans L">[Mandatory] IP ()</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Analyzer.html" TITLE="however still bear some meaningful sense."><FONT FACE="Nimbus Sans L">[] Name ()</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Analyzer.html" TITLE="Hostname of this analyzer."><FONT FACE="Nimbus Sans L">[] Hostname (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Analyzer.html" TITLE="brand and version)."><FONT FACE="Nimbus Sans L">[] Model ()</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Analyzer.html" TITLE="Analyzer type."><FONT FACE="Nimbus Sans L">[] Type (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Analyzer.html" TITLE="Analyzer categories."><FONT FACE="Nimbus Sans L">[Mandatory] Category ()</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Analyzer.html" TITLE="Type of data analyzed during the detection."><FONT FACE="Nimbus Sans L">[Mandatory] Data ()</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Analyzer.html" TITLE="Detection method."><FONT FACE="Nimbus Sans L">[Mandatory] Method ()</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Analyzer.html" TITLE="GPS coordinates for the analyzer."><FONT FACE="Nimbus Sans L">[] GeoLocation (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Analyzer.html" TITLE="Standard UN/Locode for the analyzer."><FONT FACE="Nimbus Sans L">[] UnLocation (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Analyzer.html" TITLE="Internal name for the location of the analyzer."><FONT FACE="Nimbus Sans L">[] Location (Optional)</FONT></td></tr>%</table>>,
+		pos="87.5,130",
+		shape=plaintext,
+		width=2.4306];
+}

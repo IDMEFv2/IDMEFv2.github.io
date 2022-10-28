@@ -1,0 +1,11 @@
+digraph Observable {
+	graph [bb="0,0,160,92",
+		rankdir=LR
+	];
+	node [label="\N"];
+	Observable	[height=1.2778,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv2/Observable.html" TITLE="The Observable class describes a feature or phenomenon that can be observed or measured for the purposes of detecting malicious behavior. "><FONT FACE="Nimbus Sans L">Observable</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv2/Observable.html" TITLE="&quot;Observable&quot; attribute."><FONT FACE="Nimbus Sans L">[] Name ()</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Observable.html" TITLE="Name of the reference where the observable is specified."><FONT FACE="Nimbus Sans L">[] Reference (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Observable.html" TITLE="Observable content."><FONT FACE="Nimbus Sans L">[Mandatory] Content ()</FONT></td></tr>%</table>>,
+		pos="80,46",
+		shape=plaintext,
+		width=2.2222];
+}

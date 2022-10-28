@@ -1,0 +1,11 @@
+digraph Vector {
+	graph [bb="0,0,175,260",
+		rankdir=LR
+	];
+	node [label="\N"];
+	Vector	[height=3.6111,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv2/Vector.html" TITLE="The Vector class describes the vector(s) of the event(s) leading up to the alert. o Name, location, description, ... "><FONT FACE="Nimbus Sans L">Vector</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv2/Vector.html" TITLE="Category for the detected &quot;vector&quot;."><FONT FACE="Nimbus Sans L">[Mandatory] Category ()</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Vector.html" TITLE="Name of the detected vector or &quot;Unknown&quot;."><FONT FACE="Nimbus Sans L">[] Name (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Vector.html" TITLE="Rough estimate of the detected vector&#39;s size."><FONT FACE="Nimbus Sans L">[] Size (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Vector.html" TITLE="Free text human-readable additional note for this vector."><FONT FACE="Nimbus Sans L">[] Note (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Vector.html" TITLE="Expires 18 April 2023                [Page 45]"><FONT FACE="Nimbus Sans L">[] TI ()</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Vector.html" TITLE="GPS coordinates for the vector."><FONT FACE="Nimbus Sans L">[] GeoLocation (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Vector.html" TITLE="Estimated radius around the provided geolocation in meters."><FONT FACE="Nimbus Sans L">[] GeoRadius (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Vector.html" TITLE="Standard UN/Locode for the vector."><FONT FACE="Nimbus Sans L">[] UnLocation (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Vector.html" TITLE="Internal name for the location of the vector."><FONT FACE="Nimbus Sans L">[] Location (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Vector.html" TITLE="Identifiers for attachments related to this vector."><FONT FACE="Nimbus Sans L">[] Attachment (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Vector.html" TITLE="Identifiers for observables related to this vector."><FONT FACE="Nimbus Sans L">[] Observable (Optional)</FONT></td></tr>%</table>>,
+		pos="87.5,130",
+		shape=plaintext,
+		width=2.4306];
+}

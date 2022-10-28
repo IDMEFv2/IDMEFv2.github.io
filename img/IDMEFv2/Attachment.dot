@@ -1,0 +1,11 @@
+digraph Attachment {
+	graph [bb="0,0,201,239",
+		rankdir=LR
+	];
+	node [label="\N"];
+	Attachment	[height=3.3194,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv2/Attachment.html" TITLE="The Attachment class contains additional data which was captured in relation with the event. "><FONT FACE="Nimbus Sans L">Attachment</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv2/Attachment.html" TITLE="&quot;Attachment&quot; attribute."><FONT FACE="Nimbus Sans L">[] Name ()</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Attachment.html" TITLE="Attachment filename."><FONT FACE="Nimbus Sans L">[] FileName (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Attachment.html" TITLE="A list of hash results for the attachment&#39;s Content."><FONT FACE="Nimbus Sans L">[] Hash (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Attachment.html" TITLE="Length of the content (in bytes)."><FONT FACE="Nimbus Sans L">[] Size (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Attachment.html" TITLE="References to sources of information related to the alert and/or vulnerability, and specific to this attachment."><FONT FACE="Nimbus Sans L">[] Ref (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Attachment.html" TITLE="If the attachment&#39;s content is available and/or recognizable from an external resource, this is the URI (usually a URL) to that resource."><FONT FACE="Nimbus Sans L">[] ExternalURI (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Attachment.html" TITLE="Free text human-readable additional note for this attachment."><FONT FACE="Nimbus Sans L">[] Note (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Attachment.html" TITLE="Internet Media Type of the attachment."><FONT FACE="Nimbus Sans L">[] ContentType (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Attachment.html" TITLE="Content encoding."><FONT FACE="Nimbus Sans L">[] ContentEncoding (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv2/Attachment.html" TITLE="The attachment&#39;s content, in case it is directly embedded inside the message."><FONT FACE="Nimbus Sans L">[] Content (Optional)</FONT></td></tr>%</table>>,
+		pos="100.5,119.5",
+		shape=plaintext,
+		width=2.7917];
+}
