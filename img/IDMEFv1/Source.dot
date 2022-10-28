@@ -1,0 +1,59 @@
+digraph Source {
+	graph [bb="0,0,794,651",
+		rankdir=LR
+	];
+	node [label="\N"];
+	Source	[height=1.2778,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Source.html" TITLE="The Source class contains information about the possible source(s) of the event(s) that generated an alert. An event may have more than one source (e.g., in a distributed denial-of-service attack). "><FONT FACE="Nimbus Sans L">Source</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Source.html" TITLE="A unique identifier for this source; see Section 3.2.9."><FONT FACE="Nimbus Sans L">[] ident (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Source.html" TITLE="An indication of whether the source is, as far as the analyzer can determine, a spoofed address used for hiding the real origin of the attack.  The permitted values for this attribute are shown below.  The default value is &quot;unknown&quot;.  (See also Section 10.)"><FONT FACE="Nimbus Sans L">[ENUM] spoofed (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Source.html" TITLE="May be used by a network-based analyzer with multiple interfaces to indicate which interface this source was seen on."><FONT FACE="Nimbus Sans L">[] interface (Optional)</FONT></td></tr>%</table>>,
+		pos="93,311.5",
+		shape=plaintext,
+		width=2.5833];
+	"Node"	[height=1.5694,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Node.html" TITLE="The Node class is used to identify hosts and other network devices (routers, switches, etc.). "><FONT FACE="Nimbus Sans L">Node</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Node.html" TITLE="The location of the equipment."><FONT FACE="Nimbus Sans L">[STRING] location (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Node.html" TITLE="The name of the equipment.  This information MUST be provided if no Address information is given."><FONT FACE="Nimbus Sans L">[STRING] name (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Node.html" TITLE="A unique identifier for the node; see Section 3.2.9."><FONT FACE="Nimbus Sans L">[] ident (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Node.html" TITLE="The &quot;domain&quot; from which the name information was obtained, if relevant.  The permitted values for this attribute are shown in the table below.  The default value is &quot;unknown&quot;. (See also Section 10 for extensions to the table.)"><FONT FACE="Nimbus Sans L">[ENUM] category (Optional)</FONT></td></tr>%</table>>,
+		pos="396.5,547.5",
+		shape=plaintext,
+		width=2.6389];
+	Source -> "Node"	[label="0..1",
+		lp="218,461",
+		pos="e,301.42,501.66 133.28,357.71 163.11,391.06 206.33,435.78 250,468.5 263.27,478.44 277.94,487.91 292.72,496.62"];
+	User	[height=0.98611,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/User.html" TITLE="The User class is used to describe users. It is primarily used as a &quot;container&quot; class for the UserId aggregate class, as shown in Figure 16. "><FONT FACE="Nimbus Sans L">User</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/User.html" TITLE="A unique identifier for the user; see Section 3.2.9."><FONT FACE="Nimbus Sans L">[] ident (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/User.html" TITLE="The type of user represented.  The permitted values for this attribute are shown below.  The default value is &quot;unknown&quot;. (See also Section 10.)"><FONT FACE="Nimbus Sans L">[ENUM] category (Optional)</FONT></td></tr>%</table>>,
+		pos="396.5,423.5",
+		shape=plaintext,
+		width=2.6389];
+	Source -> User	[label="0..1",
+		lp="218,378",
+		pos="e,301.43,396.82 186.07,353.76 206.91,362.73 229.06,371.8 250,379.5 263.38,384.42 277.6,389.22 291.7,393.74"];
+	Process	[height=2.1528,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Process.html" TITLE="The Process class is used to describe processes being executed on sources, targets, and analyzers. "><FONT FACE="Nimbus Sans L">Process</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Process.html" TITLE="The name of the program being executed. This is a short name; path and argument information are provided elsewhere."><FONT FACE="Nimbus Sans L">[STRING] name (1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Process.html" TITLE="The process identifier of the process."><FONT FACE="Nimbus Sans L">[INTEGER] pid (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Process.html" TITLE="The full path of the program being executed."><FONT FACE="Nimbus Sans L">[STRING] path (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Process.html" TITLE="A command-line argument to the program. Multiple arguments may be specified (they are assumed to have occurred in the same order they are provided) with multiple uses of arg."><FONT FACE="Nimbus Sans L">[STRING] arg (0..*)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Process.html" TITLE="An environment string associated with the process; generally of the format &quot;VARIABLE=value&quot;.  Multiple environment strings may be specified with multiple uses of env."><FONT FACE="Nimbus Sans L">[STRING] env (0..*)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Process.html" TITLE="A unique identifier for the process; see Section 3.2.9."><FONT FACE="Nimbus Sans L">[] ident (Optional)</FONT></td></tr>%</table>>,
+		pos="396.5,292.5",
+		shape=plaintext,
+		width=2.0556];
+	Source -> Process	[label="0..1",
+		lp="218,311",
+		pos="e,322.11,297.13 186.1,305.7 226.16,303.17 272.77,300.23 311.83,297.77"];
+	Service	[height=2.7361,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Service.html" TITLE="The Service class describes network services on sources and targets. It can identify services by name, port, and protocol. When Service occurs as an aggregate class of Source, it is understood that the service is one from which activity of interest is originating; and that the service is &quot;attached&quot; to the Node, Process, and User information also contained in Source. Likewise, when Service occurs as an aggregate class of Target, it is understood that the service is one to which activity of interest is being directed; and that the service is &quot;attached&quot; to the Node, Process, and User information also contained in Target. If Service occurs in both Source and Target, then information in both locations should be the same. If information is the same in both locations and implementers wish to carry it in only one location, they should specify it as an aggregate of the Target class. "><FONT FACE="Nimbus Sans L">Service</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Service.html" TITLE="The name of the service.  Whenever possible, the name from the IANA list of well-known ports SHOULD be used."><FONT FACE="Nimbus Sans L">[STRING] name (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Service.html" TITLE="The port number being used."><FONT FACE="Nimbus Sans L">[INTEGER] port (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Service.html" TITLE="A list of port numbers being used; see Section 3.2.8 for formatting rules.  If a portlist is given, the iana_protocol_number and iana_protocol_name MUST apply to all the elements of the list."><FONT FACE="Nimbus Sans L">[PORTLIST] portlist (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Service.html" TITLE="Additional information about the protocol being used.  The intent of the protocol field is to carry additional information related to the protocol being used when the &lt;Service&gt; attributes iana_protocol_number or/and iana_protocol_name are filed."><FONT FACE="Nimbus Sans L">[STRING] protocol (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Service.html" TITLE="A unique identifier for the service; see Section 3.2.9."><FONT FACE="Nimbus Sans L">[] ident (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Service.html" TITLE="The IP version number."><FONT FACE="Nimbus Sans L">[INTEGER] ip_version (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Service.html" TITLE="The IANA protocol number."><FONT FACE="Nimbus Sans L">[INTEGER] iana_protocol_number (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Service.html" TITLE="The IANA protocol name."><FONT FACE="Nimbus Sans L">[STRING] iana_protocol_name (Optional)</FONT></td></tr>%</table>>,
+		pos="396.5,98.5",
+		shape=plaintext,
+		width=4.0694];
+	Source -> Service	[label="0..1",
+		lp="218,237",
+		pos="e,255.93,197.1 159.42,265.28 185.49,246.86 216.65,224.85 247.63,202.96"];
+	Address	[height=2.1528,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Address.html" TITLE="The Address class is used to represent network, hardware, and application addresses. "><FONT FACE="Nimbus Sans L">Address</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Address.html" TITLE="The address information.  The format of this data is governed by the category attribute."><FONT FACE="Nimbus Sans L">[STRING] address (1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Address.html" TITLE="The network mask for the address, if appropriate."><FONT FACE="Nimbus Sans L">[STRING] netmask (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Address.html" TITLE="A unique identifier for the address; see Section 3.2.9."><FONT FACE="Nimbus Sans L">[] ident (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Address.html" TITLE="The type of address represented.  The permitted values for this attribute are shown below.  The default value is &quot;unknown&quot;.  (See also Section 10.)"><FONT FACE="Nimbus Sans L">[ENUM] category (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Address.html" TITLE="The name of the Virtual LAN to which the address belongs."><FONT FACE="Nimbus Sans L">[] vlan-name (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Address.html" TITLE="The number of the Virtual LAN to which the address belongs."><FONT FACE="Nimbus Sans L">[] vlan-num (Optional)</FONT></td></tr>%</table>>,
+		pos="699,573.5",
+		shape=plaintext,
+		width=2.6389];
+	"Node" -> Address	[label="0..*",
+		lp="573.5,571",
+		pos="e,603.82,565.35 491.76,555.66 524.12,558.46 560.54,561.61 593.66,564.47"];
+	UserId	[height=1.8611,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/UserId.html" TITLE="The UserId class provides specific information about a user. More than one UserId can be used within the User class to indicate attempts to transition from one user to another, or to provide complete information about a user&#39;s (or process&#39;) privileges. "><FONT FACE="Nimbus Sans L">UserId</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/UserId.html" TITLE="A user or group name."><FONT FACE="Nimbus Sans L">[STRING] name (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/UserId.html" TITLE="A user or group number."><FONT FACE="Nimbus Sans L">[INTEGER] number (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/UserId.html" TITLE="A unique identifier for the user id, see Section 3.2.9."><FONT FACE="Nimbus Sans L">[] ident (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/UserId.html" TITLE="The type of user information represented.  The permitted values for this attribute are shown below.  The default value is &quot;original-user&quot;.  (See also Section 10.)"><FONT FACE="Nimbus Sans L">[ENUM] type (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/UserId.html" TITLE="The tty the user is using."><FONT FACE="Nimbus Sans L">[STRING] tty (Optional)</FONT></td></tr>%</table>>,
+		pos="699,410.5",
+		shape=plaintext,
+		width=2.4444];
+	User -> UserId	[label="1..*",
+		lp="573.5,423",
+		pos="e,610.98,414.26 491.76,419.42 526.46,417.92 565.81,416.22 600.76,414.71"];
+}

@@ -1,0 +1,11 @@
+digraph SNMPService {
+	graph [bb="0,0,290,197",
+		rankdir=LR
+	];
+	node [label="\N"];
+	SNMPService	[height=2.7361,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/SNMPService.html" TITLE="The SNMPService class carries additional information related to SNMP traffic. The aggregate classes composing SNMPService must be interpreted as described in RFC 3411 [15] and RFC 3584 [16]. "><FONT FACE="Nimbus Sans L">SNMPService</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/SNMPService.html" TITLE="The object identifier in the request."><FONT FACE="Nimbus Sans L">[STRING] oid (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/SNMPService.html" TITLE="The SNMP version, typically 0 for SNMPv1, 1 for SNMPv2c, 2 for SNMPv2u and SNMPv2*, and 3 for SNMPv3; see RFC 3411 [15] Section 5 for appropriate values."><FONT FACE="Nimbus Sans L">[INTEGER] messageProcessingModel (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/SNMPService.html" TITLE="The identification of the security model in use, typically 0 for any, 1 for SNMPv1, 2 for SNMPv2c, and 3 for USM; see RFC 3411 [15] Section 5 for appropriate values."><FONT FACE="Nimbus Sans L">[INTEGER] securityModel (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/SNMPService.html" TITLE="The object&#39;s security name; see RFC 3411 [15] Section 3.2.2."><FONT FACE="Nimbus Sans L">[STRING] securityName (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/SNMPService.html" TITLE="The security level of the SNMP request; see RFC 3411 [15] Section 3.4.3."><FONT FACE="Nimbus Sans L">[INTEGER] securityLevel (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/SNMPService.html" TITLE="The object&#39;s context name; see RFC 3411 [15] Section 3.3.3."><FONT FACE="Nimbus Sans L">[STRING] contextName (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/SNMPService.html" TITLE="The object&#39;s context engine identifier; see RFC 3411 [15] Section 3.3.2."><FONT FACE="Nimbus Sans L">[STRING] contextEngineID (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/SNMPService.html" TITLE="The command sent to the SNMP server (GET, SET, etc.)."><FONT FACE="Nimbus Sans L">[STRING] command (0..1)</FONT></td></tr>%</table>>,
+		pos="145,98.5",
+		shape=plaintext,
+		width=4.0278];
+}

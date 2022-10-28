@@ -1,0 +1,19 @@
+digraph "Node" {
+	graph [bb="0,0,441,155",
+		rankdir=LR
+	];
+	node [label="\N"];
+	"Node"	[height=1.5694,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Node.html" TITLE="The Node class is used to identify hosts and other network devices (routers, switches, etc.). "><FONT FACE="Nimbus Sans L">Node</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Node.html" TITLE="The location of the equipment."><FONT FACE="Nimbus Sans L">[STRING] location (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Node.html" TITLE="The name of the equipment.  This information MUST be provided if no Address information is given."><FONT FACE="Nimbus Sans L">[STRING] name (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Node.html" TITLE="A unique identifier for the node; see Section 3.2.9."><FONT FACE="Nimbus Sans L">[] ident (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Node.html" TITLE="The &quot;domain&quot; from which the name information was obtained, if relevant.  The permitted values for this attribute are shown in the table below.  The default value is &quot;unknown&quot;. (See also Section 10 for extensions to the table.)"><FONT FACE="Nimbus Sans L">[ENUM] category (Optional)</FONT></td></tr>%</table>>,
+		pos="95,77.5",
+		shape=plaintext,
+		width=2.6389];
+	Address	[height=2.1528,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Address.html" TITLE="The Address class is used to represent network, hardware, and application addresses. "><FONT FACE="Nimbus Sans L">Address</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Address.html" TITLE="The address information.  The format of this data is governed by the category attribute."><FONT FACE="Nimbus Sans L">[STRING] address (1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Address.html" TITLE="The network mask for the address, if appropriate."><FONT FACE="Nimbus Sans L">[STRING] netmask (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Address.html" TITLE="A unique identifier for the address; see Section 3.2.9."><FONT FACE="Nimbus Sans L">[] ident (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Address.html" TITLE="The type of address represented.  The permitted values for this attribute are shown below.  The default value is &quot;unknown&quot;.  (See also Section 10.)"><FONT FACE="Nimbus Sans L">[ENUM] category (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Address.html" TITLE="The name of the Virtual LAN to which the address belongs."><FONT FACE="Nimbus Sans L">[] vlan-name (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Address.html" TITLE="The number of the Virtual LAN to which the address belongs."><FONT FACE="Nimbus Sans L">[] vlan-num (Optional)</FONT></td></tr>%</table>>,
+		pos="346,77.5",
+		shape=plaintext,
+		width=2.6389];
+	"Node" -> Address	[label="0..*",
+		lp="220.5,85",
+		pos="e,250.73,77.5 190.14,77.5 206.56,77.5 223.73,77.5 240.42,77.5"];
+}

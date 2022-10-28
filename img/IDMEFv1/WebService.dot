@@ -1,0 +1,11 @@
+digraph WebService {
+	graph [bb="0,0,194,113",
+		rankdir=LR
+	];
+	node [label="\N"];
+	WebService	[height=1.5694,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/WebService.html" TITLE="The WebService class carries additional information related to web traffic. "><FONT FACE="Nimbus Sans L">WebService</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/WebService.html" TITLE="The URL in the request."><FONT FACE="Nimbus Sans L">[STRING] url (1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/WebService.html" TITLE="The CGI script in the request, without arguments."><FONT FACE="Nimbus Sans L">[STRING] cgi (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/WebService.html" TITLE="The HTTP method (PUT, GET) used in the request."><FONT FACE="Nimbus Sans L">[STRING] http-method (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/WebService.html" TITLE="The arguments to the CGI script."><FONT FACE="Nimbus Sans L">[STRING] arg (0..*)</FONT></td></tr>%</table>>,
+		pos="97,56.5",
+		shape=plaintext,
+		width=2.6944];
+}
