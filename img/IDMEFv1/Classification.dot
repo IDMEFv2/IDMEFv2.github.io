@@ -1,0 +1,19 @@
+digraph Classification {
+	graph [bb="0,0,363,113",
+		rankdir=LR
+	];
+	node [label="\N"];
+	Classification	[height=0.98611,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Classification.html" TITLE="The Classification class provides the &quot;name&quot; of an alert, or other information allowing the manager to determine what it is. This name is chosen by the alert provider. "><FONT FACE="Nimbus Sans L">Classification</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Classification.html" TITLE="A unique identifier for this classification; see Section 3.2.9."><FONT FACE="Nimbus Sans L">[] ident (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Classification.html" TITLE="A vendor-provided string identifying the Alert message."><FONT FACE="Nimbus Sans L">[] text (Required)</FONT></td></tr>%</table>>,
+		pos="63.5,56.5",
+		shape=plaintext,
+		width=1.7639];
+	Reference	[height=1.5694,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Reference.html" TITLE="The Reference class provides the &quot;name&quot; of an alert, or other information allowing the manager to determine what it is. "><FONT FACE="Nimbus Sans L">Reference</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Reference.html" TITLE="The name of the alert, from one of the origins listed below."><FONT FACE="Nimbus Sans L">[STRING] name (1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Reference.html" TITLE="A URL at which the manager (or the human operator of the manager) can find additional information about the alert.  The document pointed to by the URL may include an in-depth description of the attack, appropriate countermeasures, or other information deemed relevant by the vendor."><FONT FACE="Nimbus Sans L">[STRING] url (1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Reference.html" TITLE="The source from which the name of the alert originates. The permitted values for this attribute are shown below.  The default value is &quot;unknown&quot;.  (See also Section 10.)"><FONT FACE="Nimbus Sans L">[ENUM] origin (Required)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Reference.html" TITLE="The meaning of the reference, as understood by the alert provider.  This field is only valid if the value of the &lt;origin&gt; attribute is set to &quot;vendor-specific&quot; or &quot;user-specific&quot;."><FONT FACE="Nimbus Sans L">[] meaning (Optional)</FONT></td></tr>%</table>>,
+		pos="275.5,56.5",
+		shape=plaintext,
+		width=2.4306];
+	Classification -> Reference	[label="0..*",
+		lp="157.5,64",
+		pos="e,187.64,56.5 127.22,56.5 143.08,56.5 160.49,56.5 177.61,56.5"];
+}

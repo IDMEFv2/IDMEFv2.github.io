@@ -1,0 +1,11 @@
+digraph CreateTime {
+	graph [bb="0,0,94,36",
+		rankdir=LR
+	];
+	node [label="\N"];
+	CreateTime	[height=0.5,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/CreateTime.html" TITLE="The CreateTime class is used to indicate the date and time the alert or heartbeat was created by the analyzer. "><FONT FACE="Nimbus Sans L">CreateTime</FONT></td> </tr>" %</table>>,
+		pos="47,18",
+		shape=plaintext,
+		width=1.3056];
+}

@@ -1,0 +1,54 @@
+digraph Linkage {
+	graph [bb="0,0,916,376",
+		rankdir=LR
+	];
+	node [label="\N"];
+	Linkage	[height=1.2778,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Linkage.html" TITLE="The Linkage class represents file system connections between the file described in the &lt;File&gt; element and other objects in the file system. For example, if the &lt;File&gt; element is a symbolic link or shortcut, then the &lt;Linkage&gt; element should contain the name of the object the link points to. Further information can be provided about the object in the &lt;Linkage&gt; element with another &lt;File&gt; element, if appropriate. "><FONT FACE="Nimbus Sans L">Linkage</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Linkage.html" TITLE="The name of the file system object, not including the path."><FONT FACE="Nimbus Sans L">[STRING] name (1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Linkage.html" TITLE="The full path to the file system object, including the name.  The path name should be represented in as &quot;universal&quot; a manner as possible, to facilitate processing of the alert."><FONT FACE="Nimbus Sans L">[STRING] path (1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Linkage.html" TITLE="Section 10.)"><FONT FACE="Nimbus Sans L">[ENUM] category ()</FONT></td></tr>%</table>>,
+		pos="70,188",
+		shape=plaintext,
+		width=1.9444];
+	File	[height=3.3194,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/File.html" TITLE="The File class provides specific information about a file or other file-like object that has been created, deleted, or modified on the target. The description can provide either the file settings prior to the event or the file settings at the time of the event, as specified using the &quot;category&quot; attribute. "><FONT FACE="Nimbus Sans L">File</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/File.html" TITLE="The name of the file to which the alert applies, not including the path to the file."><FONT FACE="Nimbus Sans L">[STRING] name (1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/File.html" TITLE="The full path to the file, including the name.  The path name should be represented in as &quot;universal&quot; a manner as possible, to facilitate processing of the alert."><FONT FACE="Nimbus Sans L">[STRING] path (1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/File.html" TITLE="Time the file was created.  Note that this is *not* the Unix &quot;st_ctime&quot; file attribute (which is not file creation time).  The Unix &quot;st_ctime&quot; attribute is contained in the &quot;Inode&quot; class."><FONT FACE="Nimbus Sans L">[DATETIME] create-time (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/File.html" TITLE="Time the file was last modified."><FONT FACE="Nimbus Sans L">[DATETIME] modify-time (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/File.html" TITLE="Time the file was last accessed."><FONT FACE="Nimbus Sans L">[DATETIME] access-time (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/File.html" TITLE="The size of the data, in bytes.  Typically what is meant when referring to file size.  On Unix UFS file systems, this value corresponds to stat.st_size.  On Windows NTFS, this value corresponds to Valid Data Length (VDL)."><FONT FACE="Nimbus Sans L">[INTEGER] data-size (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/File.html" TITLE="The physical space on disk consumed by the file, in bytes.  On Unix UFS file systems, this value corresponds to 512 * stat.st_blocks.  On Windows NTFS, this value corresponds to End of File (EOF)."><FONT FACE="Nimbus Sans L">[INTEGER] disk-size (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/File.html" TITLE="A unique identifier for this file; see Section 3.2.9."><FONT FACE="Nimbus Sans L">[] ident (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/File.html" TITLE="The type of file system the file resides on.  This attribute governs how path names and other attributes are interpreted."><FONT FACE="Nimbus Sans L">[] category (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/File.html" TITLE="The type of file, as a mime-type."><FONT FACE="Nimbus Sans L">[] file-type (0..1)</FONT></td></tr>%</table>>,
+		pos="306,188",
+		shape=plaintext,
+		width=2.9167];
+	Linkage -> File	[label=1,
+		lp="170.5,195.5",
+		pos="e,200.79,188 140.26,188 156.14,188 173.44,188 190.67,188"];
+	File -> Linkage	[label="0..*",
+		lp="170.5,177.5",
+		pos="e,140.13,172.37 200.66,169.42 186.34,168.57 171.81,168.59 158,170 155.45,170.26 152.86,170.56 150.26,170.9"];
+	FileAccess	[height=0.69444,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/FileAccess.html" TITLE="The FileAccess class represents the access permissions on a file. The representation is intended to be useful across operating systems. "><FONT FACE="Nimbus Sans L">FileAccess</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/FileAccess.html" TITLE="Level of access allowed.  The permitted values are shown below.  There is no default value.  (See also Section 10.)"><FONT FACE="Nimbus Sans L">[ENUM] Permission (1..*)</FONT></td></tr>%</table>>,
+		pos="584.5,309",
+		shape=plaintext,
+		width=2.4306];
+	File -> FileAccess	[label="0..*",
+		lp="443,273.5",
+		pos="e,498.58,283.96 411.42,245.63 432.18,256.07 454.04,266.37 475,275 479.5,276.85 484.13,278.66 488.84,280.42"];
+	Inode	[height=2.1528,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Inode.html" TITLE="The Inode class is used to represent the additional information contained in a Unix file system i-node. "><FONT FACE="Nimbus Sans L">Inode</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Inode.html" TITLE="The time of the last inode change, given by the st_ctime element of &quot;struct stat&quot;."><FONT FACE="Nimbus Sans L">[DATETIME] change-time (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Inode.html" TITLE="The inode number."><FONT FACE="Nimbus Sans L">[INTEGER] number (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Inode.html" TITLE="The major device number of the device the file resides on."><FONT FACE="Nimbus Sans L">[INTEGER] major-device (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Inode.html" TITLE="The minor device number of the device the file resides on."><FONT FACE="Nimbus Sans L">[INTEGER] minor-device (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Inode.html" TITLE="The major device of the file itself, if it is a character special device."><FONT FACE="Nimbus Sans L">[INTEGER] c-major-device (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Inode.html" TITLE="The minor device of the file itself, if it is a character special device."><FONT FACE="Nimbus Sans L">[INTEGER] c-minor-device (0..1)</FONT></td></tr>%</table>>,
+		pos="584.5,188",
+		shape=plaintext,
+		width=3.0417];
+	File -> Inode	[label="0..1",
+		lp="443,195.5",
+		pos="e,474.85,188 411.14,188 428.54,188 446.72,188 464.46,188"];
+	Checksum	[height=1.2778,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Checksum.html" TITLE="The Checksum class represents checksum information associated with the file. This checksum information can be provided by file integrity checkers, among others. "><FONT FACE="Nimbus Sans L">Checksum</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Checksum.html" TITLE="The value of the checksum."><FONT FACE="Nimbus Sans L">[STRING] value (1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Checksum.html" TITLE="The key to the checksum, if appropriate."><FONT FACE="Nimbus Sans L">[STRING] key (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Checksum.html" TITLE="default value.  (See also Section 10.)"><FONT FACE="Nimbus Sans L">[ENUM] algorithm ()</FONT></td></tr>%</table>>,
+		pos="584.5,46",
+		shape=plaintext,
+		width=1.9861];
+	File -> Checksum	[label="0..*",
+		lp="443,130.5",
+		pos="e,512.83,81.71 411.33,133.79 432.39,122.9 454.39,111.56 475,101 484.35,96.207 494.17,91.2 503.92,86.242"];
+	UserId	[height=1.8611,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/UserId.html" TITLE="The UserId class provides specific information about a user. More than one UserId can be used within the User class to indicate attempts to transition from one user to another, or to provide complete information about a user&#39;s (or process&#39;) privileges. "><FONT FACE="Nimbus Sans L">UserId</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/UserId.html" TITLE="A user or group name."><FONT FACE="Nimbus Sans L">[STRING] name (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/UserId.html" TITLE="A user or group number."><FONT FACE="Nimbus Sans L">[INTEGER] number (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/UserId.html" TITLE="A unique identifier for the user id, see Section 3.2.9."><FONT FACE="Nimbus Sans L">[] ident (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/UserId.html" TITLE="The type of user information represented.  The permitted values for this attribute are shown below.  The default value is &quot;original-user&quot;.  (See also Section 10.)"><FONT FACE="Nimbus Sans L">[ENUM] type (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/UserId.html" TITLE="The tty the user is using."><FONT FACE="Nimbus Sans L">[STRING] tty (Optional)</FONT></td></tr>%</table>>,
+		pos="828,309",
+		shape=plaintext,
+		width=2.4444];
+	FileAccess -> UserId	[label=1,
+		lp="717,316.5",
+		pos="e,739.88,309 672,309 690.71,309 710.6,309 729.68,309"];
+}

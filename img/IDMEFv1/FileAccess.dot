@@ -1,0 +1,19 @@
+digraph FileAccess {
+	graph [bb="0,0,397,134",
+		rankdir=LR
+	];
+	node [label="\N"];
+	FileAccess	[height=0.69444,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/FileAccess.html" TITLE="The FileAccess class represents the access permissions on a file. The representation is intended to be useful across operating systems. "><FONT FACE="Nimbus Sans L">FileAccess</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/FileAccess.html" TITLE="Level of access allowed.  The permitted values are shown below.  There is no default value.  (See also Section 10.)"><FONT FACE="Nimbus Sans L">[ENUM] Permission (1..*)</FONT></td></tr>%</table>>,
+		pos="87.5,67",
+		shape=plaintext,
+		width=2.4306];
+	UserId	[height=1.8611,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/UserId.html" TITLE="The UserId class provides specific information about a user. More than one UserId can be used within the User class to indicate attempts to transition from one user to another, or to provide complete information about a user&#39;s (or process&#39;) privileges. "><FONT FACE="Nimbus Sans L">UserId</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/UserId.html" TITLE="A user or group name."><FONT FACE="Nimbus Sans L">[STRING] name (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/UserId.html" TITLE="A user or group number."><FONT FACE="Nimbus Sans L">[INTEGER] number (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/UserId.html" TITLE="A unique identifier for the user id, see Section 3.2.9."><FONT FACE="Nimbus Sans L">[] ident (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/UserId.html" TITLE="The type of user information represented.  The permitted values for this attribute are shown below.  The default value is &quot;original-user&quot;.  (See also Section 10.)"><FONT FACE="Nimbus Sans L">[ENUM] type (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/UserId.html" TITLE="The tty the user is using."><FONT FACE="Nimbus Sans L">[STRING] tty (Optional)</FONT></td></tr>%</table>>,
+		pos="309,67",
+		shape=plaintext,
+		width=2.4444];
+	FileAccess -> UserId	[label=1,
+		lp="198,74.5",
+		pos="e,220.8,67 175.25,67 186.84,67 198.78,67 210.53,67"];
+}

@@ -1,0 +1,11 @@
+digraph Checksum {
+	graph [bb="0,0,143,92",
+		rankdir=LR
+	];
+	node [label="\N"];
+	Checksum	[height=1.2778,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Checksum.html" TITLE="The Checksum class represents checksum information associated with the file. This checksum information can be provided by file integrity checkers, among others. "><FONT FACE="Nimbus Sans L">Checksum</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Checksum.html" TITLE="The value of the checksum."><FONT FACE="Nimbus Sans L">[STRING] value (1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Checksum.html" TITLE="The key to the checksum, if appropriate."><FONT FACE="Nimbus Sans L">[STRING] key (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Checksum.html" TITLE="default value.  (See also Section 10.)"><FONT FACE="Nimbus Sans L">[ENUM] algorithm ()</FONT></td></tr>%</table>>,
+		pos="71.5,46",
+		shape=plaintext,
+		width=1.9861];
+}

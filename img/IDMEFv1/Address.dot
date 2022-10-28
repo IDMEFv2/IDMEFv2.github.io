@@ -1,0 +1,11 @@
+digraph Address {
+	graph [bb="0,0,190,155",
+		rankdir=LR
+	];
+	node [label="\N"];
+	Address	[height=2.1528,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Address.html" TITLE="The Address class is used to represent network, hardware, and application addresses. "><FONT FACE="Nimbus Sans L">Address</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Address.html" TITLE="The address information.  The format of this data is governed by the category attribute."><FONT FACE="Nimbus Sans L">[STRING] address (1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Address.html" TITLE="The network mask for the address, if appropriate."><FONT FACE="Nimbus Sans L">[STRING] netmask (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Address.html" TITLE="A unique identifier for the address; see Section 3.2.9."><FONT FACE="Nimbus Sans L">[] ident (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Address.html" TITLE="The type of address represented.  The permitted values for this attribute are shown below.  The default value is &quot;unknown&quot;.  (See also Section 10.)"><FONT FACE="Nimbus Sans L">[ENUM] category (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Address.html" TITLE="The name of the Virtual LAN to which the address belongs."><FONT FACE="Nimbus Sans L">[] vlan-name (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Address.html" TITLE="The number of the Virtual LAN to which the address belongs."><FONT FACE="Nimbus Sans L">[] vlan-num (Optional)</FONT></td></tr>%</table>>,
+		pos="95,77.5",
+		shape=plaintext,
+		width=2.6389];
+}

@@ -1,0 +1,11 @@
+digraph AdditionalData {
+	graph [bb="0,0,150,50",
+		rankdir=LR
+	];
+	node [label="\N"];
+	AdditionalData	[height=0.69444,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/AdditionalData.html" TITLE="The AdditionalData class is used to provide information that cannot be represented by the data model. AdditionalData can be used to provide atomic data (integers, strings, etc.) in cases where only small amounts of additional information need to be sent; it can also be used to extend the data model and the DTD to support the transmission of complex data (such as packet headers). Detailed instructions for extending the data model and the DTD are provided in Section 5. "><FONT FACE="Nimbus Sans L">AdditionalData</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/AdditionalData.html" TITLE="A string describing the meaning of the element content. These values will be vendor/implementation dependent; the method for ensuring that managers understand the strings sent by analyzers is outside the scope of this specification.  A list of acceptable meaning keywords is not within the scope of the document, although later versions may undertake to establish such a list."><FONT FACE="Nimbus Sans L">[] meaning (Optional)</FONT></td></tr>%</table>>,
+		pos="75,25",
+		shape=plaintext,
+		width=2.0833];
+}

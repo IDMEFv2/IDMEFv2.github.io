@@ -1,0 +1,11 @@
+digraph Action {
+	graph [bb="0,0,139,50",
+		rankdir=LR
+	];
+	node [label="\N"];
+	Action	[height=0.69444,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Action.html" TITLE="The Action class is used to describe any actions taken by the analyzer in response to the event. Is is represented in the IDMEF DTD as follows: "><FONT FACE="Nimbus Sans L">Action</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Action.html" TITLE="The default value is &quot;other&quot;.  (See also Section 10.)"><FONT FACE="Nimbus Sans L">[ENUM] category ()</FONT></td></tr>%</table>>,
+		pos="69.5,25",
+		shape=plaintext,
+		width=1.9306];
+}

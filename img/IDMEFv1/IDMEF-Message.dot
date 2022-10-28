@@ -1,0 +1,11 @@
+digraph "IDMEF-Message" {
+	graph [bb="0,0,125,36",
+		rankdir=LR
+	];
+	node [label="\N"];
+	"IDMEF-Message"	[height=0.5,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/IDMEF-Message.html" TITLE="All IDMEF messages are instances of the IDMEF-Message class; it is the top-level class of the IDMEF data model, as well as the IDMEF DTD. There are currently two types (subclasses) of IDMEF-Message: Alert and Heartbeat. "><FONT FACE="Nimbus Sans L">IDMEF-Message</FONT></td> </tr>" %</table>>,
+		pos="62.5,18",
+		shape=plaintext,
+		width=1.7361];
+}

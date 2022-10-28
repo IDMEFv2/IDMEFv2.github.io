@@ -1,0 +1,11 @@
+digraph Inode {
+	graph [bb="0,0,219,155",
+		rankdir=LR
+	];
+	node [label="\N"];
+	Inode	[height=2.1528,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Inode.html" TITLE="The Inode class is used to represent the additional information contained in a Unix file system i-node. "><FONT FACE="Nimbus Sans L">Inode</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Inode.html" TITLE="The time of the last inode change, given by the st_ctime element of &quot;struct stat&quot;."><FONT FACE="Nimbus Sans L">[DATETIME] change-time (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Inode.html" TITLE="The inode number."><FONT FACE="Nimbus Sans L">[INTEGER] number (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Inode.html" TITLE="The major device number of the device the file resides on."><FONT FACE="Nimbus Sans L">[INTEGER] major-device (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Inode.html" TITLE="The minor device number of the device the file resides on."><FONT FACE="Nimbus Sans L">[INTEGER] minor-device (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Inode.html" TITLE="The major device of the file itself, if it is a character special device."><FONT FACE="Nimbus Sans L">[INTEGER] c-major-device (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Inode.html" TITLE="The minor device of the file itself, if it is a character special device."><FONT FACE="Nimbus Sans L">[INTEGER] c-minor-device (0..1)</FONT></td></tr>%</table>>,
+		pos="109.5,77.5",
+		shape=plaintext,
+		width=3.0417];
+}

@@ -1,0 +1,70 @@
+digraph Heartbeat {
+	graph [bb="0,0,920,456.5",
+		rankdir=LR
+	];
+	node [label="\N"];
+	Heartbeat	[height=0.98611,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Heartbeat.html" TITLE="Analyzers use Heartbeat messages to indicate their current status to managers. Heartbeats are intended to be sent in a regular period, say, every ten minutes or every hour. The receipt of a Heartbeat message from an analyzer indicates to the manager that the analyzer is up and running; lack of a Heartbeat message (or more likely, lack of some number of consecutive Heartbeat messages) indicates that the analyzer or its network connection has failed. "><FONT FACE="Nimbus Sans L">Heartbeat</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Heartbeat.html" TITLE="The interval in seconds at which heartbeats are generated."><FONT FACE="Nimbus Sans L">[] HeartbeatInterval (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Heartbeat.html" TITLE="A unique identifier for the heartbeat; see Section 3.2.9."><FONT FACE="Nimbus Sans L">[] messageid (Optional)</FONT></td></tr>%</table>>,
+		pos="86.5,113",
+		shape=plaintext,
+		width=2.4028];
+	Analyzer	[height=2.7361,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Analyzer.html" TITLE="The Analyzer class identifies the analyzer from which the Alert or Heartbeat message originates. Only one analyzer may be encoded for each alert or heartbeat, and that MUST be the analyzer at which the alert or heartbeat originated. Although the IDMEF data model does not prevent the use of hierarchical intrusion detection systems (where alerts get relayed up the tree), it does not provide any way to record the identity of the &quot;relay&quot; analyzers along the path from the originating analyzer to the manager that ultimately receives the alert. "><FONT FACE="Nimbus Sans L">Analyzer</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Analyzer.html" TITLE="(but see below).  A unique identifier for the analyzer; see Section 3.2.9."><FONT FACE="Nimbus Sans L">[] analyzerid (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Analyzer.html" TITLE="An explicit name for the analyzer that may be easier to understand than the analyzerid."><FONT FACE="Nimbus Sans L">[] name (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Analyzer.html" TITLE="The manufacturer of the analyzer software and/or hardware."><FONT FACE="Nimbus Sans L">[] manufacturer (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Analyzer.html" TITLE="The model name/number of the analyzer software and/or hardware."><FONT FACE="Nimbus Sans L">[] model (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Analyzer.html" TITLE="The version number of the analyzer software and/or hardware."><FONT FACE="Nimbus Sans L">[] version (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Analyzer.html" TITLE="The class of analyzer software and/or hardware."><FONT FACE="Nimbus Sans L">[] class (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Analyzer.html" TITLE="Operating system name.  On POSIX 1003.1 compliant systems, this is the value returned in utsname.sysname by the uname() system call, or the output of the &quot;uname -s&quot; command."><FONT FACE="Nimbus Sans L">[] ostype (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Analyzer.html" TITLE="Operating system version.  On POSIX 1003.1 compliant systems, this is the value returned in utsname.release by the uname() system call, or the output of the &quot;uname -r&quot; command."><FONT FACE="Nimbus Sans L">[] osversion (Optional)</FONT></td></tr>%</table>>,
+		pos="326,275",
+		shape=plaintext,
+		width=2.4722];
+	Heartbeat -> Analyzer	[label=1,
+		lp="205,206.5",
+		pos="e,236.58,214.69 139.62,148.55 165.58,166.26 197.82,188.25 228.1,208.91"];
+	CreateTime	[height=0.5,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/CreateTime.html" TITLE="The CreateTime class is used to indicate the date and time the alert or heartbeat was created by the analyzer. "><FONT FACE="Nimbus Sans L">CreateTime</FONT></td> </tr>" %</table>>,
+		pos="326,140",
+		shape=plaintext,
+		width=1.3056];
+	Heartbeat -> CreateTime	[label=1,
+		lp="205,135.5",
+		pos="e,278.71,134.74 173.24,122.75 204.96,126.35 240.08,130.35 268.55,133.58"];
+	AnalyzerTime	[height=0.5,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/AnalyzerTime.html" TITLE="The AnalyzerTime class is used to indicate the current date and time on the analyzer. Its values should be filled in as late as possible in the message transmission process, ideally immediately before placing the message &quot;on the wire&quot;. "><FONT FACE="Nimbus Sans L">AnalyzerTime</FONT></td> </tr>" %</table>>,
+		pos="326,86",
+		shape=plaintext,
+		width=1.4722];
+	Heartbeat -> AnalyzerTime	[label="0..1",
+		lp="205,109.5",
+		pos="e,272.9,91.923 173.24,103.25 202.82,99.89 235.35,96.191 262.69,93.083"];
+	AdditionalData	[height=0.69444,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/AdditionalData.html" TITLE="The AdditionalData class is used to provide information that cannot be represented by the data model. AdditionalData can be used to provide atomic data (integers, strings, etc.) in cases where only small amounts of additional information need to be sent; it can also be used to extend the data model and the DTD to support the transmission of complex data (such as packet headers). Detailed instructions for extending the data model and the DTD are provided in Section 5. "><FONT FACE="Nimbus Sans L">AdditionalData</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/AdditionalData.html" TITLE="A string describing the meaning of the element content. These values will be vendor/implementation dependent; the method for ensuring that managers understand the strings sent by analyzers is outside the scope of this specification.  A list of acceptable meaning keywords is not within the scope of the document, although later versions may undertake to establish such a list."><FONT FACE="Nimbus Sans L">[] meaning (Optional)</FONT></td></tr>%</table>>,
+		pos="326,25",
+		shape=plaintext,
+		width=2.0833];
+	Heartbeat -> AdditionalData	[label="0..*",
+		lp="205,82.5",
+		pos="e,257.26,50.099 173.24,81.23 197.53,72.23 223.82,62.488 247.59,53.682"];
+	Analyzer -> Analyzer	[label="0..1",
+		lp="326,399",
+		pos="e,344.93,373.59 307.07,373.59 310.67,384.47 316.98,391.5 326,391.5 332.06,391.5 336.9,388.33 340.51,382.95"];
+	"Node"	[height=1.5694,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Node.html" TITLE="The Node class is used to identify hosts and other network devices (routers, switches, etc.). "><FONT FACE="Nimbus Sans L">Node</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Node.html" TITLE="The location of the equipment."><FONT FACE="Nimbus Sans L">[STRING] location (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Node.html" TITLE="The name of the equipment.  This information MUST be provided if no Address information is given."><FONT FACE="Nimbus Sans L">[STRING] name (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Node.html" TITLE="A unique identifier for the node; see Section 3.2.9."><FONT FACE="Nimbus Sans L">[] ident (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Node.html" TITLE="The &quot;domain&quot; from which the name information was obtained, if relevant.  The permitted values for this attribute are shown in the table below.  The default value is &quot;unknown&quot;. (See also Section 10 for extensions to the table.)"><FONT FACE="Nimbus Sans L">[ENUM] category (Optional)</FONT></td></tr>%</table>>,
+		pos="574,379",
+		shape=plaintext,
+		width=2.6389];
+	Analyzer -> "Node"	[label="0..1",
+		lp="447,338.5",
+		pos="e,478.84,339.19 415.12,312.25 432.73,319.7 451.38,327.58 469.45,335.22"];
+	Process	[height=2.1528,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Process.html" TITLE="The Process class is used to describe processes being executed on sources, targets, and analyzers. "><FONT FACE="Nimbus Sans L">Process</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Process.html" TITLE="The name of the program being executed. This is a short name; path and argument information are provided elsewhere."><FONT FACE="Nimbus Sans L">[STRING] name (1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Process.html" TITLE="The process identifier of the process."><FONT FACE="Nimbus Sans L">[INTEGER] pid (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Process.html" TITLE="The full path of the program being executed."><FONT FACE="Nimbus Sans L">[STRING] path (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Process.html" TITLE="A command-line argument to the program. Multiple arguments may be specified (they are assumed to have occurred in the same order they are provided) with multiple uses of arg."><FONT FACE="Nimbus Sans L">[STRING] arg (0..*)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Process.html" TITLE="An environment string associated with the process; generally of the format &quot;VARIABLE=value&quot;.  Multiple environment strings may be specified with multiple uses of env."><FONT FACE="Nimbus Sans L">[STRING] env (0..*)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Process.html" TITLE="A unique identifier for the process; see Section 3.2.9."><FONT FACE="Nimbus Sans L">[] ident (Optional)</FONT></td></tr>%</table>>,
+		pos="574,227",
+		shape=plaintext,
+		width=2.0556];
+	Analyzer -> Process	[label="0..1",
+		lp="447,261.5",
+		pos="e,499.68,241.31 415.12,257.81 439.36,253.08 465.58,247.96 489.56,243.28"];
+	Address	[height=2.1528,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Address.html" TITLE="The Address class is used to represent network, hardware, and application addresses. "><FONT FACE="Nimbus Sans L">Address</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Address.html" TITLE="The address information.  The format of this data is governed by the category attribute."><FONT FACE="Nimbus Sans L">[STRING] address (1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Address.html" TITLE="The network mask for the address, if appropriate."><FONT FACE="Nimbus Sans L">[STRING] netmask (0..1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Address.html" TITLE="A unique identifier for the address; see Section 3.2.9."><FONT FACE="Nimbus Sans L">[] ident (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Address.html" TITLE="The type of address represented.  The permitted values for this attribute are shown below.  The default value is &quot;unknown&quot;.  (See also Section 10.)"><FONT FACE="Nimbus Sans L">[ENUM] category (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Address.html" TITLE="The name of the Virtual LAN to which the address belongs."><FONT FACE="Nimbus Sans L">[] vlan-name (Optional)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Address.html" TITLE="The number of the Virtual LAN to which the address belongs."><FONT FACE="Nimbus Sans L">[] vlan-num (Optional)</FONT></td></tr>%</table>>,
+		pos="825,379",
+		shape=plaintext,
+		width=2.6389];
+	"Node" -> Address	[label="0..*",
+		lp="699.5,386.5",
+		pos="e,729.73,379 669.14,379 685.56,379 702.73,379 719.42,379"];
+}

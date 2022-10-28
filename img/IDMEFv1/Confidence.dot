@@ -1,0 +1,11 @@
+digraph Confidence {
+	graph [bb="0,0,121,50",
+		rankdir=LR
+	];
+	node [label="\N"];
+	Confidence	[height=0.69444,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Confidence.html" TITLE="The Confidence class is used to represent the analyzer&#39;s best estimate of the validity of its analysis. It is represented in the IDMEF DTD as follows: "><FONT FACE="Nimbus Sans L">Confidence</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Confidence.html" TITLE="also Section 10.)"><FONT FACE="Nimbus Sans L">[ENUM] rating ()</FONT></td></tr>%</table>>,
+		pos="60.5,25",
+		shape=plaintext,
+		width=1.6806];
+}

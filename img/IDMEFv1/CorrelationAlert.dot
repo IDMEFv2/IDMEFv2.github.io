@@ -1,0 +1,11 @@
+digraph CorrelationAlert {
+	graph [bb="0,0,174,71",
+		rankdir=LR
+	];
+	node [label="\N"];
+	CorrelationAlert	[height=0.98611,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/CorrelationAlert.html" TITLE="The CorrelationAlert class carries additional information related to the correlation of alert information. It is intended to group one or more previously-sent alerts together, to say &quot;these alerts are all related&quot;. "><FONT FACE="Nimbus Sans L">CorrelationAlert</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/CorrelationAlert.html" TITLE="The reason for grouping the alerts together, for example, a particular correlation method."><FONT FACE="Nimbus Sans L">[STRING] name (1)</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/CorrelationAlert.html" TITLE="The list of alert identifiers that are related to this alert.  Because alert identifiers are only unique across the alerts sent by a single analyzer, the optional &quot;analyzerid&quot; attribute of &quot;alertident&quot; should be used to identify the analyzer that a particular alert came from.  If the &quot;analyzerid&quot; is not provided, the alert is assumed to have come from the same analyzer that is sending the CorrelationAlert."><FONT FACE="Nimbus Sans L">[STRING] alertident (1..*)</FONT></td></tr>%</table>>,
+		pos="87,35.5",
+		shape=plaintext,
+		width=2.4167];
+}

@@ -1,0 +1,11 @@
+digraph Impact {
+	graph [bb="0,0,153,92",
+		rankdir=LR
+	];
+	node [label="\N"];
+	Impact	[height=1.2778,
+		label=<<table BORDER="0" CELLBORDER="1" CELLSPACING="0"> <tr> <td BGCOLOR="#CECECE" HREF="../IDMEFv1/Impact.html" TITLE="The Impact class is used to provide the analyzer&#39;s assessment of the impact of the event on the target(s). It is represented in the IDMEF DTD as follows: "><FONT FACE="Nimbus Sans L">Impact</FONT></td> </tr>" %<tr><td  HREF="../IDMEFv1/Impact.html" TITLE="Section 10.)"><FONT FACE="Nimbus Sans L">[ENUM] severity ()</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Impact.html" TITLE="Section 10.)"><FONT FACE="Nimbus Sans L">[ENUM] completion ()</FONT></td></tr>%<tr><td  HREF="../IDMEFv1/Impact.html" TITLE="value is &quot;other&quot;.  (See also Section 10.)"><FONT FACE="Nimbus Sans L">[ENUM] type ()</FONT></td></tr>%</table>>,
+		pos="76.5,46",
+		shape=plaintext,
+		width=2.125];
+}
