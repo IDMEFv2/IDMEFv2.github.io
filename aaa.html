@@ -74,9 +74,13 @@ function validate(data, target) {
 function validate_text() {
     validate($("#idmefv2_text")[0].value, "#idmefv2_text_result");
 } 
-    
+
 function clear_text() {
-    idmefv2_text.value = '';
+	document.getElementById("idmefv2_text").value='';
+        var target = "#idmefv2_file_result";
+        $(target).empty();
+        var target = "#idmefv2_text_result";
+        $(target).empty();
 } 
 
 $("#idmefv2_file").on('change', function(event) {
@@ -88,7 +92,7 @@ $("#idmefv2_file").on('change', function(event) {
         return;
     }
     if (!file.type.match('application.json')) {
-        $(target).append("Error: The selected file does not appear to be an image.");
+        $(target).append("Error: The selected file does not appear to be a JSON file.");
         return;
     }
     const reader = new FileReader();
