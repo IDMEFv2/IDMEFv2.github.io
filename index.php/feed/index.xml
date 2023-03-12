@@ -8,34 +8,119 @@
 	>
 
 <channel>
-	<title>IDMEFv2 Task Force</title>
+	<title>Task Force</title>
 	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
 	<link>./../../index.html</link>
-	<description></description>
-	<lastBuildDate>Fri, 10 Mar 2023 19:05:50 +0000</lastBuildDate>
+	<description>IDMEFv2 Standardization Task Force Website</description>
+	<lastBuildDate>Sun, 12 Mar 2023 21:39:35 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.1.1</generator>
+
+<image>
+	<url>./../../wp-content/uploads/2023/03/cropped-cropped-LogoIDMEFv2-32x32.png</url>
+	<title>Task Force</title>
+	<link>./../../index.html</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
 	<item>
-		<title>Hello world!</title>
-		<link>./../2023/03/10/hello-world/index.html</link>
-					<comments>./../2023/03/10/hello-world/index.html#comments</comments>
+		<title>IDMEFv2 at #FIC 2023</title>
+		<link>./../2023/03/12/fic-2023/index.html</link>
 		
-		<dc:creator><![CDATA[root]]></dc:creator>
-		<pubDate>Fri, 10 Mar 2023 19:05:50 +0000</pubDate>
+		<dc:creator><![CDATA[Gilles Lehmman]]></dc:creator>
+		<pubDate>Sun, 12 Mar 2023 12:41:17 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid isPermaLink="false">./../../index.html?p=262</guid>
+
+					<description><![CDATA[The IDMEFv2 Task Force will be present at the International Cybersecurity Forum at Lille Grand Palais, stand H34-1 the 5, 6 and 7 April 2023. Please contact us through the IDMEFv2 mailing list if you want to plan a dedicated meeting. See you there ! IDMEFv2 Task Force]]></description>
+										<content:encoded><![CDATA[
+<p>The IDMEFv2 Task Force will be present at the International Cybersecurity Forum at Lille Grand Palais, stand H34-1 the 5, 6 and 7 April 2023.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" width="1024" height="362" src="./../../wp-content/uploads/2023/03/2023-banniere-FIC-IDMEFv2-1024x362.jpg" alt="" class="wp-image-266" srcset="./../../wp-content/uploads/2023/03/2023-banniere-FIC-IDMEFv2-1024x362.jpg 1024w, ./../../wp-content/uploads/2023/03/2023-banniere-FIC-IDMEFv2-300x106.jpg 300w, ./../../wp-content/uploads/2023/03/2023-banniere-FIC-IDMEFv2-768x271.jpg 768w, ./../../wp-content/uploads/2023/03/2023-banniere-FIC-IDMEFv2-1536x542.jpg 1536w, ./../../wp-content/uploads/2023/03/2023-banniere-FIC-IDMEFv2-2048x723.jpg 2048w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Please contact us through the IDMEFv2 mailing list if you want to plan a dedicated meeting.</p>
+
+
+
+<p>See you there !</p>
+
+
+
+<p>IDMEFv2 Task Force</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>IDMEFv2 IETF Drafts submission</title>
+		<link>./../2022/10/15/hello-world/index.html</link>
+		
+		<dc:creator><![CDATA[Gilles Lehmman]]></dc:creator>
+		<pubDate>Sat, 15 Oct 2022 19:05:50 +0000</pubDate>
 				<category><![CDATA[Uncategorized]]></category>
 		<guid isPermaLink="false">./../../index.html?p=1</guid>
 
-					<description><![CDATA[Welcome to WordPress. This is your first post. Edit or delete it, then start writing!]]></description>
+					<description><![CDATA[After two years of specification and experimentation, the two first IDMEFv2 IETF Drafts have been published in the Datatracker. The road to standardization is still very long and uncertain but this is definitely a very important first step ! This is the V00 version. It&#8217;s usable but imperfect. The V01 one will correct the major&#8230;&#160;<a href="./../2022/10/15/hello-world/index.html" class="" rel="bookmark">Read More &#187;<span class="screen-reader-text">IDMEFv2 IETF Drafts submission</span></a>]]></description>
 										<content:encoded><![CDATA[
-<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>
+<p>After two years of specification and experimentation, the two first IDMEFv2 IETF Drafts have been published in the Datatracker. The road to standardization is still very long and uncertain but this is definitely a very important first step !</p>
+
+
+
+<ul>
+<li><a href="https://datatracker.ietf.org/doc/draft-lehmann-idmefv2/" target="_blank" rel="noreferrer noopener">https://datatracker.ietf.org/doc/draft-lehmann-idmefv2/</a></li>
+
+
+
+<li><a href="https://datatracker.ietf.org/doc/draft-poirotte-idmefv2-https-transport/" target="_blank" rel="noreferrer noopener">https://datatracker.ietf.org/doc/draft-poirotte-idmefv2-https-transport/</a></li>
+</ul>
+
+
+
+<p>This is the V00 version. It&#8217;s usable but imperfect. The V01 one will correct the major bugs. We plan the V01 submission end of T1 2023.</p>
+
+
+
+<p>IDMEFv2 Task Force</p>
+
+
+
+<p></p>
 ]]></content:encoded>
 					
-					<wfw:commentRss>./../2023/03/10/hello-world/feed/index.html</wfw:commentRss>
-			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>New IDMEFv2 website</title>
+		<link>./../2022/10/02/hello-idmefv2/index.html</link>
+		
+		<dc:creator><![CDATA[Gilles Lehmman]]></dc:creator>
+		<pubDate>Sun, 02 Oct 2022 00:13:07 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid isPermaLink="false">./../../index.html?p=217</guid>
+
+					<description><![CDATA[Welcome to the brand new IDMEFv2 website ! IDMEFv2 Task Force]]></description>
+										<content:encoded><![CDATA[
+<p>Welcome to the brand new IDMEFv2 website !</p>
+
+
+
+<p>IDMEFv2 Task Force</p>
+
+
+
+<p></p>
+]]></content:encoded>
+					
 		
 		
 			</item>
