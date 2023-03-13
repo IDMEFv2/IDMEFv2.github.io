@@ -12,7 +12,7 @@
 	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
 	<link>./../../index.html</link>
 	<description>IDMEFv2 Standardization Task Force Website</description>
-	<lastBuildDate>Sun, 12 Mar 2023 21:39:35 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 13 Mar 2023 00:08:12 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -33,7 +33,9 @@
 		
 		<dc:creator><![CDATA[Gilles Lehmman]]></dc:creator>
 		<pubDate>Sun, 12 Mar 2023 12:41:17 +0000</pubDate>
-				<category><![CDATA[Uncategorized]]></category>
+				<category><![CDATA[idmefv2]]></category>
+		<category><![CDATA[news]]></category>
+		<category><![CDATA[tech]]></category>
 		<guid isPermaLink="false">./../../index.html?p=262</guid>
 
 					<description><![CDATA[The IDMEFv2 Task Force will be present at the International Cybersecurity Forum at Lille Grand Palais, stand H34-1 the 5, 6 and 7 April 2023. Please contact us through the IDMEFv2 mailing list if you want to plan a dedicated meeting. See you there ! IDMEFv2 Task Force]]></description>
@@ -67,6 +69,9 @@
 		<dc:creator><![CDATA[Gilles Lehmman]]></dc:creator>
 		<pubDate>Sat, 15 Oct 2022 19:05:50 +0000</pubDate>
 				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[idmefv2]]></category>
+		<category><![CDATA[News]]></category>
+		<category><![CDATA[Tech]]></category>
 		<guid isPermaLink="false">./../../index.html?p=1</guid>
 
 					<description><![CDATA[After two years of specification and experimentation, the two first IDMEFv2 IETF Drafts have been published in the Datatracker. The road to standardization is still very long and uncertain but this is definitely a very important first step ! This is the V00 version. It&#8217;s usable but imperfect. The V01 one will correct the major&#8230;&#160;<a href="./../2022/10/15/hello-world/index.html" class="" rel="bookmark">Read More &#187;<span class="screen-reader-text">IDMEFv2 IETF Drafts submission</span></a>]]></description>
@@ -106,6 +111,8 @@
 		<dc:creator><![CDATA[Gilles Lehmman]]></dc:creator>
 		<pubDate>Sun, 02 Oct 2022 00:13:07 +0000</pubDate>
 				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[idmefv2]]></category>
+		<category><![CDATA[News]]></category>
 		<guid isPermaLink="false">./../../index.html?p=217</guid>
 
 					<description><![CDATA[Welcome to the brand new IDMEFv2 website ! IDMEFv2 Task Force]]></description>
