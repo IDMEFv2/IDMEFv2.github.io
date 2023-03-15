@@ -1,0 +1,346 @@
+<html lang="us">
+<head>
+    <title>IDMEFv2 - JSON Validator - Version 00</title>
+</head>
+<body>
+<h1 align="center">IDMEFv2 - JSON Validator - Version 00</h1>
+<br />
+IDMEFv2 (Incident Detection Message Exchange Format) is a universal message format to describe any kind of physical or cyber event and/or incident.
+<br />
+<br />
+This page will help you validate an IDMEFv2 JSON file in conformity with the IETF IDMEFv2 Internet Draft :
+<a href="https://www.ietf.org/archive/id/draft-lehmann-idmefv2-00.html" > draft-lehmann-idmefv2-00 </a>
+<br />
+<br />
+Please visit the IDMEFv2 documentation web site for more information : <a href="https://www.idmefv2.org" >IDMEFv2 WEB SITE </a>
+<br /><br />
+Paste an IDMEFv2 JSON message :
+<br /><br />
+
+
+
+<table style="width:100%; box-sizing: border-box">
+  <tr >
+
+	<td >
+           <textarea  cols="3" rows="25" id='lineCounter' wrap='off' readonly>1.</textarea>
+            <input type="button" value="Clear" onclick="clear_text()"/>
+        </td>
+
+
+        <td style="width: 50% ;">
+	    <textarea style="width:100%" rows="25" id="codeEditor" name="codeEditor" wrap='off'></textarea>
+            <br />
+            <input type="button" value="Validate" onclick="validate_text()"/>
+            <input type="button" value="Copy" onclick="copy_text('codeEditor')"/>
+            <input type="button" value="Save" onclick="saveFileAs()"/>
+            <input type="button" value="Exercice" onclick="printJson1()"/>
+            <input type="button" value="Example" onclick="printJson2()"/>
+            <br />
+        </td>
+
+        <td style="width: 50% ; ">
+            <p id="idmefv2_text_result"></p>
+        </td>
+    </tr>
+</table>
+
+
+<table>
+
+    <tr>
+        <td  style="width: 50% ;">
+            <br />
+            <label for"idmefv2_file">Or upload a file containing an IDMEFv2 message:</label>
+            <input id="idmefv2_file" type="file" name="idmefv2_file" />
+        </td>
+        <td>
+            <p id="idmefv2_file_result"></p>
+        </td>
+    </tr>
+</table>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/6.12.6/ajv.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+function copy_text(id)
+{
+    document.getElementById(id).select();
+    document.execCommand('copy');
+}
+</script>
+
+
+<script>
+
+var codeEditorTxt = "";
+
+
+var json1 = { 
+  "Version": "2.0.3",
+  "ID": "e5f9bbae-163e-42f9-a2f2-0daaf78fefb2",
+  "CreateTime": "2021-01-18T23:34:05.21Z",
+  "StartTime": "2021-01-18T23:34:04.52Z",
+  "Cause": "Malicious",
+  "Category": [
+    "Intrusion.Burglary"
+  ],
+  "Severity": "medium",
+  "Confidence": 0.9,
+  "Description": "Physical intrusion detected",
+  "Analyzer": {
+    "IP": "1.1.1.1",
+    "Name": "Motion detector"
+  },
+  "Sensor": [
+    {
+      "IP": "1.1.1.2",
+      "Name": "Infrared camera 42"
+    }
+  ],
+  "Vector": [
+    {
+      "Category": [
+        "human"
+      ],
+      "AttachHandle": [
+        "attach1"
+      ],
+      "ObservableHandle": [
+        "obs1"
+      ]
+    }
+  ],
+  "Attachment": [
+    {
+      "Handle": "attach1",
+      "FileName": "img2021011823340521.jpg",
+      "ExternalURI": "https://data.acme.eu/img2021011823340521.jpg",
+      "ContentType": "image/jpeg"
+    }
+  ],
+  "Observable": [
+    {
+      "Handle": "obs1",
+      "Content": "{\"Xmin\": 22, \"Xmax\": 100, \"Ymin\": 501, \"Ymax\": 692}"
+    }
+  ]
+}
+
+var json2 = { 
+  "Version": "2.0.3",
+  "ID": "e5f9bbae-163e-42f9-a2f2-0daaf78fefb2",
+  "CreateTime": "2021-01-18T23:34:05.21Z",
+  "StartTime": "2021-01-18T23:34:04.52Z",
+  "Cause": "Malicious",
+  "Category": [
+    "Intrusion.Burglary"
+  ],
+  "Severity": "Medium",
+  "Confidence": 0.9,
+  "Description": "Physical intrusion detected",
+  "Analyzer": {
+    "IP": "1.1.1.1",
+    "Name": "Central Motion Detector Console",
+    "Hostname": "analyzer.acme.eu",
+    "Model": "MD 9.9.3",
+    "Category": [
+      "MWIR",
+      "HAR"
+    ],
+    "Data": [
+      "Images",
+      "Thermic"
+    ],
+    "Method": [
+      "Movement",
+      "Heat"
+    ]
+  },
+  "Sensor": [
+    {
+      "IP": "1.1.1.2",
+      "Name": "Infrared camera 42",
+      "Model": "IC 3.5.2",
+      "UnLocation": "GR ATH",
+      "Location": "Front Door"
+    }
+  ],
+  "Vector": [
+    {
+      "Category": [
+        "Human"
+      ],
+      "Attachment": [
+        "attach1"
+      ],
+      "Observable": [
+        "obs1"
+      ]
+    }
+  ],
+  "Attachment": [
+    {
+      "Name": "attach1",
+      "FileName": "img2021011823340521.jpg",
+      "ExternalURI": [ "https://data.acme.eu/img2021011823340521.jpg"],
+      "ContentType": "image/jpeg"
+    }
+  ],
+  "Observable": [
+    {
+      "Name": "obs1",
+      "Content": "{\"Xmin\": 22, \"Xmax\": 100, \"Ymin\": 501, \"Ymax\": 692}"
+    }
+  ]
+}
+
+var textedJson1 = JSON.stringify(json1,undefined, 2);
+var textedJson2 = JSON.stringify(json2,undefined, 2);
+
+var codeEditor = document.getElementById('codeEditor');
+var lineCounter = document.getElementById('lineCounter');
+	
+var lineCountCache = 0;
+
+	function printJson1(){
+			document.getElementById('codeEditor').value = textedJson1;
+			line_counter();
+			}
+
+	function printJson2(){
+			document.getElementById('codeEditor').value = textedJson2;
+			line_counter();
+			}
+
+function line_counter() {
+        var lineCount = codeEditor.value.split('\n').length;
+        var outarr = new Array();
+        if (lineCountCache != lineCount) {
+            for (var x = 0; x < lineCount; x++) {
+                outarr[x] = (x + 1) + '.';
+		    }
+	         lineCounter.value = outarr.join('\n');
+	        }
+        lineCountCache = lineCount;
+	}
+
+	codeEditor.addEventListener('scroll', () => {
+		lineCounter.scrollTop = codeEditor.scrollTop;
+		lineCounter.scrollLeft = codeEditor.scrollLeft;
+		});
+
+	codeEditor.addEventListener('input', () => {
+		line_counter();
+		});
+
+	codeEditor.addEventListener('keydown', (e) => {
+		let { keyCode } = e;
+		let { value, selectionStart, selectionEnd } = codeEditor;
+
+	if (keyCode === 9) {  // TAB = 9
+		e.preventDefault();
+		codeEditor.value = value.slice(0, selectionStart) + '\t' + value.slice(selectionEnd);
+		codeEditor.setSelectionRange(selectionStart+2, selectionStart+2)
+		}
+	});
+
+  	codeEditor.value = codeEditorTxt;
+  	line_counter();
+</script>
+
+
+<script>
+function saveFileAs() {
+	if (promptFilename = prompt("Save file as", "*.json")) {
+		var textBlob = new Blob([document.getElementById("codeEditor").value], {type:'text/plain'});
+		var downloadLink = document.createElement("a");
+		downloadLink.download = promptFilename;
+		downloadLink.innerHTML = "Download File";
+		downloadLink.href = window.URL.createObjectURL(textBlob);
+		downloadLink.click();
+    delete downloadLink;
+    delete textBlob;
+	}
+}
+
+document.getElementById("save-button").onclick = saveFileAs;
+</script>
+
+
+<script>
+var ajv_validate;
+$.getJSON('https://raw.githubusercontent.com/json-schema-org/json-schema-spec/draft-04/schema.json', function (metaschema) {
+    $.getJSON('https://raw.githubusercontent.com/SECEF/idmefv2-definition/main/IDMEFv2.schema', function (schema) {
+        var ajv = new Ajv({schemaId: 'id', allErrors: true});
+        ajv.addMetaSchema(metaschema);
+        ajv_validate = ajv.compile(schema);
+    });
+});
+
+function validate(data, target) {
+    $(target).empty();
+    if (data) {
+        try {
+            valid = ajv_validate(JSON.parse(data));
+        } catch(e) {
+            $(target).append("Error while reading the JSON: " + e);
+            return;
+        }
+        if (!valid) {
+            ajv_validate.errors.forEach(function(err) {
+                console.log(err);
+                if ( err["dataPath"] )
+                    var path = err["dataPath"].substr(1);
+                else
+                    var path = "Root";
+                if (err["keyword"] == "additionalProperties")
+                    path = path + "." + err["params"]["additionalProperty"];
+                $(target).append("Path: " + path + ", Error: " + err["message"] + "<br />"); 
+            });
+        } else {
+            $(target).append("<p style=\"text-align: center\">No errors</p>");
+        }
+    }
+}
+
+function validate_text() {
+    validate($("#codeEditor")[0].value, "#idmefv2_text_result");
+} 
+
+function clear_text() {
+	document.getElementById("codeEditor").value='';
+  	line_counter();
+        var target = "#idmefv2_file_result";
+        $(target).empty();
+        var target = "#idmefv2_text_result";
+        $(target).empty();
+} 
+
+$("#idmefv2_file").on('change', function(event) {
+    var target = "#idmefv2_file_result";
+    $(target).empty();
+    var file = event.target.files[0];
+    if (!file.type) {
+        $(target).append("Error: The File.type property does not appear to be supported on this browser.");
+        return;
+    }
+    if (!file.type.match('application.json')) {
+        $(target).append("Error: The selected file does not appear to be a JSON file.");
+        return;
+    }
+    const reader = new FileReader();
+    reader.addEventListener('load', event => {
+/*        validate( event.target.result, "#idmefv2_file_result"); */
+        validate( event.target.result, "#idmefv2_text_result");
+	document.getElementById('codeEditor').value = event.target.result;
+	line_counter();
+    });
+    reader.readAsText(file);
+});
+</script>
+
+</body>
+</html>
+
