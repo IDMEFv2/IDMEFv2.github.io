@@ -8,27 +8,27 @@
 	>
 
 <channel>
-	<title>News &#8211; Task Force</title>
+	<title>News Archives - Task Force</title>
 	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
-	<link>./../../../../index.html</link>
+	<link>./../index.html</link>
 	<description>IDMEFv2 Standardization Task Force Website</description>
-	<lastBuildDate>Mon, 13 Mar 2023 00:06:42 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 20 Apr 2023 14:57:55 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<generator>https://wordpress.org/?v=6.2</generator>
 
 <image>
 	<url>./../../../../wp-content/uploads/2023/03/cropped-cropped-LogoIDMEFv2-32x32.png</url>
-	<title>News &#8211; Task Force</title>
-	<link>./../../../../index.html</link>
+	<title>News Archives - Task Force</title>
+	<link>./../index.html</link>
 	<width>32</width>
 	<height>32</height>
 </image> 
 	<item>
-		<title>IDMEFv2 IETF Drafts submission</title>
+		<title>IDMEFv2 IETF Drafts V00 submission</title>
 		<link>./../../../2022/10/15/hello-world/index.html</link>
 		
 		<dc:creator><![CDATA[Gilles Lehmman]]></dc:creator>
@@ -39,9 +39,11 @@
 		<category><![CDATA[Tech]]></category>
 		<guid isPermaLink="false">./../../../../index.html?p=1</guid>
 
-					<description><![CDATA[After two years of specification and experimentation, the two first IDMEFv2 IETF Drafts have been published in the Datatracker. The road to standardization is still very long and uncertain but this is definitely a very important first step ! This is the V00 version. It&#8217;s usable but imperfect. The V01 one will correct the major&#8230;&#160;<a href="./../../../2022/10/15/hello-world/index.html" class="" rel="bookmark">Read More &#187;<span class="screen-reader-text">IDMEFv2 IETF Drafts submission</span></a>]]></description>
+					<description><![CDATA[<p>After two years of specification and experimentation, we have submitted the two first IDMEFv2 IETF Drafts V00 in the IETF Datatracker. The road to standardization is still very long and uncertain but this is definitely a very important first step ! This is the V00 version. It&#8217;s usable but imperfect. The V01 one will correct&#8230;&#160;<a href="./../../../2022/10/15/hello-world/index.html" class="" rel="bookmark">Read More &#187;<span class="screen-reader-text">IDMEFv2 IETF Drafts V00 submission</span></a></p>
+<p>The post <a rel="nofollow" href="./../../../2022/10/15/hello-world/index.html">IDMEFv2 IETF Drafts V00 submission</a> appeared first on <a rel="nofollow" href="./../../../../index.html">Task Force</a>.</p>
+]]></description>
 										<content:encoded><![CDATA[
-<p>After two years of specification and experimentation, the two first IDMEFv2 IETF Drafts have been published in the Datatracker. The road to standardization is still very long and uncertain but this is definitely a very important first step !</p>
+<p>After two years of specification and experimentation, we have submitted the two first IDMEFv2 IETF Drafts V00 in the IETF Datatracker. The road to standardization is still very long and uncertain but this is definitely a very important first step !</p>
 
 
 
@@ -64,6 +66,7 @@
 
 
 <p></p>
+<p>The post <a rel="nofollow" href="./../../../2022/10/15/hello-world/index.html">IDMEFv2 IETF Drafts V00 submission</a> appeared first on <a rel="nofollow" href="./../../../../index.html">Task Force</a>.</p>
 ]]></content:encoded>
 					
 		
@@ -80,7 +83,9 @@
 		<category><![CDATA[News]]></category>
 		<guid isPermaLink="false">./../../../../index.html?p=217</guid>
 
-					<description><![CDATA[Welcome to the brand new IDMEFv2 website ! IDMEFv2 Task Force]]></description>
+					<description><![CDATA[<p>Welcome to the brand new IDMEFv2 website ! IDMEFv2 Task Force</p>
+<p>The post <a rel="nofollow" href="./../../../2022/10/02/hello-idmefv2/index.html">New IDMEFv2 website</a> appeared first on <a rel="nofollow" href="./../../../../index.html">Task Force</a>.</p>
+]]></description>
 										<content:encoded><![CDATA[
 <p>Welcome to the brand new IDMEFv2 website !</p>
 
@@ -91,6 +96,7 @@
 
 
 <p></p>
+<p>The post <a rel="nofollow" href="./../../../2022/10/02/hello-idmefv2/index.html">New IDMEFv2 website</a> appeared first on <a rel="nofollow" href="./../../../../index.html">Task Force</a>.</p>
 ]]></content:encoded>
 					
 		
