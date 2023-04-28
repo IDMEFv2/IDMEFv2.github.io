@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: IETF Drafts V01 published	</title>
-	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
-	<link>./../index.html</link>
+	<atom:link href="https://idmefv2.github.io/index.php/2023/04/20/ietf-drafts-v01-published/feed/" rel="self" type="application/rss+xml" />
+	<link>https://idmefv2.github.io/index.php/2023/04/20/ietf-drafts-v01-published/</link>
 	<description>IDMEFv2 Standardization Task Force Website</description>
 	<lastBuildDate>Thu, 20 Apr 2023 14:58:29 +0000</lastBuildDate>
 	<sy:updatePeriod>

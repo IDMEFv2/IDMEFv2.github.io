@@ -1,26 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="./../main-sitemap.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="https://idmefv2.github.io/main-sitemap.xsl"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>./blog/index.html</loc>
+		<loc>https://idmefv2.github.io/index.php/blog/</loc>
 		<lastmod>2023-04-20T14:58:29+00:00</lastmod>
 	</url>
 	<url>
-		<loc>./2022/10/02/hello-idmefv2/index.html</loc>
+		<loc>https://idmefv2.github.io/index.php/2022/10/02/hello-idmefv2/</loc>
 		<lastmod>2023-03-13T00:06:42+00:00</lastmod>
 	</url>
 	<url>
-		<loc>./2023/03/12/fic-2023/index.html</loc>
+		<loc>https://idmefv2.github.io/index.php/2023/03/12/fic-2023/</loc>
 		<lastmod>2023-04-20T11:46:45+00:00</lastmod>
 		<image:image>
-			<image:loc>./../wp-content/uploads/2023/03/2023-banniere-FIC-IDMEFv2.jpg</image:loc>
+			<image:loc>https://idmefv2.github.io/wp-content/uploads/2023/03/2023-banniere-FIC-IDMEFv2.jpg</image:loc>
 		</image:image>
 	</url>
 	<url>
-		<loc>./2022/10/15/hello-world/index.html</loc>
+		<loc>https://idmefv2.github.io/index.php/2022/10/15/hello-world/</loc>
 		<lastmod>2023-04-20T14:57:55+00:00</lastmod>
 	</url>
 	<url>
-		<loc>./2023/04/20/ietf-drafts-v01-published/index.html</loc>
+		<loc>https://idmefv2.github.io/index.php/2023/04/20/ietf-drafts-v01-published/</loc>
 		<lastmod>2023-04-20T14:58:29+00:00</lastmod>
 	</url>
 </urlset>

@@ -1,23 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="./../main-sitemap.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="https://idmefv2.github.io/main-sitemap.xsl"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<sitemap>
-		<loc>./post-sitemap.xml</loc>
+		<loc>https://idmefv2.github.io/index.php/post-sitemap.xml</loc>
 		<lastmod>2023-04-20T14:58:29+00:00</lastmod>
 	</sitemap>
 	<sitemap>
-		<loc>./page-sitemap.xml</loc>
+		<loc>https://idmefv2.github.io/index.php/page-sitemap.xml</loc>
 		<lastmod>2023-04-28T10:54:49+00:00</lastmod>
 	</sitemap>
 	<sitemap>
-		<loc>./category-sitemap.xml</loc>
+		<loc>https://idmefv2.github.io/index.php/category-sitemap.xml</loc>
 		<lastmod>2023-04-20T14:58:29+00:00</lastmod>
 	</sitemap>
 	<sitemap>
-		<loc>./post_tag-sitemap.xml</loc>
+		<loc>https://idmefv2.github.io/index.php/post_tag-sitemap.xml</loc>
 		<lastmod>2023-04-20T14:57:55+00:00</lastmod>
 	</sitemap>
 	<sitemap>
-		<loc>./author-sitemap.xml</loc>
+		<loc>https://idmefv2.github.io/index.php/author-sitemap.xml</loc>
 		<lastmod>2023-03-25T17:10:12+00:00</lastmod>
 	</sitemap>
 </sitemapindex>

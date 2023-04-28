@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments for Task Force	</title>
-	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
-	<link>./../../../index.html</link>
+	<atom:link href="https://idmefv2.github.io/index.php/comments/feed/" rel="self" type="application/rss+xml" />
+	<link>https://idmefv2.github.io/</link>
 	<description>IDMEFv2 Standardization Task Force Website</description>
 	<lastBuildDate>Fri, 28 Apr 2023 10:54:49 +0000</lastBuildDate>
 	<sy:updatePeriod>

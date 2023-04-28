@@ -9,8 +9,8 @@
 
 <channel>
 	<title>Gilles Lehmman, Author at Task Force</title>
-	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
-	<link>./../index.html</link>
+	<atom:link href="https://idmefv2.github.io/index.php/author/gilles/feed/" rel="self" type="application/rss+xml" />
+	<link>https://idmefv2.github.io/index.php/author/gilles/</link>
 	<description>IDMEFv2 Standardization Task Force Website</description>
 	<lastBuildDate>Thu, 20 Apr 2023 14:58:29 +0000</lastBuildDate>
 	<language>en-US</language>
@@ -21,27 +21,27 @@
 	<generator>https://wordpress.org/?v=6.2</generator>
 
 <image>
-	<url>./../../../../wp-content/uploads/2023/03/cropped-cropped-LogoIDMEFv2-32x32.png</url>
+	<url>https://idmefv2.github.io/wp-content/uploads/2023/03/cropped-cropped-LogoIDMEFv2-32x32.png</url>
 	<title>Gilles Lehmman, Author at Task Force</title>
-	<link>./../index.html</link>
+	<link>https://idmefv2.github.io/index.php/author/gilles/</link>
 	<width>32</width>
 	<height>32</height>
 </image> 
 	<item>
 		<title>IETF Drafts V01 published</title>
-		<link>./../../../2023/04/20/ietf-drafts-v01-published/index.html</link>
-					<comments>./../../../2023/04/20/ietf-drafts-v01-published/index.html#respond</comments>
+		<link>https://idmefv2.github.io/index.php/2023/04/20/ietf-drafts-v01-published/</link>
+					<comments>https://idmefv2.github.io/index.php/2023/04/20/ietf-drafts-v01-published/#respond</comments>
 		
 		<dc:creator><![CDATA[Gilles Lehmman]]></dc:creator>
 		<pubDate>Thu, 20 Apr 2023 11:15:03 +0000</pubDate>
 				<category><![CDATA[Uncategorized]]></category>
-		<guid isPermaLink="false">./../../../../index.html?p=472</guid>
+		<guid isPermaLink="false">https://idmefv2.github.io/?p=472</guid>
 
 					<description><![CDATA[<p>New version V01 of the IDMEFv2 IETF drafts have been published. A lot of minor changes and corrections to stabilize V00. From the next version, the work on the drafts will be open to external comments and collaborations through IDMEFv2 mailing list. Format Draft major modifications : Transport Draft major modifications IDMEFv2 Task Force</p>
-<p>The post <a rel="nofollow" href="./../../../2023/04/20/ietf-drafts-v01-published/index.html">IETF Drafts V01 published</a> appeared first on <a rel="nofollow" href="./../../../../index.html">Task Force</a>.</p>
+<p>The post <a rel="nofollow" href="https://idmefv2.github.io/index.php/2023/04/20/ietf-drafts-v01-published/">IETF Drafts V01 published</a> appeared first on <a rel="nofollow" href="https://idmefv2.github.io">Task Force</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<p>New version V01 of the IDMEFv2 IETF drafts have been published. A lot of minor changes and corrections to stabilize V00. From the next version, the work on the drafts will be open to external comments and collaborations through <a href="./../../../mailing-list/index.html">IDMEFv2 mailing list.</a></p>
+<p>New version V01 of the IDMEFv2 IETF drafts have been published. A lot of minor changes and corrections to stabilize V00. From the next version, the work on the drafts will be open to external comments and collaborations through <a href="https://idmefv2.github.io/index.php/mailing-list/">IDMEFv2 mailing list.</a></p>
 
 
 
@@ -126,40 +126,40 @@
 
 
 <div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-2">
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="./../../../mailing-list/index.html" target="_blank" rel="noreferrer noopener">Comments / Questions in IDMEFv2 Mailing List</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://idmefv2.github.io/index.php/mailing-list/" target="_blank" rel="noreferrer noopener">Comments / Questions in IDMEFv2 Mailing List</a></div>
 </div>
 
 
 
 <p>IDMEFv2 Task Force</p>
-<p>The post <a rel="nofollow" href="./../../../2023/04/20/ietf-drafts-v01-published/index.html">IETF Drafts V01 published</a> appeared first on <a rel="nofollow" href="./../../../../index.html">Task Force</a>.</p>
+<p>The post <a rel="nofollow" href="https://idmefv2.github.io/index.php/2023/04/20/ietf-drafts-v01-published/">IETF Drafts V01 published</a> appeared first on <a rel="nofollow" href="https://idmefv2.github.io">Task Force</a>.</p>
 ]]></content:encoded>
 					
-					<wfw:commentRss>./../../../2023/04/20/ietf-drafts-v01-published/feed/index.html</wfw:commentRss>
+					<wfw:commentRss>https://idmefv2.github.io/index.php/2023/04/20/ietf-drafts-v01-published/feed/</wfw:commentRss>
 			<slash:comments>0</slash:comments>
 		
 		
 			</item>
 		<item>
 		<title>IDMEFv2 at #FIC2023</title>
-		<link>./../../../2023/03/12/fic-2023/index.html</link>
+		<link>https://idmefv2.github.io/index.php/2023/03/12/fic-2023/</link>
 		
 		<dc:creator><![CDATA[Gilles Lehmman]]></dc:creator>
 		<pubDate>Sun, 12 Mar 2023 12:41:17 +0000</pubDate>
 				<category><![CDATA[idmefv2]]></category>
 		<category><![CDATA[news]]></category>
 		<category><![CDATA[tech]]></category>
-		<guid isPermaLink="false">./../../../../index.html?p=262</guid>
+		<guid isPermaLink="false">https://idmefv2.github.io/?p=262</guid>
 
 					<description><![CDATA[<p>The IDMEFv2 Task Force will be present at the International Cybersecurity Forum at Lille Grand Palais, stand H34-1 the 5, 6 and 7 April 2023. Please contact us through the IDMEFv2 mailing list if you want to plan a dedicated meeting. See you there ! IDMEFv2 Task Force</p>
-<p>The post <a rel="nofollow" href="./../../../2023/03/12/fic-2023/index.html">IDMEFv2 at #FIC2023</a> appeared first on <a rel="nofollow" href="./../../../../index.html">Task Force</a>.</p>
+<p>The post <a rel="nofollow" href="https://idmefv2.github.io/index.php/2023/03/12/fic-2023/">IDMEFv2 at #FIC2023</a> appeared first on <a rel="nofollow" href="https://idmefv2.github.io">Task Force</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
 <p>The IDMEFv2 Task Force will be present at the International Cybersecurity Forum at Lille Grand Palais, stand H34-1 the 5, 6 and 7 April 2023.</p>
 
 
 
-<figure class="wp-block-image size-large"><img decoding="async" width="1024" height="362" src="./../../../../wp-content/uploads/2023/03/2023-banniere-FIC-IDMEFv2-1024x362.jpg" alt="" class="wp-image-266" srcset="./../../../../wp-content/uploads/2023/03/2023-banniere-FIC-IDMEFv2-1024x362.jpg 1024w, ./../../../../wp-content/uploads/2023/03/2023-banniere-FIC-IDMEFv2-300x106.jpg 300w, ./../../../../wp-content/uploads/2023/03/2023-banniere-FIC-IDMEFv2-768x271.jpg 768w, ./../../../../wp-content/uploads/2023/03/2023-banniere-FIC-IDMEFv2-1536x542.jpg 1536w, ./../../../../wp-content/uploads/2023/03/2023-banniere-FIC-IDMEFv2-2048x723.jpg 2048w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+<figure class="wp-block-image size-large"><img decoding="async" width="1024" height="362" src="https://idmefv2.github.io/wp-content/uploads/2023/03/2023-banniere-FIC-IDMEFv2-1024x362.jpg" alt="" class="wp-image-266" srcset="https://idmefv2.github.io/wp-content/uploads/2023/03/2023-banniere-FIC-IDMEFv2-1024x362.jpg 1024w, https://idmefv2.github.io/wp-content/uploads/2023/03/2023-banniere-FIC-IDMEFv2-300x106.jpg 300w, https://idmefv2.github.io/wp-content/uploads/2023/03/2023-banniere-FIC-IDMEFv2-768x271.jpg 768w, https://idmefv2.github.io/wp-content/uploads/2023/03/2023-banniere-FIC-IDMEFv2-1536x542.jpg 1536w, https://idmefv2.github.io/wp-content/uploads/2023/03/2023-banniere-FIC-IDMEFv2-2048x723.jpg 2048w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
 
 
 
@@ -172,7 +172,7 @@
 
 
 <p>IDMEFv2 Task Force</p>
-<p>The post <a rel="nofollow" href="./../../../2023/03/12/fic-2023/index.html">IDMEFv2 at #FIC2023</a> appeared first on <a rel="nofollow" href="./../../../../index.html">Task Force</a>.</p>
+<p>The post <a rel="nofollow" href="https://idmefv2.github.io/index.php/2023/03/12/fic-2023/">IDMEFv2 at #FIC2023</a> appeared first on <a rel="nofollow" href="https://idmefv2.github.io">Task Force</a>.</p>
 ]]></content:encoded>
 					
 		
@@ -180,7 +180,7 @@
 			</item>
 		<item>
 		<title>IDMEFv2 IETF Drafts V00 submission</title>
-		<link>./../../../2022/10/15/hello-world/index.html</link>
+		<link>https://idmefv2.github.io/index.php/2022/10/15/hello-world/</link>
 		
 		<dc:creator><![CDATA[Gilles Lehmman]]></dc:creator>
 		<pubDate>Sat, 15 Oct 2022 19:05:50 +0000</pubDate>
@@ -188,10 +188,10 @@
 		<category><![CDATA[idmefv2]]></category>
 		<category><![CDATA[News]]></category>
 		<category><![CDATA[Tech]]></category>
-		<guid isPermaLink="false">./../../../../index.html?p=1</guid>
+		<guid isPermaLink="false">https://idmefv2.github.io/?p=1</guid>
 
-					<description><![CDATA[<p>After two years of specification and experimentation, we have submitted the two first IDMEFv2 IETF Drafts V00 in the IETF Datatracker. The road to standardization is still very long and uncertain but this is definitely a very important first step ! This is the V00 version. It&#8217;s usable but imperfect. The V01 one will correct&#8230;&#160;<a href="./../../../2022/10/15/hello-world/index.html" class="" rel="bookmark">Read More &#187;<span class="screen-reader-text">IDMEFv2 IETF Drafts V00 submission</span></a></p>
-<p>The post <a rel="nofollow" href="./../../../2022/10/15/hello-world/index.html">IDMEFv2 IETF Drafts V00 submission</a> appeared first on <a rel="nofollow" href="./../../../../index.html">Task Force</a>.</p>
+					<description><![CDATA[<p>After two years of specification and experimentation, we have submitted the two first IDMEFv2 IETF Drafts V00 in the IETF Datatracker. The road to standardization is still very long and uncertain but this is definitely a very important first step ! This is the V00 version. It&#8217;s usable but imperfect. The V01 one will correct&#8230;&#160;<a href="https://idmefv2.github.io/index.php/2022/10/15/hello-world/" class="" rel="bookmark">Read More &#187;<span class="screen-reader-text">IDMEFv2 IETF Drafts V00 submission</span></a></p>
+<p>The post <a rel="nofollow" href="https://idmefv2.github.io/index.php/2022/10/15/hello-world/">IDMEFv2 IETF Drafts V00 submission</a> appeared first on <a rel="nofollow" href="https://idmefv2.github.io">Task Force</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
 <p>After two years of specification and experimentation, we have submitted the two first IDMEFv2 IETF Drafts V00 in the IETF Datatracker. The road to standardization is still very long and uncertain but this is definitely a very important first step !</p>
@@ -217,7 +217,7 @@
 
 
 <p></p>
-<p>The post <a rel="nofollow" href="./../../../2022/10/15/hello-world/index.html">IDMEFv2 IETF Drafts V00 submission</a> appeared first on <a rel="nofollow" href="./../../../../index.html">Task Force</a>.</p>
+<p>The post <a rel="nofollow" href="https://idmefv2.github.io/index.php/2022/10/15/hello-world/">IDMEFv2 IETF Drafts V00 submission</a> appeared first on <a rel="nofollow" href="https://idmefv2.github.io">Task Force</a>.</p>
 ]]></content:encoded>
 					
 		
@@ -225,17 +225,17 @@
 			</item>
 		<item>
 		<title>New IDMEFv2 website</title>
-		<link>./../../../2022/10/02/hello-idmefv2/index.html</link>
+		<link>https://idmefv2.github.io/index.php/2022/10/02/hello-idmefv2/</link>
 		
 		<dc:creator><![CDATA[Gilles Lehmman]]></dc:creator>
 		<pubDate>Sun, 02 Oct 2022 00:13:07 +0000</pubDate>
 				<category><![CDATA[Uncategorized]]></category>
 		<category><![CDATA[idmefv2]]></category>
 		<category><![CDATA[News]]></category>
-		<guid isPermaLink="false">./../../../../index.html?p=217</guid>
+		<guid isPermaLink="false">https://idmefv2.github.io/?p=217</guid>
 
 					<description><![CDATA[<p>Welcome to the brand new IDMEFv2 website ! IDMEFv2 Task Force</p>
-<p>The post <a rel="nofollow" href="./../../../2022/10/02/hello-idmefv2/index.html">New IDMEFv2 website</a> appeared first on <a rel="nofollow" href="./../../../../index.html">Task Force</a>.</p>
+<p>The post <a rel="nofollow" href="https://idmefv2.github.io/index.php/2022/10/02/hello-idmefv2/">New IDMEFv2 website</a> appeared first on <a rel="nofollow" href="https://idmefv2.github.io">Task Force</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
 <p>Welcome to the brand new IDMEFv2 website !</p>
@@ -247,7 +247,7 @@
 
 
 <p></p>
-<p>The post <a rel="nofollow" href="./../../../2022/10/02/hello-idmefv2/index.html">New IDMEFv2 website</a> appeared first on <a rel="nofollow" href="./../../../../index.html">Task Force</a>.</p>
+<p>The post <a rel="nofollow" href="https://idmefv2.github.io/index.php/2022/10/02/hello-idmefv2/">New IDMEFv2 website</a> appeared first on <a rel="nofollow" href="https://idmefv2.github.io">Task Force</a>.</p>
 ]]></content:encoded>
 					
 		

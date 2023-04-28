@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: SAMPLE	</title>
-	<atom:link href="./index.html" rel="self" type="application/rss+xml" />
-	<link>./../index.html</link>
+	<atom:link href="https://idmefv2.github.io/index.php/sample-page/feed/" rel="self" type="application/rss+xml" />
+	<link>https://idmefv2.github.io/index.php/sample-page/</link>
 	<description>IDMEFv2 Standardization Task Force Website</description>
 	<lastBuildDate>Tue, 14 Mar 2023 00:02:06 +0000</lastBuildDate>
 	<sy:updatePeriod>
