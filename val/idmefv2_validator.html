@@ -272,7 +272,7 @@ document.getElementById("save-button").onclick = saveFileAs;
 <script>
 var ajv_validate;
 $.getJSON('https://raw.githubusercontent.com/json-schema-org/json-schema-spec/draft-04/schema.json', function (metaschema) {
-    $.getJSON('https://raw.githubusercontent.com/SECEF/idmefv2-definition/main/IDMEFv2.schema', function (schema) {
+    $.getJSON('https://raw.githubusercontent.com/IDMEFv2/IDMEFv2-Drafts/refs/heads/main/IDMEFv2/latest/IDMEFv2.schema', function (schema) {
         var ajv = new Ajv({schemaId: 'id', allErrors: true});
         ajv.addMetaSchema(metaschema);
         ajv_validate = ajv.compile(schema);
