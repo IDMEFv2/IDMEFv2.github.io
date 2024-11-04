@@ -1,0 +1,136 @@
+<html lang="us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">IDMEFv2 - JSON Validator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsoneditor@latest/dist/jsoneditor.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <h1 class="site-title">IDMEFv2 - JSON Validator</h1>
+        <button class="header-button" id="dark-mode-toggle">
+            <i class="fas fa-sun" title="Dark Mode"></i>
+        </button>
+    </header>
+    <div class="json-container rounded flex-col gap-half w-100">
+        <div class="w-100 flex">
+            <div class="w-50">
+                <div class="w-100 second-bar flex align-center">
+                    <button class="second-bar-button" onclick="clear_text()" title="Clean the editor">
+                        <i class="fa-solid fa-eraser"></i>
+                    </button>
+                    <button class="second-bar-button" onclick="validate()" title="Validate your JSON">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </button>
+                    <button class="second-bar-button" onclick="copy_text('codeEditor')" title="Copy to clipboard">
+                        <i class="fa-solid fa-copy"></i>
+                    </button>
+                    <button class="second-bar-button" onclick="openSave()" title="Save your JSON">
+                        <i class="fa-solid fa-download"></i>
+                    </button>
+                    <button id="upload" class="second-bar-button" title="Upload a JSON">
+                        <i class="fa-solid fa-upload"></i>
+                    </button>
+                    <input style="display: none;" id="idmefv2_file" accept=".json" type="file"/>
+                    <button class="second-bar-button" onclick="printExercise()" title="Prepare an exercise">
+                        <i class="fa-solid fa-pencil"></i>
+                    </button>
+                    <button class="second-bar-button" onclick="printExample()" title="Show an example">
+                        <i class="fa-solid fa-code"></i>
+                    </button>
+                    <select id="mode" class="mode-selector ml-auto" onchange="changeMode()">
+                        <option value="code">Code Mode</option>
+                        <!-- <option value="text">Text Mode</option> -->
+                        <option value="tree">Tree Mode</option>
+                        <option value="view">View Mode</option>
+                    </select>
+                </div>
+                <div id="jsoneditor"></div>
+            </div>
+            <div class="results-div">
+                <div class="w-100 results-bar flex align-center justify-center">
+                    <h2 class="my-0 results-title">Validation results</h2>
+                </div>
+                <div class="h-100 flex align-center y-scroll">      
+                    <div class="pl-1 results-height" id="idmefv2_text_result"></div>
+               </div>
+                <div id="version-output" class="version"><h6>{{version}}</h6></div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed pop-up">
+        <div class="px-1 flex gap-half">
+            <i class="fa-solid fa-check mt-1 pop-up-green"></i>
+            <div>
+                <h4 class="mb-0 mt-1 pop-up-green">Copied</h4>
+                <p class="pop-up-text">Your Json has been copied to clipboard</p>  
+            </div>
+            <i class="fa-solid fa-xmark mt-1 ml-auto pointer fit-content" onclick="hidePopUp()"></i>
+        </div>
+    </div>
+
+    <div class="modal" id="schemaModal" style="display: none;">
+        <div class="modal-body flex flex-col gap-1">
+            <div class="w-100 flex justify-between align-center">
+                <h2 class="my-0 title-font" id="schemaTitle"></h2>
+                <i class="fa-solid fa-x pointer" onclick="closeModal()"></i>
+            </div>
+            <div class="w-100 ">
+                <pre id="schemaDefinition"></pre>
+            </div>
+        </div>
+    </div>
+    <div class="overlay" id="overlay" style="display: none;" onclick="closeModal()"></div>
+
+    <div id="save-modal" class="save-modal" style="display: none;">
+        <div class="modal-body flex flex-col gap-1">
+            <h2 class="my-0 title-font">Save your Json</h2>
+            <div class="w-100 flex gap-half flex-col">
+                <div class="flex w-50 gap-half">
+                    <label for="fileName">File name:</label>
+                    
+                </div>
+                <div class="flex">
+                    <input id="fileName" type="text" class="save-name input-border">
+                    <select id="format" class="save-format input-border">
+                        <option value=".json">.json</option>
+                        <option value=".txt">.txt</option>
+                    </select>
+                </div>
+            </div>
+            <div class="w-100 flex justify-end gap-half">
+                <input onclick="closeModal()" class="save-button" type="button" value="Cancel">
+                <input onclick="saveFileAs()" class="save-button" type="submit" value="Confirm">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/6.12.6/ajv.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsoneditor@latest/dist/jsoneditor.min.js"></script>
+    <script src="script.js"></script>
+    <footer class="footer">
+        <div>
+            <p>
+                IDMEFv2 (Incident Detection Message Exchange Format) is a universal message format to describe any kind of physical
+                or cyber event and/or incident.
+            </p>
+            <p>
+                This page will help you validate an IDMEFv2 JSON file in conformity with the IETF IDMEFv2 Internet Draft :
+                <a href="https://www.ietf.org/archive/id/draft-lehmann-idmefv2-00.html"> draft-lehmann-idmefv2-00 </a>
+            </p>
+            <p>
+                Please visit the IDMEFv2 documentation web site for more information : 
+            <a href="https://www.idmefv2.org">IDMEFv2 WEBSITE </a> 
+            
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
