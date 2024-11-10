@@ -8,7 +8,7 @@ var json = {};
 var observer;
 var validationPerformed = false;
 
-var i=0;
+var i = 1;
 
 var mode = 'code';
 var options = {
@@ -200,14 +200,25 @@ function printExercise() {
 function printExample() {
   cleanResult();
   clearErrorHighlights();
-  stopObserver(); 
-  i++;
-  $.getJSON('https://raw.githubusercontent.com/IDMEFv2/IDMEFv2-Examples/main/IDMEFv2-Phy'+((i%2)+1)+'.json', function (json1) {
-    if (i==2) i=0;
+  stopObserver();
+
+  // Costruisce l'URL usando il valore corrente di `i`
+  const url = 'https://raw.githubusercontent.com/IDMEFv2/IDMEFv2-Examples/refs/heads/main/latest/IDMEFv2-Phy' + i + '.json';
+
+  // Effettua la richiesta GET JSON
+  $.getJSON(url, function(json1) {
+    // Se la richiesta ha successo
     json = json1;
     editor.set(json);
     validationPerformed = false;
-    startObserver(); 
+    startObserver();
+
+    // Incrementa `i` per puntare al file successivo al prossimo ciclo
+    i++;
+  }).fail(function() {
+    // Se la richiesta fallisce, resetta `i` a 1 e richiama la funzione
+    i = 1;
+    printExample(); // Richiama la funzione per caricare direttamente il primo file
   });
 }
 
