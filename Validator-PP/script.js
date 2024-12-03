@@ -294,33 +294,34 @@ function changeMode() {
 }
 
 function validate() {
-    let result = document.getElementById("idmefv2_text_result");
-    result.innerHTML = "";
-    clearErrorHighlights(); 
+  let result = document.getElementById("idmefv2_text_result");
+  result.innerHTML = "";
+  clearErrorHighlights();
+  
+  json = JSON.stringify(editor.get());
 
-    if (!json || Object.keys(json).length === 0) { 
-      result.innerHTML = "<p class=\"noerrors\">No data provided to validate.</p>";
-      return;
-    }
-    if (json) {
-     validationPerformed = true; 
-     stopObserver();
+  if (!json) { 
+    result.innerHTML = "<p class=\"noerrors\">No data provided to validate.</p>";
+    return;
+  } else {
+    validationPerformed = true; 
+    stopObserver();
 
-     var valid = ajv_validate(JSON.parse(JSON.stringify(editor.get())));
-      if (!valid) {
-        ajv_validate.errors.forEach(function (err) {
-          let path = err.dataPath ? err.dataPath.substr(1) : "Root";
-          if (err.keyword === "additionalProperties") {
-            path += "." + err.params.additionalProperty;
-          }
-          result.innerHTML += `Path: <a href="#" class="modal-link" onclick="showSchema('${path}')">${path}</a>, Error: ${err.message} <br/>`;
-        });
-        findErrors();
-      } else {
-        result.innerHTML = "<p class=\"noerrors\">No errors</p>";
-        stopObserver();
-      }
+    var valid = ajv_validate(JSON.parse(json));
+    if (!valid) {
+      ajv_validate.errors.forEach(function (err) {
+        let path = err.dataPath ? err.dataPath.substr(1) : "Root";
+        if (err.keyword === "additionalProperties") {
+          path += "." + err.params.additionalProperty;
+        }
+        result.innerHTML += `Path: <a href="#" class="modal-link" onclick="showSchema('${path}')">${path}</a>, Error: ${err.message} <br/>`;
+      });
+      findErrors();
+    } else {
+      result.innerHTML = "<p class=\"noerrors\">No errors</p>";
+      stopObserver();
     }
+  }
 }
 
 // ---------------------
