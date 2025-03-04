@@ -183,7 +183,7 @@ function printExample() {
   stopObserver();
 
   if(files.length > 0) {
-    i = ((i + 1) > files.length ? 1 : i);
+    i = ((i + 1) > files.length ? 0 : i);
   
     const url = `https://raw.githubusercontent.com/IDMEFv2/IDMEFv2-Examples/refs/heads/main/latest/${files[i]}`;
   
