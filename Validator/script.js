@@ -8,7 +8,8 @@ var json = {};
 var observer;
 var validationPerformed = false;
 
-var i = 1;
+var i = 0;
+var files = [];
 
 var mode = 'code';
 var options = {
@@ -82,64 +83,44 @@ toggleButton.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 });
 
-// Initializing the editor observer and setting the first json
-initObserver();
-editor.set(json);
+$(document).ready(async function() {
+  await initFilesList();
 
-// Preparing the schema for validation
-$.getJSON('https://raw.githubusercontent.com/json-schema-org/json-schema-spec/draft-04/schema.json', function (metaschema) {
-  $.getJSON('https://raw.githubusercontent.com/IDMEFv2/IDMEFv2-Drafts/refs/heads/main/IDMEFv2/latest/IDMEFv2.schema', function (schema) {
-    savedSchema = schema;
-    const description = schema.description;
+  initObserver();
+  editor.set(json);
 
-    // Using a regex to extract the schema version
-    const regex = /revision\s([\w\.]+)\)/;
-    const match = description.match(regex);
+  await initSchema()
 
-    if (match) {
-      const version = match[1];
-
-      $('#version-output').text('Version ' + version);
-      $('#title').text('IDMEFv2 - JSON Validator - Version ' + version);
-    } else {
-      console.log('Non trovato il valore di revision');
-    }
-
-    var ajv = new Ajv({ schemaId: 'id', allErrors: true });
-    ajv.addMetaSchema(metaschema);
-    ajv_validate = ajv.compile(schema);
+  // Using the button to call the upload function
+  document.getElementById('upload').addEventListener('click', function () {
+    const fileInput = document.getElementById('idmefv2_file');
+    fileInput.value = '';
+    fileInput.click();
   });
-});
 
-// Using the button to call the upload function
-document.getElementById('upload').addEventListener('click', function () {
-  const fileInput = document.getElementById('idmefv2_file');
-  fileInput.value = '';
-  fileInput.click();
-});
+  // Handling the Upload and adding the json's content to the editor
+  document.getElementById('idmefv2_file').addEventListener('change', function (event) {
+    var file = event.target.files[0];
 
-// Handling the Upload and adding the json's content to the editor
-document.getElementById('idmefv2_file').addEventListener('change', function (event) {
-  var file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        var result = event.target.result;
+        try {
+          var json = JSON.parse(result);
+          stopObserver();
+          clearErrorHighlights();
+          editor.set(json);
+          validationPerformed = false;
+          startObserver();
+        } catch (error) {
+          console.error("Error parsing JSON:", error);
+        }
+      };
 
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      var result = event.target.result;
-      try {
-        var json = JSON.parse(result);
-        stopObserver();
-        clearErrorHighlights();
-        editor.set(json);
-        validationPerformed = false;
-        startObserver();
-      } catch (error) {
-        console.error("Error parsing JSON:", error);
-      }
-    };
-
-    reader.readAsText(file);
-  }
+      reader.readAsText(file);
+    }
+  });
 });
 
 // Functions related to the Observer
@@ -195,31 +176,28 @@ function printExercise() {
   startObserver();
 }
 
-// Prints one of the two available examples
-// It will be updated to the definitive version once the github repository is fixed
+// Cycles between the examples found inside the repository
 function printExample() {
   cleanResult();
   clearErrorHighlights();
   stopObserver();
 
-  // Costruisce l'URL usando il valore corrente di `i`
-  const url = 'https://raw.githubusercontent.com/IDMEFv2/IDMEFv2-Examples/refs/heads/main/latest/IDMEFv2-Phy' + i + '.json';
-
-  // Effettua la richiesta GET JSON
-  $.getJSON(url, function(json1) {
-    // Se la richiesta ha successo
-    json = json1;
-    editor.set(json);
-    validationPerformed = false;
-    startObserver();
-
-    // Incrementa `i` per puntare al file successivo al prossimo ciclo
+  if(files.length > 0) {
+    i = ((i + 1) > files.length ? 1 : i);
+  
+    const url = `https://raw.githubusercontent.com/IDMEFv2/IDMEFv2-Examples/refs/heads/main/latest/${files[i]}`;
+  
+    $.getJSON(url, function(example) {
+      json = example;
+      editor.set(json);
+      validationPerformed = false;
+      startObserver();
+    });
+  
     i++;
-  }).fail(function() {
-    // Se la richiesta fallisce, resetta `i` a 1 e richiama la funzione
-    i = 1;
-    printExample(); // Richiama la funzione per caricare direttamente il primo file
-  });
+  } else {
+    console.error("No files have been found inside the repository");
+  }
 }
 
 // Save the file in the chosen format and close the modal
@@ -347,7 +325,6 @@ function highlightError(error) {
   const bracketIndex = lastPart.indexOf('[');
   const finalPart = bracketIndex !== -1 ? lastPart.substring(0, bracketIndex) : lastPart;
 
-  console.log(mode)
   if(mode == "code") {
     const variableElements = document.querySelectorAll('.ace_variable');
   
@@ -456,4 +433,43 @@ function closeModal() {
   document.getElementById('overlay').style.display = "none";
   document.getElementById('save-modal').style.display = "none";
   document.getElementById('fileName').value = "";
+}
+
+// Function to recover the file names form github
+async function initFilesList() {
+  const apiUrl = "https://api.github.com/repos/IDMEFv2/IDMEFv2-Examples/contents/latest";
+
+  await $.getJSON(apiUrl, function(data) {
+    files = data.map(file => file.name);
+  }).fail(function() {
+    return [];
+  });
+}
+
+// Preparing the schema for validation
+async function initSchema() {
+  await $.getJSON('https://raw.githubusercontent.com/json-schema-org/json-schema-spec/draft-04/schema.json', async function (metaschema) {
+    await $.getJSON('https://raw.githubusercontent.com/IDMEFv2/IDMEFv2-Drafts/refs/heads/main/IDMEFv2/latest/IDMEFv2.schema', function (schema) {
+      savedSchema = schema;
+      console.log(schema)
+      const description = schema.description;
+  
+      // Using a regex to extract the schema version
+      const regex = /revision\s([\w\.]+)\)/;
+      const match = description.match(regex);
+  
+      if (match) {
+        const version = match[1];
+  
+        $('#version-output').text('Version ' + version);
+        $('#title').text('IDMEFv2 - JSON Validator - Version ' + version);
+      } else {
+        console.log('No revision has been found');
+      }
+  
+      var ajv = new Ajv({ schemaId: 'id', allErrors: true });
+      ajv.addMetaSchema(metaschema);
+      ajv_validate = ajv.compile(schema);
+    });
+  });
 }
