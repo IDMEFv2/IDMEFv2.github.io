@@ -40,9 +40,13 @@
                     <button class="second-bar-button" onclick="printExercise()" title="Prepare an exercise">
                         <i class="fa-solid fa-pencil"></i>
                     </button>
-                    <button class="second-bar-button" onclick="printExample()" title="Show an example">
+                    <button id="openMenuBtn" class="second-bar-button" title="Show an example">
                         <i class="fa-solid fa-code"></i>
                     </button>
+                    <div id="contextMenu" class="context-menu menu-hidden">
+                        <ul id="contextMenuUl">
+                        </ul>
+                    </div>
                     <select id="mode" class="mode-selector ml-auto" onchange="changeMode()">
                         <option value="code">Code Mode</option>
                         <option value="tree">Tree Mode</option>
@@ -62,17 +66,17 @@
             </div>
         </div>
     </div>
-    <div class="fixed pop-up">
+    <div id="success-popup" class="fixed popup success-popup">
         <div class="px-1 flex gap-half">
-            <i class="fa-solid fa-check mt-1 pop-up-green"></i>
+            <i class="fa-solid fa-check mt-1 popup-green"></i>
             <div>
-                <h4 class="mb-0 mt-1 pop-up-green">Copied</h4>
-                <p class="pop-up-text">Your Json has been copied to clipboard</p>  
+                <h4 class="mb-0 mt-1 popup-green">Copied</h4>
+                <p class="popup-text">Your Json has been copied to clipboard</p>  
             </div>
-            <i class="fa-solid fa-xmark mt-1 ml-auto pointer fit-content" onclick="hidePopUp()"></i>
+            <i class="fa-solid fa-xmark mt-1 ml-auto pointer fit-content" onclick="hidePopUp('success-popup')"></i>
         </div>
     </div>
-
+    
     <div class="modal" id="schemaModal" style="display: none;">
         <div class="modal-body flex flex-col gap-1">
             <div class="w-100 flex justify-between align-center">

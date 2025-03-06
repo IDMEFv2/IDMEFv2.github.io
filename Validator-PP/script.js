@@ -1,4 +1,3 @@
-const popUp = document.querySelector('.pop-up');
 var codeEditorTxt = "";
 var ajv_validate;
 var lineCountCache = 0;
@@ -7,8 +6,11 @@ var savedSchema = "";
 var json = {};
 var observer;
 var validationPerformed = false;
+const openMenuBtn = document.getElementById('openMenuBtn');
+const contextMenu = document.getElementById('contextMenu');
 
 var i = 0;
+
 var files = [];
 
 var mode = 'code';
@@ -148,16 +150,24 @@ function startObserver() {
 
 // ---------------------------
 
-// Functions related to the copy pop-up
+// Functions related to the copy popup
 
-function showPopUp() {
-  popUp.classList.add('pop-up-visible');
-  popUp.classList.remove('pop-up-hidden');
+function showPopUp(id, timeout) {
+
+  popUp = document.getElementById(id);
+
+  popUp.classList.add('popup-visible');
+  popUp.classList.remove('popup-hidden');
+  setTimeout(() => {
+    hidePopUp(id);
+  }, timeout);
 }
 
-function hidePopUp() {
-  popUp.classList.remove('pop-up-visible');
-  popUp.classList.add('pop-up-hidden');
+function hidePopUp(id) {
+  popUp = document.getElementById(id);
+
+  popUp.classList.remove('popup-visible');
+  popUp.classList.add('popup-hidden');
 }
 
 // ---------------------------
@@ -177,24 +187,22 @@ function printExercise() {
 }
 
 // Cycles between the examples found inside the repository
-function printExample() {
+function printExample(example) {
   cleanResult();
   clearErrorHighlights();
   stopObserver();
 
   if(files.length > 0) {
-    i = ((i + 1) > files.length ? 0 : i);
-  
-    const url = `https://raw.githubusercontent.com/IDMEFv2/IDMEFv2-Examples/refs/heads/main/latest/${files[i]}`;
-  
+
+    var url = `https://raw.githubusercontent.com/IDMEFv2/IDMEFv2-Examples/refs/heads/main/latest/` + example;
+
     $.getJSON(url, function(example) {
       json = example;
       editor.set(json);
       validationPerformed = false;
       startObserver();
     });
-  
-    i++;
+
   } else {
     console.error("No files have been found inside the repository");
   }
@@ -249,8 +257,7 @@ function copy_text() {
   document.execCommand("copy");
 
   document.body.removeChild(tempInput);
-  showPopUp();
-  setTimeout(hidePopUp, 3000);
+  showPopUp("success-popup", 3000);
 }
 
 function clear_text() {
@@ -441,6 +448,16 @@ async function initFilesList() {
 
   await $.getJSON(apiUrl, function(data) {
     files = data.map(file => file.name);
+    filesMenu = document.getElementById("contextMenuUl");
+    filesMenu.innerHTML = "";
+
+    data.forEach(file => {
+      const listItem = document.createElement("li");
+      listItem.classList.add("context-option");
+      listItem.setAttribute("data-value", file.name);
+      listItem.textContent = file.name;
+      filesMenu.appendChild(listItem);
+    });
   }).fail(function() {
     return [];
   });
@@ -473,3 +490,29 @@ async function initSchema() {
     });
   });
 }
+
+openMenuBtn.addEventListener('click', (event) => {
+  event.stopPropagation();
+
+  const rect = openMenuBtn.getBoundingClientRect();
+  contextMenu.style.top = `${rect.bottom + window.scrollY}px`;
+  contextMenu.style.left = `${rect.left}px`;
+
+  contextMenu.classList.toggle("menu-hidden");
+});
+
+document.getElementById("contextMenuUl").addEventListener("click", (e) => {
+  if (e.target.classList.contains("context-option")) {
+    const selectedValue = e.target.getAttribute("data-value");
+    printExample(selectedValue);
+
+    document.getElementById("contextMenu").classList.add("menu-hidden");
+  }
+});
+
+document.addEventListener('click', (e) => {
+  if (!contextMenu.contains(e.target) && e.target !== openMenuBtn) {
+    contextMenu.classList.add("menu-hidden");
+  }
+});
+
