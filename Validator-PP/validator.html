@@ -1,10 +1,12 @@
-<html lang="us">
-
+<!DOCTYPE html>
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="title">IDMEFv2 - JSON Validator</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsoneditor@latest/dist/jsoneditor.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/6.12.6/ajv.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.38.0/min/vs/loader.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
     <link rel="stylesheet" href="style.css">
@@ -17,52 +19,67 @@
             <i class="fas fa-sun" title="Dark Mode"></i>
         </button>
     </header>
-    <div class="json-container rounded flex-col gap-half w-100">
-        <div class="w-100 flex">
-            <div class="w-50">
-                <div class="w-100 second-bar flex align-center">
-                    <button class="second-bar-button" onclick="clear_text()" title="Clean the editor">
-                        <i class="fa-solid fa-eraser"></i>
-                    </button>
-                    <button class="second-bar-button" onclick="validate()" title="Validate your JSON">
-                        <i class="fa-solid fa-clipboard-check"></i>
-                    </button>
-                    <button class="second-bar-button" onclick="copy_text('codeEditor')" title="Copy to clipboard">
-                        <i class="fa-solid fa-copy"></i>
-                    </button>
-                    <button class="second-bar-button" onclick="openSave()" title="Save your JSON">
-                        <i class="fa-solid fa-download"></i>
-                    </button>
-                    <button id="upload" class="second-bar-button" title="Upload a JSON">
-                        <i class="fa-solid fa-upload"></i>
-                    </button>
-                    <input style="display: none;" id="idmefv2_file" accept=".json" type="file"/>
-                    <button class="second-bar-button" onclick="printExercise()" title="Prepare an exercise">
-                        <i class="fa-solid fa-pencil"></i>
-                    </button>
-                    <button id="openMenuBtn" class="second-bar-button" title="Show an example">
-                        <i class="fa-solid fa-code"></i>
-                    </button>
-                    <div id="contextMenu" class="context-menu menu-hidden">
-                        <ul id="contextMenuUl">
-                        </ul>
+    <div class="json-container rounded flex-col w-100">
+        <div class="w-100 flex" style="flex-direction: column; ">
+            <div style="width: 100%; display: flex;">
+                <div class="w-50 second-bar flex align-center">
+                    <div>
+                        <button class="second-bar-button" onclick="clear_text()" title="Clean the editor">
+                            <i class="fa-solid fa-eraser"></i>
+                        </button>
+                        <button class="second-bar-button" onclick="copy_text('codeEditor')" title="Copy to clipboard">
+                            <i class="fa-solid fa-copy"></i>
+                        </button>
+                        <button class="second-bar-button" onclick="openSave()" title="Save your JSON">
+                            <i class="fa-solid fa-download"></i>
+                        </button>
+                        <button id="upload" class="second-bar-button" title="Upload a JSON">
+                            <i class="fa-solid fa-upload"></i>
+                        </button>
+                        <input style="display: none;" id="idmefv2_file" accept=".json" type="file"/>
+                        <button id="openMenuBtn" class="second-bar-button" title="Show an example">
+                            <i class="fa-solid fa-code"></i>
+                        </button>
+                        <div id="contextMenuExamples" class="context-menu menu-hidden">
+                            <ul id="contextMenuExamplesUl">
+                            </ul>
+                        </div>
+                        <button id="openExercisesMenuBtn" class="second-bar-button" title="Prepare an exercise">
+                            <i class="fa-solid fa-pencil"></i>
+                        </button>
+                        <div id="contextMenuExercises" class="context-menu menu-hidden">
+                            <ul id="contextMenuExercisesUl">
+                            </ul>
+                        </div>
+                        <button class="second-bar-button" onclick="validate()" title="Validate your JSON">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                        </button>
                     </div>
-                    <select id="mode" class="mode-selector ml-auto" onchange="changeMode()">
-                        <option value="code">Code Mode</option>
-                        <option value="tree">Tree Mode</option>
-                        <option value="view">View Mode</option>
-                    </select>
+                    <div>
+                        <input type="text" id="selectedFileName" class="input-file-name" readonly placeholder="No file selected" />
+                    </div>
                 </div>
-                <div id="jsoneditor"></div>
-            </div>
-            <div class="results-div">
-                <div class="w-100 results-bar flex align-center justify-center">
+                <div class="w-50 results-bar flex align-center justify-center">
                     <h2 class="my-0 results-title">Validation results</h2>
                 </div>
-                <div class="h-100 flex align-center y-scroll">      
-                    <div class="pl-1 results-height" id="idmefv2_text_result"></div>
-               </div>
-                <div id="version-output" class="version"><h6>{{version}}</h6></div>
+            </div>
+            <div style="width: 100%; display: flex;">
+                <div class="w-50">
+                    <div style="width: 100%;" id="jsoneditor"></div>
+                </div>
+                <div class="results-div">
+                    <div style="width: 100%;" class="h-100 flex align-center y-scroll">      
+                        <div class="pl-1 results-height" id="idmefv2_text_result"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="version">
+            <div class="w-50 flex">
+                <span>Autocompletion and error highlighting:&nbsp;</span><span id="autocomplete" class="font-bold">{{autocomplete}}</span>
+            </div>
+            <div class="w-50 flex justify-end" id="version-output">
+                {{version}}
             </div>
         </div>
     </div>
@@ -83,7 +100,7 @@
                 <h2 class="my-0 title-font" id="schemaTitle"></h2>
                 <i class="fa-solid fa-x pointer" onclick="closeModal()"></i>
             </div>
-            <div class="w-100 ">
+            <div class="w-100">
                 <pre id="schemaDefinition"></pre>
             </div>
         </div>
@@ -113,10 +130,6 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/6.12.6/ajv.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jsoneditor@latest/dist/jsoneditor.min.js"></script>
-    <script src="script.js"></script>
     <footer class="footer">
         <div>
             <p>
@@ -134,6 +147,5 @@
             </p>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
-
-</html>
