@@ -13,7 +13,9 @@
 }
 
 .results-height {
-    height: 335.13px;
+    height: calc(100% - 2rem);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .json-container {
@@ -83,6 +85,10 @@
     padding-right: 1rem;
 }
 
+.mr-1\/4 {
+    margin-right: 0.25rem;
+}
+
 .pl-1 {
     padding-left: 1rem;
 }
@@ -121,7 +127,7 @@
 }
 
 .input-file-name {
-    width: 15rem;
+    width: calc(100% - 0.6rem);
     padding: 0.3rem;
     border: unset;
     border-radius: 5px;
@@ -189,8 +195,8 @@
 }
 
 .second-bar-button {
-    width: 26px;
-    height: 26px;
+    /* width: 26px;
+    height: 26px; */
     margin: 2px;
     padding: 0;
     border-radius: 2px;
@@ -273,7 +279,7 @@ input:focus {
 .results-div {
     width: 50%;
     display: flex;
-    height: 25rem;
+    /* height: 25rem; */
     border-left: 0px;
     background-color: #ffffff;
     color:#333;
@@ -396,10 +402,6 @@ a:hover {
     font-family: 'Montserrat', sans-serif;
 }
 
-.rounded{
-    border-radius: 20px;
-}
-
 .dark-mode {
     --link-hover: #ADD8E6;
     --border-header : #1E293B;
@@ -412,10 +414,9 @@ a:hover {
 
 .footer {
     margin-top: auto;
-    border-top: 2px solid --border-footer;
+    border-top: 2px solid var(--border-footer);
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    max-height: 20vh; 
     padding: 10px 0;
     box-shadow: 0 -4px 2px -2px rgba(0, 0, 0, 0.1);
     background-color: var(--bars-color);
@@ -454,4 +455,16 @@ a:hover {
 
 .black {
     color: black;
+}
+
+#jsoneditor {
+    width: 100%; 
+    min-height: 450px;
+    height: calc(100vh - 24rem);
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }

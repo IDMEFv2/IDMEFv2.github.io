@@ -13,139 +13,141 @@
 </head>
 
 <body>
-    <header class="site-header">
-        <h1 class="site-title">IDMEFv2 - JSON Validator</h1>
-        <button class="header-button" id="dark-mode-toggle">
-            <i class="fas fa-sun" title="Dark Mode"></i>
-        </button>
-    </header>
-    <div class="json-container rounded flex-col w-100">
-        <div class="w-100 flex" style="flex-direction: column; ">
-            <div style="width: 100%; display: flex;">
-                <div class="w-50 second-bar flex align-center">
-                    <div>
-                        <button class="second-bar-button" onclick="clear_text()" title="Clean the editor">
-                            <i class="fa-solid fa-eraser"></i>
-                        </button>
-                        <button class="second-bar-button" onclick="copy_text('codeEditor')" title="Copy to clipboard">
-                            <i class="fa-solid fa-copy"></i>
-                        </button>
-                        <button class="second-bar-button" onclick="openSave()" title="Save your JSON">
-                            <i class="fa-solid fa-download"></i>
-                        </button>
-                        <button id="upload" class="second-bar-button" title="Upload a JSON">
-                            <i class="fa-solid fa-upload"></i>
-                        </button>
-                        <input style="display: none;" id="idmefv2_file" accept=".json" type="file"/>
-                        <button id="openMenuBtn" class="second-bar-button" title="Show an example">
-                            <i class="fa-solid fa-code"></i>
-                        </button>
-                        <div id="contextMenuExamples" class="context-menu menu-hidden">
-                            <ul id="contextMenuExamplesUl">
-                            </ul>
+    <div class="wrapper">
+        <header class="site-header">
+            <h1 class="site-title">IDMEFv2 - JSON Validator</h1>
+            <button class="header-button" id="dark-mode-toggle">
+                <i class="fas fa-sun" title="Dark Mode"></i>
+            </button>
+        </header>
+        <div class="json-container flex-col w-100">
+            <div class="w-100 flex" style="flex-direction: column; ">
+                <div class="w-100 flex">
+                    <div class="w-50 second-bar flex align-center">
+                        <div style="width: 70%;">
+                            <button class="second-bar-button" onclick="clear_text()" title="Clean the editor">
+                                <span class="font-bold mr-1/4">Delete</span><i class="fa-solid fa-eraser"></i>
+                            </button>
+                            <button class="second-bar-button" onclick="copy_text('codeEditor')" title="Copy to clipboard">
+                                <span class="font-bold mr-1/4">Copy</span><i class="fa-solid fa-copy"></i>
+                            </button>
+                            <button class="second-bar-button" onclick="openSave()" title="Save your JSON">
+                                <span class="font-bold mr-1/4">Export</span><i class="fa-solid fa-download"></i>
+                            </button>
+                            <button id="upload" class="second-bar-button" title="Upload a JSON">
+                                <span class="font-bold mr-1/4">Import</span><i class="fa-solid fa-upload"></i>
+                            </button>
+                            <input style="display: none;" id="idmefv2_file" accept=".json" type="file"/>
+                            <button id="openMenuBtn" class="second-bar-button" title="Show an example">
+                                <span class="font-bold mr-1/4">Example</span><i class="fa-solid fa-code"></i>
+                            </button>
+                            <div id="contextMenuExamples" class="context-menu menu-hidden">
+                                <ul id="contextMenuExamplesUl">
+                                </ul>
+                            </div>
+                            <button id="openExercisesMenuBtn" class="second-bar-button" title="Prepare an exercise">
+                                <span class="font-bold mr-1/4">Exercise</span><i class="fa-solid fa-pencil"></i>
+                            </button>
+                            <div id="contextMenuExercises" class="context-menu menu-hidden">
+                                <ul id="contextMenuExercisesUl">
+                                </ul>
+                            </div>
+                            <button class="second-bar-button" onclick="validate()" title="Validate your JSON">
+                                <span class="font-bold mr-1/4">Validate</span><i class="fa-solid fa-clipboard-check"></i>
+                            </button>
                         </div>
-                        <button id="openExercisesMenuBtn" class="second-bar-button" title="Prepare an exercise">
-                            <i class="fa-solid fa-pencil"></i>
-                        </button>
-                        <div id="contextMenuExercises" class="context-menu menu-hidden">
-                            <ul id="contextMenuExercisesUl">
-                            </ul>
+                        <div style="width: 30%;">
+                            <input type="text" id="selectedFileName" class="input-file-name" readonly placeholder="No file selected" />
                         </div>
-                        <button class="second-bar-button" onclick="validate()" title="Validate your JSON">
-                            <i class="fa-solid fa-clipboard-check"></i>
-                        </button>
                     </div>
-                    <div>
-                        <input type="text" id="selectedFileName" class="input-file-name" readonly placeholder="No file selected" />
+                    <div class="w-50 results-bar flex align-center justify-center">
+                        <h2 class="my-0 results-title">Validation results</h2>
                     </div>
                 </div>
-                <div class="w-50 results-bar flex align-center justify-center">
-                    <h2 class="my-0 results-title">Validation results</h2>
-                </div>
-            </div>
-            <div style="width: 100%; display: flex;">
-                <div class="w-50">
-                    <div style="width: 100%;" id="jsoneditor"></div>
-                </div>
-                <div class="results-div">
-                    <div style="width: 100%;" class="h-100 flex align-center y-scroll">      
-                        <div class="pl-1 results-height" id="idmefv2_text_result"></div>
+                <div class="w-100 flex">
+                    <div class="w-50">
+                        <div id="jsoneditor"></div>
+                    </div>
+                    <div class="results-div">
+                        <div class="h-100 w-100 flex align-center y-scroll">      
+                            <div class="pl-1 results-height" id="idmefv2_text_result"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="version">
-            <div class="w-50 flex">
-                <span>Autocompletion and error highlighting:&nbsp;</span><span id="autocomplete" class="font-bold">{{autocomplete}}</span>
+            <div class="version">
+                <div class="w-50 flex">
+                    <span>Autocompletion and error highlighting:&nbsp;</span><span id="autocomplete" class="font-bold">{{autocomplete}}</span>
+                </div>
+                <div class="w-50 flex justify-end" id="version-output">
+                    {{version}}
+                </div>
             </div>
-            <div class="w-50 flex justify-end" id="version-output">
-                {{version}}
+        </div>
+        <div id="success-popup" class="fixed popup success-popup">
+            <div class="px-1 flex gap-half">
+                <i class="fa-solid fa-check mt-1 popup-green"></i>
+                <div>
+                    <h4 class="mb-0 mt-1 popup-green">Copied</h4>
+                    <p class="popup-text">Your Json has been copied to clipboard</p>  
+                </div>
+                <i class="fa-solid fa-xmark mt-1 ml-auto pointer fit-content" onclick="hidePopUp('success-popup')"></i>
             </div>
         </div>
-    </div>
-    <div id="success-popup" class="fixed popup success-popup">
-        <div class="px-1 flex gap-half">
-            <i class="fa-solid fa-check mt-1 popup-green"></i>
-            <div>
-                <h4 class="mb-0 mt-1 popup-green">Copied</h4>
-                <p class="popup-text">Your Json has been copied to clipboard</p>  
+        
+        <div class="modal" id="schemaModal" style="display: none;">
+            <div class="modal-body flex flex-col gap-1">
+                <div class="w-100 flex justify-between align-center">
+                    <h2 class="my-0 title-font" id="schemaTitle"></h2>
+                    <i class="fa-solid fa-x pointer" onclick="closeModal()"></i>
+                </div>
+                <div class="w-100">
+                    <pre id="schemaDefinition"></pre>
+                </div>
             </div>
-            <i class="fa-solid fa-xmark mt-1 ml-auto pointer fit-content" onclick="hidePopUp('success-popup')"></i>
         </div>
-    </div>
+        <div class="overlay" id="overlay" style="display: none;" onclick="closeModal()"></div>
     
-    <div class="modal" id="schemaModal" style="display: none;">
-        <div class="modal-body flex flex-col gap-1">
-            <div class="w-100 flex justify-between align-center">
-                <h2 class="my-0 title-font" id="schemaTitle"></h2>
-                <i class="fa-solid fa-x pointer" onclick="closeModal()"></i>
-            </div>
-            <div class="w-100">
-                <pre id="schemaDefinition"></pre>
-            </div>
-        </div>
-    </div>
-    <div class="overlay" id="overlay" style="display: none;" onclick="closeModal()"></div>
-
-    <div id="save-modal" class="save-modal" style="display: none;">
-        <div class="modal-body flex flex-col gap-1">
-            <h2 class="my-0 title-font">Save your Json</h2>
-            <div class="w-100 flex gap-half flex-col">
-                <div class="flex w-50 gap-half">
-                    <label for="fileName">File name:</label>
-                    
+        <div id="save-modal" class="save-modal" style="display: none;">
+            <div class="modal-body flex flex-col gap-1">
+                <h2 class="my-0 title-font">Save your Json</h2>
+                <div class="w-100 flex gap-half flex-col">
+                    <div class="flex w-50 gap-half">
+                        <label for="fileName">File name:</label>
+                        
+                    </div>
+                    <div class="flex">
+                        <input id="fileName" type="text" class="save-name input-border">
+                        <select id="format" class="save-format input-border">
+                            <option value=".json">.json</option>
+                            <option value=".txt">.txt</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="flex">
-                    <input id="fileName" type="text" class="save-name input-border">
-                    <select id="format" class="save-format input-border">
-                        <option value=".json">.json</option>
-                        <option value=".txt">.txt</option>
-                    </select>
+                <div class="w-100 flex justify-end gap-half">
+                    <input onclick="closeModal()" class="save-button" type="button" value="Cancel">
+                    <input onclick="saveFileAs()" class="save-button" type="submit" value="Confirm">
                 </div>
             </div>
-            <div class="w-100 flex justify-end gap-half">
-                <input onclick="closeModal()" class="save-button" type="button" value="Cancel">
-                <input onclick="saveFileAs()" class="save-button" type="submit" value="Confirm">
+        </div>
+    
+        <footer class="footer">
+            <div>
+                <p>
+                    IDMEFv2 (Incident Detection Message Exchange Format) is a universal message format to describe any kind of physical
+                    or cyber event and/or incident.
+                </p>
+                <p>
+                    This page will help you validate an IDMEFv2 JSON file in conformity with the IETF IDMEFv2 Internet Draft :
+                    <a href="https://www.ietf.org/archive/id/draft-lehmann-idmefv2-00.html"> draft-lehmann-idmefv2-00 </a>
+                </p>
+                <p>
+                    Please visit the IDMEFv2 documentation web site for more information : 
+                <a href="https://www.idmefv2.org">IDMEFv2 WEBSITE </a> 
+                
+                </p>
             </div>
-        </div>
+        </footer>
     </div>
-
-    <footer class="footer">
-        <div>
-            <p>
-                IDMEFv2 (Incident Detection Message Exchange Format) is a universal message format to describe any kind of physical
-                or cyber event and/or incident.
-            </p>
-            <p>
-                This page will help you validate an IDMEFv2 JSON file in conformity with the IETF IDMEFv2 Internet Draft :
-                <a href="https://www.ietf.org/archive/id/draft-lehmann-idmefv2-00.html"> draft-lehmann-idmefv2-00 </a>
-            </p>
-            <p>
-                Please visit the IDMEFv2 documentation web site for more information : 
-            <a href="https://www.idmefv2.org">IDMEFv2 WEBSITE </a> 
-            
-            </p>
-        </div>
-    </footer>
     <script src="script.js"></script>
 </body>
