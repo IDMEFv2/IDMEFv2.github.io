@@ -468,3 +468,7 @@ a:hover {
     display: flex;
     flex-direction: column;
 }
+
+.monaco-hover-content .action-container a {
+    display: none;
+}
