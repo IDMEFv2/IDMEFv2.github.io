@@ -35,7 +35,8 @@ require(["vs/editor/editor.main"], function () {
 
   async function initEditor() {
     const schema = await loadSchema(schemaURL);
-
+    
+    fetchVersionFolderPairs();
     updateValidation(validationEnabled, schema);
 
     editor = monaco.editor.create(document.getElementById("jsoneditor"), {
@@ -185,8 +186,8 @@ toggleButton.addEventListener('click', () => {
 });
 
 $(document).ready(async function () {
-  await initFilesList();
-  await initSchema()
+  await initFilesList("latest");
+  await initSchema("latest")
 
   // Using the button to call the upload function
   document.getElementById('upload').addEventListener('click', function () {
@@ -413,23 +414,37 @@ function closeModal() {
 }
 
 // Function to recover the file names form github
-async function initFilesList() {
-  const apiUrl = "https://api.github.com/repos/IDMEFv2/IDMEFv2-Examples/contents/latest";
+async function initFilesList(version = "latest") {
+  const baseUrl = "https://api.github.com/repos/IDMEFv2/IDMEFv2-Examples/contents/";
+  
+  // Normalizing the version name to adapt it to the ones used in the other repository
+  let normalizedVersion = version === "latest" ? "latest" : `V${parseInt(version, 10)}`;
+  let apiUrl = `${baseUrl}${normalizedVersion}`;
+  let data;
 
-  await $.getJSON(apiUrl, function (data) {
-    files = data.map(file => file.name);
-    filesMenu = document.getElementById("contextMenuExamplesUl");
-    filesMenu.innerHTML = "";
+  try {
+    data = await $.getJSON(apiUrl);
+  } catch (error) {
+    $("#warning-text").text(`No examples available for ${normalizedVersion}, displaying 'latest'.`);
+    showPopUp("warning-popup", 3000);
+    try {
+      data = await $.getJSON(`${baseUrl}latest`);
+    } catch (fallbackError) {
+      console.error("Errore anche nel recuperare gli esempi da 'latest'.", fallbackError);
+      return;
+    }
+  }
 
-    data.forEach(file => {
-      const listItem = document.createElement("li");
-      listItem.classList.add("context-option");
-      listItem.setAttribute("data-value", file.name);
-      listItem.textContent = file.name;
-      filesMenu.appendChild(listItem);
-    });
-  }).fail(function () {
-    return [];
+  files = data.map(file => file.name);
+  const filesMenu = document.getElementById("contextMenuExamplesUl");
+  filesMenu.innerHTML = "";
+
+  data.forEach(file => {
+    const listItem = document.createElement("li");
+    listItem.classList.add("context-option");
+    listItem.setAttribute("data-value", file.name);
+    listItem.textContent = file.name;
+    filesMenu.appendChild(listItem);
   });
 
   ExercisesMenu = document.getElementById("contextMenuExercisesUl");
@@ -445,13 +460,14 @@ async function initFilesList() {
 }
 
 // Preparing the schema for validation
-async function initSchema() {
-  await $.getJSON('https://raw.githubusercontent.com/json-schema-org/json-schema-spec/draft-04/schema.json', async function (metaschema) {
-    await $.getJSON('https://raw.githubusercontent.com/IDMEFv2/IDMEFv2-Drafts/refs/heads/main/IDMEFv2/latest/IDMEFv2.schema', function (schema) {
+async function initSchema(folder) {
+  const schemaURL = `https://raw.githubusercontent.com/IDMEFv2/IDMEFv2-Drafts/refs/heads/main/IDMEFv2/${folder}/IDMEFv2.schema`;
+
+  await $.getJSON(`https://raw.githubusercontent.com/json-schema-org/json-schema-spec/draft-04/schema.json`, async function (metaschema) {
+    await $.getJSON(schemaURL, function (schema) {
       savedSchema = schema;
       const description = schema.description;
 
-      // Using a regex to extract the schema version
       const regex = /revision\s([\w\.]+)\)/;
       const match = description.match(regex);
 
@@ -463,12 +479,25 @@ async function initSchema() {
       } else {
         console.log('No revision has been found');
       }
+
       var ajv = new Ajv({ schemaId: 'id', allErrors: true });
       ajv.addMetaSchema(metaschema);
       ajv_validate = ajv.compile(schema);
+
+      monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
+        validate: validationEnabled,
+        schemas: [
+          {
+            uri: schemaURL,
+            fileMatch: ["*"],
+            schema: savedSchema
+          }
+        ]
+      });
     });
   });
 }
+
 
 openMenuBtn.addEventListener('click', (event) => {
   event.stopPropagation();
@@ -569,3 +598,81 @@ function toggleAutocomplete() {
   }
 }
 
+async function fetchVersionFolderPairs() {
+  const repo = "IDMEFv2/IDMEFv2-Drafts";
+  const path = "IDMEFv2";
+  const apiUrl = `https://api.github.com/repos/${repo}/contents/${path}`;
+  const rawBase = `https://raw.githubusercontent.com/${repo}/main/${path}`;
+
+  const versionMap = new Map();
+
+  const folders = await fetch(apiUrl)
+    .then(res => res.json())
+    .then(data => data.filter(item => item.type === "dir").map(item => item.name));
+
+  // Ordina prima "latest", poi le versioni numeriche
+  folders.sort((a, b) => {
+    if (a === "latest") return -1;
+    if (b === "latest") return 1;
+    return a.localeCompare(b);
+  });
+
+  // Filtriamo le cartelle per includere solo quelle dalla versione 04 in poi
+  const validFolders = folders.filter(folder => {
+    // Salta "latest" e cartelle precedenti a "04"
+    return folder === "latest" || parseInt(folder, 10) >= 4;
+  });
+
+  for (const folder of validFolders) {
+    const schemaUrl = `${rawBase}/${folder}/IDMEFv2.schema`;
+
+    try {
+      const res = await fetch(schemaUrl);
+      const schemaText = await res.text();
+      const schema = JSON.parse(schemaText);
+
+      const versionEnum = schema?.properties?.Version?.enum;
+      if (Array.isArray(versionEnum)) {
+        for (const version of versionEnum) {
+          if (!versionMap.has(version)) {
+            versionMap.set(version, folder);
+          }
+        }
+      }
+    } catch (err) {
+      console.warn(`${folder}: ${err.message}`);
+    }
+  }
+
+  // Ordina i risultati
+  const result = Array.from(versionMap.entries())
+    .map(([version, folder]) => ({ version, folder }))
+    .sort((a, b) => (a.version > b.version ? 1 : -1));
+
+  result.sort((a, b) => {
+    if (a.folder === "latest") return -1;
+    if (b.folder === "latest") return 1;
+    return b.version.localeCompare(a.version);
+  });
+
+  // Aggiorna il menu a discesa
+  $('#version-dropdown').empty();
+
+  result.forEach(({ version, folder }) => {
+    if (folder !== "latest") {
+      $('#version-dropdown').append(`<option value="${folder}">${version}</option>`);
+    } else {
+      $('#version-dropdown').append(`<option value="${folder}">Latest</option>`);
+    }
+  });
+
+  $('#version-dropdown').prop('disabled', false);
+}
+
+async function selectVersion() {
+  folder = $('#version-dropdown').val();
+  await initSchema(folder);
+  enableValidation();
+  await initFilesList(folder);
+  cleanResult()
+}

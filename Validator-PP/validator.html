@@ -15,7 +15,12 @@
 <body>
     <div class="wrapper">
         <header class="site-header">
-            <h1 class="site-title">IDMEFv2 - JSON Validator</h1>
+            <div class="flex gap-1 align-center">
+                <h1 class="site-title">IDMEFv2 - JSON Validator</h1>
+                <select class="pointer" name="version-dropdown" id="version-dropdown" disabled onchange="selectVersion()">
+                    <option value="latest">Latest</option>
+                </select>
+            </div>
             <button class="header-button" id="dark-mode-toggle">
                 <i class="fas fa-sun" title="Dark Mode"></i>
             </button>
@@ -25,34 +30,34 @@
                 <div class="w-100 flex">
                     <div class="w-50 second-bar flex align-center">
                         <div style="width: 70%;">
-                            <button class="second-bar-button" onclick="clear_text()" title="Clean the editor">
+                            <button class="second-bar-button pointer" onclick="clear_text()" title="Clean the editor">
                                 <span class="font-bold mr-1/4">Delete</span><i class="fa-solid fa-eraser"></i>
                             </button>
-                            <button class="second-bar-button" onclick="copy_text('codeEditor')" title="Copy to clipboard">
+                            <button class="second-bar-button pointer" onclick="copy_text('codeEditor')" title="Copy to clipboard">
                                 <span class="font-bold mr-1/4">Copy</span><i class="fa-solid fa-copy"></i>
                             </button>
-                            <button class="second-bar-button" onclick="openSave()" title="Save your JSON">
+                            <button class="second-bar-button pointer" onclick="openSave()" title="Save your JSON">
                                 <span class="font-bold mr-1/4">Export</span><i class="fa-solid fa-download"></i>
                             </button>
-                            <button id="upload" class="second-bar-button" title="Upload a JSON">
+                            <button id="upload" class="second-bar-button pointer" title="Upload a JSON">
                                 <span class="font-bold mr-1/4">Import</span><i class="fa-solid fa-upload"></i>
                             </button>
                             <input style="display: none;" id="idmefv2_file" accept=".json" type="file"/>
-                            <button id="openMenuBtn" class="second-bar-button" title="Show an example">
+                            <button id="openMenuBtn" class="second-bar-button pointer" title="Show an example">
                                 <span class="font-bold mr-1/4">Example</span><i class="fa-solid fa-code"></i>
                             </button>
                             <div id="contextMenuExamples" class="context-menu menu-hidden">
                                 <ul id="contextMenuExamplesUl">
                                 </ul>
                             </div>
-                            <button id="openExercisesMenuBtn" class="second-bar-button" title="Prepare an exercise">
+                            <button id="openExercisesMenuBtn" class="second-bar-button pointer" title="Prepare an exercise">
                                 <span class="font-bold mr-1/4">Exercise</span><i class="fa-solid fa-pencil"></i>
                             </button>
                             <div id="contextMenuExercises" class="context-menu menu-hidden">
                                 <ul id="contextMenuExercisesUl">
                                 </ul>
                             </div>
-                            <button class="second-bar-button" onclick="validate()" title="Validate your JSON">
+                            <button class="second-bar-button pointer" onclick="validate()" title="Validate your JSON">
                                 <span class="font-bold mr-1/4">Validate</span><i class="fa-solid fa-clipboard-check"></i>
                             </button>
                         </div>
@@ -76,9 +81,9 @@
                 </div>
             </div>
             <div class="version">
-                <div class="w-50 flex">
+                <div class="w-50 flex align-center">
                     <span>Autocompletion and error highlighting:&nbsp;</span>
-                    <button id="autocomplete" class="font-bold" onclick="toggleAutocomplete()">enabled</button>
+                    <button id="autocomplete" class="font-bold pointer" onclick="toggleAutocomplete()">enabled</button>
                 </div>
                 <div class="w-50 flex justify-end" id="version-output">
                     {{version}}
@@ -95,18 +100,29 @@
                 <i class="fa-solid fa-xmark mt-1 ml-auto pointer fit-content" onclick="hidePopUp('success-popup')"></i>
             </div>
         </div>
-        
-        <div class="modal" id="schemaModal" style="display: none;">
-            <div class="modal-body flex flex-col gap-1">
-                <div class="w-100 flex justify-between align-center">
-                    <h2 class="my-0 title-font" id="schemaTitle"></h2>
-                    <i class="fa-solid fa-x pointer" onclick="closeModal()"></i>
+
+        <div id="success-popup" class="fixed popup success-popup">
+            <div class="px-1 flex gap-half">
+                <i class="fa-solid fa-check mt-1 popup-green"></i>
+                <div>
+                    <h4 class="mb-0 mt-1 popup-green">Copied</h4>
+                    <p class="popup-text">Your Json has been copied to clipboard</p>  
                 </div>
-                <div class="w-100">
-                    <pre id="schemaDefinition"></pre>
-                </div>
+                <i class="fa-solid fa-xmark mt-1 ml-auto pointer fit-content" onclick="hidePopUp('success-popup')"></i>
             </div>
         </div>
+
+        <div id="warning-popup" class="fixed popup warning-popup">
+            <div class="px-1 flex gap-half">
+                <i class="fa-solid fa-triangle-exclamation mt-1 popup-yellow"></i>
+                <div>
+                    <h4 class="mb-0 mt-1 popup-yellow">Warning</h4>
+                    <p id="warning-text" class="popup-text"></p>  
+                </div>
+                <i class="fa-solid fa-xmark mt-1 ml-auto pointer fit-content" onclick="hidePopUp('warning-popup')"></i>
+            </div>
+        </div>
+        
         <div class="overlay" id="overlay" style="display: none;" onclick="closeModal()"></div>
     
         <div id="save-modal" class="save-modal" style="display: none;">

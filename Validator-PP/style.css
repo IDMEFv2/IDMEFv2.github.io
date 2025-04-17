@@ -8,6 +8,12 @@
     --link-hover: #216add;
 }
 
+#version-dropdown {
+    height: fit-content;
+    padding: 0.3rem;
+    min-width: 5rem;
+}
+
 .title-font {
     font-family: 'Montserrat', sans-serif;
 }
@@ -270,6 +276,15 @@ input:focus {
     border: 1px #b2ffb2 solid;
 }
 
+.popup-yellow {
+    color: rgb(255, 204, 0)
+}
+
+.warning-popup {
+    background-color: #fff9db;
+    border: 1px solid #ffe58f;
+}
+
 .popup-text {
     font-size: 0.85rem;
     font-weight: lighter;
@@ -471,4 +486,8 @@ a:hover {
 
 .monaco-hover-content .action-container a {
     display: none;
+}
+
+.pointer {
+    cursor: pointer
 }
