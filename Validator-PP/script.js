@@ -244,7 +244,7 @@ function hidePopUp(id) {
 // Prints the only available exercise
 // It will be updated to the definitive version once more are available
 function printExercise(exercise) {
-  disableValidation();
+  // disableValidation();
   cleanResult()
   json = jsonArray.find(json => json.name == exercise);
   $('#selectedFileName').val(json.name);
@@ -556,3 +556,16 @@ function disableValidation() {
       : [],
   });
 }
+
+// New function to toggle validation state
+function toggleAutocomplete() {
+  const autocompleteButton = $('#autocomplete'); // Get the button element
+  const isEnabled = autocompleteButton.text() === 'enabled'; // Check current text
+
+  if (isEnabled) {
+    disableValidation(); // If enabled, disable it
+  } else {
+    enableValidation(); // If disabled, enable it
+  }
+}
+

@@ -77,7 +77,8 @@
             </div>
             <div class="version">
                 <div class="w-50 flex">
-                    <span>Autocompletion and error highlighting:&nbsp;</span><span id="autocomplete" class="font-bold">{{autocomplete}}</span>
+                    <span>Autocompletion and error highlighting:&nbsp;</span>
+                    <button id="autocomplete" class="font-bold" onclick="toggleAutocomplete()">enabled</button>
                 </div>
                 <div class="w-50 flex justify-end" id="version-output">
                     {{version}}
