@@ -15,15 +15,15 @@
 <body>
     <div class="wrapper">
         <header class="site-header">
+            <h1 class="site-title">IDMEFv2 - JSON Validator</h1>
             <div class="flex gap-1 align-center">
-                <h1 class="site-title">IDMEFv2 - JSON Validator</h1>
                 <select class="pointer" name="version-dropdown" id="version-dropdown" disabled onchange="selectVersion()">
-                    <option value="latest">Latest</option>
+                    <option value="latest">Latest Schema - 2.D.Vxx</option>
                 </select>
+                <button class="header-button" id="dark-mode-toggle">
+                    <i class="fas fa-sun" title="Dark Mode"></i>
+                </button>
             </div>
-            <button class="header-button" id="dark-mode-toggle">
-                <i class="fas fa-sun" title="Dark Mode"></i>
-            </button>
         </header>
         <div class="json-container flex-col w-100">
             <div class="w-100 flex" style="flex-direction: column; ">

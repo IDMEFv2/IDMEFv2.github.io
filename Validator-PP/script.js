@@ -343,7 +343,7 @@ function validate() {
         if (err.keyword === "additionalProperties") {
           path += "." + err.params.additionalProperty;
         }
-        result.innerHTML += `Path: <a href="#" class="modal-link" onclick="showSchema('${path}')">${path}</a>, Error: ${err.message} <br/>`;
+        result.innerHTML += `Path: <b>${path}</b>, Error: ${err.message} <br/>`;
       });
     } else {
       result.innerHTML = "<p class=\"noerrors\">No errors</p>";
@@ -425,12 +425,12 @@ async function initFilesList(version = "latest") {
   try {
     data = await $.getJSON(apiUrl);
   } catch (error) {
-    $("#warning-text").text(`No examples available for ${normalizedVersion}, displaying 'latest'.`);
+    $("#warning-text").text(`No examples available for ${normalizedVersion}, displaying 'Latest Schema'.`);
     showPopUp("warning-popup", 3000);
     try {
       data = await $.getJSON(`${baseUrl}latest`);
     } catch (fallbackError) {
-      console.error("Errore anche nel recuperare gli esempi da 'latest'.", fallbackError);
+      console.error("Error recovering 'Latest Schema'.", fallbackError);
       return;
     }
   }
@@ -474,7 +474,7 @@ async function initSchema(folder) {
       if (match) {
         const version = match[1];
         $('#autocomplete').text('enabled');
-        $('#version-output').text('Version ' + version);
+        $('#version-output').text('Schema version ' + version);
         $('#title').text('IDMEFv2 - JSON Validator - Version ' + version);
       } else {
         console.log('No revision has been found');
@@ -586,7 +586,7 @@ function disableValidation() {
   });
 }
 
-// New function to toggle validation state
+// Function to toggle validation state
 function toggleAutocomplete() {
   const autocompleteButton = $('#autocomplete'); // Get the button element
   const isEnabled = autocompleteButton.text() === 'enabled'; // Check current text
@@ -610,16 +610,13 @@ async function fetchVersionFolderPairs() {
     .then(res => res.json())
     .then(data => data.filter(item => item.type === "dir").map(item => item.name));
 
-  // Ordina prima "latest", poi le versioni numeriche
   folders.sort((a, b) => {
     if (a === "latest") return -1;
     if (b === "latest") return 1;
     return a.localeCompare(b);
   });
 
-  // Filtriamo le cartelle per includere solo quelle dalla versione 04 in poi
   const validFolders = folders.filter(folder => {
-    // Salta "latest" e cartelle precedenti a "04"
     return folder === "latest" || parseInt(folder, 10) >= 4;
   });
 
@@ -644,7 +641,6 @@ async function fetchVersionFolderPairs() {
     }
   }
 
-  // Ordina i risultati
   const result = Array.from(versionMap.entries())
     .map(([version, folder]) => ({ version, folder }))
     .sort((a, b) => (a.version > b.version ? 1 : -1));
@@ -655,14 +651,13 @@ async function fetchVersionFolderPairs() {
     return b.version.localeCompare(a.version);
   });
 
-  // Aggiorna il menu a discesa
   $('#version-dropdown').empty();
 
   result.forEach(({ version, folder }) => {
     if (folder !== "latest") {
       $('#version-dropdown').append(`<option value="${folder}">${version}</option>`);
     } else {
-      $('#version-dropdown').append(`<option value="${folder}">Latest</option>`);
+      $('#version-dropdown').append(`<option value="${folder}">Latest Schema - ${version}</option>`);
     }
   });
 
