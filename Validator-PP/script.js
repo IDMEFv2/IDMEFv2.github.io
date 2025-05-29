@@ -60,7 +60,6 @@ require(["vs/editor/editor.main"], function () {
   initEditor();
 });
 
-// Some fake exercises used to test the menu function
 var jsonArray = [];
 
 const toggleButton = document.getElementById('dark-mode-toggle');
@@ -595,7 +594,5 @@ function mapSchemaToFolder(value) {
   if (value.toLowerCase() === "latest") {
     return "latest";
   }
-  // Assuming values are numeric strings like "04", "05"
-  console.log("V" + parseInt(value, 10))
   return "V" + parseInt(value, 10);
 }
