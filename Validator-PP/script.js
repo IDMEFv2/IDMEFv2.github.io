@@ -4,6 +4,7 @@ var lineCountCache = 0;
 var version = "0";
 var autocomplete = "enabled";
 var savedSchema = "";
+var currentVersion = "latest";
 var json = {};
 var observer;
 const openMenuBtn = document.getElementById('openMenuBtn');
@@ -35,7 +36,7 @@ require(["vs/editor/editor.main"], function () {
 
   async function initEditor() {
     const schema = await loadSchema(schemaURL);
-    
+
     fetchVersionFolderPairs();
     updateValidation(validationEnabled, schema);
 
@@ -60,114 +61,7 @@ require(["vs/editor/editor.main"], function () {
 });
 
 // Some fake exercises used to test the menu function
-var jsonArray = [
-  {
-    "name": "intrusion-detection-1.json",
-    "json": {
-      "Version": "2.0.3",
-      "ID": "e5f9bbae-163e-42f9-a2f2-0daaf78fefb2",
-      "CreateTime": "2021-01-18T23:34:05.21Z",
-      "StartTime": "2021-01-18T23:34:04.52Z",
-      "Cause": "Malicious",
-      "Category": [
-        "Intrusion.Burglary"
-      ],
-      "Severity": "medium",
-      "Confidence": 0.9,
-      "Description": "Physical intrusion detected",
-      "Analyzer": {
-        "IP": "1.1.1.1",
-        "Name": "Motion detector"
-      },
-      "Sensor": [
-        {
-          "IP": "1.1.1.2",
-          "Name": "Infrared camera 42"
-        }
-      ],
-      "Vector": [
-        {
-          "Category": [
-            "human"
-          ],
-          "AttachHandle": [
-            "attach1"
-          ],
-          "ObservableHandle": [
-            "obs1"
-          ]
-        }
-      ],
-      "Attachment": [
-        {
-          "Handle": "attach1",
-          "FileName": "img2021011823340521.jpg",
-          "ExternalURI": "https://data.acme.eu/img2021011823340521.jpg",
-          "ContentType": "image/jpeg"
-        }
-      ],
-      "Observable": [
-        {
-          "Handle": "obs1",
-          "Content": "{\"Xmin\": 22, \"Xmax\": 100, \"Ymin\": 501, \"Ymax\": 692}"
-        }
-      ]
-    }
-  },
-  {
-    "name": "network-anomaly-1.json",
-    "json": {
-      "Version": "2.0.3",
-      "ID": "a1b2c3d4-e567-89f0-1234-56789abcdef0",
-      "CreateTime": "2021-02-10T14:22:10.00Z",
-      "StartTime": "2021-02-10T14:20:45.78Z",
-      "Cause": "Anomalous",
-      "Category": [
-        "Network.Anomaly"
-      ],
-      "Severity": "high",
-      "Confidence": 0.95,
-      "Description": "Unusual network traffic detected",
-      "Analyzer": {
-        "IP": "8.8.8.8",
-        "Name": "Traffic Monitor"
-      },
-      "Sensor": [
-        {
-          "IP": "192.168.1.10",
-          "Name": "Router Sensor"
-        }
-      ],
-      "Vector": [
-        {
-          "Category": [
-            "network"
-          ],
-          "AttachHandle": [
-            "attach2"
-          ],
-          "ObservableHandle": [
-            "obs2"
-          ]
-        }
-      ],
-      "Attachment": [
-        {
-          "Handle": "attach2",
-          "FileName": "network_dump_20210210.pcap",
-          "ExternalURI": "https://data.acme.eu/network_dump_20210210.pcap",
-          "ContentType": "application/vnd.tcpdump.pcap"
-        }
-      ],
-      "Observable": [
-        {
-          "Handle": "obs2",
-          "Content": "{\"SrcIP\": \"192.168.1.5\", \"DstIP\": \"10.0.0.1\", \"Protocol\": \"TCP\", \"Port\": 443}"
-        }
-      ]
-    }
-  }
-];
+var jsonArray = [];
 
 const toggleButton = document.getElementById('dark-mode-toggle');
 const saveModal = document.getElementById('save-modal')
@@ -185,7 +79,16 @@ toggleButton.addEventListener('click', () => {
   saveModal.classList.toggle('dark-mode');
 });
 
+$('#version-dropdown').on('change', function() {
+  const selectedValue = $(this).val();
+  currentVersion = mapSchemaToFolder(selectedValue);
+  selectVersion();
+});
+
+
 $(document).ready(async function () {
+  await loadExercisesFromFile();
+
   await initFilesList("latest");
   await initSchema("latest")
 
@@ -241,11 +144,7 @@ function hidePopUp(id) {
 // ---------------------------
 
 // Functions for the custom buttons
-
-// Prints the only available exercise
-// It will be updated to the definitive version once more are available
 function printExercise(exercise) {
-  // disableValidation();
   cleanResult()
   json = jsonArray.find(json => json.name == exercise);
   $('#selectedFileName').val(json.name);
@@ -258,15 +157,13 @@ function printExample(example) {
   cleanResult();
 
   if (files.length > 0) {
-
-    var url = `https://raw.githubusercontent.com/IDMEFv2/IDMEFv2-Examples/refs/heads/main/latest/` + example;
+    var url = `https://raw.githubusercontent.com/IDMEFv2/IDMEFv2-Examples/refs/heads/main/${currentVersion}/` + example;
 
     $.getJSON(url, function (exampleJson) {
       json = exampleJson;
       $('#selectedFileName').val(example);
       editor.setValue(JSON.stringify(json, null, 2));
     });
-
   } else {
     console.error("No files have been found inside the repository");
   }
@@ -416,7 +313,7 @@ function closeModal() {
 // Function to recover the file names form github
 async function initFilesList(version = "latest") {
   const baseUrl = "https://api.github.com/repos/IDMEFv2/IDMEFv2-Examples/contents/";
-  
+
   // Normalizing the version name to adapt it to the ones used in the other repository
   let normalizedVersion = version === "latest" ? "latest" : `V${parseInt(version, 10)}`;
   let apiUrl = `${baseUrl}${normalizedVersion}`;
@@ -480,7 +377,7 @@ async function initSchema(folder) {
         console.log('No revision has been found');
       }
 
-      var ajv = new Ajv({ schemaId: 'id', allErrors: true });
+      var ajv = new Ajv({ schemaId: 'id', allErrors: true, coerceTypes: true });
       ajv.addMetaSchema(metaschema);
       ajv_validate = ajv.compile(schema);
 
@@ -592,9 +489,9 @@ function toggleAutocomplete() {
   const isEnabled = autocompleteButton.text() === 'enabled'; // Check current text
 
   if (isEnabled) {
-    disableValidation(); // If enabled, disable it
+    disableValidation();
   } else {
-    enableValidation(); // If disabled, enable it
+    enableValidation();
   }
 }
 
@@ -670,4 +567,35 @@ async function selectVersion() {
   enableValidation();
   await initFilesList(folder);
   cleanResult()
+}
+
+async function loadExercisesFromFile() {
+  try {
+    const response = await fetch("Exercises/Exercises.json");
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    jsonArray = await response.json();
+
+    const ExercisesMenu = document.getElementById("contextMenuExercisesUl");
+    ExercisesMenu.innerHTML = "";
+
+    jsonArray.forEach(file => {
+      const listItem = document.createElement("li");
+      listItem.classList.add("context-option");
+      listItem.setAttribute("data-value", file.name);
+      listItem.textContent = file.name;
+      ExercisesMenu.appendChild(listItem);
+    });
+
+  } catch (error) {
+    console.error("An error has occurred while loading the exercises:", error);
+  }
+}
+
+function mapSchemaToFolder(value) {
+  if (value.toLowerCase() === "latest") {
+    return "latest";
+  }
+  // Assuming values are numeric strings like "04", "05"
+  console.log("V" + parseInt(value, 10))
+  return "V" + parseInt(value, 10);
 }
