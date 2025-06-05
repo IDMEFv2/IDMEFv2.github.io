@@ -78,7 +78,7 @@ toggleButton.addEventListener('click', () => {
   saveModal.classList.toggle('dark-mode');
 });
 
-$('#version-dropdown').on('change', function() {
+$('#version-dropdown').on('change', function () {
   const selectedValue = $(this).val();
   currentVersion = mapSchemaToFolder(selectedValue);
   selectVersion();
@@ -229,10 +229,24 @@ function validate() {
   json = editor.getValue()
 
   if (!json) {
-    result.innerHTML = "<p class=\"noerrors\">No data provided to validate.</p>";
+    result.innerHTML = `
+      <p class="message">
+        No JSON data provided. Please enter valid JSON before running validation.
+      </p>`;
     return;
   } else {
-    var valid = ajv_validate(JSON.parse(json));
+
+    try {
+      var valid = ajv_validate(JSON.parse(json));
+    } catch (e) {
+      result.innerHTML = `
+        <p class="message">
+          The JSON format is invalid. Please check your syntax.<br>
+          To help identify the issue, enable error highlighting using the button in the bottom-left corner.
+        </p>`;
+      return;
+    }
+
     if (!valid) {
       ajv_validate.errors.forEach(function (err) {
         let path = err.dataPath ? err.dataPath.substr(1) : "Root";
@@ -242,7 +256,7 @@ function validate() {
         result.innerHTML += `Path: <b>${path}</b>, Error: ${err.message} <br/>`;
       });
     } else {
-      result.innerHTML = "<p class=\"noerrors\">No errors</p>";
+      result.innerHTML = "<p class=\"message\">The JSON is valid and conforms to the selected schema.</p>";
     }
   }
 }

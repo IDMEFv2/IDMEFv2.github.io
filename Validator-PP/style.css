@@ -413,8 +413,7 @@ a:hover {
     align-items: center;
 }
 
-.noerrors{
-    text-align: center;
+.message{
     font-family: 'Montserrat', sans-serif;
 }
 
