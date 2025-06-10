@@ -1,12 +1,18 @@
 :root {
-    /* --dark-link: blue; */
     --border-header: #EAEAEA;
     --border-footer: #EAEAEA;
-    --color-text: #2c00db;
+    --color-text: #216add;
     --color-back: #3883fa;
     --bars-color: #f3f3f3;
     --header-color: #757575;
-    --link-hover: #2c00db;
+    --link-hover: #216add;
+}
+
+#version-dropdown {
+    height: fit-content;
+    padding: 0.3rem;
+    min-width: 5rem;
+    border-radius: 5px;
 }
 
 .title-font {
@@ -14,7 +20,9 @@
 }
 
 .results-height {
-    height: 335.13px;
+    height: calc(100% - 2rem);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .json-container {
@@ -29,6 +37,10 @@
 
 .flex {
     display: flex;
+}
+
+.font-bold {
+    font-weight: bold;
 }
 
 .flex-col {
@@ -63,6 +75,10 @@
     width: 50%;
 }
 
+.w-100 {                                 
+    width: 100%;
+}
+
 .h-100 {
     height: 100%;
 }
@@ -74,6 +90,10 @@
 .px-1 {
     padding-left: 1rem;
     padding-right: 1rem;
+}
+
+.mr-1\/4 {
+    margin-right: 0.25rem;
 }
 
 .pl-1 {
@@ -113,25 +133,30 @@
     border: 1px solid rgb(118, 118, 118);
 }
 
-.pop-up {
+.input-file-name {
+    width: calc(100% - 0.6rem);
+    padding: 0.3rem;
+    border: unset;
+    border-radius: 5px;
+}
+
+.popup {
     right: 0.313rem;
     top: 0.313rem;
-    border: 1px #b2ffb2 solid;
     border-radius: 10px;
     width: 20rem;
-    background-color: #dfffdf;
     transform: translateY(-150%);
     opacity: 0;
     transition: transform 0.5s ease, opacity 0.5s ease;
+    color: black;
 }
 
-.pop-up-visible {
+.popup-visible {
     transform: translateY(0);
     opacity: 1;
 }
 
-
-.pop-up-hidden {
+.popup-hidden {
     transform: translateY(-150%);
     opacity: 0;
 }
@@ -151,7 +176,6 @@
 
 .save-button {
     padding: 0.313rem 0.625rem;
-    background: transparent;
     border: 1px solid rgb(118, 118, 118);
     border-radius: 5px;
     cursor: pointer;
@@ -162,11 +186,8 @@
 }
 
 #jsoneditor {
+    height: 25rem;
     border-top: 0 !important;
-}
-
-a.jsoneditor-poweredBy {
-    display: none;
 }
 
 .second-bar {
@@ -174,12 +195,15 @@ a.jsoneditor-poweredBy {
     box-sizing: border-box;
     border: 1px solid var(--header-color);
     padding: 2px;
-    height: 35px;
+    height: 4.72rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
 }
 
 .second-bar-button {
-    width: 26px;
-    height: 26px;
+    /* width: 26px;
+    height: 26px; */
     margin: 2px;
     padding: 0;
     border-radius: 2px;
@@ -194,14 +218,6 @@ a.jsoneditor-poweredBy {
 .second-bar-button:hover {
     background-color: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.4);
-}
-
-.mode-selector {
-    font-size: 12px;
-    height: 1.563rem;
-    font-weight: bold;
-    outline: none;
-    border-radius: 5px;
 }
 
 .overlay {
@@ -252,39 +268,34 @@ input:focus {
     white-space: pre-wrap;
 }
 
-.pop-up-green {
+.popup-green {
     color: rgb(0, 196, 0);
 }
 
-.pop-up-text {
+.success-popup {
+    background-color: #dfffdf;
+    border: 1px #b2ffb2 solid;
+}
+
+.popup-yellow {
+    color: rgb(255, 204, 0)
+}
+
+.warning-popup {
+    background-color: #fff9db;
+    border: 1px solid #ffe58f;
+}
+
+.popup-text {
     font-size: 0.85rem;
     font-weight: lighter;
     margin-top: 0.5rem;
 }
 
-.w-100 {                                 
-    width: 100%;
-}
-
-.w-150 {                                  
-    width: 150%;
-}
-
-#jsoneditor {
-    height: 25rem;
-}
-
-.error-found {
-    text-decoration:underline wavy red;
-    /* background-color: rgba(255, 0, 0, 0.5); */
-}
-
 .results-div {
     width: 50%;
     display: flex;
-    flex-direction: column;
-    height: 27.11rem;
-    border: 1px solid var(--header-color);
+    /* height: 25rem; */
     border-left: 0px;
     background-color: #ffffff;
     color:#333;
@@ -295,8 +306,6 @@ input:focus {
     box-sizing: border-box;
     border: 1px solid var(--header-color);
     padding: 2px;
-    height: 5.55em;
-    
 }
 
 .results-title {
@@ -331,18 +340,6 @@ input:focus {
     border: 0px !important;
 }
 
-.info-visible {
-    max-height: 500px !important;
-    transition: max-height 1s ease, opacity 1s ease !important;
-    text-align: center;
-}
-
-.info-invisible {
-    max-height: 0;
-    transition: max-height 0.5s ease, opacity 0.5s ease !important;
-    text-align: center;
-}
-
 .modal-link:visited {
     color:#0000EE
 }
@@ -354,16 +351,6 @@ input:focus {
     max-height: 400px;
 }
 
-.rotate-icon {
-    display: inline-block;
-    transition: transform 0.5s ease;
-}
-
-.rotated {
-    transform: rotate(90deg);
-}
-
-
 .site-header {
     font-family: 'Montserrat', sans-serif;
     display: flex;
@@ -371,8 +358,7 @@ input:focus {
     align-items: center;
     padding: 10px;
     box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
-    max-height: 10vh; 
-    /* border-bottom: 2px solid --border-header; */
+    max-height: 10vh;
     background-color: var(--bars-color);
 }
 
@@ -396,15 +382,11 @@ input:focus {
 }
 
 .header-button:hover {
-    background-color: #2c00db;
+    background-color: #216add;
 }
 
 body {
     background: #FAFAFA;
-    /* font-family: 'Montserrat', sans-serif; */
-    /* display: flex;
-    flex-direction: column;*/
-    /* min-height: 100vh; */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -417,46 +399,6 @@ a{
 
 a:hover {
     color :var(--link-hover);
-} 
-
-.jsoneditor-menu {
-    background-color: var(--header-color) !important; 
-}
-
-.jsoneditor-text-errors tr.parse-error .jsoneditor-schema-error {
-    background-color: var(--color-back) !important;
-}
-.jsoneditor-modal .selectr-selected .selectr-tag {
-    background-color: var(--color-back) !important;
-}
-
-.jsoneditor-modal .jsoneditor-button-group.jsoneditor-button-group-value-asc input.jsoneditor-button-asc,
-.jsoneditor-modal .jsoneditor-button-group.jsoneditor-button-group-value-desc input.jsoneditor-button-desc {
-    background: var(--color-back) !important;
-    border-color: var(--color-back) !important;
-    color: #fff !important;
-}
-
-.jsoneditor {
-    border-color: var(--header-color);
-}
-  
-.jsoneditor-menu{
-    border-bottom: var(--header-back) !important;   
-}  
-
-.jsoneditor-modal .pico-modal-header {
-    background: --color-back !important;
-    color: #fff !important;
-}
-
-.jsoneditor-modal .jsoneditor-jmespath-label {
-    color: --color-text !important;
-}
-
-.jsoneditor-menu>.jsoneditor-modes>button:disabled, 
-.jsoneditor-menu>button:disabled {
-    opacity: 1 !important;
 }
 
 .version {
@@ -465,46 +407,87 @@ a:hover {
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
     color: #333; 
-    bottom:0;
-    right:0;
     height: 1.39rem;
     border-top: 1px solid #d3d3d3;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
 }
 
-.noerrors{
-    text-align: center;
+.message{
     font-family: 'Montserrat', sans-serif;
 }
 
-.rounded{
-    border-radius: 20px;
-}
-
 .dark-mode {
-    /* background-color: #334155; */
-    /* background: linear-gradient(135deg, #6e8efb, #a777e3); */
-    /* --dark-link : #3883fa;  */
     --link-hover: #ADD8E6;
     --border-header : #1E293B;
     --border-footer : #1E293B;
     --bars-color: #334155;
     --header-color: #334155;
-    /* background: linear-gradient(135deg, #334155, #101729); */
     background-color: #252939;
     color: #ffffff;
 }
 
 .footer {
     margin-top: auto;
-    border-top: 2px solid --border-footer;
+    border-top: 2px solid var(--border-footer);
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    /* padding: 1em; */
-    max-height: 20vh; 
     padding: 10px 0;
     box-shadow: 0 -4px 2px -2px rgba(0, 0, 0, 0.1);
     background-color: var(--bars-color);
+}
+
+.menu-hidden {
+    display: none !important;
+}
+
+.context-menu {
+    display: block;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+  
+.context-menu ul {
+    max-height: 14rem;
+    overflow-y: scroll;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+  
+.context-option {
+    padding: 10px;
+    cursor: pointer;
+    color: black !important;
+}
+  
+.context-option:hover {
+    background-color: #f0f0f0;
+}
+
+.black {
+    color: black;
+}
+
+#jsoneditor {
+    width: 100%; 
+    min-height: 450px;
+    height: calc(100vh - 24rem);
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.monaco-hover-content .action-container a {
+    display: none;
+}
+
+.pointer {
+    cursor: pointer
 }
