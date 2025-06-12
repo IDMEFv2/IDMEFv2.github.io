@@ -317,7 +317,6 @@ function openSave() {
 
 // Close all modals and remove the overlay
 function closeModal() {
-  document.getElementById('schemaModal').style.display = "none";
   document.getElementById('overlay').style.display = "none";
   document.getElementById('save-modal').style.display = "none";
   document.getElementById('fileName').value = "";
