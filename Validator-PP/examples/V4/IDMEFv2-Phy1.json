@@ -1,0 +1,71 @@
+{
+  "Version": "2.D.V04",
+  "ID": "e5f9bbae-163e-42f9-a2f2-0daaf78fefb1",
+  "OrganisationName": "ACME Corporation",
+  "EntityName": "Chicago",
+  "Category": [
+    "Intrusion.Burglary"
+  ],
+  "Cause": "Malicious",
+  "Description": "Physical intrusion detected",
+  "Note": "Human intruder detected by a camera using human activity recogntion. A link toward a picture of the intruder is attached to the message",
+  "Status": "Incident",
+  "Priority": "Medium",
+  "CreateTime": "2021-01-18T23:33:05.21Z",
+  "StartTime": "2021-01-18T23:33:04.52Z",
+  "Confidence": 0.9,
+  "Analyzer": {
+    "IP": "172.10.5.31",
+    "Name": "Camera Manager",
+    "Hostname": "cctv.acme.com",
+    "Type": [
+      "Physical"
+    ],
+    "Model": "Netatmo 42B",
+    "Category": [
+      "HAR"
+    ],
+    "Data": [
+      "Images"
+    ],
+    "Method": [
+      "Movement"
+    ],
+    "UnLocation": "US CHI",
+    "GeoLocation": "41.85368809195584,-87.62417544532445, +65.1"
+  },
+  "Sensor": [
+    {
+      "Location": "Front Door",
+      "Name": "Infrared front camera",
+      "IP": "172.10.5.34",
+      "CaptureZone": "{\"type\":\"conic-zone\",\"Azimuth\":34.00,\"Elévation\":-30.00,\"Range\":600.00,\"HFOV\":200.00,\"VFOV\":20.00}"
+    }
+  ],
+  "Target": [
+    {
+      "Location": "Front Entrance"
+    }
+  ],
+  "Vector": [
+    {
+      "Category": [
+        "Human"
+      ],
+      "Attachment": [
+        "attach1"
+      ],
+      "Name": "Unknown"
+    }
+  ],
+  "Attachment": [
+    {
+      "Name": "attach1",
+      "FileName": "img2021011823330521.jpg",
+      "ExternalURI": [
+        "https://data.acme.com/img2021011823330521.jpg"
+      ],
+      "ContentType": "image/jpeg"
+    }
+  ]
+}

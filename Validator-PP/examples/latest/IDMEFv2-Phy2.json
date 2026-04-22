@@ -1,0 +1,66 @@
+{
+  "Version": "2.D.V05",
+  "ID": "e3f79d5a-cc4a-4c42-9052-3cf278cb6d77",
+  "OrganisationName": "ACME Corporation",
+  "OrganisationId": "IT-12345678901",
+  "EntityName": "Headquarters",
+  "EntityId": "HQ-001",
+  "Category": [
+    "Intrusion.Burglary"
+  ],
+  "Cause": "Malicious",
+  "Description": "Unauthorized entry detected at main entrance during non-working hours.",
+  "Status": "Event",
+  "Priority": "High",
+  "Confidence": 0.95,
+  "Note": "Security camera detected motion at 03:24 AM. No badge scan recorded.",
+  "CreateTime": "2025-05-16T03:26:15Z",
+  "StartTime": "2025-05-16T03:24:00Z",
+  "AltNames": ["TICKET-SEC-20250516-001"],
+  "AltCategory": ["MISP:Physical-Intrusion"],
+  "Ref": ["https://intranet.acme.local/incidents/physical/20250516-001"],
+  "Analyzer": {
+    "IP": "10.0.10.15",
+    "Name": "ACME-PHY-CTRL01",
+    "Hostname": "phy-ctrl01.acme.local",
+    "Model": "Hikvision DS-2CD2087G2",
+    "Type": ["Physical"],
+    "Category": ["PROX"],
+    "Data": ["Touch", "Images"],
+    "Method": ["Signature", "Heuristic"],
+    "GeoLocation": "+45.4642, +9.1900",
+    "Location": "HQ_MainEntrance"
+  },
+  "Sensor": [
+    {
+      "IP": "10.0.10.100",
+      "Name": "ACME-CAM-ENTRANCE01",
+      "Hostname": "cam-entrance01.acme.local",
+      "Model": "AXIS P1455-LE",
+      "GeoLocation": "+45.4642, +9.1900",
+      "Location": "Entrance Camera",
+      "CaptureZone": "{\"fov\": 87, \"azimuth\": 90, \"elevation\": 2.5}"
+    }
+  ],
+  "Source": [
+    {
+      "Note": "Unidentified person, no access badge used.",
+      "GeoLocation": "+45.4642, +9.1900",
+      "Location": "Main Entrance"
+    }
+  ],
+  "Target": [
+    {
+      "Location": "Main Lobby",
+      "Note": "Initial breach location."
+    }
+  ],
+  "Vector": [
+    {
+      "Category": ["Man", "Woman"],
+      "Name": "Main Entrance Door",
+      "Note": "Possible door forced open or tailgating attempt",
+      "GeoLocation": "+45.4642, +9.1900"
+    }
+  ]
+}

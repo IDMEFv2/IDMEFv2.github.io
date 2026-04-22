@@ -17,9 +17,14 @@
         <header class="site-header">
             <h1 class="site-title">IDMEFv2 - JSON Validator</h1>
             <div class="flex gap-1 align-center">
-                <select class="pointer" name="version-dropdown" id="version-dropdown" disabled>
-                    <option value="latest">Latest Schema - 2.D.Vxx</option>
-                </select>
+                <div class="version-dropdown-div">
+                    <button class="import-schema-button" title="Upload schema" onclick="openSchemaUpload()">
+                        <i class="fas fa-upload"></i>
+                    </button>
+                    <select class="pointer" name="version-dropdown" id="version-dropdown" disabled>
+                        <option value="latest">Latest Schema - 2.D.Vxx</option>
+                    </select>
+                </div>
                 <button class="header-button" id="dark-mode-toggle">
                     <i class="fas fa-sun" title="Dark Mode"></i>
                 </button>
@@ -131,7 +136,6 @@
                 <div class="w-100 flex gap-half flex-col">
                     <div class="flex w-50 gap-half">
                         <label for="fileName">File name:</label>
-                        
                     </div>
                     <div class="flex">
                         <input id="fileName" type="text" class="save-name input-border">
@@ -148,6 +152,27 @@
             </div>
         </div>
     
+        <div id="schema-modal" class="schema-modal" style="display: none;">
+            <div class="modal-body flex flex-col gap-1">
+                <h2 class="my-0 title-font">Upload a custom schema</h2>
+                <div class="w-100 flex gap-half flex-col">
+                    <div class="flex w-50 gap-half">
+                        <label for="schemaFile">Schema file:</label>
+                    </div>
+                    <div class="flex">
+                        <input id="schemaFile" type="file" accept=".json,application/json" class="schema-file-hidden" tabindex="-1" aria-hidden="true">
+                        <input id="uploadSchemaFileBtn" onclick="triggerSchemaFileUpload()" type="button" class="schema-upload-button input-border" value="Upload">
+                        <input id="schemaFileName" type="text" class="schema-file-display input-border" readonly placeholder="No file selected">
+                        <input id="clearSchemaFileBtn" onclick="clearSchemaUpload()" type="button" class="schema-clear-button input-border" value="Clear">
+                    </div>
+                </div>
+                <div class="w-100 flex justify-end gap-half">
+                    <input onclick="closeModal()" class="save-button" type="button" value="Cancel">
+                    <input onclick="uploadSchema()" class="save-button" type="submit" value="Confirm">
+                </div>
+            </div>
+        </div>
+
         <footer class="footer">
             <div>
                 <p>

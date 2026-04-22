@@ -6,13 +6,17 @@
     --bars-color: #f3f3f3;
     --header-color: #757575;
     --link-hover: #216add;
+    --header-control-height: 2rem;
 }
 
 #version-dropdown {
-    height: fit-content;
+    height: var(--header-control-height);
     padding: 0.3rem;
     min-width: 5rem;
-    border-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left: 0px;
+    box-sizing: border-box;
 }
 
 .title-font {
@@ -174,6 +178,42 @@
     border-radius: 0rem 0.313rem 0.313rem 0rem ;
 }
 
+.schema-file-hidden {
+    display: none;
+}
+
+.schema-upload-button {
+    width: 5.5rem;
+    padding: 0.4rem;
+    border-radius: 0.313rem 0 0 0.313rem;
+    background-color: white;
+    cursor: pointer;
+    border-right: 0;
+}
+
+.schema-upload-button:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+.schema-file-display {
+    width: 100%;
+    padding: 0.4rem;
+    border-radius: 0;
+    border-right: 0;
+}
+
+.schema-clear-button {
+    width: 4.7rem;
+    padding: 0.4rem;
+    border-radius: 0rem 0.313rem 0.313rem 0rem;
+    background-color: white;
+    cursor: pointer;
+}
+
+.schema-clear-button:hover {
+    background-color: rgb(235, 235, 235);
+}
+
 .save-button {
     padding: 0.313rem 0.625rem;
     border: 1px solid rgb(118, 118, 118);
@@ -231,7 +271,7 @@
     z-index: 999;
 }
 
-.save-modal {
+.save-modal, .schema-modal {
     background-color: white;
     position: fixed;
     top: 50%;
@@ -241,19 +281,6 @@
     border-radius: 0.313rem;
     width: 40rem;
     z-index: 1000;
-}
-
-.modal {
-    background-color: white;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid rgb(118, 118, 118);
-    border-radius: 0.313rem;
-    width: 50rem;
-    z-index: 1000;
-    overflow: hidden;
 }
 
 input:focus {
@@ -490,4 +517,33 @@ a:hover {
 
 .pointer {
     cursor: pointer
+}
+
+.import-schema-button {
+    background-color: white;
+    color: black;
+    border: 1px solid rgb(118, 118, 118);
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    padding: 0 0.6rem;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: background-color 0.3s ease;
+    border-right: 0px;
+    height: var(--header-control-height);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.import-schema-button:hover {
+    background-color: darkgray;
+}
+
+.version-dropdown-div {
+    display: flex;
+    align-items: center;
+    gap: 0px;
 }

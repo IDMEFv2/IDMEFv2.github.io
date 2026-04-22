@@ -1,0 +1,54 @@
+{
+  "Version": "2.D.V04",
+  "ID": "819df7bc-35ef-40d8-bbee-1901117370b2",
+  "Description": "Potential bruteforce attack on root user account",
+  "Priority": "Medium",
+  "CreateTime": "2021-05-10T16:55:29.196408+00:00",
+  "StartTime": "2021-05-10T16:55:29+00:00",
+  "Category": [
+    "Attempt.Login"
+  ],
+  "Analyzer": {
+    "Name": "SIEM",
+    "Hostname": "siem.acme.com",
+    "Type": [
+      "Cyber"
+    ],
+    "Model": "Concerto SIEM 5.2",
+    "Category": [
+      "SIEM",
+      "LOG"
+    ],
+    "Data": [
+      "Log"
+    ],
+    "Method": [
+      "Monitor",
+      "Signature"
+    ],
+    "IP": "192.0.2.1"
+  },
+  "Sensor": [
+    {
+      "IP": "192.0.2.5",
+      "Name": "syslog",
+      "Hostname": "www.acme.com",
+      "Model": "rsyslog 8.2110",
+      "Location": "Server room A1, rack 1"
+    }
+  ],
+  "Target": [
+    {
+      "IP": "192.0.2.2",
+      "Hostname": "www.acme.com",
+      "Location": "Server room A1, rack 10",
+      "User": "root"
+    },
+    {
+      "IP": "192.0.2.3",
+      "Hostname": "www.acme.com",
+      "Location": "Server room A1, rack 11",
+      "User": "root"
+    }
+  ]
+}

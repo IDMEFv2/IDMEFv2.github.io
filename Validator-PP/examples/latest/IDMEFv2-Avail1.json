@@ -1,0 +1,66 @@
+{
+  "Version": "2.D.V05",
+  "ID": "f9b44c7d-3d99-4c7a-a3e4-57ef248bc631",
+  "Status": "Incident",
+  "OrganisationName": "acme.eu",
+  "CreateTime": "2025-05-15T10:14:32Z",
+  "StartTime": "2025-05-15T10:12:00Z",
+  "Cause": "Malicious",
+  "Category": [
+    "Availability.DDoS"
+  ],
+  "Priority": "High",
+  "Confidence": 0.95,
+  "Description": "A volumetric DDoS attack has been detected targeting the public web infrastructure.",
+  "Analyzer": {
+    "IP": "192.168.10.10",
+    "Name": "Edge Firewall",
+    "Hostname": "fw1.acme.eu",
+    "Type": [
+      "Cyber"
+    ],
+    "Model": "PaloAlto PA-5220",
+    "Category": [
+      "NIDS"
+    ],
+    "Data": [
+      "Flow"
+    ],
+    "Method": [
+      "Statistical"
+    ],
+    "GeoLocation": "+45.4642,+9.1900,+120.5",
+    "UnLocation": "IT MIL",
+    "Location": "EdgeZone01"
+  },
+  "Sensor": [
+    {
+      "IP": "192.168.10.10",
+      "Name": "Edge Firewall",
+      "CaptureZone": "[{\"type\":\"ipv4-addr\",\"spec_version\":\"2.1\",\"id\":\"ipv4-addr--dcb2c1c0-bddf-43f4-84f2-00a02cba6cf3\",\"value\":\"192.168.0.0\"},{\"type\":\"ipv4-net-mask\",\"spec_version\":\"2.1\",\"id\":\"ipv4-net-mask--c6a3a3e0-f20c-4df9-8dc4-e15ef43ffde4\",\"value\":\"255.255.0.0\"}]"
+    }
+  ],
+  "Source": [
+    {
+      "IP": "203.0.113.45",
+      "Protocol": [
+        "TCP"
+      ]
+    },
+    {
+      "IP": "198.51.100.76",
+      "Protocol": [
+        "TCP"
+      ]
+    }
+  ],
+  "Target": [
+    {
+      "IP": "10.0.5.20",
+      "Port": [
+        443
+      ],
+      "Location": "Web Farm - Zone 3"
+    }
+  ]
+}

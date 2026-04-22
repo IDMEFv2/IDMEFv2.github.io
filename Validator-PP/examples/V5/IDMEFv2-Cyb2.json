@@ -1,0 +1,64 @@
+{
+  "Version": "2.D.V05",
+  "ID": "9f1c4a6d-8e1b-4f9a-9d3e-3a1d2c7f7b11",
+  "Status": "Incident",
+  "OrganisationName": "cybercorp.com",
+  "CreateTime": "2025-05-15T12:30:00Z",
+  "StartTime": "2025-05-15T12:29:45Z",
+  "Cause": "Malicious",
+  "Category": [
+    "Attempt.Login",
+    "Intrusion.UserCompromise"
+  ],
+  "Priority": "High",
+  "Confidence": 0.95,
+  "Description": "Multiple failed login attempts detected followed by a successful user compromise on the main authentication server.",
+  "Analyzer": {
+    "IP": "192.168.100.10",
+    "Name": "Auth Server Monitor",
+    "Hostname": "auth1.cybercorp.com",
+    "Type": [
+      "Cyber"
+    ],
+    "Model": "Splunk ES 7.0",
+    "Category": [
+      "SIEM"
+    ],
+    "Data": [
+      "Log",
+      "Auth"
+    ],
+    "Method": [
+      "Heuristic",
+      "Correlation"
+    ],
+    "GeoLocation": "+37.7749,-122.4194,+10.0",
+    "UnLocation": "US SFO",
+    "Location": "Primary Data Center"
+  },
+  "Sensor": [
+    {
+      "IP": "192.168.100.10",
+      "Name": "Auth Server Monitor",
+      "CaptureZone": "[{\"type\":\"ipv4-addr\",\"spec_version\":\"2.1\",\"id\":\"ipv4-addr--3b4d7a4e-7c1f-48e0-a645-1cfe9995c9bb\",\"value\":\"192.168.100.0\"},{\"type\":\"ipv4-net-mask\",\"spec_version\":\"2.1\",\"id\":\"ipv4-net-mask--6a5c7f4b-ec8f-4e5e-bd79-5237b77eabc9\",\"value\":\"255.255.255.0\"}]"
+    }
+  ],
+  "Source": [
+    {
+      "IP": "203.0.113.45",
+      "Protocol": [
+        "TCP"
+      ]
+    }
+  ],
+  "Target": [
+    {
+      "IP": "192.168.100.10",
+      "Port": [
+        22,
+        3389
+      ],
+      "Location": "Primary Data Center"
+    }
+  ]
+}

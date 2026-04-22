@@ -1,0 +1,24 @@
+{
+  "latest": [
+    "IDMEFv2-Avail1.json",
+    "IDMEFv2-Comb1.json",
+    "IDMEFv2-Cyb1.json",
+    "IDMEFv2-Cyb2.json",
+    "IDMEFv2-Phy1.json",
+    "IDMEFv2-Phy2.json"
+  ],
+  "V4": [
+    "IDMEFv2-Cyb1.json",
+    "IDMEFv2-Cyb2.json",
+    "IDMEFv2-Phy1.json",
+    "IDMEFv2-Phy2.json"
+  ],
+  "V5": [
+    "IDMEFv2-Avail1.json",
+    "IDMEFv2-Comb1.json",
+    "IDMEFv2-Cyb1.json",
+    "IDMEFv2-Cyb2.json",
+    "IDMEFv2-Phy1.json",
+    "IDMEFv2-Phy2.json"
+  ]
+}
