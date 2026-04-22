@@ -25,7 +25,7 @@ var files = [];
 
 var container = document.getElementById('jsoneditor');
 
-const LOCAL_DRAFTS_BASE_PATH = "../drafts/IDMEFv2";
+const LOCAL_DRAFTS_BASE_PATH = "./drafts/IDMEFv2";
 const LATEST_SCHEMA_FOLDER = "latest-stable";
 const schemaURL = `${LOCAL_DRAFTS_BASE_PATH}/${LATEST_SCHEMA_FOLDER}/IDMEFv2.schema`;
 let validationEnabled = true;
@@ -189,7 +189,7 @@ function printExample(example) {
       console.error("Unable to resolve examples version from current schema selection");
       return;
     }
-    var url = `../examples/${localVersion}/${example}`;
+    var url = `./examples/${localVersion}/${example}`;
 
     $.getJSON(url, function (exampleJson) {
       json = exampleJson;
