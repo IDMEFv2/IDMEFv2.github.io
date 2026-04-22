@@ -597,11 +597,17 @@ async function initFilesList(version = "latest") {
 // Preparing the schema for validation
 async function initSchema(folder) {
   const resolvedFolder = resolveSchemaFolderPath(folder);
-  const localSchemaURL = `${LOCAL_DRAFTS_BASE_PATH}/${resolvedFolder}/IDMEFv2.schema`;
 
   try {
     const metaschema = await getDraft4MetaSchema();
-    const schema = await $.getJSON(localSchemaURL);
+    const schemaResult = await tryLoadSchemaFromCandidates(getSchemaUrlCandidates(resolvedFolder));
+
+    if (!schemaResult) {
+      throw new Error(`Schema file not found for folder ${resolvedFolder}`);
+    }
+
+    const schema = schemaResult.schema;
+    const localSchemaURL = schemaResult.url;
 
     savedSchema = schema;
     currentSchemaURI = localSchemaURL;
@@ -759,10 +765,9 @@ async function fetchVersionFolderPairs() {
   });
 
   for (const folder of validFolders) {
-    const schemaPath = `${LOCAL_DRAFTS_BASE_PATH}/${folder}/IDMEFv2.schema`;
-
     try {
-      const schema = await tryLoadSchema(schemaPath);
+      const schemaResult = await tryLoadSchemaFromCandidates(getSchemaUrlCandidates(folder));
+      const schema = schemaResult ? schemaResult.schema : null;
 
       if (!schema) {
         continue;
@@ -940,6 +945,13 @@ async function fetchTextOrThrow(url) {
   return await res.text();
 }
 
+function getSchemaUrlCandidates(folder) {
+  return [
+    `${LOCAL_DRAFTS_BASE_PATH}/${folder}/IDMEFv2.schema`,
+    `${LOCAL_DRAFTS_BASE_PATH}/${folder}/idmefv2.schema`
+  ];
+}
+
 async function tryLoadSchema(url) {
   try {
     const text = await fetchTextOrThrow(url);
@@ -947,6 +959,17 @@ async function tryLoadSchema(url) {
   } catch (e) {
     return null;
   }
+}
+
+async function tryLoadSchemaFromCandidates(urls) {
+  for (const url of urls) {
+    const schema = await tryLoadSchema(url);
+    if (schema) {
+      return { schema, url };
+    }
+  }
+
+  return null;
 }
 
 async function listDraftFolders() {
@@ -981,22 +1004,18 @@ function sortFoldersForFallback(folders) {
 }
 
 async function resolveInitialSchema() {
-  const base = LOCAL_DRAFTS_BASE_PATH;
-
-  const latestUrl = `${base}/${LATEST_SCHEMA_FOLDER}/IDMEFv2.schema`;
-  const latestSchema = await tryLoadSchema(latestUrl);
-  if (latestSchema) {
-    return { folder: "latest", url: latestUrl, schema: latestSchema };
+  const latestResult = await tryLoadSchemaFromCandidates(getSchemaUrlCandidates(LATEST_SCHEMA_FOLDER));
+  if (latestResult) {
+    return { folder: "latest", url: latestResult.url, schema: latestResult.schema };
   }
 
   const folders = await listDraftFolders();
   const candidates = sortFoldersForFallback(folders);
 
   for (const folder of candidates) {
-    const url = `${base}/${folder}/IDMEFv2.schema`;
-    const schema = await tryLoadSchema(url);
-    if (schema) {
-      return { folder, url, schema };
+    const schemaResult = await tryLoadSchemaFromCandidates(getSchemaUrlCandidates(folder));
+    if (schemaResult) {
+      return { folder, url: schemaResult.url, schema: schemaResult.schema };
     }
   }
 
