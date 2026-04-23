@@ -157,7 +157,7 @@ Internet-Draft                   IDMEFv2                      April 2026
      B.4.  Combined incident . . . . . . . . . . . . . . . . . . . . 108
      B.5.  Hazard incident . . . . . . . . . . . . . . . . . . . . . 110
    Appendix C.  JSON Validation Schema (Non-normative) . . . . . . . 111
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . . 133
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . . 138
 
 
 
@@ -6321,7 +6321,7 @@ Internet-Draft                   IDMEFv2                      April 2026
                "description": "Timestamp indicating the deduced end of the event.",
                "$ref": "#/definitions/timestampType"
            },
-           "AltNames": {
+           "ReportTime": {
 
 
 
@@ -6330,6 +6330,10 @@ Lehmann                  Expires 25 October 2026              [Page 113]
 Internet-Draft                   IDMEFv2                      April 2026
 
 
+               "description": "Timestamp indicating the reporting time of the event, usually to an external CSIRT or a central SIEM.",
+               "$ref": "#/definitions/timestampType"
+           },
+           "AltNames": {
                "description": "Alternative identifiers; strings which help pair the event to internal systems' information (for example ticket IDs inside a request tracking systems).",
                "type": "array",
                "items": {
@@ -6374,10 +6378,6 @@ Internet-Draft                   IDMEFv2                      April 2026
            },
            "RelID": {
                "description": "A list containing the identifiers of other messages related to this message.",
-               "type": "array",
-               "items": {
-                   "$ref": "#/definitions/uuidType"
-               }
 
 
 
@@ -6386,6 +6386,10 @@ Lehmann                  Expires 25 October 2026              [Page 114]
 Internet-Draft                   IDMEFv2                      April 2026
 
 
+               "type": "array",
+               "items": {
+                   "$ref": "#/definitions/uuidType"
+               }
            },
            "Analyzer": {
                "type": "object",
@@ -6430,10 +6434,6 @@ Internet-Draft                   IDMEFv2                      April 2026
                        "type": "array",
                        "items": {
                            "$ref": "#/definitions/analyzerDataEnum"
-                       }
-                   },
-                   "ext-Data": {
-                       "description": "A means by which to extend the Data attribute. (see )",
 
 
 
@@ -6442,6 +6442,10 @@ Lehmann                  Expires 25 October 2026              [Page 115]
 Internet-Draft                   IDMEFv2                      April 2026
 
 
+                       }
+                   },
+                   "ext-Data": {
+                       "description": "A means by which to extend the Data attribute. (see )",
                        "type": "array",
                        "items": {
                            "type": "string"
@@ -6476,7 +6480,6 @@ Internet-Draft                   IDMEFv2                      April 2026
                },
                "additionalProperties": false,
                "required": [
-                   "ID",
                    "Name"
                ]
            },
@@ -6487,9 +6490,6 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "properties": {
                        "ID": {
                            "description": "Unique identifier for the sensor.",
-                           "$ref": "#/definitions/uuidType"
-                       },
-                       "IP": {
 
 
 
@@ -6498,6 +6498,9 @@ Lehmann                  Expires 25 October 2026              [Page 116]
 Internet-Draft                   IDMEFv2                      April 2026
 
 
+                           "$ref": "#/definitions/uuidType"
+                       },
+                       "IP": {
                            "description": "The sensor's IP address.",
                            "$ref": "#/definitions/ipType"
                        },
@@ -6533,7 +6536,6 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "additionalProperties": false,
                    "type": "object",
                    "required": [
-                       "ID",
                        "Name"
                    ]
                }
@@ -6544,8 +6546,6 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "description": "The Source class describes the origin(s) of the event(s) leading up to the creation of this alert.",
                    "properties": {
                        "ID": {
-                           "description": "Unique identifier for the source.",
-                           "$ref": "#/definitions/uuidType"
 
 
 
@@ -6554,6 +6554,8 @@ Lehmann                  Expires 25 October 2026              [Page 117]
 Internet-Draft                   IDMEFv2                      April 2026
 
 
+                           "description": "Unique identifier for the source.",
+                           "$ref": "#/definitions/uuidType"
                        },
                        "IP": {
                            "description": "Source IP address.",
@@ -6562,6 +6564,13 @@ Internet-Draft                   IDMEFv2                      April 2026
                        "Hostname": {
                            "description": "Hostname of this source. This SHOULD be a fully qualified domain name, but may not conform exactly because values extracted from logs, messages, DNS, etc. may themselves be malformed. An empty string MAY be used to explicitly state that this value was inquired but not found (missing DNS entry).",
                            "type": "string"
+                       },
+                       "Category": {
+                           "description": "Source category",
+                           "type": "array",
+                           "items": {
+                               "$ref": "#/definitions/sourceCategoryEnum"
+                           }
                        },
                        "Note": {
                            "description": "Free text human-readable additional note for this source.",
@@ -6593,6 +6602,14 @@ Internet-Draft                   IDMEFv2                      April 2026
                        "Port": {
                            "description": "Source ports involved in the incident. Values in this list MUST be integers and MUST be in the range 1-65535.",
                            "type": "array",
+
+
+
+Lehmann                  Expires 25 October 2026              [Page 118]
+
+Internet-Draft                   IDMEFv2                      April 2026
+
+
                            "items": {
                                "type": "integer"
                            }
@@ -6602,14 +6619,6 @@ Internet-Draft                   IDMEFv2                      April 2026
                            "$ref": "#/definitions/geolocType"
                        },
                        "UnLocation": {
-
-
-
-Lehmann                  Expires 25 October 2026              [Page 118]
-
-Internet-Draft                   IDMEFv2                      April 2026
-
-
                            "description": "Standard UN/Locode for the source.",
                            "$ref": "#/definitions/unlocodeType"
                        },
@@ -6649,6 +6658,21 @@ Internet-Draft                   IDMEFv2                      April 2026
                            "description": "Hostname of this target. This SHOULD be a fully qualified domain name, but may not conform exactly because values extracted from logs, messages, DNS, etc. may themselves be malformed. An empty string MAY be used to explicitly state that this value was inquired but not found (missing DNS entry).",
                            "type": "string"
                        },
+
+
+
+Lehmann                  Expires 25 October 2026              [Page 119]
+
+Internet-Draft                   IDMEFv2                      April 2026
+
+
+                       "Category": {
+                           "description": "Target category",
+                           "type": "array",
+                           "items": {
+                               "$ref": "#/definitions/targetCategoryEnum"
+                           }
+                       },
                        "Note": {
                            "description": "Free text human-readable additional note for this target.",
                            "type": "string"
@@ -6658,14 +6682,6 @@ Internet-Draft                   IDMEFv2                      April 2026
                            "type": "string"
                        },
                        "User": {
-
-
-
-Lehmann                  Expires 25 October 2026              [Page 119]
-
-Internet-Draft                   IDMEFv2                      April 2026
-
-
                            "description": "User ID or login impacted by the incident.",
                            "type": "string"
                        },
@@ -6698,6 +6714,14 @@ Internet-Draft                   IDMEFv2                      April 2026
                            "type": "array",
                            "items": {
                                "$ref": "#/definitions/attachmentNameType"
+
+
+
+Lehmann                  Expires 25 October 2026              [Page 120]
+
+Internet-Draft                   IDMEFv2                      April 2026
+
+
                            }
                        }
                    },
@@ -6714,14 +6738,6 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "description": "The Attachment class contains additional data which was captured in relation with the event.",
                    "properties": {
                        "Name": {
-
-
-
-Lehmann                  Expires 25 October 2026              [Page 120]
-
-Internet-Draft                   IDMEFv2                      April 2026
-
-
                            "description": "A unique identifier among attachments that can be used to reference this attachment from other classes using the \"Attachment\" attribute.",
                            "$ref": "#/definitions/attachmentNameType"
                        },
@@ -6754,6 +6770,14 @@ Internet-Draft                   IDMEFv2                      April 2026
                            "items": {
                                "type": "string",
                                "format": "uri"
+
+
+
+Lehmann                  Expires 25 October 2026              [Page 121]
+
+Internet-Draft                   IDMEFv2                      April 2026
+
+
                            }
                        },
                        "Note": {
@@ -6770,14 +6794,6 @@ Internet-Draft                   IDMEFv2                      April 2026
                        },
                        "Content": {
                            "description": "The attachment's content, in case it is directly embedded inside the message. For large attachments, it is RECOMMENDED that implementations make use of the \"ExternalURI\" attribute to refererence a copy of the content saved in an external storage mechanism.",
-
-
-
-Lehmann                  Expires 25 October 2026              [Page 121]
-
-Internet-Draft                   IDMEFv2                      April 2026
-
-
                            "type": [
                                "object",
                                "string"
@@ -6807,25 +6823,9 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "Banking.Banking",
                    "Banking.Other",
                    "Cemeteries.Crematoria",
-                   "Cemeteries.PublicCemeteries",
+                   "Cemeteries.Public",
                    "Cemeteries.Other",
-                   "Chemical.ChemicalProduction",
-                   "Chemical.Storage",
-                   "Chemical.Other",
-                   "CivilSociety.ElectionMonitoring",
-                   "CivilSociety.HumanitarianAid",
-                   "CivilSociety.NGOs",
-                   "CivilSociety.Other",
-                   "CulturalHeritage.Archives",
-                   "CulturalHeritage.HistoricalSites",
-                   "CulturalHeritage.Libraries",
-                   "CulturalHeritage.Museums",
-                   "CulturalHeritage.Other",
-                   "Defense.CommandControl",
-                   "Defense.CyberDefense",
-                   "Defense.DefenseIndustrialBase",
-                   "Defense.Logistics",
-                   "Defense.MilitaryInstallations",
+                   "Chemical.Production",
 
 
 
@@ -6834,6 +6834,22 @@ Lehmann                  Expires 25 October 2026              [Page 122]
 Internet-Draft                   IDMEFv2                      April 2026
 
 
+                   "Chemical.Storage",
+                   "Chemical.Other",
+                   "Civil.ElectionMonitoring",
+                   "Civil.HumanitarianAid",
+                   "Civil.NGOs",
+                   "Civil.Other",
+                   "Cultural.Archives",
+                   "Cultural.HistoricalSites",
+                   "Cultural.Libraries",
+                   "Cultural.Museums",
+                   "Cultural.Other",
+                   "Defense.CommandControl",
+                   "Defense.Cyber",
+                   "Defense.IndustrialBase",
+                   "Defense.Logistics",
+                   "Defense.Installations",
                    "Defense.Research",
                    "Defense.Other",
                    "Digital.CloudServices",
@@ -6849,11 +6865,11 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "Education.ResearchSchools",
                    "Education.Universities",
                    "Education.Other",
-                   "EmergencyServices.CivilProtection",
-                   "EmergencyServices.EmergencyMedical",
-                   "EmergencyServices.FireAndRescue",
-                   "EmergencyServices.Police",
-                   "EmergencyServices.Other",
+                   "Emergency.CivilProtection",
+                   "Emergency.Medical",
+                   "Emergency.FireAndRescue",
+                   "Emergency.Police",
+                   "Emergency.Other",
                    "Energy.DistrictHeating",
                    "Energy.Electricity",
                    "Energy.Gas",
@@ -6861,11 +6877,19 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "Energy.Nuclear",
                    "Energy.Oil",
                    "Energy.Other",
-                   "Finance.FinancialMarketInfrastructures",
+                   "Finance.MarketInfrastructures",
                    "Finance.Insurance",
                    "Finance.PaymentSystems",
                    "Finance.Other",
                    "Food.AgriculturalProduction",
+
+
+
+Lehmann                  Expires 25 October 2026              [Page 123]
+
+Internet-Draft                   IDMEFv2                      April 2026
+
+
                    "Food.FoodDistribution",
                    "Food.FoodProcessing",
                    "Food.FoodSafety",
@@ -6882,31 +6906,23 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "Logistics.ThirdPartyLogistics",
                    "Logistics.Warehousing",
                    "Logistics.Other",
-
-
-
-Lehmann                  Expires 25 October 2026              [Page 123]
-
-Internet-Draft                   IDMEFv2                      April 2026
-
-
                    "Manufacturing.Aerospace",
                    "Manufacturing.Batteries",
                    "Manufacturing.Chemical",
-                   "Manufacturing.ComputerElectronicOptical",
+                   "Manufacturing.Electronic",
                    "Manufacturing.Defense",
                    "Manufacturing.MedicalDevices",
                    "Manufacturing.MotorVehicles",
                    "Manufacturing.Pharmaceutical",
                    "Manufacturing.Semiconductors",
-                   "Manufacturing.StrategicManufacturing",
+                   "Manufacturing.Strategic",
                    "Manufacturing.Other",
-                   "MediaAndBroadcasting.BroadcastInfrastructure",
-                   "MediaAndBroadcasting.OnlineMedia",
-                   "MediaAndBroadcasting.Press",
-                   "MediaAndBroadcasting.Radio",
-                   "MediaAndBroadcasting.Television",
-                   "MediaAndBroadcasting.Other",
+                   "Media.Infrastructure",
+                   "Media.OnlineMedia",
+                   "Media.Press",
+                   "Media.Radio",
+                   "Media.Television",
+                   "Media.Other",
                    "Mining.CriticalRawMaterials",
                    "Mining.EnergyMinerals",
                    "Mining.Other",
@@ -6915,17 +6931,25 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "Nuclear.PowerGeneration",
                    "Nuclear.Research",
                    "Nuclear.Other",
-                   "Postal.PostalCourierServices",
+                   "Postal.CourierServices",
                    "Postal.Other",
-                   "PublicAdministration.CentralGovernment",
-                   "PublicAdministration.Diplomatic",
-                   "PublicAdministration.EmergencyServices",
-                   "PublicAdministration.Judiciary",
-                   "PublicAdministration.LocalGovernment",
-                   "PublicAdministration.Other",
-                   "ReligiousSites.PilgrimageSites",
-                   "ReligiousSites.PlacesOfWorship",
-                   "ReligiousSites.Other",
+                   "Administration.CentralGovernment",
+                   "Administration.Diplomatic",
+                   "Administration.EmergencyServices",
+                   "Administration.Judiciary",
+                   "Administration.Local",
+
+
+
+Lehmann                  Expires 25 October 2026              [Page 124]
+
+Internet-Draft                   IDMEFv2                      April 2026
+
+
+                   "Administration.Other",
+                   "Religious.PilgrimageSites",
+                   "Religious.PlacesOfWorship",
+                   "Religious.Other",
                    "Research.BiologicalSafety",
                    "Research.ChemicalSafety",
                    "Research.Research",
@@ -6938,20 +6962,12 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "Transport.Maritime",
                    "Transport.Pipeline",
                    "Transport.PublicTransport",
-
-
-
-Lehmann                  Expires 25 October 2026              [Page 124]
-
-Internet-Draft                   IDMEFv2                      April 2026
-
-
                    "Transport.Rail",
                    "Transport.Road",
                    "Transport.Other",
-                   "Waste.HazardousWaste",
-                   "Waste.NonHazardousWaste",
-                   "Waste.NuclearWaste",
+                   "Waste.Hazardous",
+                   "Waste.NonHazardous",
+                   "Waste.Nuclear",
                    "Waste.Recycling",
                    "Waste.Other",
                    "Water.DamsAndReservoirs",
@@ -6978,6 +6994,14 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "Abuse.Coercion",
                    "Abuse.Trafficking",
                    "Abuse.Extermism",
+
+
+
+Lehmann                  Expires 25 October 2026              [Page 125]
+
+Internet-Draft                   IDMEFv2                      April 2026
+
+
                    "Abuse.Other",
                    "Access.Compromise",
                    "Access.Escalation",
@@ -6994,14 +7018,6 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "Availability.Outage",
                    "Availability.Failure",
                    "Availability.Misconfiguration",
-
-
-
-Lehmann                  Expires 25 October 2026              [Page 125]
-
-Internet-Draft                   IDMEFv2                      April 2026
-
-
                    "Availability.Overload",
                    "Availability.HeartBeat",
                    "Availability.Other",
@@ -7034,6 +7050,14 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "SupplyChain.Compromise",
                    "SupplyChain.Other",
                    "Theft.Equiment",
+
+
+
+Lehmann                  Expires 25 October 2026              [Page 126]
+
+Internet-Draft                   IDMEFv2                      April 2026
+
+
                    "Theft.Data",
                    "Theft.Machinery",
                    "Theft.PII",
@@ -7050,14 +7074,6 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "Recon.Aerial",
                    "Recon.OSINT",
                    "Recon.Other",
-
-
-
-Lehmann                  Expires 25 October 2026              [Page 126]
-
-Internet-Draft                   IDMEFv2                      April 2026
-
-
                    "National.Terrorism",
                    "National.Conflict",
                    "National.Cyber",
@@ -7090,6 +7106,14 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "Meteo.Cold",
                    "Meteo.Fog",
                    "Meteo.Rain",
+
+
+
+Lehmann                  Expires 25 October 2026              [Page 127]
+
+Internet-Draft                   IDMEFv2                      April 2026
+
+
                    "Meteo.Snow",
                    "Meteo.Wind",
                    "Meteo.Other",
@@ -7106,14 +7130,6 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "Biological.Animal",
                    "Biological.Zombies",
                    "Biological.Other",
-
-
-
-Lehmann                  Expires 25 October 2026              [Page 127]
-
-Internet-Draft                   IDMEFv2                      April 2026
-
-
                    "Extraterrestrial.Impact",
                    "Extraterrestrial.Aliens",
                    "Extraterrestrial.SpaceWeather",
@@ -7142,9 +7158,18 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "Incident",
                    "Open",
                    "Closed",
-                   "FalsePositive"
+                   "FalsePositive",
+                   "Reported"
                ],
                "description": "Possible alert status"
+
+
+
+Lehmann                  Expires 25 October 2026              [Page 128]
+
+Internet-Draft                   IDMEFv2                      April 2026
+
+
            },
            "priorityEnum": {
                "enum": [
@@ -7162,14 +7187,6 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "APP.BAST",
                    "APP.DAST",
                    "APP.IAST",
-
-
-
-Lehmann                  Expires 25 October 2026              [Page 128]
-
-Internet-Draft                   IDMEFv2                      April 2026
-
-
                    "APP.RASP",
                    "APP.SAST",
                    "CLD.CASB",
@@ -7201,6 +7218,14 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "ID.UEBA",
                    "NET.DNS-FW",
                    "NET.DPI",
+
+
+
+Lehmann                  Expires 25 October 2026              [Page 129]
+
+Internet-Draft                   IDMEFv2                      April 2026
+
+
                    "NET.FW",
                    "NET.NAC",
                    "NET.NBAD",
@@ -7218,14 +7243,6 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "PHY.1D-LAS",
                    "PHY.1D-LiDAR",
                    "PHY.2D-LAS",
-
-
-
-Lehmann                  Expires 25 October 2026              [Page 129]
-
-Internet-Draft                   IDMEFv2                      April 2026
-
-
                    "PHY.2D-LiDAR",
                    "PHY.3D-LAS",
                    "PHY.3D-LiDAR",
@@ -7257,6 +7274,14 @@ Internet-Draft                   IDMEFv2                      April 2026
                "description": "Possible analyzer category"
            },
            "analyzerDataEnum": {
+
+
+
+Lehmann                  Expires 25 October 2026              [Page 130]
+
+Internet-Draft                   IDMEFv2                      April 2026
+
+
                "enum": [
                    "Undetermined",
                    "Light",
@@ -7274,14 +7299,6 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "Images",
                    "Thermal",
                    "Lidar",
-
-
-
-Lehmann                  Expires 25 October 2026              [Page 130]
-
-Internet-Draft                   IDMEFv2                      April 2026
-
-
                    "Network",
                    "Flow",
                    "Protocol",
@@ -7313,6 +7330,14 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "Blackhole",
                    "Contextual",
                    "Correlation",
+
+
+
+Lehmann                  Expires 25 October 2026              [Page 131]
+
+Internet-Draft                   IDMEFv2                      April 2026
+
+
                    "Ensemble",
                    "Fingerprinting",
                    "Frequency",
@@ -7330,14 +7355,6 @@ Internet-Draft                   IDMEFv2                      April 2026
                    "Orchestration",
                    "Pattern",
                    "Policy",
-
-
-
-Lehmann                  Expires 25 October 2026              [Page 131]
-
-Internet-Draft                   IDMEFv2                      April 2026
-
-
                    "Predictive",
                    "Protocol",
                    "Recon",
@@ -7354,8 +7371,253 @@ Internet-Draft                   IDMEFv2                      April 2026
                ],
                "description": "Possible analyzer method"
            },
+           "sourceCategoryEnum": {
+               "enum": [
+                   "Undetermined",
+                   "Acoustic.Sound.GlassBreak",
+                   "Acoustic.Sound.Infrasound",
+                   "Acoustic.Sound.PressurizedLeak",
+                   "Acoustic.Sound.SonarEcho",
+                   "Acoustic.Sound.UltrasonicNoise",
+                   "Acoustic.Vibration.Footstep",
+                   "Acoustic.Vibration.Seismic",
+                   "Acoustic.Vibration.StructuralCrack",
+                   "Acoustic.Vibration.VehicleVibe",
+                   "Acoustic.Vibration.VibAnalysis",
+                   "ChemBio.Gases.CO",
+                   "ChemBio.Gases.CWA",
+
+
+
+Lehmann                  Expires 25 October 2026              [Page 132]
+
+Internet-Draft                   IDMEFv2                      April 2026
+
+
+                   "ChemBio.Gases.Freon",
+                   "ChemBio.Gases.Hydrogen",
+                   "ChemBio.Gases.Methane",
+                   "ChemBio.Gases.O2Level",
+                   "ChemBio.Gases.Propane",
+                   "ChemBio.Gases.Radon",
+                   "ChemBio.Gases.VOC",
+                   "ChemBio.Properties.ORP",
+                   "ChemBio.Properties.pHLevel",
+                   "ChemBio.Properties.Salinity",
+                   "ChemBio.Threats.Anthrax",
+                   "ChemBio.Threats.Botulinum",
+                   "ChemBio.Threats.Pathogen",
+                   "ChemBio.Threats.Ricin",
+                   "Cyber.Application.SQLQuery",
+                   "Cyber.Application.XSSPayload",
+                   "Cyber.Cloud.APIToken",
+                   "Cyber.Cloud.BucketName",
+                   "Cyber.Cloud.CloudResourceID",
+                   "Cyber.Cloud.OAuthApp",
+                   "Cyber.Email.EmailAuthResult",
+                   "Cyber.Email.MessageID",
+                   "Cyber.Email.RecipientEmail",
+                   "Cyber.Email.ReplyToEmail",
+                   "Cyber.Email.ReturnPath",
+                   "Cyber.Email.SenderEmail",
+                   "Cyber.Email.XOrigIP",
+                   "Cyber.Endpoint.CmdLine",
+                   "Cyber.Endpoint.DLL",
+                   "Cyber.Endpoint.FileHash",
+                   "Cyber.Endpoint.FilePath",
+                   "Cyber.Endpoint.MemoryArtifact",
+                   "Cyber.Endpoint.PID",
+                   "Cyber.Endpoint.ProcessName",
+                   "Cyber.Endpoint.RegistryKey",
+                   "Cyber.Endpoint.ScheduledTask",
+                   "Cyber.Endpoint.ServiceName",
+                   "Cyber.Forensics.NetFlow",
+                   "Cyber.Forensics.PacketPayload",
+                   "Cyber.Hardware.DeviceSerial",
+                   "Cyber.Hardware.USBDeviceID",
+                   "Cyber.Identity.LoginTimestamp",
+                   "Cyber.Identity.Username",
+                   "Cyber.Network.IPv4",
+                   "Cyber.Network.IPv6",
+                   "Cyber.Network.MAC",
+                   "Cyber.Network.Port",
+                   "Cyber.Network.Protocol",
+
+
+
+Lehmann                  Expires 25 October 2026              [Page 133]
+
+Internet-Draft                   IDMEFv2                      April 2026
+
+
+                   "Cyber.Web.Domain",
+                   "Cyber.Web.HTTPMethod",
+                   "Cyber.Web.ReferrerHeader",
+                   "Cyber.Web.SessionID",
+                   "Cyber.Web.URIPath",
+                   "Cyber.Web.URL",
+                   "Cyber.Web.UserAgent",
+                   "ElectroMag.Infrared.GasLeakIR",
+                   "ElectroMag.Infrared.HeatTemp",
+                   "ElectroMag.Infrared.MoistureContent",
+                   "ElectroMag.Infrared.ThermalGradient",
+                   "ElectroMag.Infrared.WarmBody",
+                   "ElectroMag.Ultraviolet.BioContamUV",
+                   "ElectroMag.Ultraviolet.CoronaArc",
+                   "ElectroMag.Ultraviolet.FlameUV",
+                   "ElectroMag.Ultraviolet.ForgeryUV",
+                   "ElectroMag.Light.BiometricEye",
+                   "ElectroMag.Light.EdgesShapes",
+                   "ElectroMag.Light.Flicker",
+                   "ElectroMag.Light.LightColor",
+                   "ElectroMag.Light.LightPresence",
+                   "ElectroMag.Light.MotionOptical",
+                   "ElectroMag.Light.ObjectsGeneric",
+                   "Force.Atmospheric.Altitude",
+                   "Force.Atmospheric.BaroPress",
+                   "Force.Atmospheric.VacuumLevel",
+                   "Force.Fluid.Airflow",
+                   "Force.Fluid.WaterPressure",
+                   "Force.Touch.GripStrength",
+                   "Force.Touch.PhysicalContact",
+                   "Force.Touch.TirePressure",
+                   "Force.Touch.Weight",
+                   "Radiation.General.Alpha",
+                   "Radiation.General.Beta",
+                   "Radiation.General.Cosmic",
+                   "Radiation.General.Gamma",
+                   "Radiation.General.Neutron",
+                   "Radiation.General.RadonDecay",
+                   "Radiation.General.Xray",
+                   "Magnetic.General.CurrentFlow",
+                   "Magnetic.General.ESD",
+                   "Magnetic.General.Ferrous",
+                   "Magnetic.General.MagneticAnomaly",
+                   "Magnetic.General.Orientation",
+                   "Magnetic.General.Powerline",
+                   "Magnetic.General.Voltage",
+                   "Object.Indoor.Container",
+                   "Object.Indoor.Document",
+
+
+
+Lehmann                  Expires 25 October 2026              [Page 134]
+
+Internet-Draft                   IDMEFv2                      April 2026
+
+
+                   "Object.Indoor.Electronics",
+                   "Object.Indoor.Furniture",
+                   "Object.Indoor.Weapon",
+                   "Object.LivingBeings.Animal",
+                   "Object.LivingBeings.BodyPose",
+                   "Object.LivingBeings.EyeGaze",
+                   "Object.LivingBeings.Face",
+                   "Object.LivingBeings.HandGesture",
+                   "Object.LivingBeings.Human",
+                   "Object.Outdoor.Building",
+                   "Object.Outdoor.Pothole",
+                   "Object.Outdoor.RoadSign",
+                   "Object.Outdoor.Vegetation",
+                   "Object.SpecificScenes.FireVisual",
+                   "Object.SpecificScenes.Flood",
+                   "Object.SpecificScenes.SmokeVisual",
+                   "Object.SpecificScenes.Snow",
+                   "Object.Vehicles.Aircraft",
+                   "Object.Vehicles.Boat",
+                   "Object.Vehicles.Bus",
+                   "Object.Vehicles.Car",
+                   "Object.Vehicles.LicensePlate",
+                   "Object.Vehicles.Moto",
+                   "Object.Vehicles.Truck",
+                   "Particulate.Aerosols.Bioaerosol",
+                   "Particulate.Aerosols.Dust",
+                   "Particulate.Aerosols.Pollen",
+                   "Particulate.Aerosols.SmokeIonization",
+                   "Particulate.Aerosols.SmokePhotoelectric",
+                   "Particulate.Liquids.ChemicalSpill",
+                   "Particulate.Liquids.FuelSheen",
+                   "Particulate.Liquids.LiquidLevel",
+                   "Particulate.Liquids.WaterLeak",
+                   "Particulate.Solids.DensityChange",
+                   "Particulate.Solids.ForeignObject",
+                   "Particulate.Solids.GrainFlow",
+                   "Particulate.Solids.Landmine",
+                   "Particulate.Solids.Metal",
+                   "Software.Detected.Crowd",
+                   "Software.Detected.CyberAttack",
+                   "Software.Detected.Drowsiness",
+                   "Software.Detected.Explosion",
+                   "Software.Detected.FailedBiometric",
+                   "Software.Detected.FireFusion",
+                   "Software.Detected.Intrusion",
+                   "Software.Detected.Loitering",
+                   "Software.Detected.Tailgating",
+                   "ext-value"
+
+
+
+Lehmann                  Expires 25 October 2026              [Page 135]
+
+Internet-Draft                   IDMEFv2                      April 2026
+
+
+               ],
+               "description": "Possible source category"
+           },
+           "targetCategoryEnum": {
+               "enum": [
+                   "Undetermined",
+                   "Commercial.ClientBase",
+                   "Commercial.Partnerships",
+                   "Commercial.Reputation",
+                   "Financial.Cash",
+                   "Financial.Investments",
+                   "Financial.Receivables",
+                   "Furniture.Fittings",
+                   "Furniture.HVAC",
+                   "Furniture.OfficeFurniture",
+                   "Human.EmployerBrand",
+                   "Human.Organization",
+                   "Human.Skills",
+                   "Infrastructure.CivilWorks",
+                   "Infrastructure.Foundations",
+                   "Infrastructure.Networks",
+                   "IP.Copyrights",
+                   "IP.Patents",
+                   "IP.Trademarks",
+                   "IT.Endpoints",
+                   "IT.Hardware",
+                   "IT.Telecom",
+                   "Logistics.Containers",
+                   "Logistics.SpecialVehicles",
+                   "Logistics.Vehicles",
+                   "Marketing.Content",
+                   "Marketing.Domains",
+                   "Marketing.Identity",
+                   "Production.HeavyEquipment",
+                   "Production.Machinery",
+                   "Production.MachineTools",
+                   "RealEstate.Buildings",
+                   "RealEstate.Land",
+                   "RealEstate.SpecialStructures",
+                   "Software.Applications",
+                   "Software.Data",
+                   "Software.Licenses",
+                   "ext-value"
+               ],
+               "description": "Possible target category"
+           },
            "attachmentNameType": {
                "description": "A a unique identifier among attachments.",
+
+
+
+Lehmann                  Expires 25 October 2026              [Page 136]
+
+Internet-Draft                   IDMEFv2                      April 2026
+
+
                "type": "string",
                "pattern": "^[a-zA-Z0-9]+$"
            },
@@ -7386,14 +7648,6 @@ Internet-Draft                   IDMEFv2                      April 2026
                "type": "string",
                "pattern": "^(((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)|([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))$"
            },
-
-
-
-Lehmann                  Expires 25 October 2026              [Page 132]
-
-Internet-Draft                   IDMEFv2                      April 2026
-
-
            "mediatypeType": {
                "description": "A valid media type (e.g. \"text/plain\") conforming to the format defined in section 3.1.1.1 of RFC 7231. See also http://www.iana.org/assignments/media-types/media-types.xhtml.",
                "type": "string",
@@ -7412,6 +7666,14 @@ Internet-Draft                   IDMEFv2                      April 2026
            "hashType": {
                "description": "A cryptographic hash acting as a checksum for some content, using the format \"function:hex-value\" (e.g. \"md5:dc89f0b4ff9bd3b061dd66bb66c991b1\").",
                "type": "string",
+
+
+
+Lehmann                  Expires 25 October 2026              [Page 137]
+
+Internet-Draft                   IDMEFv2                      April 2026
+
+
                "pattern": "^[a-zA-Z0-9-]+:([a-fA-F0-9]{2})+$"
            }
        },
@@ -7445,4 +7707,22 @@ Author's Address
 
 
 
-Lehmann                  Expires 25 October 2026              [Page 133]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Lehmann                  Expires 25 October 2026              [Page 138]
