@@ -149,7 +149,6 @@ $(document).ready(async function () {
 });
 
 // Functions related to the copy popup
-
 function showPopUp(id, timeout) {
 
   popUp = document.getElementById(id);
