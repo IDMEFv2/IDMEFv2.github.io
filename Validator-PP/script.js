@@ -25,11 +25,12 @@ var files = [];
 
 var container = document.getElementById('jsoneditor');
 
-const LOCAL_DRAFTS_BASE_PATH = "./drafts/IDMEFv2";
+const DRAFTS_BASE_CANDIDATES = ["./drafts/IDMEFv2", "../drafts/IDMEFv2"];
+const EXAMPLES_BASE_CANDIDATES = ["./examples", "../examples"];
 const LATEST_SCHEMA_FOLDER = "latest-stable";
-const schemaURL = `${LOCAL_DRAFTS_BASE_PATH}/${LATEST_SCHEMA_FOLDER}/IDMEFv2.schema`;
+const schemaURL = `${DRAFTS_BASE_CANDIDATES[0]}/${LATEST_SCHEMA_FOLDER}/IDMEFv2.schema`;
 let validationEnabled = true;
-var currentSchemaURI = `${LOCAL_DRAFTS_BASE_PATH}/${LATEST_SCHEMA_FOLDER}/IDMEFv2.schema`;
+var currentSchemaURI = `${DRAFTS_BASE_CANDIDATES[0]}/${LATEST_SCHEMA_FOLDER}/IDMEFv2.schema`;
 let editor;
 
 require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.38.0/min/vs' } });
@@ -178,7 +179,7 @@ function printExercise(exercise) {
 }
 
 // Cycles between the examples found inside the repository
-function printExample(example) {
+async function printExample(example) {
   enableValidation();
   cleanResult();
 
@@ -188,13 +189,18 @@ function printExample(example) {
       console.error("Unable to resolve examples version from current schema selection");
       return;
     }
-    var url = `./examples/${localVersion}/${example}`;
 
-    $.getJSON(url, function (exampleJson) {
-      json = exampleJson;
-      $('#selectedFileName').val(example);
-      editor.setValue(JSON.stringify(json, null, 2));
-    });
+    const exampleResult = await tryLoadExampleFromCandidates(getExampleUrlCandidates(localVersion, example));
+    if (!exampleResult) {
+      console.error(`Unable to load example ${example} for ${localVersion}`);
+      $("#warning-text").text(`Unable to load example ${example}. Please check repository paths.`);
+      showPopUp("warning-popup", 3000);
+      return;
+    }
+
+    json = exampleResult.data;
+    $('#selectedFileName').val(example);
+    editor.setValue(JSON.stringify(json, null, 2));
   } else {
     console.error("No files have been found inside the repository");
   }
@@ -945,10 +951,18 @@ async function fetchTextOrThrow(url) {
 }
 
 function getSchemaUrlCandidates(folder) {
-  return [
-    `${LOCAL_DRAFTS_BASE_PATH}/${folder}/IDMEFv2.schema`,
-    `${LOCAL_DRAFTS_BASE_PATH}/${folder}/idmefv2.schema`
-  ];
+  const candidates = [];
+
+  DRAFTS_BASE_CANDIDATES.forEach((basePath) => {
+    candidates.push(`${basePath}/${folder}/IDMEFv2.schema`);
+    candidates.push(`${basePath}/${folder}/idmefv2.schema`);
+  });
+
+  return candidates;
+}
+
+function getExampleUrlCandidates(version, example) {
+  return EXAMPLES_BASE_CANDIDATES.map(basePath => `${basePath}/${version}/${example}`);
 }
 
 async function tryLoadSchema(url) {
@@ -965,6 +979,24 @@ async function tryLoadSchemaFromCandidates(urls) {
     const schema = await tryLoadSchema(url);
     if (schema) {
       return { schema, url };
+    }
+  }
+
+  return null;
+}
+
+async function tryLoadExampleFromCandidates(urls) {
+  for (const url of urls) {
+    try {
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) {
+        continue;
+      }
+
+      const data = await response.json();
+      return { data, url };
+    } catch (e) {
+      // Keep trying fallback paths.
     }
   }
 
