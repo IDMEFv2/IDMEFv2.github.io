@@ -25,9 +25,10 @@ var files = [];
 
 var container = document.getElementById('jsoneditor');
 
-const DRAFTS_BASE_CANDIDATES = ["./drafts/IDMEFv2", "../drafts/IDMEFv2"];
-const EXAMPLES_BASE_CANDIDATES = ["./examples", "../examples"];
+const DRAFTS_BASE_CANDIDATES = ["./drafts/IDMEFv2"];
+const EXAMPLES_BASE_CANDIDATES = ["./examples"];
 const LATEST_SCHEMA_FOLDER = "latest-stable";
+const LATEST_DEV_SCHEMA_FOLDER = "latest-dev";
 const schemaURL = `${DRAFTS_BASE_CANDIDATES[0]}/${LATEST_SCHEMA_FOLDER}/IDMEFv2.schema`;
 let validationEnabled = true;
 var currentSchemaURI = `${DRAFTS_BASE_CANDIDATES[0]}/${LATEST_SCHEMA_FOLDER}/IDMEFv2.schema`;
@@ -762,11 +763,13 @@ async function fetchVersionFolderPairs() {
   folders.sort((a, b) => {
     if (a === LATEST_SCHEMA_FOLDER) return -1;
     if (b === LATEST_SCHEMA_FOLDER) return 1;
+    if (a === LATEST_DEV_SCHEMA_FOLDER) return -1;
+    if (b === LATEST_DEV_SCHEMA_FOLDER) return 1;
     return a.localeCompare(b);
   });
 
   const validFolders = folders.filter(folder => {
-    return folder === LATEST_SCHEMA_FOLDER || parseInt(folder, 10) >= 4;
+    return folder === LATEST_SCHEMA_FOLDER || folder === LATEST_DEV_SCHEMA_FOLDER || parseInt(folder, 10) >= 4;
   });
 
   for (const folder of validFolders) {
@@ -798,6 +801,8 @@ async function fetchVersionFolderPairs() {
   result.sort((a, b) => {
     if (a.folder === LATEST_SCHEMA_FOLDER) return -1;
     if (b.folder === LATEST_SCHEMA_FOLDER) return 1;
+    if (a.folder === LATEST_DEV_SCHEMA_FOLDER) return -1;
+    if (b.folder === LATEST_DEV_SCHEMA_FOLDER) return 1;
     return b.version.localeCompare(a.version);
   });
 
@@ -876,6 +881,9 @@ function mapSchemaToFolder(value) {
   if (value.toLowerCase() === "latest" || value.toLowerCase() === LATEST_SCHEMA_FOLDER) {
     return "latest";
   }
+  if (value.toLowerCase() === LATEST_DEV_SCHEMA_FOLDER) {
+    return LATEST_DEV_SCHEMA_FOLDER;
+  }
   if (value.toLowerCase() === "custom") {
     return "custom";
   }
@@ -905,6 +913,10 @@ function getSchemaDropdownLabel(version, folderName) {
     return `Latest Schema - ${version}`;
   }
 
+  if (folderName === LATEST_DEV_SCHEMA_FOLDER) {
+    return `Latest Dev Schema - ${version}`;
+  }
+
   if (/\-Dev$/i.test(folderName)) {
     return `${version} - Dev`;
   }
@@ -919,6 +931,10 @@ function normalizeExamplesVersion(versionValue) {
 
   const normalized = String(versionValue).trim();
   if (normalized.toLowerCase() === "latest") {
+    return "latest";
+  }
+
+  if (normalized.toLowerCase() === LATEST_DEV_SCHEMA_FOLDER) {
     return "latest";
   }
 
@@ -1010,8 +1026,16 @@ async function listDraftFolders() {
 
 function sortFoldersForFallback(folders) {
   return folders
-    .filter(folder => /^\d+$/.test(folder) || /^\d+-Dev$/i.test(folder))
+    .filter(folder => folder === LATEST_DEV_SCHEMA_FOLDER || /^\d+$/.test(folder) || /^\d+-Dev$/i.test(folder))
     .map(folder => {
+      if (folder === LATEST_DEV_SCHEMA_FOLDER) {
+        return {
+          folder,
+          version: Number.MAX_SAFE_INTEGER,
+          isDev: true
+        };
+      }
+
       const match = folder.match(/^(\d+)(-Dev)?$/i);
       return {
         folder,
