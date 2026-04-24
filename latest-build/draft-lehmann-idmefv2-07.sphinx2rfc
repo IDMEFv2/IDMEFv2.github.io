@@ -1121,7 +1121,7 @@ Source(0).IP</literal_block>
                     <definition>
                         <paragraph>Optional.
                             Priority of the alert.
-                            Priority is defined by conbining impact and urgency. It indicates how fast the incident should be taken care of.</paragraph>
+                            Priority is defined by combining impact and urgency. It indicates how fast the incident should be taken care of.</paragraph>
                         <table align="default" ids="enum-alert-priority" names="enum-alert-priority">
                             <title>Incident priorities</title>
                             <tgroup cols="3">
@@ -1150,7 +1150,7 @@ Source(0).IP</literal_block>
                                             <paragraph>Unknown</paragraph>
                                         </entry>
                                         <entry>
-                                            <paragraph>Priority unknow</paragraph>
+                                            <paragraph>Priority unknown</paragraph>
                                         </entry>
                                     </row>
                                     <row>
@@ -9754,7 +9754,7 @@ Source(0).IP</literal_block>
             "$ref": "#/definitions/statusEnum"
         },
         "Priority": {
-            "description": "Priority of the alert. Priority is defined by conbining impact and urgency. It indicates how fast the incident should be taken care of.",
+            "description": "Priority of the alert. Priority is defined by combining impact and urgency. It indicates how fast the incident should be taken care of.",
             "$ref": "#/definitions/priorityEnum"
         },
         "Confidence": {

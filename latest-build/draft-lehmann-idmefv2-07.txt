@@ -1318,13 +1318,13 @@ Internet-Draft                   IDMEFv2                      April 2026
 
    Priority
       Optional.  Priority of the alert.  Priority is defined by
-      conbining impact and urgency.  It indicates how fast the incident
+      combining impact and urgency.  It indicates how fast the incident
       should be taken care of.
 
          +======+=========+=========================================+
          | Rank | Keyword | Description                             |
          +======+=========+=========================================+
-         | 0    | Unknown | Priority unknow                         |
+         | 0    | Unknown | Priority unknown                        |
          +------+---------+-----------------------------------------+
          | 1    | Info    | No priority, the alert is informational |
          +------+---------+-----------------------------------------+
@@ -6296,7 +6296,7 @@ Internet-Draft                   IDMEFv2                      April 2026
                "$ref": "#/definitions/statusEnum"
            },
            "Priority": {
-               "description": "Priority of the alert. Priority is defined by conbining impact and urgency. It indicates how fast the incident should be taken care of.",
+               "description": "Priority of the alert. Priority is defined by combining impact and urgency. It indicates how fast the incident should be taken care of.",
                "$ref": "#/definitions/priorityEnum"
            },
            "Confidence": {
