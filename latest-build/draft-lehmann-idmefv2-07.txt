@@ -3594,7 +3594,7 @@ Internet-Draft                   IDMEFv2                      April 2026
    |      |                               | operational incident       |
    |      |                               | subcategories.             |
    +------+-------------------------------+----------------------------+
-   | 64   | Recon.Netword                 | The practice of probing    |
+   | 64   | Recon.Network                 | The practice of probing    |
    |      |                               | a network to discover      |
    |      |                               | active hosts, open         |
    |      |                               | ports, and services,       |

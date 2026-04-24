@@ -4392,7 +4392,7 @@ Source(0).IP</sourcecode>
                                 <t>64</t>
                             </td>
                             <td>
-                                <t>Recon.Netword</t>
+                                <t>Recon.Network</t>
                             </td>
                             <td>
                                 <t>The practice of probing a network to discover active hosts, open ports, and services, often as a precursor to an attack or unauthorized monitoring.</t>

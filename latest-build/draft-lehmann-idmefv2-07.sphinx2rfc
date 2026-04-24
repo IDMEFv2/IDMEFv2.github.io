@@ -4791,7 +4791,7 @@ Source(0).IP</literal_block>
                                 <paragraph>64</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Recon.Netword</paragraph>
+                                <paragraph>Recon.Network</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>The practice of probing a network to discover active hosts, open ports, and services, often as a precursor to an attack or unauthorized monitoring.</paragraph>
