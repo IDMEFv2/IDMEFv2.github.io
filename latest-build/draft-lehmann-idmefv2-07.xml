@@ -12,7 +12,7 @@
         <email>gilles.lehmann@telecom-sudparis.eu</email>
       </address>
     </author>
-    <date day="23" month="April" year="2026"/>
+    <date day="24" month="April" year="2026"/>
     <keyword>RFC4765</keyword>
     <keyword>RFC4766</keyword>
     <keyword>IDMEF</keyword>
@@ -91,7 +91,7 @@ Analyzers/Sensors  |Physical| |Monitoring| |Cyber|
                   |    Cyber &amp; Physical System    |
                   +-------------------------------+</artwork>
         </figure>
-        <t>Thanks to its universality IDMEFv2 improves situational awareness by enabling correlation of multiple types
+        <t>IDMEFv2 improves situational awareness by enabling correlation of multiple types
                 of events using the same base format.</t>
         <t>This document defines a model serialization methods for the purpose of describing and sharing these events.</t>
       </section>
@@ -108,13 +108,13 @@ Analyzers/Sensors  |Physical| |Monitoring| |Cyber|
                 (Intrusion Detection) by covering a wider spectrum.</t>
         <t>IODEFv2 (Incident Object Definition Exchange Format - RFC 5070) : IDMEFv2 helps detect incident. When an incident is detected it will
                 be analysed and eventually fully described and shared with other security teams through IODEFv2.
-                IODEFv2. IDMEF is used upstream IODEFv2. IDMEfv2 aLerts can be “attached” to IODEFv2 object
+                IDMEF is used upstream IODEFv2. IDMEFv2 alerts can be “attached” to IODEFv2 object
                 to provide technical details about incidents.</t>
-        <t>Syslog (System Logging) : Syslog is a lossy format with no formal structuration. Syslog can
+        <t>Syslog (System Logging) : Syslog is a lossy format with no formal structure. Syslog can
                 be used by sensors to send information to analyzers. Out of those multi-format
                 syslogs the analyzer might detect an incident or an event of interest. The analyzer
                 will then use IDMEFv2 to notify the manager which might correlate this information
-                with other datas to confirm the incident.</t>
+                with other data to confirm the incident.</t>
         <t>SNMP (Simple Network Management Protocol) : SNMP polls information from devices which is then compared to thresholds
                 to detect incident. IDMEFv2 can be used when incident is detected downstream of
                 SNMP to communicate the incident to the manager. IDMEFv2 can have a similar role as SNMP Traps.</t>
@@ -161,7 +161,7 @@ Analyzers/Sensors  |Physical| |Monitoring| |Cyber|
           <name>Event</name>
           <t>An event is something that triggered a notice. Any incident starts off as an event
                     or a combination of events, but not all events result in an incident.
-                    An event need not be an indication of wrongdoing. E.g. someone successfully logging in
+                    An event does not need  be an indication of wrongdoing. E.g. someone successfully logging in
                     or entering a building is an event.</t>
         </section>
         <section>
@@ -490,7 +490,7 @@ Source(0).IP</sourcecode>
         <sourcecode type="json">"Attachment" : [
     {
     "Name": "Operator",
-    "ContentEnconding": "JSON",
+    "ContentEncoding": "JSON",
     "Content": "{\"OperatorMail\":\"John.Does@acme.com\"}",
     }
 [</sourcecode>
@@ -1695,7 +1695,7 @@ Source(0).IP</sourcecode>
                 IDMEFv2 message:</t>
         <ul>
                 <li>
-                    <t>The top-level Alert class (Section 4.2) is represented as a JSON
+                    <t>The top-level Alert class (Section 5.2) is represented as a JSON
                         object ([RFC8259]). This JSON object is returned to the calling
                         process at the end of the serialization process.</t>
                 </li>
@@ -1903,7 +1903,7 @@ Source(0).IP</sourcecode>
                 <t>The [ENISA-RIST] Reference Security Incident Taxonomy Working Group</t>
             </li>
             <li>
-                <t>The ReelIT company who activaly contributed to the finalization of this draft</t>
+                <t>The ReelIT company who actively contributed to the finalization of this draft</t>
             </li>
         </ul>
     </section>
