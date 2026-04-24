@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index of /latest-build</title>
+    <style>body{font-family:monospace; margin:40px auto; max-width:800px;}</style>
+</head>
+<body>
+    <h1>📁 Index of /latest-build</h1>
+    <ul id="filelist">Chargement...</ul>
+    
+    <script>
+        fetch('https://api.github.com/repos/idmefv2/idmefv2.github.io/contents/latest-build')
+            .then(r => r.json())
+            .then(files => {
+                const ul = document.getElementById('filelist');
+                ul.innerHTML = files.map(file => 
+                    `<li><a href="${file.name}">${file.name}</a> (${Math.round(file.size/1024)} KB, modifié le ${new Date(file.sha).toLocaleDateString()})</li>`
+                ).join('');
+            });
+    </script>
+</body>
+</html>
