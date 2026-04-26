@@ -2975,14 +2975,14 @@ A.2.  Alert Category
    +====+===============================+==============================+
    |Rank| Keyword                       |Description                   |
    +====+===============================+==============================+
-   |2   | Abuse.Coercion                |The practice of compelling an |
+   |0   | Abuse.Coercion                |The practice of compelling an |
    |    |                               |individual to act against     |
    |    |                               |their will by using force,    |
    |    |                               |threats, intimidation, or     |
    |    |                               |extreme dependency, often for |
    |    |                               |personal or financial gain.   |
    +----+-------------------------------+------------------------------+
-   |4   | Abuse.Extermism               |The process of socializing an |
+   |1   | Abuse.Extermism               |The process of socializing an |
    |    |                               |individual, often through     |
    |    |                               |psychological manipulation, to|
    |    |                               |adopt the beliefs and goals of|
@@ -2991,21 +2991,21 @@ A.2.  Alert Category
    |    |                               |activities that support the   |
    |    |                               |group.                        |
    +----+-------------------------------+------------------------------+
-   |0   | Abuse.Grooming                |The process of deliberately   |
+   |2   | Abuse.Grooming                |The process of deliberately   |
    |    |                               |building an emotional         |
    |    |                               |connection with a person to   |
    |    |                               |lower their inhibitions for   |
    |    |                               |the purpose of sexual abuse,  |
    |    |                               |exploitation, or trafficking. |
    +----+-------------------------------+------------------------------+
-   |1   | Abuse.Harassment              |A pattern of unwanted,        |
+   |3   | Abuse.Harassment              |A pattern of unwanted,        |
    |    |                               |intrusive behavior (physical, |
    |    |                               |verbal, or online) directed at|
    |    |                               |a specific person that causes |
    |    |                               |fear, distress, or emotional  |
    |    |                               |harm.                         |
    +----+-------------------------------+------------------------------+
-   |3   | Abuse.Trafficking             |The act of recruiting,        |
+   |4   | Abuse.Trafficking             |The act of recruiting,        |
    |    |                               |transporting, transferring,   |
    |    |                               |harboring, or receiving a     |
    |    |                               |person through force, fraud,  |
@@ -3027,28 +3027,28 @@ Internet-Draft                   IDMEFv2                      April 2026
 
 
    +----+-------------------------------+------------------------------+
-   |14  | Access.Authorized             |An incident involving         |
+   |6   | Access.Authorized             |An incident involving         |
    |    |                               |legitimate, approved access to|
    |    |                               |resources that may be relevant|
    |    |                               |for auditing, monitoring, or  |
    |    |                               |establishing a baseline of    |
    |    |                               |normal activity.              |
    +----+-------------------------------+------------------------------+
-   |8   | Access.Backdoor               |The installation or discovery |
+   |7   | Access.Backdoor               |The installation or discovery |
    |    |                               |of a concealed method of      |
    |    |                               |bypassing normal              |
    |    |                               |authentication or encryption  |
    |    |                               |in a computer system, product,|
    |    |                               |or embedded device.           |
    +----+-------------------------------+------------------------------+
-   |13  | Access.Clonned                |The act of creating an        |
+   |8   | Access.Clonned                |The act of creating an        |
    |    |                               |unauthorized copy of a        |
    |    |                               |physical or digital security  |
    |    |                               |credential, such as an access |
    |    |                               |card, to gain illicit entry to|
    |    |                               |a facility or system.         |
    +----+-------------------------------+------------------------------+
-   |6   | Access.Compromise             |An incident where a legitimate|
+   |9   | Access.Compromise             |An incident where a legitimate|
    |    |                               |user's credentials (e.g.,     |
    |    |                               |username/password) are stolen |
    |    |                               |or guessed and used by an     |
@@ -3056,7 +3056,7 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |gain access to systems or     |
    |    |                               |data.                         |
    +----+-------------------------------+------------------------------+
-   |7   | Access.Escalation             |An incident where a user or   |
+   |10  | Access.Escalation             |An incident where a user or   |
    |    |                               |process gains access rights,  |
    |    |                               |permissions, or capabilities  |
    |    |                               |that exceed those normally    |
@@ -3086,14 +3086,14 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |stolen, or used by an         |
    |    |                               |unauthorized person.          |
    +----+-------------------------------+------------------------------+
-   |10  | Access.Tailgating             |A physical security breach    |
+   |13  | Access.Tailgating             |A physical security breach    |
    |    |                               |where an unauthorized person  |
    |    |                               |follows an authorized         |
    |    |                               |individual through a secured  |
    |    |                               |entry point, circumventing    |
    |    |                               |access control mechanisms.    |
    +----+-------------------------------+------------------------------+
-   |9   | Access.Unauthorized           |An incident involving physical|
+   |14  | Access.Unauthorized           |An incident involving physical|
    |    |                               |entry into a restricted       |
    |    |                               |building, room, or area       |
    |    |                               |without proper authorization. |
@@ -3103,21 +3103,21 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |that does not fit into the    |
    |    |                               |specific access subcategories.|
    +----+-------------------------------+------------------------------+
-   |17  | Availability.DDoS             |An incident where multiple    |
+   |16  | Availability.DDoS             |An incident where multiple    |
    |    |                               |compromised systems (a botnet)|
    |    |                               |are used to target a single   |
    |    |                               |system with a flood of        |
    |    |                               |traffic, causing a denial of  |
    |    |                               |service.                      |
    +----+-------------------------------+------------------------------+
-   |16  | Availability.DoS              |An incident where a single    |
+   |17  | Availability.DoS              |An incident where a single    |
    |    |                               |machine or network attempts to|
    |    |                               |make a system, service, or    |
    |    |                               |network resource unavailable  |
    |    |                               |by overwhelming it with       |
    |    |                               |malicious requests or traffic.|
    +----+-------------------------------+------------------------------+
-   |19  | Availability.Failure          |An incident caused by the     |
+   |18  | Availability.Failure          |An incident caused by the     |
    |    |                               |unintentional malfunction of  |
    |    |                               |hardware or software due to   |
    |    |                               |errors, bugs, wear and tear,  |
@@ -3125,7 +3125,7 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |service degradation or        |
    |    |                               |unavailability.               |
    +----+-------------------------------+------------------------------+
-   |22  | Availability.HeartBeat        |A periodic signal generated by|
+   |19  | Availability.HeartBeat        |A periodic signal generated by|
    |    |                               |hardware or software to       |
    |    |                               |indicate normal operation,    |
    |    |                               |often used for monitoring     |
@@ -3146,14 +3146,14 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |service disruptions, outages, |
    |    |                               |or security vulnerabilities.  |
    +----+-------------------------------+------------------------------+
-   |18  | Availability.Outage           |An incident where essential   |
+   |21  | Availability.Outage           |An incident where essential   |
    |    |                               |utilities or services (such as|
    |    |                               |electricity, water, or network|
    |    |                               |connectivity) become          |
    |    |                               |unavailable, disrupting normal|
    |    |                               |operations.                   |
    +----+-------------------------------+------------------------------+
-   |21  | Availability.Overload         |An incident where a system or |
+   |22  | Availability.Overload         |An incident where a system or |
    |    |                               |component is subjected to a   |
    |    |                               |load beyond its designed      |
    |    |                               |capacity, leading to          |
@@ -3167,21 +3167,21 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |covered by the specific       |
    |    |                               |subcategories.                |
    +----+-------------------------------+------------------------------+
-   |115 | Biological.Animal             |An incident where animals pose|
+   |24  | Biological.Animal             |An incident where animals pose|
    |    |                               |a direct threat to human      |
    |    |                               |safety, public health (e.g.,  |
    |    |                               |zoonotic diseases), or        |
    |    |                               |economic stability (e.g.,     |
    |    |                               |livestock diseases).          |
    +----+-------------------------------+------------------------------+
-   |113 | Biological.Epidemic           |The rapid and widespread      |
+   |25  | Biological.Epidemic           |The rapid and widespread      |
    |    |                               |occurrence of an infectious   |
    |    |                               |disease in a specific         |
    |    |                               |population or region,         |
    |    |                               |exceeding what is normally    |
    |    |                               |expected.                     |
    +----+-------------------------------+------------------------------+
-   |114 | Biological.Insect             |An incident involving a       |
+   |26  | Biological.Insect             |An incident involving a       |
    |    |                               |harmful outbreak or           |
    |    |                               |infestation of insects that   |
    |    |                               |threatens public health,      |
@@ -3196,7 +3196,7 @@ Internet-Draft                   IDMEFv2                      April 2026
 
    |    |                               |property.                     |
    +----+-------------------------------+------------------------------+
-   |116 | Biological.Zombies            |A fictional or hypothetical   |
+   |27  | Biological.Zombies            |A fictional or hypothetical   |
    |    |                               |scenario involving a pathogen |
    |    |                               |that causes a pandemic of     |
    |    |                               |aggressive, infectious        |
@@ -3205,37 +3205,37 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |outbreak scenarios in         |
    |    |                               |planning.                     |
    +----+-------------------------------+------------------------------+
-   |117 | Biological.Other              |Any other incident caused     |
+   |28  | Biological.Other              |Any other incident caused     |
    |    |                               |bybiological not covered by   |
    |    |                               |specific subcategories.       |
    +----+-------------------------------+------------------------------+
-   |109 | Climat.Drought                |A prolonged period of below-  |
+   |29  | Climat.Drought                |A prolonged period of below-  |
    |    |                               |average precipitation leading |
    |    |                               |to a water shortage, which can|
    |    |                               |impact agriculture,           |
    |    |                               |ecosystems, and water         |
    |    |                               |supplies.                     |
    +----+-------------------------------+------------------------------+
-   |110 | Climat.LakeOutburst           |An incident where a glacial   |
+   |30  | Climat.LakeOutburst           |An incident where a glacial   |
    |    |                               |lake dam (often moraine or    |
    |    |                               |ice) fails, rapidly releasing |
    |    |                               |a large volume of water and   |
    |    |                               |causing devastating floods    |
    |    |                               |downstream.                   |
    +----+-------------------------------+------------------------------+
-   |111 | Climat.Wildfire               |An unplanned and uncontrolled |
+   |31  | Climat.Wildfire               |An unplanned and uncontrolled |
    |    |                               |fire burning in natural or    |
    |    |                               |rural areas, often exacerbated|
    |    |                               |by climatic conditions like   |
    |    |                               |drought, wind, and heat.      |
    +----+-------------------------------+------------------------------+
-   |112 | Climat.Other                  |Any other incident caused by  |
+   |32  | Climat.Other                  |Any other incident caused by  |
    |    |                               |long-lived atmospheric        |
    |    |                               |processes (climatological) not|
    |    |                               |covered by specific           |
    |    |                               |subcategories.                |
    +----+-------------------------------+------------------------------+
-   |119 | Extraterrestrial.Aliens       |A hypothetical incident       |
+   |33  | Extraterrestrial.Aliens       |A hypothetical incident       |
    |    |                               |involving the discovery of or |
    |    |                               |interaction with              |
    |    |                               |extraterrestrial intelligent  |
@@ -3251,25 +3251,25 @@ Internet-Draft                   IDMEFv2                      April 2026
 
 
    +----+-------------------------------+------------------------------+
-   |118 | Extraterrestrial.Impact       |An incident involving a       |
+   |34  | Extraterrestrial.Impact       |An incident involving a       |
    |    |                               |celestial object (asteroid,   |
    |    |                               |meteoroid, comet) colliding   |
    |    |                               |with Earth, potentially       |
    |    |                               |causing localized or global   |
    |    |                               |damage.                       |
    +----+-------------------------------+------------------------------+
-   |120 | Extraterrestrial.SpaceWeather |An event caused by solar or   |
+   |35  | Extraterrestrial.SpaceWeather |An event caused by solar or   |
    |    |                               |cosmic activity, such as solar|
    |    |                               |flares or geomagnetic storms, |
    |    |                               |that can disrupt Earth's      |
    |    |                               |technological infrastructure. |
    +----+-------------------------------+------------------------------+
-   |121 | Extraterrestrial.Other        |Any other incident caused     |
+   |36  | Extraterrestrial.Other        |Any other incident caused     |
    |    |                               |extraterrestrial process not  |
    |    |                               |covered by specific           |
    |    |                               |subcategories.                |
    +----+-------------------------------+------------------------------+
-   |25  | Fraud.Copyright               |The act of reproducing,       |
+   |37  | Fraud.Copyright               |The act of reproducing,       |
    |    |                               |distributing, or installing   |
    |    |                               |software, media, or other     |
    |    |                               |materials in violation of     |
@@ -3277,14 +3277,14 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |personal gain or distribution |
    |    |                               |(piracy).                     |
    +----+-------------------------------+------------------------------+
-   |28  | Fraud.Corruption              |A fraudulent scheme that is   |
+   |38  | Fraud.Corruption              |A fraudulent scheme that is   |
    |    |                               |made possible by the abuse of |
    |    |                               |power or position by a trusted|
    |    |                               |individual (e.g., employee,   |
    |    |                               |official) who acts for        |
    |    |                               |personal gain.                |
    +----+-------------------------------+------------------------------+
-   |29  | Fraud.Espionnage              |The use of illegal or         |
+   |39  | Fraud.Espionnage              |The use of illegal or         |
    |    |                               |unethical means, such as      |
    |    |                               |hacking, bribery, or theft, to|
    |    |                               |acquire a competitor's trade  |
@@ -3293,7 +3293,7 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |confidential business         |
    |    |                               |information.                  |
    +----+-------------------------------+------------------------------+
-   |26  | Fraud.Masquerade              |A type of attack where an     |
+   |40  | Fraud.Masquerade              |A type of attack where an     |
    |    |                               |attacker illegitimately       |
    |    |                               |assumes the identity of       |
    |    |                               |another user, process, or     |
@@ -3309,7 +3309,7 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |access, privileges, or        |
    |    |                               |benefits.                     |
    +----+-------------------------------+------------------------------+
-   |27  | Fraud.Phishing                |A cyber attack where an       |
+   |41  | Fraud.Phishing                |A cyber attack where an       |
    |    |                               |attacker disguises themselves |
    |    |                               |as a trustworthy entity (e.g.,|
    |    |                               |via email or fake website) to |
@@ -3318,20 +3318,20 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |usernames, passwords, or      |
    |    |                               |credit card details.          |
    +----+-------------------------------+------------------------------+
-   |24  | Fraud.Usage                   |The use of an organization's  |
+   |42  | Fraud.Usage                   |The use of an organization's  |
    |    |                               |assets (e.g., computing power,|
    |    |                               |network, email) for non-work- |
    |    |                               |related, often illegal,       |
    |    |                               |activities without            |
    |    |                               |authorization.                |
    +----+-------------------------------+------------------------------+
-   |30  | Fraud.Other                   |Any other incident involving  |
+   |43  | Fraud.Other                   |Any other incident involving  |
    |    |                               |deception for financial or    |
    |    |                               |reputational gain that does   |
    |    |                               |not fit into the specific     |
    |    |                               |fraud subcategories.          |
    +----+-------------------------------+------------------------------+
-   |93  | Geophysical.Earthquake        |An incident caused by a       |
+   |44  | Geophysical.Earthquake        |An incident caused by a       |
    |    |                               |sudden, rapid shaking of the  |
    |    |                               |earth resulting from the      |
    |    |                               |movement of tectonic plates,  |
@@ -3339,19 +3339,19 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |shaking, surface rupture, and |
    |    |                               |tsunamis.                     |
    +----+-------------------------------+------------------------------+
-   |94  | Geophysical.MassMovement      |An incident involving the     |
+   |45  | Geophysical.MassMovement      |An incident involving the     |
    |    |                               |downslope movement of rock,   |
    |    |                               |soil, or snow under the force |
    |    |                               |of gravity, such as           |
    |    |                               |landslides, avalanches, or    |
    |    |                               |rockfalls.                    |
    +----+-------------------------------+------------------------------+
-   |96  | Geophysical.Other             |Any other incident caused by  |
+   |46  | Geophysical.Other             |Any other incident caused by  |
    |    |                               |solid-earth processes not     |
    |    |                               |covered by specific           |
    |    |                               |geophysical subcategories.    |
    +----+-------------------------------+------------------------------+
-   |95  | Geophysical.Volcanic          |An incident caused by the     |
+   |47  | Geophysical.Volcanic          |An incident caused by the     |
    |    |                               |eruption of magma and volcanic|
    |    |                               |gases from a volcano, which   |
 
@@ -3366,7 +3366,7 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |pyroclastic flows, ashfall,   |
    |    |                               |and lahars.                   |
    +----+-------------------------------+------------------------------+
-   |105 | Hydro.Flood                   |An incident where water       |
+   |48  | Hydro.Flood                   |An incident where water       |
    |    |                               |submerges land that is        |
    |    |                               |normally dry, often caused by |
    |    |                               |heavy rain, storm surge, or   |
@@ -3374,39 +3374,39 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |property damage and risk to   |
    |    |                               |life.                         |
    +----+-------------------------------+------------------------------+
-   |106 | Hydro.Landslide               |An incident involving the     |
+   |49  | Hydro.Landslide               |An incident involving the     |
    |    |                               |downward movement of slope    |
    |    |                               |materials (soil, rock)        |
    |    |                               |triggered by water saturation |
    |    |                               |from heavy rain or snowmelt.  |
    +----+-------------------------------+------------------------------+
-   |107 | Hydro.Wave                    |An incident involving         |
+   |50  | Hydro.Wave                    |An incident involving         |
    |    |                               |destructive waves, such as    |
    |    |                               |tsunamis or storm surges, that|
    |    |                               |can cause coastal flooding,   |
    |    |                               |erosion, and damage.          |
    +----+-------------------------------+------------------------------+
-   |108 | Hydro.Other                   |Any other incident caused by  |
+   |51  | Hydro.Other                   |Any other incident caused by  |
    |    |                               |the movement, distribution,   |
    |    |                               |and quality of water, not     |
    |    |                               |covered by specific           |
    |    |                               |hydrological subcategories.   |
    +----+-------------------------------+------------------------------+
-   |31  | Insider.Malicious             |A security incident caused by |
+   |52  | Insider.Malicious             |A security incident caused by |
    |    |                               |a current or former employee, |
    |    |                               |contractor, or other trusted  |
    |    |                               |insider who intentionally acts|
    |    |                               |to harm the organization, its |
    |    |                               |data, or its people.          |
    +----+-------------------------------+------------------------------+
-   |32  | Insider.Negligent             |A security incident caused    |
+   |53  | Insider.Negligent             |A security incident caused    |
    |    |                               |unintentionally by an insider,|
    |    |                               |such as through carelessness, |
    |    |                               |lack of awareness, or simple  |
    |    |                               |human error, leading to data  |
    |    |                               |exposure or system compromise.|
    +----+-------------------------------+------------------------------+
-   |33  | Insider.Other                 |Any other security incident   |
+   |54  | Insider.Other                 |Any other security incident   |
    |    |                               |involving an insider (trusted |
    |    |                               |individual) that does not fit |
    |    |                               |into the specific insider     |
@@ -3420,14 +3420,14 @@ Internet-Draft                   IDMEFv2                      April 2026
 
    |    |                               |threat subcategories.         |
    +----+-------------------------------+------------------------------+
-   |90  | Malware.Adware                |A type of software that       |
+   |55  | Malware.Adware                |A type of software that       |
    |    |                               |automatically displays or     |
    |    |                               |downloads unwanted            |
    |    |                               |advertisements, often in a    |
    |    |                               |disruptive manner, and may    |
    |    |                               |track user behavior.          |
    +----+-------------------------------+------------------------------+
-   |    | Malware.Backdoor              |A type of malware that        |
+   |56  | Malware.Backdoor              |A type of malware that        |
    |    |                               |bypasses normal authentication|
    |    |                               |to give an attacker persistent|
    |    |                               |remote access to a compromised|
@@ -3435,7 +3435,7 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |theft or installation of      |
    |    |                               |additional malware.           |
    +----+-------------------------------+------------------------------+
-   |    | Malware.Cryptominer           |A type of malware that        |
+   |57  | Malware.Cryptominer           |A type of malware that        |
    |    |                               |secretly uses a victim's      |
    |    |                               |computing resources to mine   |
    |    |                               |cryptocurrency, causing       |
@@ -3443,14 +3443,14 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |increased power consumption   |
    |    |                               |without consent.              |
    +----+-------------------------------+------------------------------+
-   |    | Malware.Downloader            |A type of malware designed to |
+   |58  | Malware.Downloader            |A type of malware designed to |
    |    |                               |download and install other    |
    |    |                               |malicious software from a     |
    |    |                               |remote server, typically      |
    |    |                               |acting as the first stage in a|
    |    |                               |multi-step attack.            |
    +----+-------------------------------+------------------------------+
-   |88  | Malware.Ransomware            |A type of malware that        |
+   |59  | Malware.Ransomware            |A type of malware that        |
    |    |                               |encrypts a victim's files or  |
    |    |                               |systems, rendering them       |
    |    |                               |inaccessible, and demands a   |
@@ -3458,14 +3458,14 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |cryptocurrency, for the       |
    |    |                               |decryption key.               |
    +----+-------------------------------+------------------------------+
-   |91  | Malware.Rootkit               |A type of malware designed to |
+   |60  | Malware.Rootkit               |A type of malware designed to |
    |    |                               |hide its presence and grant an|
    |    |                               |attacker persistent,          |
    |    |                               |privileged access to a        |
    |    |                               |compromised system while      |
    |    |                               |evading detection.            |
    +----+-------------------------------+------------------------------+
-   |89  | Malware.Spyware               |A type of software that       |
+   |61  | Malware.Spyware               |A type of software that       |
 
 
 
@@ -3481,14 +3481,14 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |and personal data, without    |
    |    |                               |their consent.                |
    +----+-------------------------------+------------------------------+
-   |87  | Malware.Trojan                |A type of malware that        |
+   |62  | Malware.Trojan                |A type of malware that        |
    |    |                               |disguises itself as legitimate|
    |    |                               |or desirable software to trick|
    |    |                               |users into installing it,     |
    |    |                               |after which it can perform    |
    |    |                               |malicious actions.            |
    +----+-------------------------------+------------------------------+
-   |85  | Malware.Virus                 |A type of malicious software  |
+   |63  | Malware.Virus                 |A type of malicious software  |
    |    |                               |that attaches itself to a     |
    |    |                               |legitimate program or file and|
    |    |                               |replicates itself to spread to|
@@ -3496,32 +3496,32 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |requiring human action to     |
    |    |                               |propagate.                    |
    +----+-------------------------------+------------------------------+
-   |86  | Malware.Worm                  |A type of standalone malicious|
+   |64  | Malware.Worm                  |A type of standalone malicious|
    |    |                               |software that replicates      |
    |    |                               |itself to spread across       |
    |    |                               |networks, often exploiting    |
    |    |                               |vulnerabilities without       |
    |    |                               |requiring human interaction.  |
    +----+-------------------------------+------------------------------+
-   |92  | Malware.Other                 |Any other incident involving  |
+   |65  | Malware.Other                 |Any other incident involving  |
    |    |                               |malicious software that does  |
    |    |                               |not fit into the specific     |
    |    |                               |malware subcategories.        |
    +----+-------------------------------+------------------------------+
-   |98  | Meteo.Cold                    |A meteorological incident     |
+   |66  | Meteo.Cold                    |A meteorological incident     |
    |    |                               |involving a rapid fall in     |
    |    |                               |temperature over a short      |
    |    |                               |period, or a prolonged period |
    |    |                               |of extreme cold, posing risks |
    |    |                               |to health and infrastructure. |
    +----+-------------------------------+------------------------------+
-   |99  | Meteo.Fog                     |A meteorological incident     |
+   |67  | Meteo.Fog                     |A meteorological incident     |
    |    |                               |where dense fog reduces       |
    |    |                               |visibility, potentially       |
    |    |                               |disrupting transportation and |
    |    |                               |causing accidents.            |
    +----+-------------------------------+------------------------------+
-   |97  | Meteo.Heat                    |A meteorological incident     |
+   |68  | Meteo.Heat                    |A meteorological incident     |
 
 
 
@@ -3537,21 +3537,21 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |stress, and environmental     |
    |    |                               |damage.                       |
    +----+-------------------------------+------------------------------+
-   |100 | Meteo.Rain                    |A meteorological incident     |
+   |69  | Meteo.Rain                    |A meteorological incident     |
    |    |                               |involving excessive or        |
    |    |                               |prolonged rainfall that can   |
    |    |                               |lead to flooding, landslides, |
    |    |                               |and transportation            |
    |    |                               |disruptions.                  |
    +----+-------------------------------+------------------------------+
-   |101 | Meteo.Snow                    |A meteorological incident     |
+   |70  | Meteo.Snow                    |A meteorological incident     |
    |    |                               |involving heavy snowfall and  |
    |    |                               |blizzard conditions, which can|
    |    |                               |disrupt transportation, damage|
    |    |                               |infrastructure, and pose risks|
    |    |                               |to safety.                    |
    +----+-------------------------------+------------------------------+
-   |102 | Meteo.Wind                    |A meteorological incident     |
+   |71  | Meteo.Wind                    |A meteorological incident     |
    |    |                               |involving damaging or         |
    |    |                               |dangerous winds, such as from |
    |    |                               |storms, tornadoes, or         |
@@ -3559,18 +3559,18 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |structural damage and power   |
    |    |                               |outages.                      |
    +----+-------------------------------+------------------------------+
-   |104 | Meteo.Other                   |Any other incident caused by  |
+   |72  | Meteo.Other                   |Any other incident caused by  |
    |    |                               |atmospheric processes not     |
    |    |                               |covered by specific           |
    |    |                               |meteorological subcategories. |
    +----+-------------------------------+------------------------------+
-   |70  | National.Conflict             |A state of armed conflict     |
+   |73  | National.Conflict             |A state of armed conflict     |
    |    |                               |between two or more nations,  |
    |    |                               |involving organized military  |
    |    |                               |forces and impacting national |
    |    |                               |security.                     |
    +----+-------------------------------+------------------------------+
-   |72  | National.Crime                |Large-scale illegal           |
+   |74  | National.Crime                |Large-scale illegal           |
    |    |                               |activities, such as           |
    |    |                               |trafficking in drugs, weapons,|
    |    |                               |or people, conducted by       |
@@ -3587,21 +3587,21 @@ Internet-Draft                   IDMEFv2                      April 2026
 
 
    +----+-------------------------------+------------------------------+
-   |71  | National.Cyber                |Large-scale cyber operations, |
+   |75  | National.Cyber                |Large-scale cyber operations, |
    |    |                               |including attacks, espionage, |
    |    |                               |and disinformation campaigns, |
    |    |                               |conducted by state-sponsored  |
    |    |                               |or state-affiliated groups    |
    |    |                               |against national interests.   |
    +----+-------------------------------+------------------------------+
-   |74  | National.Economical           |An incident involving         |
+   |76  | National.Economical           |An incident involving         |
    |    |                               |significant disruption to a   |
    |    |                               |nation's economy, such as     |
    |    |                               |market crashes,               |
    |    |                               |hyperinflation, or trade wars,|
    |    |                               |affecting national stability. |
    +----+-------------------------------+------------------------------+
-   |73  | National.Environemental       |Incidents related to large-   |
+   |77  | National.Environemental       |Incidents related to large-   |
    |    |                               |scale environmental shifts,   |
    |    |                               |such as climate change,       |
    |    |                               |resource scarcity, or global  |
@@ -3609,14 +3609,14 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |significant national security |
    |    |                               |implications.                 |
    +----+-------------------------------+------------------------------+
-   |75  | National.Societal             |An incident involving large-  |
+   |78  | National.Societal             |An incident involving large-  |
    |    |                               |scale public disorder, such as|
    |    |                               |strikes, riots, or civil      |
    |    |                               |unrest, that challenges social|
    |    |                               |order and may require         |
    |    |                               |national-level response.      |
    +----+-------------------------------+------------------------------+
-   |69  | National.Terrorism            |An incident involving the use |
+   |79  | National.Terrorism            |An incident involving the use |
    |    |                               |of violence, intimidation, or |
    |    |                               |threats by non-state actors   |
    |    |                               |against civilians or property |
@@ -3624,13 +3624,13 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |religious, or ideological     |
    |    |                               |objectives.                   |
    +----+-------------------------------+------------------------------+
-   |76  | National.Other                |Any other incident that has a |
+   |80  | National.Other                |Any other incident that has a |
    |    |                               |significant impact at the     |
    |    |                               |national scale, not covered by|
    |    |                               |specific national security    |
    |    |                               |subcategories.                |
    +----+-------------------------------+------------------------------+
-   |60  | Operational.Misuse            |The use of an organization's  |
+   |81  | Operational.Misuse            |The use of an organization's  |
    |    |                               |assets (e.g., computers,      |
    |    |                               |network, time) for purposes   |
    |    |                               |that are not officially       |
@@ -3645,7 +3645,7 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |authorized, which may violate |
    |    |                               |policy but not be malicious.  |
    +----+-------------------------------+------------------------------+
-   |61  | Operational.Policy Violation  |An incident where an          |
+   |82  | Operational.Policy Violation  |An incident where an          |
    |    |                               |individual fails to comply    |
    |    |                               |with established              |
    |    |                               |organizational policies,      |
@@ -3653,38 +3653,38 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |whether intentionally or      |
    |    |                               |accidentally.                 |
    +----+-------------------------------+------------------------------+
-   |62  | Operational.Process Failure   |An incident where a designed  |
+   |83  | Operational.Process Failure   |An incident where a designed  |
    |    |                               |process, procedure, or        |
    |    |                               |workflow fails to achieve its |
    |    |                               |intended outcome, leading to  |
    |    |                               |operational or security gaps. |
    +----+-------------------------------+------------------------------+
-   |63  | Operational.Other             |Any other operational issue   |
+   |84  | Operational.Other             |Any other operational issue   |
    |    |                               |that does not fit into the    |
    |    |                               |specific operational incident |
    |    |                               |subcategories.                |
    +----+-------------------------------+------------------------------+
-   |66  | Recon.Aerial                  |The act of using aerial       |
+   |85  | Recon.Aerial                  |The act of using aerial       |
    |    |                               |platforms, such as drones or  |
    |    |                               |satellites, to conduct        |
    |    |                               |surveillance or gather        |
    |    |                               |intelligence about a target   |
    |    |                               |area.                         |
    +----+-------------------------------+------------------------------+
-   |65  | Recon.Landscape               |The act of physically         |
+   |86  | Recon.Landscape               |The act of physically         |
    |    |                               |observing a location to gather|
    |    |                               |information about security    |
    |    |                               |measures, layouts, or         |
    |    |                               |potential vulnerabilities.    |
    +----+-------------------------------+------------------------------+
-   |64  | Recon.Network                 |The practice of probing a     |
+   |87  | Recon.Network                 |The practice of probing a     |
    |    |                               |network to discover active    |
    |    |                               |hosts, open ports, and        |
    |    |                               |services, often as a precursor|
    |    |                               |to an attack or unauthorized  |
    |    |                               |monitoring.                   |
    +----+-------------------------------+------------------------------+
-   |67  | Recon.OSINT                   |The practice of collecting and|
+   |88  | Recon.OSINT                   |The practice of collecting and|
    |    |                               |analyzing information from    |
    |    |                               |publicly available sources    |
    |    |                               |(e.g., social media, public   |
@@ -3699,52 +3699,52 @@ Internet-Draft                   IDMEFv2                      April 2026
 
 
    +----+-------------------------------+------------------------------+
-   |68  | Recon.Other                   |Any other incident involving  |
+   |89  | Recon.Other                   |Any other incident involving  |
    |    |                               |scanning, spying, or          |
    |    |                               |monitoring to identify        |
    |    |                               |resources that does not fit   |
    |    |                               |into specific recon           |
    |    |                               |subcategories.                |
    +----+-------------------------------+------------------------------+
-   |40  | Sabotage.Data                 |The intentional act of        |
+   |90  | Sabotage.Data                 |The intentional act of        |
    |    |                               |deleting, altering, or        |
    |    |                               |corrupting digital or physical|
    |    |                               |data to cause harm, disrupt   |
    |    |                               |operations, or cover tracks.  |
    +----+-------------------------------+------------------------------+
-   |36  | Sabotage.Destruction          |The intentional and malicious |
+   |91  | Sabotage.Destruction          |The intentional and malicious |
    |    |                               |act of destroying or severely |
    |    |                               |damaging physical assets, such|
    |    |                               |as windows, equipment, or     |
    |    |                               |buildings.                    |
    +----+-------------------------------+------------------------------+
-   |39  | Sabotage.Disruption           |The intentional disruption of |
+   |92  | Sabotage.Disruption           |The intentional disruption of |
    |    |                               |essential services or         |
    |    |                               |utilities, such as            |
    |    |                               |electricity, water, or network|
    |    |                               |connectivity, to cause        |
    |    |                               |operational downtime.         |
    +----+-------------------------------+------------------------------+
-   |38  | Sabotage.Equipment            |The intentional act of causing|
+   |93  | Sabotage.Equipment            |The intentional act of causing|
    |    |                               |damage to operational         |
    |    |                               |equipment, machinery, or      |
    |    |                               |vehicles, often to disrupt    |
    |    |                               |production or operations.     |
    +----+-------------------------------+------------------------------+
-   |35  | Sabotage.Graffiti             |The act of willfully defacing,|
+   |94  | Sabotage.Graffiti             |The act of willfully defacing,|
    |    |                               |damaging, or marking public or|
    |    |                               |private property with         |
    |    |                               |inscriptions, drawings, or    |
    |    |                               |tags without permission.      |
    +----+-------------------------------+------------------------------+
-   |37  | Sabotage.Tampering            |The act of deliberately       |
+   |95  | Sabotage.Tampering            |The act of deliberately       |
    |    |                               |meddling with or disabling    |
    |    |                               |security controls (e.g.,      |
    |    |                               |locks, alarms, cameras) to    |
    |    |                               |compromise their              |
    |    |                               |effectiveness.                |
    +----+-------------------------------+------------------------------+
-   |34  | Sabotage.Vandalism            |The deliberate and malicious  |
+   |96  | Sabotage.Vandalism            |The deliberate and malicious  |
    |    |                               |act of damaging, destroying,  |
 
 
@@ -3759,46 +3759,46 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |assets, operations, or        |
    |    |                               |systems.                      |
    +----+-------------------------------+------------------------------+
-   |41  | Sabotage.Other                |Any other incident involving  |
+   |97  | Sabotage.Other                |Any other incident involving  |
    |    |                               |the intentional damage to     |
    |    |                               |property or assets not covered|
    |    |                               |by the specific sabotage      |
    |    |                               |subcategories.                |
    +----+-------------------------------+------------------------------+
-   |46  | Safety.Accident               |An unplanned, unforeseen event|
+   |98  | Safety.Accident               |An unplanned, unforeseen event|
    |    |                               |(e.g., vehicle crash,         |
    |    |                               |industrial mishap, chemical   |
    |    |                               |spill) that results in injury,|
    |    |                               |loss of life, or damage to    |
    |    |                               |health.                       |
    +----+-------------------------------+------------------------------+
-   |44  | Safety.Agression              |An incident where an          |
+   |99  | Safety.Agression              |An incident where an          |
    |    |                               |individual uses physical force|
    |    |                               |against another person,       |
    |    |                               |causing bodily harm, pain, or |
    |    |                               |the fear of immediate harm.   |
    +----+-------------------------------+------------------------------+
-   |42  | Safety.Explosion              |A sudden, violent release of  |
+   |100 | Safety.Explosion              |A sudden, violent release of  |
    |    |                               |energy (e.g., from gas,       |
    |    |                               |chemicals, or explosives) that|
    |    |                               |causes a blast, fire, and     |
    |    |                               |potential structural damage,  |
    |    |                               |injury, or loss of life.      |
    +----+-------------------------------+------------------------------+
-   |43  | Safety.Fire                   |An incident involving         |
+   |101 | Safety.Fire                   |An incident involving         |
    |    |                               |uncontrolled burning (e.g.,   |
    |    |                               |structural, wildland, or      |
    |    |                               |chemical fire) that threatens |
    |    |                               |human safety, property, or the|
    |    |                               |environment.                  |
    +----+-------------------------------+------------------------------+
-   |47  | Safety.Hostage                |An incident where a person or |
+   |102 | Safety.Hostage                |An incident where a person or |
    |    |                               |group is held against their   |
    |    |                               |will by a captor, often to    |
    |    |                               |compel a third party to meet  |
    |    |                               |certain demands.              |
    +----+-------------------------------+------------------------------+
-   |45  | Safety.Sexual                 |An incident involving any     |
+   |103 | Safety.Sexual                 |An incident involving any     |
    |    |                               |unwanted sexual act, contact, |
    |    |                               |or behavior directed against  |
    |    |                               |an individual without their   |
@@ -3812,14 +3812,14 @@ Internet-Draft                   IDMEFv2                      April 2026
 
    |    |                               |consent.                      |
    +----+-------------------------------+------------------------------+
-   |48  | Safety.Other                  |Any other incident that causes|
+   |104 | Safety.Other                  |Any other incident that causes|
    |    |                               |or has the potential to cause |
    |    |                               |injury, loss of life, or      |
    |    |                               |endanger citizens, not covered|
    |    |                               |by specific safety            |
    |    |                               |subcategories.                |
    +----+-------------------------------+------------------------------+
-   |82  | SocialEng.Baiting             |A social engineering attack   |
+   |105 | SocialEng.Baiting             |A social engineering attack   |
    |    |                               |that lures victims by offering|
    |    |                               |something desirable (e.g.,    |
    |    |                               |free music, a prize) in       |
@@ -3827,7 +3827,7 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |tricking them into downloading|
    |    |                               |malware.                      |
    +----+-------------------------------+------------------------------+
-   |77  | SocialEng.Phishing            |A type of social engineering  |
+   |106 | SocialEng.Phishing            |A type of social engineering  |
    |    |                               |where attackers send          |
    |    |                               |fraudulent emails, appearing  |
    |    |                               |to be from a legitimate       |
@@ -3836,14 +3836,14 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |information or installing     |
    |    |                               |malware.                      |
    +----+-------------------------------+------------------------------+
-   |81  | SocialEng.Pretexting          |A social engineering tactic   |
+   |107 | SocialEng.Pretexting          |A social engineering tactic   |
    |    |                               |where the attacker creates a  |
    |    |                               |fabricated scenario or        |
    |    |                               |pretends to be someone they   |
    |    |                               |are not to engage a victim and|
    |    |                               |extract information or access.|
    +----+-------------------------------+------------------------------+
-   |83  | SocialEng.QuidProQuo          |A social engineering tactic   |
+   |108 | SocialEng.QuidProQuo          |A social engineering tactic   |
    |    |                               |where the attacker offers a   |
    |    |                               |service or benefit (e.g.,     |
    |    |                               |technical support) in exchange|
@@ -3851,7 +3851,7 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |often expecting something in  |
    |    |                               |return later.                 |
    +----+-------------------------------+------------------------------+
-   |80  | SocialEng.Smishing            |A social engineering attack   |
+   |109 | SocialEng.Smishing            |A social engineering attack   |
    |    |                               |conducted via SMS (text       |
    |    |                               |message), where the attacker  |
    |    |                               |sends a fraudulent message to |
@@ -3867,14 +3867,14 @@ Internet-Draft                   IDMEFv2                      April 2026
 
 
    +----+-------------------------------+------------------------------+
-   |78  | SocialEng.Spear Phishing      |A highly targeted phishing    |
+   |110 | SocialEng.Spear Phishing      |A highly targeted phishing    |
    |    |                               |attack directed at a specific |
    |    |                               |individual, organization, or  |
    |    |                               |role, often using personalized|
    |    |                               |information to increase       |
    |    |                               |credibility.                  |
    +----+-------------------------------+------------------------------+
-   |79  | SocialEng.Vishing             |A social engineering attack   |
+   |111 | SocialEng.Vishing             |A social engineering attack   |
    |    |                               |conducted over the phone,     |
    |    |                               |where the attacker            |
    |    |                               |impersonates a legitimate     |
@@ -3883,33 +3883,33 @@ Internet-Draft                   IDMEFv2                      April 2026
    |    |                               |information or performing     |
    |    |                               |actions.                      |
    +----+-------------------------------+------------------------------+
-   |50  | SupplyChain.Compromise        |A security incident where an  |
+   |112 | SupplyChain.Compromise        |A security incident where an  |
    |    |                               |attacker exploits a           |
    |    |                               |vulnerability in a third-party|
    |    |                               |vendor's system to gain access|
    |    |                               |to or compromise the primary  |
    |    |                               |target's network or data.     |
    +----+-------------------------------+------------------------------+
-   |49  | SupplyChain.Disruption        |An event that disrupts the    |
+   |113 | SupplyChain.Disruption        |An event that disrupts the    |
    |    |                               |normal flow of products,      |
    |    |                               |services, or information      |
    |    |                               |within a supply chain, often  |
    |    |                               |impacting operations and      |
    |    |                               |delivery.                     |
    +----+-------------------------------+------------------------------+
-   |51  | SupplyChain.Other             |Any other incident affecting  |
+   |114 | SupplyChain.Other             |Any other incident affecting  |
    |    |                               |the supply chain that does not|
    |    |                               |fit into the specific supply  |
    |    |                               |chain subcategories.          |
    +----+-------------------------------+------------------------------+
-   |84  | SocialEng.Other               |Any other incident involving  |
+   |115 | SocialEng.Other               |Any other incident involving  |
    |    |                               |psychological manipulation of |
    |    |                               |people to divulge information |
    |    |                               |or perform actions, not       |
    |    |                               |covered by specific social    |
    |    |                               |engineering subcategories.    |
    +----+-------------------------------+------------------------------+
-   |58  | Theft.Breaches                |A security incident involving |
+   |116 | Theft.Breaches                |A security incident involving |
    |    |                               |the unauthorized access,      |
    |    |                               |acquisition, or disclosure of |
    |    |                               |sensitive, protected, or      |
@@ -3923,51 +3923,51 @@ Internet-Draft                   IDMEFv2                      April 2026
 
 
    +----+-------------------------------+------------------------------+
-   |53  | Theft.Data                    |The unauthorized taking or    |
+   |117 | Theft.Data                    |The unauthorized taking or    |
    |    |                               |copying of sensitive or       |
    |    |                               |confidential documents,       |
    |    |                               |whether in physical or digital|
    |    |                               |form.                         |
    +----+-------------------------------+------------------------------+
-   |52  | Theft.Equiment                |The unlawful taking of        |
+   |118 | Theft.Equiment                |The unlawful taking of        |
    |    |                               |physical hardware, such as    |
    |    |                               |computers, mobile phones, or  |
    |    |                               |servers, resulting in loss of |
    |    |                               |assets and potentially the    |
    |    |                               |data they contain.            |
    +----+-------------------------------+------------------------------+
-   |57  | Theft.FinInfo                 |The theft of financial        |
+   |119 | Theft.FinInfo                 |The theft of financial        |
    |    |                               |information, such as credit   |
    |    |                               |card numbers or bank account  |
    |    |                               |details, often for the purpose|
    |    |                               |of fraudulent transactions.   |
    +----+-------------------------------+------------------------------+
-   |56  | Theft.IP                      |The unlawful acquisition of a |
+   |120 | Theft.IP                      |The unlawful acquisition of a |
    |    |                               |company's intellectual        |
    |    |                               |property, including trade     |
    |    |                               |secrets, patents, formulas, or|
    |    |                               |proprietary processes.        |
    +----+-------------------------------+------------------------------+
-   |54  | Theft.Machinery               |The unlawful taking of heavy  |
+   |121 | Theft.Machinery               |The unlawful taking of heavy  |
    |    |                               |equipment, vehicles, or       |
    |    |                               |specialized machinery, often  |
    |    |                               |resulting in significant      |
    |    |                               |operational and financial     |
    |    |                               |loss.                         |
    +----+-------------------------------+------------------------------+
-   |55  | Theft.PII                     |The unauthorized acquisition  |
+   |122 | Theft.PII                     |The unauthorized acquisition  |
    |    |                               |of Personally Identifiable    |
    |    |                               |Information (PII) that can be |
    |    |                               |used to identify, contact, or |
    |    |                               |impersonate an individual.    |
    +----+-------------------------------+------------------------------+
-   |59  | Theft.Other                   |Any other incident involving  |
+   |123 | Theft.Other                   |Any other incident involving  |
    |    |                               |the intentional stealing of   |
    |    |                               |physical property or digital  |
    |    |                               |data not covered by specific  |
    |    |                               |theft subcategories.          |
    +----+-------------------------------+------------------------------+
-   |122 | Other.Uncategorised           |Any incident that does not fit|
+   |124 | Other.Uncategorised           |Any incident that does not fit|
    |    |                               |into one of the predefined    |
    |    |                               |categories in this taxonomy.  |
 
@@ -3979,17 +3979,17 @@ Internet-Draft                   IDMEFv2                      April 2026
 
 
    +----+-------------------------------+------------------------------+
-   |123 | Other.Undetermined            |An incident whose category is |
+   |125 | Other.Undetermined            |An incident whose category is |
    |    |                               |currently unknown, under      |
    |    |                               |investigation, or cannot be   |
    |    |                               |determined.                   |
    +----+-------------------------------+------------------------------+
-   |124 | Other.Test                    |An incident generated solely  |
+   |126 | Other.Test                    |An incident generated solely  |
    |    |                               |for the purpose of testing    |
    |    |                               |systems, processes, or        |
    |    |                               |training personnel.           |
    +----+-------------------------------+------------------------------+
-   |125 | Other.ext-value               |A value used to indicate that |
+   |127 | Other.ext-value               |A value used to indicate that |
    |    |                               |this attribute is extended and|
    |    |                               |the actual value is provided  |
    |    |                               |using the corresponding ext-* |

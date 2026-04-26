@@ -4084,7 +4084,7 @@ Source(0).IP</literal_block>
                     <tbody>
                         <row>
                             <entry>
-                                <paragraph>2</paragraph>
+                                <paragraph>0</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Abuse.Coercion</paragraph>
@@ -4095,7 +4095,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>4</paragraph>
+                                <paragraph>1</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Abuse.Extermism</paragraph>
@@ -4106,7 +4106,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>0</paragraph>
+                                <paragraph>2</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Abuse.Grooming</paragraph>
@@ -4117,7 +4117,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>1</paragraph>
+                                <paragraph>3</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Abuse.Harassment</paragraph>
@@ -4128,7 +4128,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>3</paragraph>
+                                <paragraph>4</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Abuse.Trafficking</paragraph>
@@ -4150,7 +4150,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>14</paragraph>
+                                <paragraph>6</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Access.Authorized</paragraph>
@@ -4161,7 +4161,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>8</paragraph>
+                                <paragraph>7</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Access.Backdoor</paragraph>
@@ -4172,7 +4172,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>13</paragraph>
+                                <paragraph>8</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Access.Clonned</paragraph>
@@ -4183,7 +4183,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>6</paragraph>
+                                <paragraph>9</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Access.Compromise</paragraph>
@@ -4194,7 +4194,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>7</paragraph>
+                                <paragraph>10</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Access.Escalation</paragraph>
@@ -4227,7 +4227,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>10</paragraph>
+                                <paragraph>13</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Access.Tailgating</paragraph>
@@ -4238,7 +4238,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>9</paragraph>
+                                <paragraph>14</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Access.Unauthorized</paragraph>
@@ -4260,7 +4260,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>17</paragraph>
+                                <paragraph>16</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Availability.DDoS</paragraph>
@@ -4271,7 +4271,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>16</paragraph>
+                                <paragraph>17</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Availability.DoS</paragraph>
@@ -4282,7 +4282,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>19</paragraph>
+                                <paragraph>18</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Availability.Failure</paragraph>
@@ -4293,7 +4293,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>22</paragraph>
+                                <paragraph>19</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Availability.HeartBeat</paragraph>
@@ -4315,7 +4315,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>18</paragraph>
+                                <paragraph>21</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Availability.Outage</paragraph>
@@ -4326,7 +4326,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>21</paragraph>
+                                <paragraph>22</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Availability.Overload</paragraph>
@@ -4348,7 +4348,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>115</paragraph>
+                                <paragraph>24</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Biological.Animal</paragraph>
@@ -4359,7 +4359,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>113</paragraph>
+                                <paragraph>25</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Biological.Epidemic</paragraph>
@@ -4370,7 +4370,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>114</paragraph>
+                                <paragraph>26</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Biological.Insect</paragraph>
@@ -4381,7 +4381,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>116</paragraph>
+                                <paragraph>27</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Biological.Zombies</paragraph>
@@ -4392,7 +4392,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>117</paragraph>
+                                <paragraph>28</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Biological.Other</paragraph>
@@ -4403,7 +4403,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>109</paragraph>
+                                <paragraph>29</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Climat.Drought</paragraph>
@@ -4414,7 +4414,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>110</paragraph>
+                                <paragraph>30</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Climat.LakeOutburst</paragraph>
@@ -4425,7 +4425,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>111</paragraph>
+                                <paragraph>31</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Climat.Wildfire</paragraph>
@@ -4436,7 +4436,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>112</paragraph>
+                                <paragraph>32</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Climat.Other</paragraph>
@@ -4447,7 +4447,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>119</paragraph>
+                                <paragraph>33</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Extraterrestrial.Aliens</paragraph>
@@ -4458,7 +4458,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>118</paragraph>
+                                <paragraph>34</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Extraterrestrial.Impact</paragraph>
@@ -4469,7 +4469,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>120</paragraph>
+                                <paragraph>35</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Extraterrestrial.SpaceWeather</paragraph>
@@ -4480,7 +4480,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>121</paragraph>
+                                <paragraph>36</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Extraterrestrial.Other</paragraph>
@@ -4491,7 +4491,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>25</paragraph>
+                                <paragraph>37</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Fraud.Copyright</paragraph>
@@ -4502,7 +4502,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>28</paragraph>
+                                <paragraph>38</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Fraud.Corruption</paragraph>
@@ -4513,7 +4513,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>29</paragraph>
+                                <paragraph>39</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Fraud.Espionnage</paragraph>
@@ -4524,7 +4524,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>26</paragraph>
+                                <paragraph>40</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Fraud.Masquerade</paragraph>
@@ -4535,7 +4535,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>27</paragraph>
+                                <paragraph>41</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Fraud.Phishing</paragraph>
@@ -4546,7 +4546,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>24</paragraph>
+                                <paragraph>42</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Fraud.Usage</paragraph>
@@ -4557,7 +4557,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>30</paragraph>
+                                <paragraph>43</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Fraud.Other</paragraph>
@@ -4568,7 +4568,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>93</paragraph>
+                                <paragraph>44</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Geophysical.Earthquake</paragraph>
@@ -4579,7 +4579,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>94</paragraph>
+                                <paragraph>45</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Geophysical.MassMovement</paragraph>
@@ -4590,7 +4590,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>96</paragraph>
+                                <paragraph>46</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Geophysical.Other</paragraph>
@@ -4601,7 +4601,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>95</paragraph>
+                                <paragraph>47</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Geophysical.Volcanic</paragraph>
@@ -4612,7 +4612,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>105</paragraph>
+                                <paragraph>48</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Hydro.Flood</paragraph>
@@ -4623,7 +4623,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>106</paragraph>
+                                <paragraph>49</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Hydro.Landslide</paragraph>
@@ -4634,7 +4634,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>107</paragraph>
+                                <paragraph>50</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Hydro.Wave</paragraph>
@@ -4645,7 +4645,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>108</paragraph>
+                                <paragraph>51</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Hydro.Other</paragraph>
@@ -4656,7 +4656,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>31</paragraph>
+                                <paragraph>52</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Insider.Malicious</paragraph>
@@ -4667,7 +4667,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>32</paragraph>
+                                <paragraph>53</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Insider.Negligent</paragraph>
@@ -4678,7 +4678,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>33</paragraph>
+                                <paragraph>54</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Insider.Other</paragraph>
@@ -4689,7 +4689,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>90</paragraph>
+                                <paragraph>55</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Malware.Adware</paragraph>
@@ -4700,6 +4700,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
+                                <paragraph>56</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Malware.Backdoor</paragraph>
@@ -4710,6 +4711,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
+                                <paragraph>57</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Malware.Cryptominer</paragraph>
@@ -4720,6 +4722,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
+                                <paragraph>58</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Malware.Downloader</paragraph>
@@ -4730,7 +4733,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>88</paragraph>
+                                <paragraph>59</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Malware.Ransomware</paragraph>
@@ -4741,7 +4744,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>91</paragraph>
+                                <paragraph>60</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Malware.Rootkit</paragraph>
@@ -4752,7 +4755,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>89</paragraph>
+                                <paragraph>61</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Malware.Spyware</paragraph>
@@ -4763,7 +4766,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>87</paragraph>
+                                <paragraph>62</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Malware.Trojan</paragraph>
@@ -4774,7 +4777,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>85</paragraph>
+                                <paragraph>63</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Malware.Virus</paragraph>
@@ -4785,7 +4788,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>86</paragraph>
+                                <paragraph>64</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Malware.Worm</paragraph>
@@ -4796,7 +4799,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>92</paragraph>
+                                <paragraph>65</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Malware.Other</paragraph>
@@ -4807,7 +4810,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>98</paragraph>
+                                <paragraph>66</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Meteo.Cold</paragraph>
@@ -4818,7 +4821,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>99</paragraph>
+                                <paragraph>67</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Meteo.Fog</paragraph>
@@ -4829,7 +4832,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>97</paragraph>
+                                <paragraph>68</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Meteo.Heat</paragraph>
@@ -4840,7 +4843,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>100</paragraph>
+                                <paragraph>69</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Meteo.Rain</paragraph>
@@ -4851,7 +4854,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>101</paragraph>
+                                <paragraph>70</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Meteo.Snow</paragraph>
@@ -4862,7 +4865,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>102</paragraph>
+                                <paragraph>71</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Meteo.Wind</paragraph>
@@ -4873,7 +4876,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>104</paragraph>
+                                <paragraph>72</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Meteo.Other</paragraph>
@@ -4884,7 +4887,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>70</paragraph>
+                                <paragraph>73</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>National.Conflict</paragraph>
@@ -4895,7 +4898,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>72</paragraph>
+                                <paragraph>74</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>National.Crime</paragraph>
@@ -4906,7 +4909,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>71</paragraph>
+                                <paragraph>75</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>National.Cyber</paragraph>
@@ -4917,7 +4920,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>74</paragraph>
+                                <paragraph>76</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>National.Economical</paragraph>
@@ -4928,7 +4931,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>73</paragraph>
+                                <paragraph>77</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>National.Environemental</paragraph>
@@ -4939,7 +4942,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>75</paragraph>
+                                <paragraph>78</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>National.Societal</paragraph>
@@ -4950,7 +4953,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>69</paragraph>
+                                <paragraph>79</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>National.Terrorism</paragraph>
@@ -4961,7 +4964,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>76</paragraph>
+                                <paragraph>80</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>National.Other</paragraph>
@@ -4972,7 +4975,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>60</paragraph>
+                                <paragraph>81</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Operational.Misuse</paragraph>
@@ -4983,7 +4986,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>61</paragraph>
+                                <paragraph>82</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Operational.Policy Violation</paragraph>
@@ -4994,7 +4997,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>62</paragraph>
+                                <paragraph>83</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Operational.Process Failure</paragraph>
@@ -5005,7 +5008,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>63</paragraph>
+                                <paragraph>84</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Operational.Other</paragraph>
@@ -5016,7 +5019,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>66</paragraph>
+                                <paragraph>85</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Recon.Aerial</paragraph>
@@ -5027,7 +5030,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>65</paragraph>
+                                <paragraph>86</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Recon.Landscape</paragraph>
@@ -5038,7 +5041,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>64</paragraph>
+                                <paragraph>87</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Recon.Network</paragraph>
@@ -5049,7 +5052,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>67</paragraph>
+                                <paragraph>88</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Recon.OSINT</paragraph>
@@ -5060,7 +5063,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>68</paragraph>
+                                <paragraph>89</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Recon.Other</paragraph>
@@ -5071,7 +5074,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>40</paragraph>
+                                <paragraph>90</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Sabotage.Data</paragraph>
@@ -5082,7 +5085,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>36</paragraph>
+                                <paragraph>91</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Sabotage.Destruction</paragraph>
@@ -5093,7 +5096,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>39</paragraph>
+                                <paragraph>92</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Sabotage.Disruption</paragraph>
@@ -5104,7 +5107,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>38</paragraph>
+                                <paragraph>93</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Sabotage.Equipment</paragraph>
@@ -5115,7 +5118,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>35</paragraph>
+                                <paragraph>94</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Sabotage.Graffiti</paragraph>
@@ -5126,7 +5129,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>37</paragraph>
+                                <paragraph>95</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Sabotage.Tampering</paragraph>
@@ -5137,7 +5140,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>34</paragraph>
+                                <paragraph>96</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Sabotage.Vandalism</paragraph>
@@ -5148,7 +5151,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>41</paragraph>
+                                <paragraph>97</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Sabotage.Other</paragraph>
@@ -5159,7 +5162,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>46</paragraph>
+                                <paragraph>98</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Safety.Accident</paragraph>
@@ -5170,7 +5173,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>44</paragraph>
+                                <paragraph>99</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Safety.Agression</paragraph>
@@ -5181,7 +5184,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>42</paragraph>
+                                <paragraph>100</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Safety.Explosion</paragraph>
@@ -5192,7 +5195,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>43</paragraph>
+                                <paragraph>101</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Safety.Fire</paragraph>
@@ -5203,7 +5206,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>47</paragraph>
+                                <paragraph>102</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Safety.Hostage</paragraph>
@@ -5214,7 +5217,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>45</paragraph>
+                                <paragraph>103</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Safety.Sexual</paragraph>
@@ -5225,7 +5228,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>48</paragraph>
+                                <paragraph>104</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Safety.Other</paragraph>
@@ -5236,7 +5239,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>82</paragraph>
+                                <paragraph>105</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>SocialEng.Baiting</paragraph>
@@ -5247,7 +5250,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>77</paragraph>
+                                <paragraph>106</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>SocialEng.Phishing</paragraph>
@@ -5258,7 +5261,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>81</paragraph>
+                                <paragraph>107</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>SocialEng.Pretexting</paragraph>
@@ -5269,7 +5272,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>83</paragraph>
+                                <paragraph>108</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>SocialEng.QuidProQuo</paragraph>
@@ -5280,7 +5283,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>80</paragraph>
+                                <paragraph>109</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>SocialEng.Smishing</paragraph>
@@ -5291,7 +5294,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>78</paragraph>
+                                <paragraph>110</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>SocialEng.Spear Phishing</paragraph>
@@ -5302,7 +5305,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>79</paragraph>
+                                <paragraph>111</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>SocialEng.Vishing</paragraph>
@@ -5313,7 +5316,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>50</paragraph>
+                                <paragraph>112</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>SupplyChain.Compromise</paragraph>
@@ -5324,7 +5327,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>49</paragraph>
+                                <paragraph>113</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>SupplyChain.Disruption</paragraph>
@@ -5335,7 +5338,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>51</paragraph>
+                                <paragraph>114</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>SupplyChain.Other</paragraph>
@@ -5346,7 +5349,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>84</paragraph>
+                                <paragraph>115</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>SocialEng.Other</paragraph>
@@ -5357,7 +5360,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>58</paragraph>
+                                <paragraph>116</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Theft.Breaches</paragraph>
@@ -5368,7 +5371,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>53</paragraph>
+                                <paragraph>117</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Theft.Data</paragraph>
@@ -5379,7 +5382,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>52</paragraph>
+                                <paragraph>118</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Theft.Equiment</paragraph>
@@ -5390,7 +5393,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>57</paragraph>
+                                <paragraph>119</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Theft.FinInfo</paragraph>
@@ -5401,7 +5404,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>56</paragraph>
+                                <paragraph>120</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Theft.IP</paragraph>
@@ -5412,7 +5415,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>54</paragraph>
+                                <paragraph>121</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Theft.Machinery</paragraph>
@@ -5423,7 +5426,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>55</paragraph>
+                                <paragraph>122</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Theft.PII</paragraph>
@@ -5434,7 +5437,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>59</paragraph>
+                                <paragraph>123</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Theft.Other</paragraph>
@@ -5445,7 +5448,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>122</paragraph>
+                                <paragraph>124</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Other.Uncategorised</paragraph>
@@ -5456,7 +5459,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>123</paragraph>
+                                <paragraph>125</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Other.Undetermined</paragraph>
@@ -5467,7 +5470,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>124</paragraph>
+                                <paragraph>126</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Other.Test</paragraph>
@@ -5478,7 +5481,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>125</paragraph>
+                                <paragraph>127</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Other.ext-value</paragraph>
