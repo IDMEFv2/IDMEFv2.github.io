@@ -690,7 +690,7 @@ Source(0).IP</literal_block>
 | STRING[]    ext-Category     |
 | ENUM        Cause            |
 | STRING      Description      |
-| ENUM        Status           |
+| ENUM[]      Status           |
 | ENUM        Priority         |
 | FLOAT       Confidence       |
 | STRING      Note             |

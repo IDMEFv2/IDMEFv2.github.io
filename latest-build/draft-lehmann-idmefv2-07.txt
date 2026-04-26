@@ -1025,7 +1025,7 @@ Internet-Draft                   IDMEFv2                      April 2026
                      | STRING[]    ext-Category     |
                      | ENUM        Cause            |
                      | STRING      Description      |
-                     | ENUM        Status           |
+                     | ENUM[]      Status           |
                      | ENUM        Priority         |
                      | FLOAT       Confidence       |
                      | STRING      Note             |

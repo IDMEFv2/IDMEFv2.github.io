@@ -571,7 +571,7 @@ Source(0).IP</sourcecode>
 | STRING[]    ext-Category     |
 | ENUM        Cause            |
 | STRING      Description      |
-| ENUM        Status           |
+| ENUM[]      Status           |
 | ENUM        Priority         |
 | FLOAT       Confidence       |
 | STRING      Note             |
