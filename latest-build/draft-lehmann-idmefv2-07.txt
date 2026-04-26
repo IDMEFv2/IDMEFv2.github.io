@@ -10,7 +10,7 @@ Expires: 28 October 2026
 
 
    The Incident Detection Message Exchange Format version 2 (IDMEFv2)
-                        draft-lehmann-idmefv2-07
+                        draft-lehmann-idmefv2-08
 
 Abstract
 
@@ -145,7 +145,7 @@ Internet-Draft                   IDMEFv2                      April 2026
    Appendix A.  Enumerations . . . . . . . . . . . . . . . . . . . .  42
      A.1.  Entity Sector . . . . . . . . . . . . . . . . . . . . . .  42
      A.2.  Alert Category  . . . . . . . . . . . . . . . . . . . . .  54
-     A.3.  Analyze Category  . . . . . . . . . . . . . . . . . . . .  72
+     A.3.  Analyzer Category . . . . . . . . . . . . . . . . . . . .  72
      A.4.  Analyzer Data . . . . . . . . . . . . . . . . . . . . . .  78
      A.5.  Analyzer Method . . . . . . . . . . . . . . . . . . . . .  80
      A.6.  Source Category . . . . . . . . . . . . . . . . . . . . .  86
@@ -3999,7 +3999,7 @@ Internet-Draft                   IDMEFv2                      April 2026
 
                         Table 7: enum_alert_category
 
-A.3.  Analyze Category
+A.3.  Analyzer Category
 
        +======+===================+================================+
        | Rank | Keyword           | Description                    |

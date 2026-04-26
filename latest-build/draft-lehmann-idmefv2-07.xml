@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd">
-<rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std" docName="draft-lehmann-idmefv2-07" ipr="trust200902" consensus="true" obsoletes="4765">
+<rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std" docName="draft-lehmann-idmefv2-08" ipr="trust200902" consensus="true" obsoletes="4765">
   <front>
     <title abbrev="IDMEFv2">The Incident Detection Message Exchange Format version 2 (IDMEFv2)</title>
     <author fullname="Gilles Lehmann">
@@ -1204,7 +1204,7 @@ Source(0).IP</sourcecode>
                     <dt>Category</dt>
                     <dd>
                         <t>Optional. Analyzer categories.</t>
-                        <t>Enumeration available here <xref target="analyzer-category"/></t>
+                        <t>Enumeration available here <xref target="id20"/></t>
                     </dd>
                 
                     <dt>ext-Category</dt>
@@ -1216,7 +1216,7 @@ Source(0).IP</sourcecode>
                     <dt>Data</dt>
                     <dd>
                         <t>Optional. Type of data analyzed during the detection.</t>
-                        <t>Enumeration available here <xref target="id20"/></t>
+                        <t>Enumeration available here <xref target="id21"/></t>
                     </dd>
                 
                     <dt>ext-Data</dt>
@@ -1228,7 +1228,7 @@ Source(0).IP</sourcecode>
                     <dt>Method</dt>
                     <dd>
                         <t>Optional. Detection method.</t>
-                        <t>Enumeration available here <xref target="id21"/></t>
+                        <t>Enumeration available here <xref target="id22"/></t>
                     </dd>
                 
                     <dt>ext-Method</dt>
@@ -1394,7 +1394,7 @@ Source(0).IP</sourcecode>
                     <dt>Category</dt>
                     <dd>
                         <t>Optional. Source category</t>
-                        <t>Enumeration available here <xref target="id22"/></t>
+                        <t>Enumeration available here <xref target="id23"/></t>
                     </dd>
                 
                     <dt>Note</dt>
@@ -1513,7 +1513,7 @@ Source(0).IP</sourcecode>
                     <dt>Category</dt>
                     <dd>
                         <t>Optional. Target category</t>
-                        <t>Enumeration available here <xref target="id23"/></t>
+                        <t>Enumeration available here <xref target="id24"/></t>
                     </dd>
                 
                     <dt>Note</dt>
@@ -5095,8 +5095,8 @@ Source(0).IP</sourcecode>
             </table>
       </section>
       <section>
-        <name>Analyze Category</name>
-        <table anchor="analyzer-category"><name>Analyzer Categories</name>
+        <name>Analyzer Category</name>
+        <table anchor="id20"><name>Analyzer Categories</name>
                 
                 <thead>
                         <tr>
@@ -5985,7 +5985,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Analyzer Data</name>
-        <table anchor="id20"><name>Analyzer Datas</name>
+        <table anchor="id21"><name>Analyzer Datas</name>
                 
                 <thead>
                         <tr>
@@ -6379,7 +6379,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Analyzer Method</name>
-        <table anchor="id21"><name>Analyzer Methods</name>
+        <table anchor="id22"><name>Analyzer Methods</name>
                 
                 <thead>
                         <tr>
@@ -6817,7 +6817,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Source Category</name>
-        <table anchor="id22"><name>Source Categories</name>
+        <table anchor="id23"><name>Source Categories</name>
                 
                 <thead>
                         <tr>
@@ -8564,7 +8564,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Target Category</name>
-        <table anchor="id23"><name>Target Categories</name>
+        <table anchor="id24"><name>Target Categories</name>
                 
                 <thead>
                         <tr>

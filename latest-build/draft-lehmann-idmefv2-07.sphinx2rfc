@@ -25,7 +25,7 @@
         <field>
             <field_name>docName</field_name>
             <field_body>
-                <paragraph>draft-lehmann-idmefv2-07</paragraph>
+                <paragraph>draft-lehmann-idmefv2-08</paragraph>
             </field_body>
         </field>
         <field>
@@ -1392,7 +1392,7 @@ Source(0).IP</literal_block>
                     <term>Category</term>
                     <definition>
                         <paragraph>Optional. Analyzer categories.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="analyzer-category"><inline classes="std std-ref">Analyzer Categories</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id20"><inline classes="std std-ref">Analyzer Categories</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1406,7 +1406,7 @@ Source(0).IP</literal_block>
                     <term>Data</term>
                     <definition>
                         <paragraph>Optional. Type of data analyzed during the detection.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id20"><inline classes="std std-ref">Analyzer Datas</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id21"><inline classes="std std-ref">Analyzer Datas</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1420,7 +1420,7 @@ Source(0).IP</literal_block>
                     <term>Method</term>
                     <definition>
                         <paragraph>Optional. Detection method.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id21"><inline classes="std std-ref">Analyzer Methods</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id22"><inline classes="std std-ref">Analyzer Methods</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1613,7 +1613,7 @@ Source(0).IP</literal_block>
                     <term>Category</term>
                     <definition>
                         <paragraph>Optional. Source category</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id22"><inline classes="std std-ref">Source Categories</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id23"><inline classes="std std-ref">Source Categories</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1751,7 +1751,7 @@ Source(0).IP</literal_block>
                     <term>Category</term>
                     <definition>
                         <paragraph>Optional. Target category</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id23"><inline classes="std std-ref">Target Categories</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id24"><inline classes="std std-ref">Target Categories</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -2583,7 +2583,7 @@ Source(0).IP</literal_block>
         <section ids="entity-sector" names="entity\ sector">
             <title>Entity Sector</title>
             <target refid="id16"></target>
-            <table align="default" classes="colwidths-auto" ids="id24 id16" names="entity_sector">
+            <table align="default" classes="colwidths-auto" ids="id25 id16" names="entity_sector">
                 <title>Entity Sectors</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -4062,7 +4062,7 @@ Source(0).IP</literal_block>
         <section ids="alert-category" names="alert\ category">
             <title>Alert Category</title>
             <target refid="id17"></target>
-            <table align="default" classes="colwidths-auto" ids="id25 id17" names="alert_category">
+            <table align="default" classes="colwidths-auto" ids="id26 id17" names="alert_category">
                 <title>enum_alert_category</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -5494,10 +5494,10 @@ Source(0).IP</literal_block>
                 </tgroup>
             </table>
         </section>
-        <section ids="analyze-category" names="analyze\ category">
-            <title>Analyze Category</title>
-            <target refid="analyzer-category"></target>
-            <table align="default" classes="colwidths-auto" ids="id26 analyzer-category" names="analyzer_category">
+        <section ids="analyzer-category" names="analyzer\ category">
+            <title>Analyzer Category</title>
+            <target refid="id20"></target>
+            <table align="default" classes="colwidths-auto" ids="id27 id20" names="analyzer_category">
                 <title>Analyzer Categories</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -6392,8 +6392,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="analyzer-data" names="analyzer\ data">
             <title>Analyzer Data</title>
-            <target refid="id20"></target>
-            <table align="default" classes="colwidths-auto" ids="id27 id20" names="analyzer_data">
+            <target refid="id21"></target>
+            <table align="default" classes="colwidths-auto" ids="id28 id21" names="analyzer_data">
                 <title>Analyzer Datas</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -6793,8 +6793,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="analyzer-method" names="analyzer\ method">
             <title>Analyzer Method</title>
-            <target refid="id21"></target>
-            <table align="default" classes="colwidths-auto" ids="id28 id21" names="analyzer_method">
+            <target refid="id22"></target>
+            <table align="default" classes="colwidths-auto" ids="id29 id22" names="analyzer_method">
                 <title>Analyzer Methods</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -7238,8 +7238,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="source-category" names="source\ category">
             <title>Source Category</title>
-            <target refid="id22"></target>
-            <table align="default" classes="colwidths-auto" ids="id29 id22" names="source_category">
+            <target refid="id23"></target>
+            <table align="default" classes="colwidths-auto" ids="id30 id23" names="source_category">
                 <title>Source Categories</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -8992,8 +8992,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="target-category" names="target\ category">
             <title>Target Category</title>
-            <target refid="id23"></target>
-            <table align="default" classes="colwidths-auto" ids="id30 id23" names="target_category">
+            <target refid="id24"></target>
+            <table align="default" classes="colwidths-auto" ids="id31 id24" names="target_category">
                 <title>Target Categories</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
