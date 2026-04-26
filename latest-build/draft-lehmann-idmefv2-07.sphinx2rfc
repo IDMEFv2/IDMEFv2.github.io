@@ -899,7 +899,7 @@ Source(0).IP</literal_block>
                     <term>Category</term>
                     <definition>
                         <paragraph>Optional. Incident category.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id17"><inline classes="std std-ref">Alert Categories</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id17"><inline classes="std std-ref">enum_alert_category</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1406,7 +1406,7 @@ Source(0).IP</literal_block>
                     <term>Data</term>
                     <definition>
                         <paragraph>Optional. Type of data analyzed during the detection.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id18"><inline classes="std std-ref">Analyzer Datas</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id20"><inline classes="std std-ref">Analyzer Datas</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1420,7 +1420,7 @@ Source(0).IP</literal_block>
                     <term>Method</term>
                     <definition>
                         <paragraph>Optional. Detection method.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id19"><inline classes="std std-ref">Analyzer Methods</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id21"><inline classes="std std-ref">Analyzer Methods</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1613,7 +1613,7 @@ Source(0).IP</literal_block>
                     <term>Category</term>
                     <definition>
                         <paragraph>Optional. Source category</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id20"><inline classes="std std-ref">Source Categories</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id22"><inline classes="std std-ref">Source Categories</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1751,7 +1751,7 @@ Source(0).IP</literal_block>
                     <term>Category</term>
                     <definition>
                         <paragraph>Optional. Target category</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id21"><inline classes="std std-ref">Target Categories</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id23"><inline classes="std std-ref">Target Categories</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -2583,7 +2583,7 @@ Source(0).IP</literal_block>
         <section ids="entity-sector" names="entity\ sector">
             <title>Entity Sector</title>
             <target refid="id16"></target>
-            <table align="default" classes="colwidths-auto" ids="id22 id16" names="entity_sector">
+            <table align="default" classes="colwidths-auto" ids="id24 id16" names="entity_sector">
                 <title>Entity Sectors</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -4062,1399 +4062,656 @@ Source(0).IP</literal_block>
         <section ids="alert-category" names="alert\ category">
             <title>Alert Category</title>
             <target refid="id17"></target>
-            <table align="default" classes="colwidths-auto" ids="id23 id17" names="alert_category">
-                <title>Alert Categories</title>
-                <tgroup cols="3">
-                    <colspec colwidth="33"></colspec>
-                    <colspec colwidth="33"></colspec>
-                    <colspec colwidth="33"></colspec>
+            <table align="default" classes="colwidths-auto" ids="id25 id17" names="alert_category">
+                <title>enum_alert_category</title>
+                <tgroup cols="1">
+                    <colspec colwidth="100"></colspec>
                     <thead>
                         <row>
                             <entry>
-                                <paragraph>Rank</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Keyword</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Description</paragraph>
+                                <paragraph>Rank,Keyword,Description</paragraph>
                             </entry>
                         </row>
                     </thead>
                     <tbody>
                         <row>
                             <entry>
-                                <paragraph>0</paragraph>
+                                <paragraph>2,Abuse.Coercion,"The practice of compelling an individual to act against their will by using force, threats, intimidation, or extreme dependency, often for personal or financial gain."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>Abuse.Grooming</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>The process of deliberately building an emotional connection with a person to lower their inhibitions for the purpose of sexual abuse, exploitation, or trafficking.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>1</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Abuse.Harassment</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A pattern of unwanted, intrusive behavior (physical, verbal, or online) directed at a specific person that causes fear, distress, or emotional harm.</paragraph>
+                                <paragraph>4,Abuse.Extermism,"The process of socializing an individual, often through psychological manipulation, to adopt the beliefs and goals of a violent extremist group and become willing to engage in activities that support the group."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>2</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Abuse.Coercion</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>The practice of compelling an individual to act against their will by using force, threats, intimidation, or extreme dependency, often for personal or financial gain.</paragraph>
+                                <paragraph>0,Abuse.Grooming,"The process of deliberately building an emotional connection with a person to lower their inhibitions for the purpose of sexual abuse, exploitation, or trafficking."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>3</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Abuse.Trafficking</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>The act of recruiting, transporting, transferring, harboring, or receiving a person through force, fraud, or coercion for the purpose of exploitation, such as forced labor or sexual servitude.</paragraph>
+                                <paragraph>1,Abuse.Harassment,"A pattern of unwanted, intrusive behavior (physical, verbal, or online) directed at a specific person that causes fear, distress, or emotional harm."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>4</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Abuse.Extermism</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>The process of socializing an individual, often through psychological manipulation, to adopt the beliefs and goals of a violent extremist group and become willing to engage in activities that support the group.</paragraph>
+                                <paragraph>3,Abuse.Trafficking,"The act of recruiting, transporting, transferring, harboring, or receiving a person through force, fraud, or coercion for the purpose of exploitation, such as forced labor or sexual servitude."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>5</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Abuse.Other</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Any other incident involving manipulation or coercion of people for harmful purposes that does not fit into the specific abuse subcategories.</paragraph>
+                                <paragraph>5,Abuse.Other,Any other incident involving manipulation or coercion of people for harmful purposes that does not fit into the specific abuse subcategories.</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>6</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Access.Compromise</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An incident where a legitimate user's credentials (e.g., username/password) are stolen or guessed and used by an unauthorized individual to gain access to systems or data.</paragraph>
+                                <paragraph>14,Access.Authorized,"An incident involving legitimate, approved access to resources that may be relevant for auditing, monitoring, or establishing a baseline of normal activity."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>7</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Access.Escalation</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An incident where a user or process gains access rights, permissions, or capabilities that exceed those normally assigned, often to bypass security restrictions.</paragraph>
+                                <paragraph>8,Access.Backdoor,"The installation or discovery of a concealed method of bypassing normal authentication or encryption in a computer system, product, or embedded device."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>8</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Access.Backdoor</paragraph>
+                                <paragraph>13,Access.Clonned,"The act of creating an unauthorized copy of a physical or digital security credential, such as an access card, to gain illicit entry to a facility or system."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>The installation or discovery of a concealed method of bypassing normal authentication or encryption in a computer system, product, or embedded device.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>9</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Access.Unauthorized</paragraph>
+                                <paragraph>6,Access.Compromise,"An incident where a legitimate user's credentials (e.g., username/password) are stolen or guessed and used by an unauthorized individual to gain access to systems or data."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>An incident involving physical entry into a restricted building, room, or area without proper authorization.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>10</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Access.Tailgating</paragraph>
+                                <paragraph>7,Access.Escalation,"An incident where a user or process gains access rights, permissions, or capabilities that exceed those normally assigned, often to bypass security restrictions."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>A physical security breach where an unauthorized person follows an authorized individual through a secured entry point, circumventing access control mechanisms.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>11</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Access.Forced</paragraph>
+                                <paragraph>11,Access.Forced,"An incident involving the use of physical force to breach a barrier (e.g., lock, door, window) or the repeated systematic guessing of passwords to gain unauthorized access."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>An incident involving the use of physical force to breach a barrier (e.g., lock, door, window) or the repeated systematic guessing of passwords to gain unauthorized access.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>12</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Access.Lost</paragraph>
+                                <paragraph>12,Access.Lost,"An incident where physical or digital access credentials (e.g., keys, ID badges, login details) are misplaced, stolen, or used by an unauthorized person."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>An incident where physical or digital access credentials (e.g., keys, ID badges, login details) are misplaced, stolen, or used by an unauthorized person.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>13</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Access.Clonned</paragraph>
+                                <paragraph>10,Access.Tailgating,"A physical security breach where an unauthorized person follows an authorized individual through a secured entry point, circumventing access control mechanisms."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>The act of creating an unauthorized copy of a physical or digital security credential, such as an access card, to gain illicit entry to a facility or system.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>14</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Access.Authorized</paragraph>
+                                <paragraph>9,Access.Unauthorized,"An incident involving physical entry into a restricted building, room, or area without proper authorization."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>An incident involving legitimate, approved access to resources that may be relevant for auditing, monitoring, or establishing a baseline of normal activity.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>15</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Access.Other</paragraph>
+                                <paragraph>15,Access.Other,Any other incident related to physical or digital access that does not fit into the specific access subcategories.</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>Any other incident related to physical or digital access that does not fit into the specific access subcategories.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>16</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Availability.DoS</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An incident where a single machine or network attempts to make a system, service, or network resource unavailable by overwhelming it with malicious requests or traffic.</paragraph>
+                                <paragraph>17,Availability.DDoS,"An incident where multiple compromised systems (a botnet) are used to target a single system with a flood of traffic, causing a denial of service."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>17</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Availability.DDoS</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An incident where multiple compromised systems (a botnet) are used to target a single system with a flood of traffic, causing a denial of service.</paragraph>
+                                <paragraph>16,Availability.DoS,"An incident where a single machine or network attempts to make a system, service, or network resource unavailable by overwhelming it with malicious requests or traffic."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>18</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Availability.Outage</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An incident where essential utilities or services (such as electricity, water, or network connectivity) become unavailable, disrupting normal operations.</paragraph>
+                                <paragraph>19,Availability.Failure,"An incident caused by the unintentional malfunction of hardware or software due to errors, bugs, wear and tear, or other faults, leading to service degradation or unavailability."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>19</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Availability.Failure</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An incident caused by the unintentional malfunction of hardware or software due to errors, bugs, wear and tear, or other faults, leading to service degradation or unavailability.</paragraph>
+                                <paragraph>22,Availability.HeartBeat,"A periodic signal generated by hardware or software to indicate normal operation, often used for monitoring system health, connectivity, or location tracking."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>20</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Availability.Misconfiguration</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An incident where incorrect configuration of systems, software, or networks leads to service disruptions, outages, or security vulnerabilities.</paragraph>
+                                <paragraph>20,Availability.Misconfiguration,"An incident where incorrect configuration of systems, software, or networks leads to service disruptions, outages, or security vulnerabilities."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>21</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Availability.Overload</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An incident where a system or component is subjected to a load beyond its designed capacity, leading to performance degradation or failure, even if the load is not malicious.</paragraph>
+                                <paragraph>18,Availability.Outage,"An incident where essential utilities or services (such as electricity, water, or network connectivity) become unavailable, disrupting normal operations."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>22</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Availability.HeartBeat</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A periodic signal generated by hardware or software to indicate normal operation, often used for monitoring system health, connectivity, or location tracking.</paragraph>
+                                <paragraph>21,Availability.Overload,"An incident where a system or component is subjected to a load beyond its designed capacity, leading to performance degradation or failure, even if the load is not malicious."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>23</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Availability.Other</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Any other incident that impacts the availability of resources or services, not covered by the specific subcategories.</paragraph>
+                                <paragraph>23,Availability.Other,"Any other incident that impacts the availability of resources or services, not covered by the specific subcategories."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>24</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Fraud.Usage</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>The use of an organization's assets (e.g., computing power, network, email) for non-work-related, often illegal, activities without authorization.</paragraph>
+                                <paragraph>115,Biological.Animal,"An incident where animals pose a direct threat to human safety, public health (e.g., zoonotic diseases), or economic stability (e.g., livestock diseases)."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>25</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Fraud.Copyright</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>The act of reproducing, distributing, or installing software, media, or other materials in violation of their copyright, often for personal gain or distribution (piracy).</paragraph>
+                                <paragraph>113,Biological.Epidemic,"The rapid and widespread occurrence of an infectious disease in a specific population or region, exceeding what is normally expected."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>26</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Fraud.Masquerade</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A type of attack where an attacker illegitimately assumes the identity of another user, process, or system to gain unauthorized access, privileges, or benefits.</paragraph>
+                                <paragraph>114,Biological.Insect,"An incident involving a harmful outbreak or infestation of insects that threatens public health, agriculture, livestock, or property."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>27</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Fraud.Phishing</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A cyber attack where an attacker disguises themselves as a trustworthy entity (e.g., via email or fake website) to trick a victim into revealing sensitive information like usernames, passwords, or credit card details.</paragraph>
+                                <paragraph>116,Biological.Zombies,"A fictional or hypothetical scenario involving a pathogen that causes a pandemic of aggressive, infectious behavior, often used as a metaphor for worst-case outbreak scenarios in planning."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>28</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Fraud.Corruption</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A fraudulent scheme that is made possible by the abuse of power or position by a trusted individual (e.g., employee, official) who acts for personal gain.</paragraph>
+                                <paragraph>117,Biological.Other,Any other incident caused bybiological not covered by specific subcategories.</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>29</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Fraud.Espionnage</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>The use of illegal or unethical means, such as hacking, bribery, or theft, to acquire a competitor's trade secrets, intellectual property, or other confidential business information.</paragraph>
+                                <paragraph>109,Climat.Drought,"A prolonged period of below-average precipitation leading to a water shortage, which can impact agriculture, ecosystems, and water supplies."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>30</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Fraud.Other</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Any other incident involving deception for financial or reputational gain that does not fit into the specific fraud subcategories.</paragraph>
+                                <paragraph>110,Climat.LakeOutburst,"An incident where a glacial lake dam (often moraine or ice) fails, rapidly releasing a large volume of water and causing devastating floods downstream."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>31</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Insider.Malicious</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A security incident caused by a current or former employee, contractor, or other trusted insider who intentionally acts to harm the organization, its data, or its people.</paragraph>
+                                <paragraph>111,Climat.Wildfire,"An unplanned and uncontrolled fire burning in natural or rural areas, often exacerbated by climatic conditions like drought, wind, and heat."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>32</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Insider.Negligent</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A security incident caused unintentionally by an insider, such as through carelessness, lack of awareness, or simple human error, leading to data exposure or system compromise.</paragraph>
+                                <paragraph>112,Climat.Other,Any other incident caused by long-lived atmospheric processes (climatological) not covered by specific subcategories.</paragraph>
                             </entry>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>33</paragraph>
+                                <paragraph>119,Extraterrestrial.Aliens,"A hypothetical incident involving the discovery of or interaction with extraterrestrial intelligent life, a theoretical scenario in scientific and security planning."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>Insider.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Any other security incident involving an insider (trusted individual) that does not fit into the specific insider threat subcategories.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>34</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Sabotage.Vandalism</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>The deliberate and malicious act of damaging, destroying, or obstructing an organization's physical assets, operations, or systems.</paragraph>
+                                <paragraph>118,Extraterrestrial.Impact,"An incident involving a celestial object (asteroid, meteoroid, comet) colliding with Earth, potentially causing localized or global damage."</paragraph>
                             </entry>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>35</paragraph>
+                                <paragraph>120,Extraterrestrial.SpaceWeather,"An event caused by solar or cosmic activity, such as solar flares or geomagnetic storms, that can disrupt Earth's technological infrastructure."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>Sabotage.Graffiti</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>The act of willfully defacing, damaging, or marking public or private property with inscriptions, drawings, or tags without permission.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>36</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Sabotage.Destruction</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>The intentional and malicious act of destroying or severely damaging physical assets, such as windows, equipment, or buildings.</paragraph>
+                                <paragraph>121,Extraterrestrial.Other,Any other incident caused extraterrestrial process not covered by specific subcategories.</paragraph>
                             </entry>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>37</paragraph>
+                                <paragraph>25,Fraud.Copyright,"The act of reproducing, distributing, or installing software, media, or other materials in violation of their copyright, often for personal gain or distribution (piracy)."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>Sabotage.Tampering</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>The act of deliberately meddling with or disabling security controls (e.g., locks, alarms, cameras) to compromise their effectiveness.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>38</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Sabotage.Equipment</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>The intentional act of causing damage to operational equipment, machinery, or vehicles, often to disrupt production or operations.</paragraph>
+                                <paragraph>28,Fraud.Corruption,"A fraudulent scheme that is made possible by the abuse of power or position by a trusted individual (e.g., employee, official) who acts for personal gain."</paragraph>
                             </entry>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>39</paragraph>
+                                <paragraph>29,Fraud.Espionnage,"The use of illegal or unethical means, such as hacking, bribery, or theft, to acquire a competitor's trade secrets, intellectual property, or other confidential business information."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>Sabotage.Disruption</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>The intentional disruption of essential services or utilities, such as electricity, water, or network connectivity, to cause operational downtime.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>40</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Sabotage.Data</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>The intentional act of deleting, altering, or corrupting digital or physical data to cause harm, disrupt operations, or cover tracks.</paragraph>
+                                <paragraph>26,Fraud.Masquerade,"A type of attack where an attacker illegitimately assumes the identity of another user, process, or system to gain unauthorized access, privileges, or benefits."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>41</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Sabotage.Other</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Any other incident involving the intentional damage to property or assets not covered by the specific sabotage subcategories.</paragraph>
+                                <paragraph>27,Fraud.Phishing,"A cyber attack where an attacker disguises themselves as a trustworthy entity (e.g., via email or fake website) to trick a victim into revealing sensitive information like usernames, passwords, or credit card details."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>42</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Safety.Explosion</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A sudden, violent release of energy (e.g., from gas, chemicals, or explosives) that causes a blast, fire, and potential structural damage, injury, or loss of life.</paragraph>
+                                <paragraph>24,Fraud.Usage,"The use of an organization's assets (e.g., computing power, network, email) for non-work-related, often illegal, activities without authorization."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>43</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Safety.Fire</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An incident involving uncontrolled burning (e.g., structural, wildland, or chemical fire) that threatens human safety, property, or the environment.</paragraph>
+                                <paragraph>30,Fraud.Other,Any other incident involving deception for financial or reputational gain that does not fit into the specific fraud subcategories.</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>44</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Safety.Agression</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An incident where an individual uses physical force against another person, causing bodily harm, pain, or the fear of immediate harm.</paragraph>
+                                <paragraph>93,Geophysical.Earthquake,"An incident caused by a sudden, rapid shaking of the earth resulting from the movement of tectonic plates, which can cause ground shaking, surface rupture, and tsunamis."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>45</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Safety.Sexual</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An incident involving any unwanted sexual act, contact, or behavior directed against an individual without their consent.</paragraph>
+                                <paragraph>94,Geophysical.MassMovement,"An incident involving the downslope movement of rock, soil, or snow under the force of gravity, such as landslides, avalanches, or rockfalls."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>46</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Safety.Accident</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An unplanned, unforeseen event (e.g., vehicle crash, industrial mishap, chemical spill) that results in injury, loss of life, or damage to health.</paragraph>
+                                <paragraph>96,Geophysical.Other,Any other incident caused by solid-earth processes not covered by specific geophysical subcategories.</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>47</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Safety.Hostage</paragraph>
+                                <paragraph>95,Geophysical.Volcanic,"An incident caused by the eruption of magma and volcanic gases from a volcano, which can produce lava flows, pyroclastic flows, ashfall, and lahars."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>An incident where a person or group is held against their will by a captor, often to compel a third party to meet certain demands.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>48</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Safety.Other</paragraph>
+                                <paragraph>105,Hydro.Flood,"An incident where water submerges land that is normally dry, often caused by heavy rain, storm surge, or dam failure, leading to property damage and risk to life."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>Any other incident that causes or has the potential to cause injury, loss of life, or endanger citizens, not covered by specific safety subcategories.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>49</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>SupplyChain.Disruption</paragraph>
+                                <paragraph>106,Hydro.Landslide,"An incident involving the downward movement of slope materials (soil, rock) triggered by water saturation from heavy rain or snowmelt."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>An event that disrupts the normal flow of products, services, or information within a supply chain, often impacting operations and delivery.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>50</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>SupplyChain.Compromise</paragraph>
+                                <paragraph>107,Hydro.Wave,"An incident involving destructive waves, such as tsunamis or storm surges, that can cause coastal flooding, erosion, and damage."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>A security incident where an attacker exploits a vulnerability in a third-party vendor's system to gain access to or compromise the primary target's network or data.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>51</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>SupplyChain.Other</paragraph>
+                                <paragraph>108,Hydro.Other,"Any other incident caused by the movement, distribution, and quality of water, not covered by specific hydrological subcategories."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>Any other incident affecting the supply chain that does not fit into the specific supply chain subcategories.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>52</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Theft.Equiment</paragraph>
+                                <paragraph>31,Insider.Malicious,"A security incident caused by a current or former employee, contractor, or other trusted insider who intentionally acts to harm the organization, its data, or its people."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>The unlawful taking of physical hardware, such as computers, mobile phones, or servers, resulting in loss of assets and potentially the data they contain.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>53</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Theft.Data</paragraph>
+                                <paragraph>32,Insider.Negligent,"A security incident caused unintentionally by an insider, such as through carelessness, lack of awareness, or simple human error, leading to data exposure or system compromise."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>The unauthorized taking or copying of sensitive or confidential documents, whether in physical or digital form.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>54</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Theft.Machinery</paragraph>
+                                <paragraph>33,Insider.Other,Any other security incident involving an insider (trusted individual) that does not fit into the specific insider threat subcategories.</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>The unlawful taking of heavy equipment, vehicles, or specialized machinery, often resulting in significant operational and financial loss.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>55</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Theft.PII</paragraph>
+                                <paragraph>90,Malware.Adware,"A type of software that automatically displays or downloads unwanted advertisements, often in a disruptive manner, and may track user behavior."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>The unauthorized acquisition of Personally Identifiable Information (PII) that can be used to identify, contact, or impersonate an individual.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>56</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Theft.IP</paragraph>
+                                <paragraph>,Malware.Backdoor,"A type of malware that bypasses normal authentication to give an attacker persistent remote access to a compromised system, often enabling data theft or installation of additional malware."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>The unlawful acquisition of a company's intellectual property, including trade secrets, patents, formulas, or proprietary processes.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>57</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Theft.FinInfo</paragraph>
+                                <paragraph>,Malware.Cryptominer,"A type of malware that secretly uses a victim's computing resources to mine cryptocurrency, causing degraded performance and increased power consumption without consent."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>The theft of financial information, such as credit card numbers or bank account details, often for the purpose of fraudulent transactions.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>58</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Theft.Breaches</paragraph>
+                                <paragraph>,Malware.Downloader,"A type of malware designed to download and install other malicious software from a remote server, typically acting as the first stage in a multi-step attack."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>A security incident involving the unauthorized access, acquisition, or disclosure of sensitive, protected, or confidential data.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>59</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Theft.Other</paragraph>
+                                <paragraph>88,Malware.Ransomware,"A type of malware that encrypts a victim's files or systems, rendering them inaccessible, and demands a ransom payment, often in cryptocurrency, for the decryption key."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>Any other incident involving the intentional stealing of physical property or digital data not covered by specific theft subcategories.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>60</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Operational.Misuse</paragraph>
+                                <paragraph>91,Malware.Rootkit,"A type of malware designed to hide its presence and grant an attacker persistent, privileged access to a compromised system while evading detection."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>The use of an organization's assets (e.g., computers, network, time) for purposes that are not officially authorized, which may violate policy but not be malicious.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>61</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Operational.Policy Violation</paragraph>
+                                <paragraph>89,Malware.Spyware,"A type of software that secretly monitors and collects information about a user's activities, such as keystrokes, browsing habits, and personal data, without their consent."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>An incident where an individual fails to comply with established organizational policies, procedures, or security rules, whether intentionally or accidentally.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>62</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Operational.Process Failure</paragraph>
+                                <paragraph>87,Malware.Trojan,"A type of malware that disguises itself as legitimate or desirable software to trick users into installing it, after which it can perform malicious actions."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>An incident where a designed process, procedure, or workflow fails to achieve its intended outcome, leading to operational or security gaps.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>63</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Operational.Other</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Any other operational issue that does not fit into the specific operational incident subcategories.</paragraph>
+                                <paragraph>85,Malware.Virus,"A type of malicious software that attaches itself to a legitimate program or file and replicates itself to spread to other programs, often requiring human action to propagate."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>64</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Recon.Network</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>The practice of probing a network to discover active hosts, open ports, and services, often as a precursor to an attack or unauthorized monitoring.</paragraph>
+                                <paragraph>86,Malware.Worm,"A type of standalone malicious software that replicates itself to spread across networks, often exploiting vulnerabilities without requiring human interaction."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>65</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Recon.Landscape</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>The act of physically observing a location to gather information about security measures, layouts, or potential vulnerabilities.</paragraph>
+                                <paragraph>92,Malware.Other,Any other incident involving malicious software that does not fit into the specific malware subcategories.</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>66</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Recon.Aerial</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>The act of using aerial platforms, such as drones or satellites, to conduct surveillance or gather intelligence about a target area.</paragraph>
+                                <paragraph>98,Meteo.Cold,"A meteorological incident involving a rapid fall in temperature over a short period, or a prolonged period of extreme cold, posing risks to health and infrastructure."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>67</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Recon.OSINT</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>The practice of collecting and analyzing information from publicly available sources (e.g., social media, public records) for intelligence purposes.</paragraph>
+                                <paragraph>99,Meteo.Fog,"A meteorological incident where dense fog reduces visibility, potentially disrupting transportation and causing accidents."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>68</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Recon.Other</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Any other incident involving scanning, spying, or monitoring to identify resources that does not fit into specific recon subcategories.</paragraph>
+                                <paragraph>97,Meteo.Heat,"A meteorological incident involving a prolonged period of excessively hot weather, which can cause health impacts, infrastructure stress, and environmental damage."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>69</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>National.Terrorism</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An incident involving the use of violence, intimidation, or threats by non-state actors against civilians or property to achieve political, religious, or ideological objectives.</paragraph>
+                                <paragraph>100,Meteo.Rain ,"A meteorological incident involving excessive or prolonged rainfall that can lead to flooding, landslides, and transportation disruptions."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>70</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>National.Conflict</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A state of armed conflict between two or more nations, involving organized military forces and impacting national security.</paragraph>
+                                <paragraph>101,Meteo.Snow,"A meteorological incident involving heavy snowfall and blizzard conditions, which can disrupt transportation, damage infrastructure, and pose risks to safety."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>71</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>National.Cyber</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Large-scale cyber operations, including attacks, espionage, and disinformation campaigns, conducted by state-sponsored or state-affiliated groups against national interests.</paragraph>
+                                <paragraph>102,Meteo.Wind,"A meteorological incident involving damaging or dangerous winds, such as from storms, tornadoes, or hurricanes, that can cause structural damage and power outages."</paragraph>
                             </entry>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>72</paragraph>
+                                <paragraph>104,Meteo.Other,Any other incident caused by atmospheric processes not covered by specific meteorological subcategories.</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>National.Crime</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Large-scale illegal activities, such as trafficking in drugs, weapons, or people, conducted by sophisticated criminal networks that pose a threat to national and international security.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>73</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>National.Environemental</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Incidents related to large-scale environmental shifts, such as climate change, resource scarcity, or global pandemics, that have significant national security implications.</paragraph>
+                                <paragraph>70,National.Conflict,"A state of armed conflict between two or more nations, involving organized military forces and impacting national security."</paragraph>
                             </entry>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>74</paragraph>
+                                <paragraph>72,National.Crime,"Large-scale illegal activities, such as trafficking in drugs, weapons, or people, conducted by sophisticated criminal networks that pose a threat to national and international security."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>National.Economical</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>An incident involving significant disruption to a nation's economy, such as market crashes, hyperinflation, or trade wars, affecting national stability.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>75</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>National.Societal</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An incident involving large-scale public disorder, such as strikes, riots, or civil unrest, that challenges social order and may require national-level response.</paragraph>
+                                <paragraph>71,National.Cyber,"Large-scale cyber operations, including attacks, espionage, and disinformation campaigns, conducted by state-sponsored or state-affiliated groups against national interests."</paragraph>
                             </entry>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>76</paragraph>
+                                <paragraph>74,National.Economical,"An incident involving significant disruption to a nation's economy, such as market crashes, hyperinflation, or trade wars, affecting national stability."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>National.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Any other incident that has a significant impact at the national scale, not covered by specific national security subcategories.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>77</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>SocialEng.Phishing</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A type of social engineering where attackers send fraudulent emails, appearing to be from a legitimate source, to trick recipients into revealing sensitive information or installing malware.</paragraph>
+                                <paragraph>73,National.Environemental,"Incidents related to large-scale environmental shifts, such as climate change, resource scarcity, or global pandemics, that have significant national security implications."</paragraph>
                             </entry>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>78</paragraph>
+                                <paragraph>75,National.Societal,"An incident involving large-scale public disorder, such as strikes, riots, or civil unrest, that challenges social order and may require national-level response."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>SocialEng.Spear Phishing</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>A highly targeted phishing attack directed at a specific individual, organization, or role, often using personalized information to increase credibility.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>79</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>SocialEng.Vishing</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A social engineering attack conducted over the phone, where the attacker impersonates a legitimate entity to trick the victim into revealing sensitive information or performing actions.</paragraph>
+                                <paragraph>69,National.Terrorism,"An incident involving the use of violence, intimidation, or threats by non-state actors against civilians or property to achieve political, religious, or ideological objectives."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>80</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>SocialEng.Smishing</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A social engineering attack conducted via SMS (text message), where the attacker sends a fraudulent message to trick the recipient into clicking a malicious link or providing information.</paragraph>
+                                <paragraph>76,National.Other,"Any other incident that has a significant impact at the national scale, not covered by specific national security subcategories."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>81</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>SocialEng.Pretexting</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A social engineering tactic where the attacker creates a fabricated scenario or pretends to be someone they are not to engage a victim and extract information or access.</paragraph>
+                                <paragraph>60,Operational.Misuse,"The use of an organization's assets (e.g., computers, network, time) for purposes that are not officially authorized, which may violate policy but not be malicious."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>82</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>SocialEng.Baiting</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A social engineering attack that lures victims by offering something desirable (e.g., free music, a prize) in exchange for information or by tricking them into downloading malware.</paragraph>
+                                <paragraph>61,Operational.Policy Violation,"An incident where an individual fails to comply with established organizational policies, procedures, or security rules, whether intentionally or accidentally."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>83</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>SocialEng.QuidProQuo</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A social engineering tactic where the attacker offers a service or benefit (e.g., technical support) in exchange for information or access, often expecting something in return later.</paragraph>
+                                <paragraph>62,Operational.Process Failure,"An incident where a designed process, procedure, or workflow fails to achieve its intended outcome, leading to operational or security gaps."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>84</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>SocialEng.Other</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Any other incident involving psychological manipulation of people to divulge information or perform actions, not covered by specific social engineering subcategories.</paragraph>
+                                <paragraph>63,Operational.Other,Any other operational issue that does not fit into the specific operational incident subcategories.</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>85</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Malware.Virus</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A type of malicious software that attaches itself to a legitimate program or file and replicates itself to spread to other programs, often requiring human action to propagate.</paragraph>
+                                <paragraph>66,Recon.Aerial,"The act of using aerial platforms, such as drones or satellites, to conduct surveillance or gather intelligence about a target area."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>86</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Malware.Worm</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A type of standalone malicious software that replicates itself to spread across networks, often exploiting vulnerabilities without requiring human interaction.</paragraph>
+                                <paragraph>65,Recon.Landscape,"The act of physically observing a location to gather information about security measures, layouts, or potential vulnerabilities."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>87</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Malware.Trojan</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A type of malware that disguises itself as legitimate or desirable software to trick users into installing it, after which it can perform malicious actions.</paragraph>
+                                <paragraph>64,Recon.Network,"The practice of probing a network to discover active hosts, open ports, and services, often as a precursor to an attack or unauthorized monitoring."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>88</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Malware.Ransomware</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A type of malware that encrypts a victim's files or systems, rendering them inaccessible, and demands a ransom payment, often in cryptocurrency, for the decryption key.</paragraph>
+                                <paragraph>67,Recon.OSINT,"The practice of collecting and analyzing information from publicly available sources (e.g., social media, public records) for intelligence purposes."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>89</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Malware.Spyware</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A type of software that secretly monitors and collects information about a user's activities, such as keystrokes, browsing habits, and personal data, without their consent.</paragraph>
+                                <paragraph>68,Recon.Other,"Any other incident involving scanning, spying, or monitoring to identify resources that does not fit into specific recon subcategories."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>90</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Malware.Adware</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A type of software that automatically displays or downloads unwanted advertisements, often in a disruptive manner, and may track user behavior.</paragraph>
+                                <paragraph>40,Sabotage.Data,"The intentional act of deleting, altering, or corrupting digital or physical data to cause harm, disrupt operations, or cover tracks."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>91</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Malware.Rootkit</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A type of malware designed to hide its presence and grant an attacker persistent, privileged access to a compromised system while evading detection.</paragraph>
+                                <paragraph>36,Sabotage.Destruction,"The intentional and malicious act of destroying or severely damaging physical assets, such as windows, equipment, or buildings."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>92</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Malware.Other</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Any other incident involving malicious software that does not fit into the specific malware subcategories.</paragraph>
+                                <paragraph>39,Sabotage.Disruption,"The intentional disruption of essential services or utilities, such as electricity, water, or network connectivity, to cause operational downtime."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>93</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Geophysical.Earthquake</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An incident caused by a sudden, rapid shaking of the earth resulting from the movement of tectonic plates, which can cause ground shaking, surface rupture, and tsunamis.</paragraph>
+                                <paragraph>38,Sabotage.Equipment,"The intentional act of causing damage to operational equipment, machinery, or vehicles, often to disrupt production or operations."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>94</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Geophysical.MassMovement</paragraph>
+                                <paragraph>35,Sabotage.Graffiti,"The act of willfully defacing, damaging, or marking public or private property with inscriptions, drawings, or tags without permission."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>An incident involving the downslope movement of rock, soil, or snow under the force of gravity, such as landslides, avalanches, or rockfalls.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>95</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Geophysical.Volcanic</paragraph>
+                                <paragraph>37,Sabotage.Tampering,"The act of deliberately meddling with or disabling security controls (e.g., locks, alarms, cameras) to compromise their effectiveness."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>An incident caused by the eruption of magma and volcanic gases from a volcano, which can produce lava flows, pyroclastic flows, ashfall, and lahars.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>96</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Geophysical.Other</paragraph>
+                                <paragraph>34,Sabotage.Vandalism,"The deliberate and malicious act of damaging, destroying, or obstructing an organization's physical assets, operations, or systems."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>Any other incident caused by solid-earth processes not covered by specific geophysical subcategories.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>97</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Meteo.Heat</paragraph>
+                                <paragraph>41,Sabotage.Other,Any other incident involving the intentional damage to property or assets not covered by the specific sabotage subcategories.</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>A meteorological incident involving a prolonged period of excessively hot weather, which can cause health impacts, infrastructure stress, and environmental damage.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>98</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Meteo.Cold</paragraph>
+                                <paragraph>46,Safety.Accident,"An unplanned, unforeseen event (e.g., vehicle crash, industrial mishap, chemical spill) that results in injury, loss of life, or damage to health."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>A meteorological incident involving a rapid fall in temperature over a short period, or a prolonged period of extreme cold, posing risks to health and infrastructure.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>99</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Meteo.Fog</paragraph>
+                                <paragraph>44,Safety.Agression,"An incident where an individual uses physical force against another person, causing bodily harm, pain, or the fear of immediate harm."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>A meteorological incident where dense fog reduces visibility, potentially disrupting transportation and causing accidents.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>100</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Meteo.Rain</paragraph>
+                                <paragraph>42,Safety.Explosion,"A sudden, violent release of energy (e.g., from gas, chemicals, or explosives) that causes a blast, fire, and potential structural damage, injury, or loss of life."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>A meteorological incident involving excessive or prolonged rainfall that can lead to flooding, landslides, and transportation disruptions.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>101</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Meteo.Snow</paragraph>
+                                <paragraph>43,Safety.Fire,"An incident involving uncontrolled burning (e.g., structural, wildland, or chemical fire) that threatens human safety, property, or the environment."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>A meteorological incident involving heavy snowfall and blizzard conditions, which can disrupt transportation, damage infrastructure, and pose risks to safety.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>102</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Meteo.Wind</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A meteorological incident involving damaging or dangerous winds, such as from storms, tornadoes, or hurricanes, that can cause structural damage and power outages.</paragraph>
+                                <paragraph>47,Safety.Hostage,"An incident where a person or group is held against their will by a captor, often to compel a third party to meet certain demands."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>104</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Meteo.Other</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Any other incident caused by atmospheric processes not covered by specific meteorological subcategories.</paragraph>
+                                <paragraph>45,Safety.Sexual,"An incident involving any unwanted sexual act, contact, or behavior directed against an individual without their consent."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>105</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Hydro.Flood</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An incident where water submerges land that is normally dry, often caused by heavy rain, storm surge, or dam failure, leading to property damage and risk to life.</paragraph>
+                                <paragraph>48,Safety.Other,"Any other incident that causes or has the potential to cause injury, loss of life, or endanger citizens, not covered by specific safety subcategories."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>106</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Hydro.Landslide</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An incident involving the downward movement of slope materials (soil, rock) triggered by water saturation from heavy rain or snowmelt.</paragraph>
+                                <paragraph>82,SocialEng.Baiting,"A social engineering attack that lures victims by offering something desirable (e.g., free music, a prize) in exchange for information or by tricking them into downloading malware."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>107</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Hydro.Wave</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An incident involving destructive waves, such as tsunamis or storm surges, that can cause coastal flooding, erosion, and damage.</paragraph>
+                                <paragraph>77,SocialEng.Phishing,"A type of social engineering where attackers send fraudulent emails, appearing to be from a legitimate source, to trick recipients into revealing sensitive information or installing malware."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>108</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Hydro.Other</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Any other incident caused by the movement, distribution, and quality of water, not covered by specific hydrological subcategories.</paragraph>
+                                <paragraph>81,SocialEng.Pretexting,A social engineering tactic where the attacker creates a fabricated scenario or pretends to be someone they are not to engage a victim and extract information or access.</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>109</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Climat.Drought</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A prolonged period of below-average precipitation leading to a water shortage, which can impact agriculture, ecosystems, and water supplies.</paragraph>
+                                <paragraph>83,SocialEng.QuidProQuo,"A social engineering tactic where the attacker offers a service or benefit (e.g., technical support) in exchange for information or access, often expecting something in return later."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>110</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Climat.LakeOutburst</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An incident where a glacial lake dam (often moraine or ice) fails, rapidly releasing a large volume of water and causing devastating floods downstream.</paragraph>
+                                <paragraph>80,SocialEng.Smishing,"A social engineering attack conducted via SMS (text message), where the attacker sends a fraudulent message to trick the recipient into clicking a malicious link or providing information."</paragraph>
                             </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>111</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Climat.Wildfire</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An unplanned and uncontrolled fire burning in natural or rural areas, often exacerbated by climatic conditions like drought, wind, and heat.</paragraph>
+                                <paragraph>78,SocialEng.Spear Phishing,"A highly targeted phishing attack directed at a specific individual, organization, or role, often using personalized information to increase credibility."</paragraph>
                             </entry>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>112</paragraph>
+                                <paragraph>79,SocialEng.Vishing,"A social engineering attack conducted over the phone, where the attacker impersonates a legitimate entity to trick the victim into revealing sensitive information or performing actions."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>Climat.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Any other incident caused by long-lived atmospheric processes (climatological) not covered by specific subcategories.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>113</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Biological.Epidemic</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>The rapid and widespread occurrence of an infectious disease in a specific population or region, exceeding what is normally expected.</paragraph>
+                                <paragraph>50,SupplyChain.Compromise,A security incident where an attacker exploits a vulnerability in a third-party vendor's system to gain access to or compromise the primary target's network or data.</paragraph>
                             </entry>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>114</paragraph>
+                                <paragraph>49,SupplyChain.Disruption,"An event that disrupts the normal flow of products, services, or information within a supply chain, often impacting operations and delivery."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>Biological.Insect</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>An incident involving a harmful outbreak or infestation of insects that threatens public health, agriculture, livestock, or property.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>115</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Biological.Animal</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An incident where animals pose a direct threat to human safety, public health (e.g., zoonotic diseases), or economic stability (e.g., livestock diseases).</paragraph>
+                                <paragraph>51,SupplyChain.Other,Any other incident affecting the supply chain that does not fit into the specific supply chain subcategories.</paragraph>
                             </entry>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>116</paragraph>
+                                <paragraph>84,SocialEng.Other,"Any other incident involving psychological manipulation of people to divulge information or perform actions, not covered by specific social engineering subcategories."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>Biological.Zombies</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>A fictional or hypothetical scenario involving a pathogen that causes a pandemic of aggressive, infectious behavior, often used as a metaphor for worst-case outbreak scenarios in planning.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>117</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Biological.Other</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Any other incident caused bybiological not covered by specific subcategories.</paragraph>
+                                <paragraph>58,Theft.Breaches,"A security incident involving the unauthorized access, acquisition, or disclosure of sensitive, protected, or confidential data."</paragraph>
                             </entry>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>118</paragraph>
+                                <paragraph>53,Theft.Data,"The unauthorized taking or copying of sensitive or confidential documents, whether in physical or digital form."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>Extraterrestrial.Impact</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>An incident involving a celestial object (asteroid, meteoroid, comet) colliding with Earth, potentially causing localized or global damage.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>119</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Extraterrestrial.Aliens</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>A hypothetical incident involving the discovery of or interaction with extraterrestrial intelligent life, a theoretical scenario in scientific and security planning.</paragraph>
+                                <paragraph>52,Theft.Equiment,"The unlawful taking of physical hardware, such as computers, mobile phones, or servers, resulting in loss of assets and potentially the data they contain."</paragraph>
                             </entry>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>120</paragraph>
+                                <paragraph>57,Theft.FinInfo,"The theft of financial information, such as credit card numbers or bank account details, often for the purpose of fraudulent transactions."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>Extraterrestrial.SpaceWeather</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>An event caused by solar or cosmic activity, such as solar flares or geomagnetic storms, that can disrupt Earth's technological infrastructure.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>121</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Extraterrestrial.Other</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>Any other incident caused extraterrestrial process not covered by specific subcategories.</paragraph>
+                                <paragraph>56,Theft.IP,"The unlawful acquisition of a company's intellectual property, including trade secrets, patents, formulas, or proprietary processes."</paragraph>
                             </entry>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>122</paragraph>
+                                <paragraph>54,Theft.Machinery,"The unlawful taking of heavy equipment, vehicles, or specialized machinery, often resulting in significant operational and financial loss."</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>Other.Uncategorised</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Any incident that does not fit into one of the predefined categories in this taxonomy.</paragraph>
-                            </entry>
                         </row>
                         <row>
-                            <entry>
-                                <paragraph>123</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Other.Undetermined</paragraph>
-                            </entry>
                             <entry>
-                                <paragraph>An incident whose category is currently unknown, under investigation, or cannot be determined.</paragraph>
+                                <paragraph>55,Theft.PII,"The unauthorized acquisition of Personally Identifiable Information (PII) that can be used to identify, contact, or impersonate an individual."</paragraph>
                             </entry>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>124</paragraph>
+                                <paragraph>59,Theft.Other,Any other incident involving the intentional stealing of physical property or digital data not covered by specific theft subcategories.</paragraph>
                             </entry>
-                            <entry>
-                                <paragraph>Other.Test</paragraph>
-                            </entry>
+                        </row>
+                        <row>
                             <entry>
-                                <paragraph>An incident generated solely for the purpose of testing systems, processes, or training personnel.</paragraph>
+                                <paragraph>122,Other.Uncategorised,Any incident that does not fit into one of the predefined categories in this taxonomy.</paragraph>
                             </entry>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>125</paragraph>
+                                <paragraph>123,Other.Undetermined,"An incident whose category is currently unknown, under investigation, or cannot be determined."</paragraph>
                             </entry>
+                        </row>
+                        <row>
                             <entry>
-                                <paragraph>Other.ext-value</paragraph>
+                                <paragraph>124,Other.Test,"An incident generated solely for the purpose of testing systems, processes, or training personnel."</paragraph>
                             </entry>
+                        </row>
+                        <row>
                             <entry>
-                                <paragraph>A value used to indicate that this attribute is extended and the actual value is provided using the corresponding ext-* attribute. (see Section 4.1.1)</paragraph>
+                                <paragraph>125,Other.ext-value,A value used to indicate that this attribute is extended and the actual value is provided using the corresponding ext-* attribute. (see :ref:<problematic ids="id19" refid="id18">`</problematic>private_extension_enum)</paragraph>
                             </entry>
                         </row>
                     </tbody>
@@ -5464,7 +4721,7 @@ Source(0).IP</literal_block>
         <section ids="analyze-category" names="analyze\ category">
             <title>Analyze Category</title>
             <target refid="analyzer-category"></target>
-            <table align="default" classes="colwidths-auto" ids="id24 analyzer-category" names="analyzer_category">
+            <table align="default" classes="colwidths-auto" ids="id26 analyzer-category" names="analyzer_category">
                 <title>Analyzer Categories</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -6359,8 +5616,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="analyzer-data" names="analyzer\ data">
             <title>Analyzer Data</title>
-            <target refid="id18"></target>
-            <table align="default" classes="colwidths-auto" ids="id25 id18" names="analyzer_data">
+            <target refid="id20"></target>
+            <table align="default" classes="colwidths-auto" ids="id27 id20" names="analyzer_data">
                 <title>Analyzer Datas</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -6760,8 +6017,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="analyzer-method" names="analyzer\ method">
             <title>Analyzer Method</title>
-            <target refid="id19"></target>
-            <table align="default" classes="colwidths-auto" ids="id26 id19" names="analyzer_method">
+            <target refid="id21"></target>
+            <table align="default" classes="colwidths-auto" ids="id28 id21" names="analyzer_method">
                 <title>Analyzer Methods</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -7205,8 +6462,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="source-category" names="source\ category">
             <title>Source Category</title>
-            <target refid="id20"></target>
-            <table align="default" classes="colwidths-auto" ids="id27 id20" names="source_category">
+            <target refid="id22"></target>
+            <table align="default" classes="colwidths-auto" ids="id29 id22" names="source_category">
                 <title>Source Categories</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -8959,8 +8216,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="target-category" names="target\ category">
             <title>Target Category</title>
-            <target refid="id21"></target>
-            <table align="default" classes="colwidths-auto" ids="id28 id21" names="target_category">
+            <target refid="id23"></target>
+            <table align="default" classes="colwidths-auto" ids="id30 id23" names="target_category">
                 <title>Target Categories</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
