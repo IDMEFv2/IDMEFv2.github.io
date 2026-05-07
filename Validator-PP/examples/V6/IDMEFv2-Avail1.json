@@ -1,5 +1,5 @@
 {
-  "Version": "2.D.V07",
+  "Version": "2.D.V06",
   "ID": "f9b44c7d-3d99-4c7a-a3e4-57ef248bc631",
   "Status": "Incident",
   "OrganisationName": "acme.eu",
@@ -13,13 +13,15 @@
   "Confidence": 0.95,
   "Description": "A volumetric DDoS attack has been detected targeting the public web infrastructure.",
   "Analyzer": {
-    "ID": "f9b44c7d-3d99-4c7a-a3e4-57ef248bc632",
     "IP": "192.168.10.10",
     "Name": "Edge Firewall",
     "Hostname": "fw1.acme.eu",
+    "Type": [
+      "Cyber"
+    ],
     "Model": "PaloAlto PA-5220",
     "Category": [
-      "NET.NIDS"
+      "NIDS"
     ],
     "Data": [
       "Flow"
@@ -33,7 +35,6 @@
   },
   "Sensor": [
     {
-      "ID": "f9b44c7d-3d99-4c7a-a3e4-57ef248bc633",  
       "IP": "192.168.10.10",
       "Name": "Edge Firewall",
       "CaptureZone": "[{\"type\":\"ipv4-addr\",\"spec_version\":\"2.1\",\"id\":\"ipv4-addr--dcb2c1c0-bddf-43f4-84f2-00a02cba6cf3\",\"value\":\"192.168.0.0\"},{\"type\":\"ipv4-net-mask\",\"spec_version\":\"2.1\",\"id\":\"ipv4-net-mask--c6a3a3e0-f20c-4df9-8dc4-e15ef43ffde4\",\"value\":\"255.255.0.0\"}]"
@@ -41,14 +42,12 @@
   ],
   "Source": [
     {
-      "ID": "f9b44c7d-3d99-4c7a-a3e4-57ef248bc634",  
       "IP": "203.0.113.45",
       "Protocol": [
         "TCP"
       ]
     },
     {
-      "ID": "f9b44c7d-3d99-4c7a-a3e4-57ef248bc635",  
       "IP": "198.51.100.76",
       "Protocol": [
         "TCP"
@@ -57,7 +56,6 @@
   ],
   "Target": [
     {
-      "ID": "f9b44c7d-3d99-4c7a-a3e4-57ef248bc636",  
       "IP": "10.0.5.20",
       "Port": [
         443

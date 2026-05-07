@@ -95,23 +95,13 @@
                 </div>
             </div>
         </div>
-        <div id="success-popup" class="fixed popup success-popup">
-            <div class="px-1 flex gap-half">
-                <i class="fa-solid fa-check mt-1 popup-green"></i>
-                <div>
-                    <h4 class="mb-0 mt-1 popup-green">Copied</h4>
-                    <p class="popup-text">Your Json has been copied to clipboard</p>  
-                </div>
-                <i class="fa-solid fa-xmark mt-1 ml-auto pointer fit-content" onclick="hidePopUp('success-popup')"></i>
-            </div>
-        </div>
 
         <div id="success-popup" class="fixed popup success-popup">
             <div class="px-1 flex gap-half">
                 <i class="fa-solid fa-check mt-1 popup-green"></i>
                 <div>
-                    <h4 class="mb-0 mt-1 popup-green">Copied</h4>
-                    <p class="popup-text">Your Json has been copied to clipboard</p>  
+                    <h4 id="success-title" class="mb-0 mt-1 popup-green">Success</h4>
+                    <p id="success-text" class="popup-text"></p>
                 </div>
                 <i class="fa-solid fa-xmark mt-1 ml-auto pointer fit-content" onclick="hidePopUp('success-popup')"></i>
             </div>

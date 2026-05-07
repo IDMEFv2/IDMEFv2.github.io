@@ -169,6 +169,21 @@ function hidePopUp(id) {
   popUp.classList.add('popup-hidden');
 }
 
+function showSuccessMessage(message, timeout = 3000, title = "Success") {
+  const successTitle = document.getElementById('success-title');
+  const successText = document.getElementById('success-text');
+
+  if (successTitle) {
+    successTitle.textContent = title;
+  }
+
+  if (successText) {
+    successText.textContent = message;
+  }
+
+  showPopUp("success-popup", timeout);
+}
+
 // ---------------------------
 
 // Functions for the custom buttons
@@ -249,7 +264,7 @@ function copy_text() {
   document.execCommand("copy");
 
   document.body.removeChild(tempInput);
-  showPopUp("success-popup", 3000);
+  showSuccessMessage("Your Json has been copied to clipboard", 3000, "Copied");
 }
 
 function clear_text() {
@@ -399,14 +414,19 @@ function uploadSchema() {
 
       if (githubRateLimitHit) {
         enableCustomOnlyVersionDropdown();
-        await initCustomSchema();
-        closeModal();
-        return;
       }
 
-      // If user is already on custom, immediately re-apply updated schema.
-      if ($('#version-dropdown').val() === 'custom') {
-        await initCustomSchema();
+      const dropdown = $('#version-dropdown');
+      dropdown.prop('disabled', false);
+      dropdown.val('custom');
+      currentVersion = 'custom';
+
+      const customSchemaLoaded = await initCustomSchema();
+
+      if (customSchemaLoaded) {
+        enableValidation();
+        cleanResult();
+        showSuccessMessage("Custom schema uploaded and selected successfully.");
       }
 
       closeModal();
@@ -568,10 +588,17 @@ async function initFilesList(version = "latest") {
   let fileNames = manifest[normalizedVersion];
 
   if (!fileNames) {
-    $("#warning-text").text(`No examples available for ${normalizedVersion}, displaying latest.`);
-    showPopUp("warning-popup", 3000);
-    fileNames = manifest["latest"] || [];
-    resolvedExamplesVersion = "latest";
+    if (normalizedVersion === LATEST_DEV_SCHEMA_FOLDER) {
+      $("#warning-text").text("No dev examples available.");
+      showPopUp("warning-popup", 3000);
+      fileNames = [];
+      resolvedExamplesVersion = LATEST_DEV_SCHEMA_FOLDER;
+    } else {
+      $("#warning-text").text(`No examples available for ${normalizedVersion}, displaying latest.`);
+      showPopUp("warning-popup", 3000);
+      fileNames = manifest["latest"] || [];
+      resolvedExamplesVersion = "latest";
+    }
   }
 
   currentExamplesVersion = resolvedExamplesVersion;
@@ -935,7 +962,7 @@ function normalizeExamplesVersion(versionValue) {
   }
 
   if (normalized.toLowerCase() === LATEST_DEV_SCHEMA_FOLDER) {
-    return "latest";
+    return LATEST_DEV_SCHEMA_FOLDER;
   }
 
   const vMatch = normalized.match(/^V(\d+)$/i);
@@ -945,12 +972,12 @@ function normalizeExamplesVersion(versionValue) {
 
   const vDevMatch = normalized.match(/^V(\d+)-Dev$/i);
   if (vDevMatch) {
-    return `V${parseInt(vDevMatch[1], 10)}`;
+    return LATEST_DEV_SCHEMA_FOLDER;
   }
 
   const devMatch = normalized.match(/^(\d+)-Dev$/i);
   if (devMatch) {
-    return `V${parseInt(devMatch[1], 10)}`;
+    return LATEST_DEV_SCHEMA_FOLDER;
   }
 
   if (/^\d+$/.test(normalized)) {

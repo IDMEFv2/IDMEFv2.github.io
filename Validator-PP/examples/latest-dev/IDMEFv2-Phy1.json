@@ -1,7 +1,7 @@
 {
-  "Version": "2.D.V07",
+  "Version": "2.D.V08-Dev",
   "ID": "9a3e8dbe-b90f-4d55-b45e-823f0e509a2f",
-  "Status": "Incident",
+  "Status": ["Incident"],
   "OrganisationName": "acme.eu",
   "CreateTime": "2025-05-15T13:50:30Z",
   "StartTime": "2025-05-15T13:49:55Z",

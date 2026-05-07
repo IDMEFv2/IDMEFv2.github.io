@@ -1,7 +1,7 @@
 {
-  "Version": "2.D.V07",
+  "Version": "2.D.V08-Dev",
   "ID": "9f1c4a6d-8e1b-4f9a-9d3e-3a1d2c7f7b11",
-  "Status": "Incident",
+  "Status": ["Incident"],
   "OrganisationName": "cybercorp.com",
   "CreateTime": "2025-05-15T12:30:00Z",
   "StartTime": "2025-05-15T12:29:45Z",

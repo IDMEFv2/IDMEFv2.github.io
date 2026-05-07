@@ -1,13 +1,13 @@
 {
-  "Version": "2.D.V07",
+  "Version": "2.D.V08-Dev",
   "ID": "b7c6f3d9-8f12-4a4e-a56b-9d38e0277d1e",
-  "Status": "Incident",
+  "Status": ["Incident"],
   "OrganisationName": "acme.eu",
   "CreateTime": "2025-05-15T11:45:00Z",
   "StartTime": "2025-05-15T11:40:30Z",
   "Cause": "Malicious",
   "Category": [
-    "Recon.Netword",
+    "Recon.Network",
     "Malware.Other"
   ],
   "Priority": "High",

@@ -3,9 +3,13 @@
     "IDMEFv2-Avail1.json",
     "IDMEFv2-Comb1.json",
     "IDMEFv2-Cyb1.json",
-    "IDMEFv2-Cyb2.json",
-    "IDMEFv2-Phy1.json",
-    "IDMEFv2-Phy2.json"
+    "IDMEFv2-Phy1.json"
+  ],
+  "latest-dev": [
+    "IDMEFv2-Avail1.json",
+    "IDMEFv2-Comb1.json",
+    "IDMEFv2-Cyb1.json",
+    "IDMEFv2-Phy1.json"
   ],
   "V4": [
     "IDMEFv2-Cyb1.json",
@@ -20,5 +24,19 @@
     "IDMEFv2-Cyb2.json",
     "IDMEFv2-Phy1.json",
     "IDMEFv2-Phy2.json"
+  ],
+  "V6": [
+    "IDMEFv2-Avail1.json",
+    "IDMEFv2-Comb1.json",
+    "IDMEFv2-Cyb1.json",
+    "IDMEFv2-Cyb2.json",
+    "IDMEFv2-Phy1.json",
+    "IDMEFv2-Phy2.json"
+  ],
+  "V7": [
+    "IDMEFv2-Avail1.json",
+    "IDMEFv2-Comb1.json",
+    "IDMEFv2-Cyb1.json",
+    "IDMEFv2-Phy1.json"
   ]
 }
