@@ -1040,6 +1040,7 @@ async function tryLoadExampleFromCandidates(urls) {
       return { data, url };
     } catch (e) {
       // Keep trying fallback paths.
+      console.log(`Failed to load example from ${url}: ${e.message}`);
     }
   }
 
