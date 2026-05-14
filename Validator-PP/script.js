@@ -128,7 +128,7 @@ $(document).ready(async function () {
         var result = event.target.result;
         try {
           var json = JSON.parse(result);
-          editor.setValue(JSON.stringify(json, null, 2));
+          setEditorContentAndReset(JSON.stringify(json, null, 2));
           $('#selectedFileName').val(file.name);
         } catch (error) {
           console.error("Error parsing JSON:", error);
@@ -184,6 +184,35 @@ function showSuccessMessage(message, timeout = 3000, title = "Success") {
   showPopUp("success-popup", timeout);
 }
 
+function setEditorContentAndReset(content) {
+  if (!editor || typeof monaco === 'undefined' || !monaco.editor) {
+    return;
+  }
+
+  try {
+    const previousModel = editor.getModel();
+    const languageId = previousModel && typeof previousModel.getLanguageId === 'function'
+      ? previousModel.getLanguageId()
+      : 'json';
+
+    const nextModel = monaco.editor.createModel(content, languageId);
+    editor.setModel(nextModel);
+
+    if (previousModel && !previousModel.isDisposed()) {
+      previousModel.dispose();
+    }
+
+    const topLeftPosition = { lineNumber: 1, column: 1 };
+    editor.setPosition(topLeftPosition);
+    editor.setSelection(new monaco.Range(1, 1, 1, 1));
+    editor.revealLineNearTop(1);
+    editor.setScrollTop(0);
+    editor.setScrollLeft(0);
+  } catch (error) {
+    console.error("Unable to reset editor content safely:", error);
+  }
+}
+
 // ---------------------------
 
 // Functions for the custom buttons
@@ -191,7 +220,7 @@ function printExercise(exercise) {
   cleanResult()
   json = jsonArray.find(json => json.name == exercise);
   $('#selectedFileName').val(json.name);
-  editor.setValue(JSON.stringify(json.json, null, 2));
+  setEditorContentAndReset(JSON.stringify(json.json, null, 2));
 }
 
 // Cycles between the examples found inside the repository
@@ -216,7 +245,7 @@ async function printExample(example) {
 
     json = exampleResult.data;
     $('#selectedFileName').val(example);
-    editor.setValue(JSON.stringify(json, null, 2));
+    setEditorContentAndReset(JSON.stringify(json, null, 2));
   } else {
     console.error("No files have been found inside the repository");
   }
@@ -272,7 +301,7 @@ function clear_text() {
   cleanResult()
   json = {};
   $('#selectedFileName').val('');
-  editor.setValue('{}');
+  setEditorContentAndReset('{}');
 }
 
 function validate() {
