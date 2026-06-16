@@ -819,7 +819,7 @@ Source(0).IP</literal_block>
                     <definition>
                         <paragraph>Optional. The economic sector(s) and sub-sector(s) in which the entity operates. Values follow the dot notation sector.subsector based on the critical infrastructure taxonomy defined in the NIS2 Directive and CER (Critical Entities Resilience) Directive.</paragraph>
                         <paragraph>This attribute enables sector-based correlation, regulatory compliance reporting, and risk context for incident detection.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id16"><inline classes="std std-ref">Entity Sectors</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id16"><inline classes="std std-ref">enum_alert_entitysector</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -2584,7 +2584,7 @@ Source(0).IP</literal_block>
             <title>Entity Sector</title>
             <target refid="id16"></target>
             <table align="default" classes="colwidths-auto" ids="id25 id16" names="entity_sector">
-                <title>Entity Sectors</title>
+                <title>enum_alert_entitysector</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
                     <colspec colwidth="33"></colspec>
@@ -2619,1073 +2619,6 @@ Source(0).IP</literal_block>
                                 <paragraph>1</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Banking.Banking</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Banking institutions and credit activities</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>2</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Banking.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Other banking and financial entities critical for the stability of the financial system</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>3</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Cemeteries.Crematoria</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Crematoria operations</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>4</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Cemeteries.Public</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Public cemetery and crematorium facilities</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>5</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Cemeteries.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Other cemetery and funeral service entities critical for public health and social continuity</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>6</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Chemical.Production</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Production of hazardous and high-consequence chemicals</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>7</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Chemical.Storage</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Chemical storage and distribution facilities</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>8</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Chemical.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Other chemical sector entities critical for safety and security</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>9</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Civil.ElectionMonitoring</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Election observation and monitoring entities</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>10</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Civil.HumanitarianAid</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Humanitarian aid organizations</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>11</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Civil.NGOs</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Non-governmental organizations with critical functions</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>12</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Civil.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Other civil society entities critical for democratic processes and social stability</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>13</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Cultural.Archives</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>National and regional archives</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>14</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Cultural.HistoricalSites</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Historical monuments and archaeological sites</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>15</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Cultural.Libraries</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>National and public libraries</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>16</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Cultural.Museums</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Museums and exhibition spaces</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>17</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Cultural.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Other cultural heritage entities critical for national identity and continuity</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>18</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Defense.CommandControl</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Military C4ISR systems (command, control, communications, computers, intelligence, surveillance, reconnaissance)</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>19</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Defense.Cyber</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Military cyber defense and security operations centers</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>20</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Defense.IndustrialBase</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Defense manufacturing, weapons systems, munitions production</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>21</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Defense.Logistics</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Military supply chains, fuel depots, ammunition storage</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>22</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Defense.Installations</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Military bases, headquarters, and operational facilities</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>23</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Defense.Research</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Defense laboratories and R&amp;D facilities</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>24</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Defense.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Other defense and military entities critical for national security</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>25</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Digital.CloudServices</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Cloud computing and critical digital services</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>26</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Digital.DataCenters</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Data center hosting and infrastructure services</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>27</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Digital.DigitalProviders</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Online marketplaces, search engines and social media platforms</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>28</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Digital.DomainNameSystems</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>DNS service providers and TLD registries</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>29</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Digital.ICTServiceManagement</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>ICT service management B2B services</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>30</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Digital.SatelliteCommunications</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Satellite communication networks and ground stations</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>31</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Digital.TelecomNetworks</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Fixed and mobile telecommunications networks</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>32</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Digital.UnderseaCables</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Submarine communications cable infrastructure</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>33</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Digital.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Other digital and telecommunications entities critical for the continuity of digital services</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>34</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Education.PrimarySecondary</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Primary and secondary schools</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>35</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Education.ResearchSchools</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Research-focused educational institutions</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>36</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Education.Universities</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Universities and higher education institutions</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>37</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Education.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Other educational entities critical for societal continuity</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>38</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Emergency.CivilProtection</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Civil protection and disaster management agencies</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>39</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Emergency.Medical</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Ambulance services and emergency medical response</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>40</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Emergency.FireAndRescue</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Firefighting and rescue services</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>41</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Emergency.Police</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Law enforcement agencies and operations</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>42</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Emergency.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Other emergency response entities critical for public safety</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>43</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Energy.DistrictHeating</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Operation of district heating networks</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>44</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Energy.Electricity</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Generation, transmission and distribution of electrical power</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>45</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Energy.Gas</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Transport, storage and distribution of natural gas</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>46</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Energy.Hydrogen</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Production, transport and storage of hydrogen</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>47</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Energy.Nuclear</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Nuclear power generation and fuel cycle facilities</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>48</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Energy.Oil</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Refining, transport and storage of petroleum products</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>49</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Energy.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Other energy entities critical for the continuity of energy supply</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>50</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Finance.MarketInfrastructures</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Stock exchanges and clearing houses</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>51</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Finance.Insurance</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Systemically important insurance entities</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>52</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Finance.PaymentSystems</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Card schemes, transfers and instant payment systems</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>53</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Finance.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Other financial entities critical for the stability of the financial system</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>54</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Food.AgriculturalProduction</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Strategic agricultural and livestock production</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>55</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Food.FoodDistribution</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Retail and logistics for food supply chains</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>56</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Food.FoodProcessing</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Industrial food processing and manufacturing</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>57</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Food.FoodSafety</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Food safety inspection and control authorities</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>58</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Food.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Other food sector entities critical for the continuity of the food supply chain</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>59</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Health.BloodAndTissue</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Blood banks, tissue banks, and transplantation services</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>60</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Health.HealthcareProviders</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Hospitals and clinics providing essential care</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>61</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Health.Laboratories</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Medical analysis and diagnostic laboratories</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>62</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Health.MedicalDevices</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Manufacture and maintenance of critical medical devices</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>63</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Health.PharmaceuticalSupplyChain</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Manufacturing, wholesale and distribution of pharmaceuticals</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>64</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Health.PublicHealth</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Public health agencies and epidemiological surveillance</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>65</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Health.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Other health entities critical for the continuity of healthcare services</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>66</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Logistics.FreightForwarding</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Freight forwarding and cargo management</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>67</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Logistics.LastMileDelivery</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Last-mile delivery services</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>68</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Logistics.ThirdPartyLogistics</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Third-party logistics providers</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>69</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Logistics.Warehousing</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Strategic warehousing and storage facilities</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>70</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Logistics.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Other logistics entities critical for supply chain continuity</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>71</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Manufacturing.Aerospace</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Aerospace and aviation manufacturing</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>72</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Manufacturing.Batteries</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Battery manufacturing and energy storage production</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>73</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Manufacturing.Chemical</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Chemical manufacturing and industrial processes</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>74</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Manufacturing.Electronic</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Manufacture of computer, electronic and optical products</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>75</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Manufacturing.Defense</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Defense manufacturing and strategic military supply chains</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>76</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Manufacturing.MedicalDevices</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Manufacture of medical devices and equipment</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>77</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Manufacturing.MotorVehicles</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Manufacture of motor vehicles and transport equipment</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>78</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Manufacturing.Pharmaceutical</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Pharmaceutical manufacturing and active pharmaceutical ingredients</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>79</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Manufacturing.Semiconductors</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Semiconductor fabrication and microelectronics manufacturing</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>80</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Manufacturing.Strategic</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Critical manufacturing such as metallurgy and components</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>81</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Manufacturing.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Other manufacturing entities critical for industrial resilience and strategic supply chains</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>82</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Media.Infrastructure</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Transmitters, towers, and broadcast distribution infrastructure</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>83</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Media.OnlineMedia</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Digital news platforms and content providers</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>84</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Media.Press</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Newspapers, publishing houses, and press agencies</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>85</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Media.Radio</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Radio broadcasting networks and studios</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>86</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Media.Television</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Television broadcasting networks and studios</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>87</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Media.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Other media entities critical for information integrity and public communication</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>88</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Mining.CriticalRawMaterials</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Extraction and processing of critical raw materials</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>89</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Mining.EnergyMinerals</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Coal, uranium, and other energy mineral mining</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>90</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Mining.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Other mining entities critical for resource security</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>91</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Nuclear.FuelCycle</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Nuclear fuel production, enrichment, reprocessing, and waste management</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>92</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Nuclear.Medical</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Nuclear medical facilities and radioisotope production</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>93</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Nuclear.PowerGeneration</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Civil nuclear power plants and associated facilities</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>94</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Nuclear.Research</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Nuclear research reactors and laboratories</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>95</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Nuclear.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Other nuclear entities critical for safety and security</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>96</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Postal.CourierServices</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Postal and courier services</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>97</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Postal.Other</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Other postal and courier entities critical for the continuity of mail and parcel services</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>98</paragraph>
-                            </entry>
-                            <entry>
                                 <paragraph>Administration.CentralGovernment</paragraph>
                             </entry>
                             <entry>
@@ -3694,7 +2627,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>99</paragraph>
+                                <paragraph>2</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Administration.Diplomatic</paragraph>
@@ -3705,7 +2638,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>100</paragraph>
+                                <paragraph>3</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Administration.EmergencyServices</paragraph>
@@ -3716,7 +2649,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>101</paragraph>
+                                <paragraph>4</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Administration.Judiciary</paragraph>
@@ -3727,7 +2660,7 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>102</paragraph>
+                                <paragraph>5</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Administration.Local</paragraph>
@@ -3738,13 +2671,1080 @@ Source(0).IP</literal_block>
                         </row>
                         <row>
                             <entry>
-                                <paragraph>103</paragraph>
+                                <paragraph>6</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Administration.Other</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Other public administration entities critical for the continuity of public services</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>7</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Banking.Banking</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Banking institutions and credit activities</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>8</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Banking.Other</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Other banking and financial entities critical for the stability of the financial system</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>9</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Cemeteries.Crematoria</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Crematoria operations</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>10</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Cemeteries.Public</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Public cemetery and crematorium facilities</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>11</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Cemeteries.Other</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Other cemetery and funeral service entities critical for public health and social continuity</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>12</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Chemical.Production</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Production of hazardous and high-consequence chemicals</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>13</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Chemical.Storage</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Chemical storage and distribution facilities</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>14</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Chemical.Other</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Other chemical sector entities critical for safety and security</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>15</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Civil.ElectionMonitoring</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Election observation and monitoring entities</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>16</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Civil.HumanitarianAid</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Humanitarian aid organizations</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>17</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Civil.NGOs</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Non-governmental organizations with critical functions</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>18</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Civil.Other</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Other civil society entities critical for democratic processes and social stability</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>19</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Cultural.Archives</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>National and regional archives</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>20</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Cultural.HistoricalSites</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Historical monuments and archaeological sites</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>21</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Cultural.Libraries</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>National and public libraries</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>22</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Cultural.Museums</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Museums and exhibition spaces</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>23</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Cultural.Other</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Other cultural heritage entities critical for national identity and continuity</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>24</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Defense.CommandControl</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Military C4ISR systems (command, control, communications, computers, intelligence, surveillance, reconnaissance)</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>25</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Defense.Cyber</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Military cyber defense and security operations centers</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>26</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Defense.IndustrialBase</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Defense manufacturing, weapons systems, munitions production</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>27</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Defense.Logistics</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Military supply chains, fuel depots, ammunition storage</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>28</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Defense.Installations</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Military bases, headquarters, and operational facilities</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>29</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Defense.Research</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Defense laboratories and R&amp;D facilities</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>30</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Defense.Other</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Other defense and military entities critical for national security</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>31</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Digital.CloudServices</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Cloud computing and critical digital services</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>32</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Digital.DataCenters</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Data center hosting and infrastructure services</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>33</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Digital.DigitalProviders</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Online marketplaces, search engines and social media platforms</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>34</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Digital.DomainNameSystems</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>DNS service providers and TLD registries</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>35</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Digital.ICTServiceManagement</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>ICT service management B2B services</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>36</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Digital.SatelliteCommunications</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Satellite communication networks and ground stations</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>37</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Digital.TelecomNetworks</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Fixed and mobile telecommunications networks</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>38</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Digital.UnderseaCables</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Submarine communications cable infrastructure</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>39</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Digital.Other</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Other digital and telecommunications entities critical for the continuity of digital services</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>40</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Education.PrimarySecondary</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Primary and secondary schools</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>41</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Education.ResearchSchools</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Research-focused educational institutions</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>42</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Education.Universities</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Universities and higher education institutions</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>43</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Education.Other</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Other educational entities critical for societal continuity</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>44</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Emergency.CivilProtection</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Civil protection and disaster management agencies</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>45</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Emergency.Medical</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Ambulance services and emergency medical response</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>46</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Emergency.FireAndRescue</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Firefighting and rescue services</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>47</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Emergency.Police</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Law enforcement agencies and operations</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>48</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Emergency.Other</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Other emergency response entities critical for public safety</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>49</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Energy.DistrictHeating</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Operation of district heating networks</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>50</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Energy.Electricity</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Generation, transmission and distribution of electrical power</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>51</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Energy.Gas</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Transport, storage and distribution of natural gas</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>52</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Energy.Hydrogen</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Production, transport and storage of hydrogen</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>53</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Energy.Nuclear</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Nuclear power generation and fuel cycle facilities</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>54</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Energy.Oil</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Refining, transport and storage of petroleum products</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>55</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Energy.Other</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Other energy entities critical for the continuity of energy supply</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>56</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Finance.MarketInfrastructures</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Stock exchanges and clearing houses</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>57</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Finance.Insurance</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Systemically important insurance entities</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>58</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Finance.PaymentSystems</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Card schemes, transfers and instant payment systems</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>59</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Finance.Other</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Other financial entities critical for the stability of the financial system</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>60</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Food.AgriculturalProduction</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Strategic agricultural and livestock production</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>61</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Food.FoodDistribution</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Retail and logistics for food supply chains</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>62</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Food.FoodProcessing</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Industrial food processing and manufacturing</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>63</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Food.FoodSafety</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Food safety inspection and control authorities</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>64</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Food.Other</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Other food sector entities critical for the continuity of the food supply chain</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>65</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Health.BloodAndTissue</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Blood banks, tissue banks, and transplantation services</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>66</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Health.HealthcareProviders</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Hospitals and clinics providing essential care</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>67</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Health.Laboratories</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Medical analysis and diagnostic laboratories</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>68</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Health.MedicalDevices</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Manufacture and maintenance of critical medical devices</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>69</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Health.PharmaceuticalSupplyChain</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Manufacturing, wholesale and distribution of pharmaceuticals</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>70</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Health.PublicHealth</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Public health agencies and epidemiological surveillance</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>71</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Health.Other</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Other health entities critical for the continuity of healthcare services</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>72</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Logistics.FreightForwarding</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Freight forwarding and cargo management</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>73</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Logistics.LastMileDelivery</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Last-mile delivery services</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>74</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Logistics.ThirdPartyLogistics</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Third-party logistics providers</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>75</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Logistics.Warehousing</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Strategic warehousing and storage facilities</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>76</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Logistics.Other</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Other logistics entities critical for supply chain continuity</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>77</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Manufacturing.Aerospace</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Aerospace and aviation manufacturing</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>78</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Manufacturing.Batteries</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Battery manufacturing and energy storage production</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>79</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Manufacturing.Chemical</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Chemical manufacturing and industrial processes</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>80</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Manufacturing.Electronic</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Manufacture of computer, electronic and optical products</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>81</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Manufacturing.Defense</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Defense manufacturing and strategic military supply chains</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>82</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Manufacturing.MedicalDevices</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Manufacture of medical devices and equipment</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>83</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Manufacturing.MotorVehicles</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Manufacture of motor vehicles and transport equipment</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>84</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Manufacturing.Pharmaceutical</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Pharmaceutical manufacturing and active pharmaceutical ingredients</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>85</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Manufacturing.Semiconductors</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Semiconductor fabrication and microelectronics manufacturing</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>86</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Manufacturing.Strategic</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Critical manufacturing such as metallurgy and components</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>87</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Manufacturing.Other</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Other manufacturing entities critical for industrial resilience and strategic supply chains</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>88</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Media.Infrastructure</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Transmitters, towers, and broadcast distribution infrastructure</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>89</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Media.OnlineMedia</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Digital news platforms and content providers</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>90</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Media.Press</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Newspapers, publishing houses, and press agencies</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>91</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Media.Radio</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Radio broadcasting networks and studios</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>92</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Media.Television</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Television broadcasting networks and studios</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>93</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Media.Other</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Other media entities critical for information integrity and public communication</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>94</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Mining.CriticalRawMaterials</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Extraction and processing of critical raw materials</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>95</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Mining.EnergyMinerals</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Coal, uranium, and other energy mineral mining</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>96</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Mining.Other</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Other mining entities critical for resource security</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>97</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Nuclear.FuelCycle</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Nuclear fuel production, enrichment, reprocessing, and waste management</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>98</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Nuclear.Medical</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Nuclear medical facilities and radioisotope production</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>99</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Nuclear.PowerGeneration</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Civil nuclear power plants and associated facilities</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>100</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Nuclear.Research</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Nuclear research reactors and laboratories</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>101</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Nuclear.Other</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Other nuclear entities critical for safety and security</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>102</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Postal.CourierServices</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Postal and courier services</paragraph>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <paragraph>103</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Postal.Other</paragraph>
+                            </entry>
+                            <entry>
+                                <paragraph>Other postal and courier entities critical for the continuity of mail and parcel services</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -4071,7 +4071,7 @@ Source(0).IP</literal_block>
                     <thead>
                         <row>
                             <entry>
-                                <paragraph>Rank</paragraph>
+                                <paragraph>uank</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>Keyword</paragraph>
@@ -4211,7 +4211,7 @@ Source(0).IP</literal_block>
                                 <paragraph>Access.Forced</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>An incident involving the use of physical force to breach a barrier (e.g., lock, door, window) or the repeated systematic guessing of passwords to gain unauthorized access.</paragraph>
+                                <paragraph>An incident involving the use of physical force to breach a barrier (e.g., lock, door, window) or the repeated systematic guessing of passwords to gain unauthorized access (bruteforce attack).</paragraph>
                             </entry>
                         </row>
                         <row>

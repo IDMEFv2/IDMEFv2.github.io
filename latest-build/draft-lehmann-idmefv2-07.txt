@@ -2332,20 +2332,20 @@ A.1.  Entity Sector
    +======+==================================+========================+
    | 0    | Undefined                        | Sector undefined       |
    +------+----------------------------------+------------------------+
-   | 1    | Banking.Banking                  | Banking institutions   |
-   |      |                                  | and credit activities  |
+   | 1    | Administration.CentralGovernment | Central government     |
+   |      |                                  | ministries and         |
+   |      |                                  | agencies               |
    +------+----------------------------------+------------------------+
-   | 2    | Banking.Other                    | Other banking and      |
-   |      |                                  | financial entities     |
-   |      |                                  | critical for the       |
-   |      |                                  | stability of the       |
-   |      |                                  | financial system       |
+   | 2    | Administration.Diplomatic        | Embassies, consulates, |
+   |      |                                  | and diplomatic         |
+   |      |                                  | missions               |
    +------+----------------------------------+------------------------+
-   | 3    | Cemeteries.Crematoria            | Crematoria operations  |
+   | 3    | Administration.EmergencyServices | Police, fire, rescue,  |
+   |      |                                  | and emergency medical  |
+   |      |                                  | services               |
    +------+----------------------------------+------------------------+
-   | 4    | Cemeteries.Public                | Public cemetery and    |
-   |      |                                  | crematorium facilities |
-   +------+----------------------------------+------------------------+
+   | 4    | Administration.Judiciary         | Courts, judicial       |
+   |      |                                  | systems, and           |
 
 
 
@@ -2354,54 +2354,54 @@ Lehmann                 Expires 18 December 2026               [Page 42]
 Internet-Draft                   IDMEFv2                       June 2026
 
 
-   | 5    | Cemeteries.Other                 | Other cemetery and     |
+   |      |                                  | correctional           |
+   |      |                                  | facilities             |
+   +------+----------------------------------+------------------------+
+   | 5    | Administration.Local             | Regional and municipal |
+   |      |                                  | public services        |
+   +------+----------------------------------+------------------------+
+   | 6    | Administration.Other             | Other public           |
+   |      |                                  | administration         |
+   |      |                                  | entities critical for  |
+   |      |                                  | the continuity of      |
+   |      |                                  | public services        |
+   +------+----------------------------------+------------------------+
+   | 7    | Banking.Banking                  | Banking institutions   |
+   |      |                                  | and credit activities  |
+   +------+----------------------------------+------------------------+
+   | 8    | Banking.Other                    | Other banking and      |
+   |      |                                  | financial entities     |
+   |      |                                  | critical for the       |
+   |      |                                  | stability of the       |
+   |      |                                  | financial system       |
+   +------+----------------------------------+------------------------+
+   | 9    | Cemeteries.Crematoria            | Crematoria operations  |
+   +------+----------------------------------+------------------------+
+   | 10   | Cemeteries.Public                | Public cemetery and    |
+   |      |                                  | crematorium facilities |
+   +------+----------------------------------+------------------------+
+   | 11   | Cemeteries.Other                 | Other cemetery and     |
    |      |                                  | funeral service        |
    |      |                                  | entities critical for  |
    |      |                                  | public health and      |
    |      |                                  | social continuity      |
    +------+----------------------------------+------------------------+
-   | 6    | Chemical.Production              | Production of          |
+   | 12   | Chemical.Production              | Production of          |
    |      |                                  | hazardous and high-    |
    |      |                                  | consequence chemicals  |
    +------+----------------------------------+------------------------+
-   | 7    | Chemical.Storage                 | Chemical storage and   |
+   | 13   | Chemical.Storage                 | Chemical storage and   |
    |      |                                  | distribution           |
    |      |                                  | facilities             |
    +------+----------------------------------+------------------------+
-   | 8    | Chemical.Other                   | Other chemical sector  |
+   | 14   | Chemical.Other                   | Other chemical sector  |
    |      |                                  | entities critical for  |
    |      |                                  | safety and security    |
    +------+----------------------------------+------------------------+
-   | 9    | Civil.ElectionMonitoring         | Election observation   |
+   | 15   | Civil.ElectionMonitoring         | Election observation   |
    |      |                                  | and monitoring         |
    |      |                                  | entities               |
    +------+----------------------------------+------------------------+
-   | 10   | Civil.HumanitarianAid            | Humanitarian aid       |
-   |      |                                  | organizations          |
-   +------+----------------------------------+------------------------+
-   | 11   | Civil.NGOs                       | Non-governmental       |
-   |      |                                  | organizations with     |
-   |      |                                  | critical functions     |
-   +------+----------------------------------+------------------------+
-   | 12   | Civil.Other                      | Other civil society    |
-   |      |                                  | entities critical for  |
-   |      |                                  | democratic processes   |
-   |      |                                  | and social stability   |
-   +------+----------------------------------+------------------------+
-   | 13   | Cultural.Archives                | National and regional  |
-   |      |                                  | archives               |
-   +------+----------------------------------+------------------------+
-   | 14   | Cultural.HistoricalSites         | Historical monuments   |
-   |      |                                  | and archaeological     |
-   |      |                                  | sites                  |
-   +------+----------------------------------+------------------------+
-   | 15   | Cultural.Libraries               | National and public    |
-   |      |                                  | libraries              |
-   +------+----------------------------------+------------------------+
-   | 16   | Cultural.Museums                 | Museums and exhibition |
-   |      |                                  | spaces                 |
-   +------+----------------------------------+------------------------+
-   | 17   | Cultural.Other                   | Other cultural         |
 
 
 
@@ -2410,12 +2410,38 @@ Lehmann                 Expires 18 December 2026               [Page 43]
 Internet-Draft                   IDMEFv2                       June 2026
 
 
+   | 16   | Civil.HumanitarianAid            | Humanitarian aid       |
+   |      |                                  | organizations          |
+   +------+----------------------------------+------------------------+
+   | 17   | Civil.NGOs                       | Non-governmental       |
+   |      |                                  | organizations with     |
+   |      |                                  | critical functions     |
+   +------+----------------------------------+------------------------+
+   | 18   | Civil.Other                      | Other civil society    |
+   |      |                                  | entities critical for  |
+   |      |                                  | democratic processes   |
+   |      |                                  | and social stability   |
+   +------+----------------------------------+------------------------+
+   | 19   | Cultural.Archives                | National and regional  |
+   |      |                                  | archives               |
+   +------+----------------------------------+------------------------+
+   | 20   | Cultural.HistoricalSites         | Historical monuments   |
+   |      |                                  | and archaeological     |
+   |      |                                  | sites                  |
+   +------+----------------------------------+------------------------+
+   | 21   | Cultural.Libraries               | National and public    |
+   |      |                                  | libraries              |
+   +------+----------------------------------+------------------------+
+   | 22   | Cultural.Museums                 | Museums and exhibition |
+   |      |                                  | spaces                 |
+   +------+----------------------------------+------------------------+
+   | 23   | Cultural.Other                   | Other cultural         |
    |      |                                  | heritage entities      |
    |      |                                  | critical for national  |
    |      |                                  | identity and           |
    |      |                                  | continuity             |
    +------+----------------------------------+------------------------+
-   | 18   | Defense.CommandControl           | Military C4ISR systems |
+   | 24   | Defense.CommandControl           | Military C4ISR systems |
    |      |                                  | (command, control,     |
    |      |                                  | communications,        |
    |      |                                  | computers,             |
@@ -2423,41 +2449,15 @@ Internet-Draft                   IDMEFv2                       June 2026
    |      |                                  | surveillance,          |
    |      |                                  | reconnaissance)        |
    +------+----------------------------------+------------------------+
-   | 19   | Defense.Cyber                    | Military cyber defense |
+   | 25   | Defense.Cyber                    | Military cyber defense |
    |      |                                  | and security           |
    |      |                                  | operations centers     |
    +------+----------------------------------+------------------------+
-   | 20   | Defense.IndustrialBase           | Defense manufacturing, |
+   | 26   | Defense.IndustrialBase           | Defense manufacturing, |
    |      |                                  | weapons systems,       |
    |      |                                  | munitions production   |
    +------+----------------------------------+------------------------+
-   | 21   | Defense.Logistics                | Military supply        |
-   |      |                                  | chains, fuel depots,   |
-   |      |                                  | ammunition storage     |
-   +------+----------------------------------+------------------------+
-   | 22   | Defense.Installations            | Military bases,        |
-   |      |                                  | headquarters, and      |
-   |      |                                  | operational facilities |
-   +------+----------------------------------+------------------------+
-   | 23   | Defense.Research                 | Defense laboratories   |
-   |      |                                  | and R&D facilities     |
-   +------+----------------------------------+------------------------+
-   | 24   | Defense.Other                    | Other defense and      |
-   |      |                                  | military entities      |
-   |      |                                  | critical for national  |
-   |      |                                  | security               |
-   +------+----------------------------------+------------------------+
-   | 25   | Digital.CloudServices            | Cloud computing and    |
-   |      |                                  | critical digital       |
-   |      |                                  | services               |
-   +------+----------------------------------+------------------------+
-   | 26   | Digital.DataCenters              | Data center hosting    |
-   |      |                                  | and infrastructure     |
-   |      |                                  | services               |
-   +------+----------------------------------+------------------------+
-   | 27   | Digital.DigitalProviders         | Online marketplaces,   |
-   |      |                                  | search engines and     |
-   |      |                                  | social media platforms |
+   | 27   | Defense.Logistics                | Military supply        |
 
 
 
@@ -2466,54 +2466,54 @@ Lehmann                 Expires 18 December 2026               [Page 44]
 Internet-Draft                   IDMEFv2                       June 2026
 
 
+   |      |                                  | chains, fuel depots,   |
+   |      |                                  | ammunition storage     |
    +------+----------------------------------+------------------------+
-   | 28   | Digital.DomainNameSystems        | DNS service providers  |
+   | 28   | Defense.Installations            | Military bases,        |
+   |      |                                  | headquarters, and      |
+   |      |                                  | operational facilities |
+   +------+----------------------------------+------------------------+
+   | 29   | Defense.Research                 | Defense laboratories   |
+   |      |                                  | and R&D facilities     |
+   +------+----------------------------------+------------------------+
+   | 30   | Defense.Other                    | Other defense and      |
+   |      |                                  | military entities      |
+   |      |                                  | critical for national  |
+   |      |                                  | security               |
+   +------+----------------------------------+------------------------+
+   | 31   | Digital.CloudServices            | Cloud computing and    |
+   |      |                                  | critical digital       |
+   |      |                                  | services               |
+   +------+----------------------------------+------------------------+
+   | 32   | Digital.DataCenters              | Data center hosting    |
+   |      |                                  | and infrastructure     |
+   |      |                                  | services               |
+   +------+----------------------------------+------------------------+
+   | 33   | Digital.DigitalProviders         | Online marketplaces,   |
+   |      |                                  | search engines and     |
+   |      |                                  | social media platforms |
+   +------+----------------------------------+------------------------+
+   | 34   | Digital.DomainNameSystems        | DNS service providers  |
    |      |                                  | and TLD registries     |
    +------+----------------------------------+------------------------+
-   | 29   | Digital.ICTServiceManagement     | ICT service management |
+   | 35   | Digital.ICTServiceManagement     | ICT service management |
    |      |                                  | B2B services           |
    +------+----------------------------------+------------------------+
-   | 30   | Digital.SatelliteCommunications  | Satellite              |
+   | 36   | Digital.SatelliteCommunications  | Satellite              |
    |      |                                  | communication networks |
    |      |                                  | and ground stations    |
    +------+----------------------------------+------------------------+
-   | 31   | Digital.TelecomNetworks          | Fixed and mobile       |
+   | 37   | Digital.TelecomNetworks          | Fixed and mobile       |
    |      |                                  | telecommunications     |
    |      |                                  | networks               |
    +------+----------------------------------+------------------------+
-   | 32   | Digital.UnderseaCables           | Submarine              |
+   | 38   | Digital.UnderseaCables           | Submarine              |
    |      |                                  | communications cable   |
    |      |                                  | infrastructure         |
    +------+----------------------------------+------------------------+
-   | 33   | Digital.Other                    | Other digital and      |
+   | 39   | Digital.Other                    | Other digital and      |
    |      |                                  | telecommunications     |
    |      |                                  | entities critical for  |
-   |      |                                  | the continuity of      |
-   |      |                                  | digital services       |
-   +------+----------------------------------+------------------------+
-   | 34   | Education.PrimarySecondary       | Primary and secondary  |
-   |      |                                  | schools                |
-   +------+----------------------------------+------------------------+
-   | 35   | Education.ResearchSchools        | Research-focused       |
-   |      |                                  | educational            |
-   |      |                                  | institutions           |
-   +------+----------------------------------+------------------------+
-   | 36   | Education.Universities           | Universities and       |
-   |      |                                  | higher education       |
-   |      |                                  | institutions           |
-   +------+----------------------------------+------------------------+
-   | 37   | Education.Other                  | Other educational      |
-   |      |                                  | entities critical for  |
-   |      |                                  | societal continuity    |
-   +------+----------------------------------+------------------------+
-   | 38   | Emergency.CivilProtection        | Civil protection and   |
-   |      |                                  | disaster management    |
-   |      |                                  | agencies               |
-   +------+----------------------------------+------------------------+
-   | 39   | Emergency.Medical                | Ambulance services and |
-   |      |                                  | emergency medical      |
-   |      |                                  | response               |
-   +------+----------------------------------+------------------------+
 
 
 
@@ -2522,54 +2522,54 @@ Lehmann                 Expires 18 December 2026               [Page 45]
 Internet-Draft                   IDMEFv2                       June 2026
 
 
-   | 40   | Emergency.FireAndRescue          | Firefighting and       |
+   |      |                                  | the continuity of      |
+   |      |                                  | digital services       |
+   +------+----------------------------------+------------------------+
+   | 40   | Education.PrimarySecondary       | Primary and secondary  |
+   |      |                                  | schools                |
+   +------+----------------------------------+------------------------+
+   | 41   | Education.ResearchSchools        | Research-focused       |
+   |      |                                  | educational            |
+   |      |                                  | institutions           |
+   +------+----------------------------------+------------------------+
+   | 42   | Education.Universities           | Universities and       |
+   |      |                                  | higher education       |
+   |      |                                  | institutions           |
+   +------+----------------------------------+------------------------+
+   | 43   | Education.Other                  | Other educational      |
+   |      |                                  | entities critical for  |
+   |      |                                  | societal continuity    |
+   +------+----------------------------------+------------------------+
+   | 44   | Emergency.CivilProtection        | Civil protection and   |
+   |      |                                  | disaster management    |
+   |      |                                  | agencies               |
+   +------+----------------------------------+------------------------+
+   | 45   | Emergency.Medical                | Ambulance services and |
+   |      |                                  | emergency medical      |
+   |      |                                  | response               |
+   +------+----------------------------------+------------------------+
+   | 46   | Emergency.FireAndRescue          | Firefighting and       |
    |      |                                  | rescue services        |
    +------+----------------------------------+------------------------+
-   | 41   | Emergency.Police                 | Law enforcement        |
+   | 47   | Emergency.Police                 | Law enforcement        |
    |      |                                  | agencies and           |
    |      |                                  | operations             |
    +------+----------------------------------+------------------------+
-   | 42   | Emergency.Other                  | Other emergency        |
+   | 48   | Emergency.Other                  | Other emergency        |
    |      |                                  | response entities      |
    |      |                                  | critical for public    |
    |      |                                  | safety                 |
    +------+----------------------------------+------------------------+
-   | 43   | Energy.DistrictHeating           | Operation of district  |
+   | 49   | Energy.DistrictHeating           | Operation of district  |
    |      |                                  | heating networks       |
    +------+----------------------------------+------------------------+
-   | 44   | Energy.Electricity               | Generation,            |
+   | 50   | Energy.Electricity               | Generation,            |
    |      |                                  | transmission and       |
    |      |                                  | distribution of        |
    |      |                                  | electrical power       |
    +------+----------------------------------+------------------------+
-   | 45   | Energy.Gas                       | Transport, storage and |
+   | 51   | Energy.Gas                       | Transport, storage and |
    |      |                                  | distribution of        |
-   |      |                                  | natural gas            |
-   +------+----------------------------------+------------------------+
-   | 46   | Energy.Hydrogen                  | Production, transport  |
-   |      |                                  | and storage of         |
-   |      |                                  | hydrogen               |
-   +------+----------------------------------+------------------------+
-   | 47   | Energy.Nuclear                   | Nuclear power          |
-   |      |                                  | generation and fuel    |
-   |      |                                  | cycle facilities       |
-   +------+----------------------------------+------------------------+
-   | 48   | Energy.Oil                       | Refining, transport    |
-   |      |                                  | and storage of         |
-   |      |                                  | petroleum products     |
-   +------+----------------------------------+------------------------+
-   | 49   | Energy.Other                     | Other energy entities  |
-   |      |                                  | critical for the       |
-   |      |                                  | continuity of energy   |
-   |      |                                  | supply                 |
-   +------+----------------------------------+------------------------+
-   | 50   | Finance.MarketInfrastructures    | Stock exchanges and    |
-   |      |                                  | clearing houses        |
-   +------+----------------------------------+------------------------+
-   | 51   | Finance.Insurance                | Systemically important |
-   |      |                                  | insurance entities     |
-   +------+----------------------------------+------------------------+
-   | 52   | Finance.PaymentSystems           | Card schemes,          |
 
 
 
@@ -2578,54 +2578,54 @@ Lehmann                 Expires 18 December 2026               [Page 46]
 Internet-Draft                   IDMEFv2                       June 2026
 
 
+   |      |                                  | natural gas            |
+   +------+----------------------------------+------------------------+
+   | 52   | Energy.Hydrogen                  | Production, transport  |
+   |      |                                  | and storage of         |
+   |      |                                  | hydrogen               |
+   +------+----------------------------------+------------------------+
+   | 53   | Energy.Nuclear                   | Nuclear power          |
+   |      |                                  | generation and fuel    |
+   |      |                                  | cycle facilities       |
+   +------+----------------------------------+------------------------+
+   | 54   | Energy.Oil                       | Refining, transport    |
+   |      |                                  | and storage of         |
+   |      |                                  | petroleum products     |
+   +------+----------------------------------+------------------------+
+   | 55   | Energy.Other                     | Other energy entities  |
+   |      |                                  | critical for the       |
+   |      |                                  | continuity of energy   |
+   |      |                                  | supply                 |
+   +------+----------------------------------+------------------------+
+   | 56   | Finance.MarketInfrastructures    | Stock exchanges and    |
+   |      |                                  | clearing houses        |
+   +------+----------------------------------+------------------------+
+   | 57   | Finance.Insurance                | Systemically important |
+   |      |                                  | insurance entities     |
+   +------+----------------------------------+------------------------+
+   | 58   | Finance.PaymentSystems           | Card schemes,          |
    |      |                                  | transfers and instant  |
    |      |                                  | payment systems        |
    +------+----------------------------------+------------------------+
-   | 53   | Finance.Other                    | Other financial        |
+   | 59   | Finance.Other                    | Other financial        |
    |      |                                  | entities critical for  |
    |      |                                  | the stability of the   |
    |      |                                  | financial system       |
    +------+----------------------------------+------------------------+
-   | 54   | Food.AgriculturalProduction      | Strategic agricultural |
+   | 60   | Food.AgriculturalProduction      | Strategic agricultural |
    |      |                                  | and livestock          |
    |      |                                  | production             |
    +------+----------------------------------+------------------------+
-   | 55   | Food.FoodDistribution            | Retail and logistics   |
+   | 61   | Food.FoodDistribution            | Retail and logistics   |
    |      |                                  | for food supply chains |
    +------+----------------------------------+------------------------+
-   | 56   | Food.FoodProcessing              | Industrial food        |
+   | 62   | Food.FoodProcessing              | Industrial food        |
    |      |                                  | processing and         |
    |      |                                  | manufacturing          |
    +------+----------------------------------+------------------------+
-   | 57   | Food.FoodSafety                  | Food safety inspection |
+   | 63   | Food.FoodSafety                  | Food safety inspection |
    |      |                                  | and control            |
    |      |                                  | authorities            |
-   +------+----------------------------------+------------------------+
-   | 58   | Food.Other                       | Other food sector      |
-   |      |                                  | entities critical for  |
-   |      |                                  | the continuity of the  |
-   |      |                                  | food supply chain      |
-   +------+----------------------------------+------------------------+
-   | 59   | Health.BloodAndTissue            | Blood banks, tissue    |
-   |      |                                  | banks, and             |
-   |      |                                  | transplantation        |
-   |      |                                  | services               |
-   +------+----------------------------------+------------------------+
-   | 60   | Health.HealthcareProviders       | Hospitals and clinics  |
-   |      |                                  | providing essential    |
-   |      |                                  | care                   |
-   +------+----------------------------------+------------------------+
-   | 61   | Health.Laboratories              | Medical analysis and   |
-   |      |                                  | diagnostic             |
-   |      |                                  | laboratories           |
-   +------+----------------------------------+------------------------+
-   | 62   | Health.MedicalDevices            | Manufacture and        |
-   |      |                                  | maintenance of         |
-   |      |                                  | critical medical       |
-   |      |                                  | devices                |
-   +------+----------------------------------+------------------------+
-   | 63   | Health.PharmaceuticalSupplyChain | Manufacturing,         |
-   |      |                                  | wholesale and          |
 
 
 
@@ -2634,54 +2634,54 @@ Lehmann                 Expires 18 December 2026               [Page 47]
 Internet-Draft                   IDMEFv2                       June 2026
 
 
+   +------+----------------------------------+------------------------+
+   | 64   | Food.Other                       | Other food sector      |
+   |      |                                  | entities critical for  |
+   |      |                                  | the continuity of the  |
+   |      |                                  | food supply chain      |
+   +------+----------------------------------+------------------------+
+   | 65   | Health.BloodAndTissue            | Blood banks, tissue    |
+   |      |                                  | banks, and             |
+   |      |                                  | transplantation        |
+   |      |                                  | services               |
+   +------+----------------------------------+------------------------+
+   | 66   | Health.HealthcareProviders       | Hospitals and clinics  |
+   |      |                                  | providing essential    |
+   |      |                                  | care                   |
+   +------+----------------------------------+------------------------+
+   | 67   | Health.Laboratories              | Medical analysis and   |
+   |      |                                  | diagnostic             |
+   |      |                                  | laboratories           |
+   +------+----------------------------------+------------------------+
+   | 68   | Health.MedicalDevices            | Manufacture and        |
+   |      |                                  | maintenance of         |
+   |      |                                  | critical medical       |
+   |      |                                  | devices                |
+   +------+----------------------------------+------------------------+
+   | 69   | Health.PharmaceuticalSupplyChain | Manufacturing,         |
+   |      |                                  | wholesale and          |
    |      |                                  | distribution of        |
    |      |                                  | pharmaceuticals        |
    +------+----------------------------------+------------------------+
-   | 64   | Health.PublicHealth              | Public health agencies |
+   | 70   | Health.PublicHealth              | Public health agencies |
    |      |                                  | and epidemiological    |
    |      |                                  | surveillance           |
    +------+----------------------------------+------------------------+
-   | 65   | Health.Other                     | Other health entities  |
+   | 71   | Health.Other                     | Other health entities  |
    |      |                                  | critical for the       |
    |      |                                  | continuity of          |
    |      |                                  | healthcare services    |
    +------+----------------------------------+------------------------+
-   | 66   | Logistics.FreightForwarding      | Freight forwarding and |
+   | 72   | Logistics.FreightForwarding      | Freight forwarding and |
    |      |                                  | cargo management       |
    +------+----------------------------------+------------------------+
-   | 67   | Logistics.LastMileDelivery       | Last-mile delivery     |
+   | 73   | Logistics.LastMileDelivery       | Last-mile delivery     |
    |      |                                  | services               |
    +------+----------------------------------+------------------------+
-   | 68   | Logistics.ThirdPartyLogistics    | Third-party logistics  |
+   | 74   | Logistics.ThirdPartyLogistics    | Third-party logistics  |
    |      |                                  | providers              |
    +------+----------------------------------+------------------------+
-   | 69   | Logistics.Warehousing            | Strategic warehousing  |
-   |      |                                  | and storage facilities |
-   +------+----------------------------------+------------------------+
-   | 70   | Logistics.Other                  | Other logistics        |
-   |      |                                  | entities critical for  |
-   |      |                                  | supply chain           |
-   |      |                                  | continuity             |
-   +------+----------------------------------+------------------------+
-   | 71   | Manufacturing.Aerospace          | Aerospace and aviation |
-   |      |                                  | manufacturing          |
-   +------+----------------------------------+------------------------+
-   | 72   | Manufacturing.Batteries          | Battery manufacturing  |
-   |      |                                  | and energy storage     |
-   |      |                                  | production             |
-   +------+----------------------------------+------------------------+
-   | 73   | Manufacturing.Chemical           | Chemical manufacturing |
-   |      |                                  | and industrial         |
-   |      |                                  | processes              |
-   +------+----------------------------------+------------------------+
-   | 74   | Manufacturing.Electronic         | Manufacture of         |
-   |      |                                  | computer, electronic   |
-   |      |                                  | and optical products   |
-   +------+----------------------------------+------------------------+
-   | 75   | Manufacturing.Defense            | Defense manufacturing  |
-   |      |                                  | and strategic military |
-   |      |                                  | supply chains          |
-   +------+----------------------------------+------------------------+
+   | 75   | Logistics.Warehousing            | Strategic warehousing  |
 
 
 
@@ -2690,54 +2690,54 @@ Lehmann                 Expires 18 December 2026               [Page 48]
 Internet-Draft                   IDMEFv2                       June 2026
 
 
-   | 76   | Manufacturing.MedicalDevices     | Manufacture of medical |
+   |      |                                  | and storage facilities |
+   +------+----------------------------------+------------------------+
+   | 76   | Logistics.Other                  | Other logistics        |
+   |      |                                  | entities critical for  |
+   |      |                                  | supply chain           |
+   |      |                                  | continuity             |
+   +------+----------------------------------+------------------------+
+   | 77   | Manufacturing.Aerospace          | Aerospace and aviation |
+   |      |                                  | manufacturing          |
+   +------+----------------------------------+------------------------+
+   | 78   | Manufacturing.Batteries          | Battery manufacturing  |
+   |      |                                  | and energy storage     |
+   |      |                                  | production             |
+   +------+----------------------------------+------------------------+
+   | 79   | Manufacturing.Chemical           | Chemical manufacturing |
+   |      |                                  | and industrial         |
+   |      |                                  | processes              |
+   +------+----------------------------------+------------------------+
+   | 80   | Manufacturing.Electronic         | Manufacture of         |
+   |      |                                  | computer, electronic   |
+   |      |                                  | and optical products   |
+   +------+----------------------------------+------------------------+
+   | 81   | Manufacturing.Defense            | Defense manufacturing  |
+   |      |                                  | and strategic military |
+   |      |                                  | supply chains          |
+   +------+----------------------------------+------------------------+
+   | 82   | Manufacturing.MedicalDevices     | Manufacture of medical |
    |      |                                  | devices and equipment  |
    +------+----------------------------------+------------------------+
-   | 77   | Manufacturing.MotorVehicles      | Manufacture of motor   |
+   | 83   | Manufacturing.MotorVehicles      | Manufacture of motor   |
    |      |                                  | vehicles and transport |
    |      |                                  | equipment              |
    +------+----------------------------------+------------------------+
-   | 78   | Manufacturing.Pharmaceutical     | Pharmaceutical         |
+   | 84   | Manufacturing.Pharmaceutical     | Pharmaceutical         |
    |      |                                  | manufacturing and      |
    |      |                                  | active pharmaceutical  |
    |      |                                  | ingredients            |
    +------+----------------------------------+------------------------+
-   | 79   | Manufacturing.Semiconductors     | Semiconductor          |
+   | 85   | Manufacturing.Semiconductors     | Semiconductor          |
    |      |                                  | fabrication and        |
    |      |                                  | microelectronics       |
    |      |                                  | manufacturing          |
    +------+----------------------------------+------------------------+
-   | 80   | Manufacturing.Strategic          | Critical manufacturing |
+   | 86   | Manufacturing.Strategic          | Critical manufacturing |
    |      |                                  | such as metallurgy and |
    |      |                                  | components             |
    +------+----------------------------------+------------------------+
-   | 81   | Manufacturing.Other              | Other manufacturing    |
-   |      |                                  | entities critical for  |
-   |      |                                  | industrial resilience  |
-   |      |                                  | and strategic supply   |
-   |      |                                  | chains                 |
-   +------+----------------------------------+------------------------+
-   | 82   | Media.Infrastructure             | Transmitters, towers,  |
-   |      |                                  | and broadcast          |
-   |      |                                  | distribution           |
-   |      |                                  | infrastructure         |
-   +------+----------------------------------+------------------------+
-   | 83   | Media.OnlineMedia                | Digital news platforms |
-   |      |                                  | and content providers  |
-   +------+----------------------------------+------------------------+
-   | 84   | Media.Press                      | Newspapers, publishing |
-   |      |                                  | houses, and press      |
-   |      |                                  | agencies               |
-   +------+----------------------------------+------------------------+
-   | 85   | Media.Radio                      | Radio broadcasting     |
-   |      |                                  | networks and studios   |
-   +------+----------------------------------+------------------------+
-   | 86   | Media.Television                 | Television             |
-   |      |                                  | broadcasting networks  |
-   |      |                                  | and studios            |
-   +------+----------------------------------+------------------------+
-   | 87   | Media.Other                      | Other media entities   |
-   |      |                                  | critical for           |
+   | 87   | Manufacturing.Other              | Other manufacturing    |
 
 
 
@@ -2746,53 +2746,53 @@ Lehmann                 Expires 18 December 2026               [Page 49]
 Internet-Draft                   IDMEFv2                       June 2026
 
 
+   |      |                                  | entities critical for  |
+   |      |                                  | industrial resilience  |
+   |      |                                  | and strategic supply   |
+   |      |                                  | chains                 |
+   +------+----------------------------------+------------------------+
+   | 88   | Media.Infrastructure             | Transmitters, towers,  |
+   |      |                                  | and broadcast          |
+   |      |                                  | distribution           |
+   |      |                                  | infrastructure         |
+   +------+----------------------------------+------------------------+
+   | 89   | Media.OnlineMedia                | Digital news platforms |
+   |      |                                  | and content providers  |
+   +------+----------------------------------+------------------------+
+   | 90   | Media.Press                      | Newspapers, publishing |
+   |      |                                  | houses, and press      |
+   |      |                                  | agencies               |
+   +------+----------------------------------+------------------------+
+   | 91   | Media.Radio                      | Radio broadcasting     |
+   |      |                                  | networks and studios   |
+   +------+----------------------------------+------------------------+
+   | 92   | Media.Television                 | Television             |
+   |      |                                  | broadcasting networks  |
+   |      |                                  | and studios            |
+   +------+----------------------------------+------------------------+
+   | 93   | Media.Other                      | Other media entities   |
+   |      |                                  | critical for           |
    |      |                                  | information integrity  |
    |      |                                  | and public             |
    |      |                                  | communication          |
    +------+----------------------------------+------------------------+
-   | 88   | Mining.CriticalRawMaterials      | Extraction and         |
+   | 94   | Mining.CriticalRawMaterials      | Extraction and         |
    |      |                                  | processing of critical |
    |      |                                  | raw materials          |
    +------+----------------------------------+------------------------+
-   | 89   | Mining.EnergyMinerals            | Coal, uranium, and     |
+   | 95   | Mining.EnergyMinerals            | Coal, uranium, and     |
    |      |                                  | other energy mineral   |
    |      |                                  | mining                 |
    +------+----------------------------------+------------------------+
-   | 90   | Mining.Other                     | Other mining entities  |
+   | 96   | Mining.Other                     | Other mining entities  |
    |      |                                  | critical for resource  |
    |      |                                  | security               |
    +------+----------------------------------+------------------------+
-   | 91   | Nuclear.FuelCycle                | Nuclear fuel           |
+   | 97   | Nuclear.FuelCycle                | Nuclear fuel           |
    |      |                                  | production,            |
    |      |                                  | enrichment,            |
    |      |                                  | reprocessing, and      |
    |      |                                  | waste management       |
-   +------+----------------------------------+------------------------+
-   | 92   | Nuclear.Medical                  | Nuclear medical        |
-   |      |                                  | facilities and         |
-   |      |                                  | radioisotope           |
-   |      |                                  | production             |
-   +------+----------------------------------+------------------------+
-   | 93   | Nuclear.PowerGeneration          | Civil nuclear power    |
-   |      |                                  | plants and associated  |
-   |      |                                  | facilities             |
-   +------+----------------------------------+------------------------+
-   | 94   | Nuclear.Research                 | Nuclear research       |
-   |      |                                  | reactors and           |
-   |      |                                  | laboratories           |
-   +------+----------------------------------+------------------------+
-   | 95   | Nuclear.Other                    | Other nuclear entities |
-   |      |                                  | critical for safety    |
-   |      |                                  | and security           |
-   +------+----------------------------------+------------------------+
-   | 96   | Postal.CourierServices           | Postal and courier     |
-   |      |                                  | services               |
-   +------+----------------------------------+------------------------+
-   | 97   | Postal.Other                     | Other postal and       |
-   |      |                                  | courier entities       |
-   |      |                                  | critical for the       |
-   |      |                                  | continuity of mail and |
-   |      |                                  | parcel services        |
    +------+----------------------------------+------------------------+
 
 
@@ -2802,31 +2802,31 @@ Lehmann                 Expires 18 December 2026               [Page 50]
 Internet-Draft                   IDMEFv2                       June 2026
 
 
-   | 98   | Administration.CentralGovernment | Central government     |
-   |      |                                  | ministries and         |
-   |      |                                  | agencies               |
+   | 98   | Nuclear.Medical                  | Nuclear medical        |
+   |      |                                  | facilities and         |
+   |      |                                  | radioisotope           |
+   |      |                                  | production             |
    +------+----------------------------------+------------------------+
-   | 99   | Administration.Diplomatic        | Embassies, consulates, |
-   |      |                                  | and diplomatic         |
-   |      |                                  | missions               |
-   +------+----------------------------------+------------------------+
-   | 100  | Administration.EmergencyServices | Police, fire, rescue,  |
-   |      |                                  | and emergency medical  |
-   |      |                                  | services               |
-   +------+----------------------------------+------------------------+
-   | 101  | Administration.Judiciary         | Courts, judicial       |
-   |      |                                  | systems, and           |
-   |      |                                  | correctional           |
+   | 99   | Nuclear.PowerGeneration          | Civil nuclear power    |
+   |      |                                  | plants and associated  |
    |      |                                  | facilities             |
    +------+----------------------------------+------------------------+
-   | 102  | Administration.Local             | Regional and municipal |
-   |      |                                  | public services        |
+   | 100  | Nuclear.Research                 | Nuclear research       |
+   |      |                                  | reactors and           |
+   |      |                                  | laboratories           |
    +------+----------------------------------+------------------------+
-   | 103  | Administration.Other             | Other public           |
-   |      |                                  | administration         |
-   |      |                                  | entities critical for  |
-   |      |                                  | the continuity of      |
-   |      |                                  | public services        |
+   | 101  | Nuclear.Other                    | Other nuclear entities |
+   |      |                                  | critical for safety    |
+   |      |                                  | and security           |
+   +------+----------------------------------+------------------------+
+   | 102  | Postal.CourierServices           | Postal and courier     |
+   |      |                                  | services               |
+   +------+----------------------------------+------------------------+
+   | 103  | Postal.Other                     | Other postal and       |
+   |      |                                  | courier entities       |
+   |      |                                  | critical for the       |
+   |      |                                  | continuity of mail and |
+   |      |                                  | parcel services        |
    +------+----------------------------------+------------------------+
    | 104  | Religious.PilgrimageSites        | Major pilgrimage       |
    |      |                                  | destinations           |
@@ -2961,7 +2961,7 @@ Internet-Draft                   IDMEFv2                       June 2026
    |      |                                  | supply and sanitation  |
    +------+----------------------------------+------------------------+
 
-                         Table 6: Entity Sectors
+                     Table 6: enum_alert_entitysector
 
 
 
@@ -2973,7 +2973,7 @@ Internet-Draft                   IDMEFv2                       June 2026
 A.2.  Alert Category
 
    +====+===============================+==============================+
-   |Rank| Keyword                       |Description                   |
+   |uank| Keyword                       |Description                   |
    +====+===============================+==============================+
    |0   | Abuse.Coercion                |The practice of compelling an |
    |    |                               |individual to act against     |
@@ -3069,7 +3069,7 @@ Internet-Draft                   IDMEFv2                       June 2026
    |    |                               |window) or the repeated       |
    |    |                               |systematic guessing of        |
    |    |                               |passwords to gain unauthorized|
-   |    |                               |access.                       |
+   |    |                               |access (bruteforce attack).   |
    +----+-------------------------------+------------------------------+
    |12  | Access.Lost                   |An incident where physical or |
    |    |                               |digital access credentials    |
