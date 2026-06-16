@@ -799,7 +799,7 @@ Source(0).IP</literal_block>
                     <term>EntityName</term>
                     <definition>
                         <paragraph>Optional. Entity Name, monitored by the organisation, where the incident occurred.</paragraph>
-                        <paragraph>Could be a town, region or country name or an internal name.  Could also be the name of a client for a MSSP centralizing it's client incidents in a single system.</paragraph>
+                        <paragraph>Could be a town, region or country name or an internal name.  Could also be the name of a customer for a MSSP centralizing it's customer incidents in a single system.</paragraph>
                         <paragraph>Do not repeat the organisation name in the EntityName</paragraph>
                         <paragraph>Example:</paragraph>
                         <paragraph>- ACME HeadQuaters is located in Paris France and has a local office in India</paragraph>
@@ -811,7 +811,7 @@ Source(0).IP</literal_block>
                     <term>EntityId</term>
                     <definition>
                         <paragraph>Optional. Entity ID, monitored by the organisation, where the incident occurred.</paragraph>
-                        <paragraph>Useful if organisation and entity are not directly linked, like a client and a MSSP.</paragraph>
+                        <paragraph>Useful if organisation and entity are not directly linked, like a customer and a MSSP.</paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>

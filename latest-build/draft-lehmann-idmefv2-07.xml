@@ -12,7 +12,7 @@
         <email>gilles.lehmann@telecom-sudparis.eu</email>
       </address>
     </author>
-    <date day="26" month="April" year="2026"/>
+    <date day="16" month="June" year="2026"/>
     <keyword>RFC4765</keyword>
     <keyword>RFC4766</keyword>
     <keyword>IDMEF</keyword>
@@ -668,7 +668,7 @@ Source(0).IP</sourcecode>
                     <dt>EntityName</dt>
                     <dd>
                         <t>Optional. Entity Name, monitored by the organisation, where the incident occurred.</t>
-                        <t>Could be a town, region or country name or an internal name.  Could also be the name of a client for a MSSP centralizing it's client incidents in a single system.</t>
+                        <t>Could be a town, region or country name or an internal name.  Could also be the name of a customer for a MSSP centralizing it's customer incidents in a single system.</t>
                         <t>Do not repeat the organisation name in the EntityName</t>
                         <t>Example:</t>
                         <t>- ACME HeadQuaters is located in Paris France and has a local office in India</t>
@@ -679,7 +679,7 @@ Source(0).IP</sourcecode>
                     <dt>EntityId</dt>
                     <dd>
                         <t>Optional. Entity ID, monitored by the organisation, where the incident occurred.</t>
-                        <t>Useful if organisation and entity are not directly linked, like a client and a MSSP.</t>
+                        <t>Useful if organisation and entity are not directly linked, like a customer and a MSSP.</t>
                     </dd>
                 
                     <dt>EntitySector</dt>
