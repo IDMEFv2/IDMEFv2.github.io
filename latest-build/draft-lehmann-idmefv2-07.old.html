@@ -1193,7 +1193,7 @@ li > p:last-of-type {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Lehmann</td>
-<td class="center">Expires 18 December 2026</td>
+<td class="center">Expires 19 December 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1209,12 +1209,12 @@ li > p:last-of-type {
 <a href="https://www.rfc-editor.org/rfc/rfc4765" class="eref">4765</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-06-16" class="published">16 June 2026</time>
+<time datetime="2026-06-17" class="published">17 June 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-12-18">18 December 2026</time></dd>
+<dd class="expires"><time datetime="2026-12-19">19 December 2026</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1259,7 +1259,7 @@ li > p:last-of-type {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 18 December 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 19 December 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -2615,6 +2615,17 @@ Source(0).IP</pre><a href="#section-3.3.12-10" class="pilcrow">¶</a>
                     <p id="section-5.2-6.26.2.2.6.3.1">Incident has been reported.<a href="#section-5.2-6.26.2.2.6.3.1" class="pilcrow">¶</a></p>
 </td>
                 </tr>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1">
+                    <p id="section-5.2-6.26.2.2.7.1.1">6<a href="#section-5.2-6.26.2.2.7.1.1" class="pilcrow">¶</a></p>
+</td>
+                  <td class="text-left" rowspan="1" colspan="1">
+                    <p id="section-5.2-6.26.2.2.7.2.1">Obsolete<a href="#section-5.2-6.26.2.2.7.2.1" class="pilcrow">¶</a></p>
+</td>
+                  <td class="text-left" rowspan="1" colspan="1">
+                    <p id="section-5.2-6.26.2.2.7.3.1">Incident is obsolete, usually by another incident.<a href="#section-5.2-6.26.2.2.7.3.1" class="pilcrow">¶</a></p>
+</td>
+                </tr>
               </tbody>
             </table>
 </div>
@@ -2839,6 +2850,7 @@ Source(0).IP</pre><a href="#section-3.3.12-10" class="pilcrow">¶</a>
 | GEOLOC   GeoLocation  |
 | UNLOCODE UnLocation   |
 | STRING   Location     |
+| STRING   CaptureZone  |
 +-----------------------+</pre>
 </div>
 <figcaption><a href="#figure-5" class="selfRef">Figure 5</a>:
@@ -2859,7 +2871,7 @@ Source(0).IP</pre><a href="#section-3.3.12-10" class="pilcrow">¶</a>
           <dd class="break"></dd>
 <dt id="section-5.3-4.5">Name</dt>
           <dd style="margin-left: 1.5em" id="section-5.3-4.6">
-            <p id="section-5.3-4.6.1">Mandatory. Name of the analyzer, which must be reasonably unique, however still bear some meaningful sense.<a href="#section-5.3-4.6.1" class="pilcrow">¶</a></p>
+            <p id="section-5.3-4.6.1">Recommended. Name of the analyzer, which must be reasonably unique, however still bear some meaningful sense.<a href="#section-5.3-4.6.1" class="pilcrow">¶</a></p>
 <p id="section-5.3-4.6.2">This attribute usually denotes the hierarchy of organizational units
                             the detector belongs to and its own name.
                             It MAY also be used to distinguish multiple analyzers running with
@@ -2928,6 +2940,14 @@ Source(0).IP</pre><a href="#section-3.3.12-10" class="pilcrow">¶</a>
           <dd style="margin-left: 1.5em" id="section-5.3-4.28">
             <p id="section-5.3-4.28.1">Optional. Internal name for the location of the analyzer.<a href="#section-5.3-4.28.1" class="pilcrow">¶</a></p>
 </dd>
+          <dd class="break"></dd>
+<dt id="section-5.3-4.29">CaptureZone</dt>
+          <dd style="margin-left: 1.5em" id="section-5.3-4.30">
+            <p id="section-5.3-4.30.1">Optional. A string that describes the "capture zone" of the analyzer (if the analyzer is also a sensor), as a JSON-serialized string.<a href="#section-5.3-4.30.1" class="pilcrow">¶</a></p>
+<p id="section-5.3-4.30.2">Depending on the type of sensor, the capture zone may for instance refer to:<a href="#section-5.3-4.30.2" class="pilcrow">¶</a></p>
+<p id="section-5.3-4.30.3">A JSON object describing a camera's settings (elevation, horizontal and vertical field of view, azimuth, etc.)<a href="#section-5.3-4.30.3" class="pilcrow">¶</a></p>
+<p id="section-5.3-4.30.4">A description of the IP network where packet capture is taking place.<a href="#section-5.3-4.30.4" class="pilcrow">¶</a></p>
+</dd>
         <dd class="break"></dd>
 </dl>
 </section>
@@ -2974,7 +2994,7 @@ Source(0).IP</pre><a href="#section-3.3.12-10" class="pilcrow">¶</a>
           <dd class="break"></dd>
 <dt id="section-5.4-4.5">Name</dt>
           <dd style="margin-left: 1.5em" id="section-5.4-4.6">
-            <p id="section-5.4-4.6.1">Mandatory. Name of the sensor, which must be reasonably unique,
+            <p id="section-5.4-4.6.1">Recommended. Name of the sensor, which must be reasonably unique,
                             however still bear some meaningful sense.<a href="#section-5.4-4.6.1" class="pilcrow">¶</a></p>
 <p id="section-5.4-4.6.2">This attribute usually denotes the hierarchy of organizational units
                             the sensor belongs to and its own name.
@@ -3069,7 +3089,7 @@ Source(0).IP</pre><a href="#section-3.3.12-10" class="pilcrow">¶</a>
 <span class="break"></span><dl class="dlNewline" id="section-5.5-4">
           <dt id="section-5.5-4.1">ID</dt>
           <dd style="margin-left: 1.5em" id="section-5.5-4.2">
-            <p id="section-5.5-4.2.1">Mandatory.
+            <p id="section-5.5-4.2.1">Optional.
                             Unique identifier for the source.<a href="#section-5.5-4.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
@@ -3198,8 +3218,7 @@ Source(0).IP</pre><a href="#section-3.3.12-10" class="pilcrow">¶</a>
 <span class="break"></span><dl class="dlNewline" id="section-5.6-4">
           <dt id="section-5.6-4.1">ID</dt>
           <dd style="margin-left: 1.5em" id="section-5.6-4.2">
-            <p id="section-5.6-4.2.1">Mandatory.
-                            Unique identifier for the target.<a href="#section-5.6-4.2.1" class="pilcrow">¶</a></p>
+            <p id="section-5.6-4.2.1">Optional.Unique identifier for the target.<a href="#section-5.6-4.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-5.6-4.3">IP</dt>
@@ -3230,7 +3249,7 @@ Source(0).IP</pre><a href="#section-3.3.12-10" class="pilcrow">¶</a>
           <dd class="break"></dd>
 <dt id="section-5.6-4.11">Service</dt>
           <dd style="margin-left: 1.5em" id="section-5.6-4.12">
-            <p id="section-5.6-4.12.1">Optional. High Level Service (messaging, internet, ...) or process impacted by the incident.<a href="#section-5.6-4.12.1" class="pilcrow">¶</a></p>
+            <p id="section-5.6-4.12.1">Optional. Should be High Level Service (messaging, internet, ...), if not defined can be process impacted by the incident.<a href="#section-5.6-4.12.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-5.6-4.13">User</dt>
@@ -3635,12 +3654,6 @@ Source(0).IP</pre><a href="#section-3.3.12-10" class="pilcrow">¶</a>
           <p id="section-8-2.4.1">The CESNET team for their work on the [IDEA0] format (based on IDMEFv1) which inspired
                     multiples concepts to IDMEFv2.<a href="#section-8-2.4.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-8-2.5">
-          <p id="section-8-2.5.1">The [ENISA-RIST] Reference Security Incident Taxonomy Working Group<a href="#section-8-2.5.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="section-8-2.6">
-          <p id="section-8-2.6.1">The ReelIT company who actively contributed to the finalization of this draft<a href="#section-8-2.6.1" class="pilcrow">¶</a></p>
-</li>
       </ul>
 </section>
 <section id="section-9">
@@ -3703,10 +3716,6 @@ Source(0).IP</pre><a href="#section-3.3.12-10" class="pilcrow">¶</a>
 <dt id="UNICODE">[UNICODE]</dt>
         <dd>
 <span class="refAuthor">Unicode Consortium</span>, <span class="refTitle">"Unicode Standard"</span>, <span class="seriesInfo">version 14.0.0</span>, <time datetime="2021-09-14" class="refDate">14 September 2021</time>, <span>&lt;<a href="https://www.unicode.org/versions/Unicode14.0.0/">https://www.unicode.org/versions/Unicode14.0.0/</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="ENISA-RIST">[ENISA-RIST]</dt>
-        <dd>
-<span class="refAuthor">ENISA</span>, <span class="refTitle">"Reference Incident Classification Taxonomy"</span>, <time datetime="2018-01-26" class="refDate">26 January 2018</time>, <span>&lt;<a href="https://github.com/enisaeu/Reference-Security-Incident-Taxonomy-Task-Force/blob/master/working_copy/humanv1.md">https://github.com/enisaeu/Reference-Security-Incident-Taxonomy-Task-Force/blob/master/working_copy/humanv1.md</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="IANA_media_types">[IANA_media_types]</dt>
         <dd>

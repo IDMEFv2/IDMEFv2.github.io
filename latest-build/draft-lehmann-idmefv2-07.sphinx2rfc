@@ -1111,6 +1111,17 @@ Source(0).IP</literal_block>
                                             <paragraph>Incident has been reported.</paragraph>
                                         </entry>
                                     </row>
+                                    <row>
+                                        <entry>
+                                            <paragraph>6</paragraph>
+                                        </entry>
+                                        <entry>
+                                            <paragraph>Obsolete</paragraph>
+                                        </entry>
+                                        <entry>
+                                            <paragraph>Incident is obsolete, usually by another incident.</paragraph>
+                                        </entry>
+                                    </row>
                                 </tbody>
                             </tgroup>
                         </table>
@@ -1347,6 +1358,7 @@ Source(0).IP</literal_block>
 | GEOLOC   GeoLocation  |
 | UNLOCODE UnLocation   |
 | STRING   Location     |
+| STRING   CaptureZone  |
 +-----------------------+</literal_block>
                 </legend>
             </figure>
@@ -1367,7 +1379,7 @@ Source(0).IP</literal_block>
                 <definition_list_item>
                     <term>Name</term>
                     <definition>
-                        <paragraph>Mandatory. Name of the analyzer, which must be reasonably unique, however still bear some meaningful sense.</paragraph>
+                        <paragraph>Recommended. Name of the analyzer, which must be reasonably unique, however still bear some meaningful sense.</paragraph>
                         <paragraph>This attribute usually denotes the hierarchy of organizational units
                             the detector belongs to and its own name.
                             It MAY also be used to distinguish multiple analyzers running with
@@ -1448,6 +1460,15 @@ Source(0).IP</literal_block>
                         <paragraph>Optional. Internal name for the location of the analyzer.</paragraph>
                     </definition>
                 </definition_list_item>
+                <definition_list_item>
+                    <term>CaptureZone</term>
+                    <definition>
+                        <paragraph>Optional. A string that describes the "capture zone" of the analyzer (if the analyzer is also a sensor), as a JSON-serialized string.</paragraph>
+                        <paragraph>Depending on the type of sensor, the capture zone may for instance refer to:</paragraph>
+                        <paragraph>A JSON object describing a camera's settings (elevation, horizontal and vertical field of view, azimuth, etc.)</paragraph>
+                        <paragraph>A description of the IP network where packet capture is taking place.</paragraph>
+                    </definition>
+                </definition_list_item>
             </definition_list>
             <target refid="class-sensor"></target>
         </section>
@@ -1491,7 +1512,7 @@ Source(0).IP</literal_block>
                 <definition_list_item>
                     <term>Name</term>
                     <definition>
-                        <paragraph>Mandatory. Name of the sensor, which must be reasonably unique,
+                        <paragraph>Recommended. Name of the sensor, which must be reasonably unique,
                             however still bear some meaningful sense.</paragraph>
                         <paragraph>This attribute usually denotes the hierarchy of organizational units
                             the sensor belongs to and its own name.
@@ -1588,7 +1609,7 @@ Source(0).IP</literal_block>
                 <definition_list_item>
                     <term>ID</term>
                     <definition>
-                        <paragraph>Mandatory.
+                        <paragraph>Optional.
                             Unique identifier for the source.</paragraph>
                     </definition>
                 </definition_list_item>
@@ -1726,8 +1747,7 @@ Source(0).IP</literal_block>
                 <definition_list_item>
                     <term>ID</term>
                     <definition>
-                        <paragraph>Mandatory.
-                            Unique identifier for the target.</paragraph>
+                        <paragraph>Optional.Unique identifier for the target.</paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1763,7 +1783,7 @@ Source(0).IP</literal_block>
                 <definition_list_item>
                     <term>Service</term>
                     <definition>
-                        <paragraph>Optional. High Level Service (messaging, internet, ...) or process impacted by the incident.</paragraph>
+                        <paragraph>Optional. Should be High Level Service (messaging, internet, ...), if not defined can be process impacted by the incident.</paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -2291,55 +2311,6 @@ Source(0).IP</literal_block>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
-                    <term ids="term-ENISA-RIST"><reference name="ENISA-RIST" refuri="https://github.com/enisaeu/Reference-Security-Incident-Taxonomy-Task-Force/blob/master/working_copy/humanv1.md">ENISA-RIST</reference><target ids="enisa-rist" names="enisa-rist" refuri="https://github.com/enisaeu/Reference-Security-Incident-Taxonomy-Task-Force/blob/master/working_copy/humanv1.md"></target><index entries="['single',\ 'ENISA-RIST',\ 'term-ENISA-RIST',\ 'main',\ None]"></index></term>
-                    <definition>
-                        <field_list>
-                            <field>
-                                <field_name>title</field_name>
-                                <field_body>
-                                    <paragraph>Reference Incident Classification Taxonomy</paragraph>
-                                </field_body>
-                            </field>
-                            <field>
-                                <field_name>authors</field_name>
-                                <field_body>
-                                    <bullet_list bullet="*">
-                                        <list_item>
-                                            <field_list>
-                                                <field>
-                                                    <field_name>organization</field_name>
-                                                    <field_body>
-                                                        <field_list>
-                                                            <field>
-                                                                <field_name>name</field_name>
-                                                                <field_body>
-                                                                    <paragraph>European Union Agency for Cybersecurity</paragraph>
-                                                                </field_body>
-                                                            </field>
-                                                            <field>
-                                                                <field_name>abbrev</field_name>
-                                                                <field_body>
-                                                                    <paragraph>ENISA</paragraph>
-                                                                </field_body>
-                                                            </field>
-                                                        </field_list>
-                                                    </field_body>
-                                                </field>
-                                            </field_list>
-                                        </list_item>
-                                    </bullet_list>
-                                </field_body>
-                            </field>
-                            <field>
-                                <field_name>date</field_name>
-                                <field_body>
-                                    <paragraph>2018-01-26</paragraph>
-                                </field_body>
-                            </field>
-                        </field_list>
-                    </definition>
-                </definition_list_item>
-                <definition_list_item>
                     <term ids="term-MEDIA-TYPES">MEDIA-TYPES<index entries="['single',\ 'MEDIA-TYPES',\ 'term-MEDIA-TYPES',\ 'main',\ None]"></index></term>
                     <definition>
                         <paragraph><reference internal="False" refuri="iana:media-types">IANA media-types</reference>
@@ -2567,12 +2538,6 @@ Source(0).IP</literal_block>
             <list_item>
                 <paragraph>The CESNET team for their work on the [IDEA0] format (based on IDMEFv1) which inspired
                     multiples concepts to IDMEFv2.</paragraph>
-            </list_item>
-            <list_item>
-                <paragraph>The [ENISA-RIST] Reference Security Incident Taxonomy Working Group</paragraph>
-            </list_item>
-            <list_item>
-                <paragraph>The ReelIT company who actively contributed to the finalization of this draft</paragraph>
             </list_item>
         </bullet_list>
         <transition></transition>

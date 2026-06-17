@@ -12,7 +12,7 @@
         <email>gilles.lehmann@telecom-sudparis.eu</email>
       </address>
     </author>
-    <date day="16" month="June" year="2026"/>
+    <date day="17" month="June" year="2026"/>
     <keyword>RFC4765</keyword>
     <keyword>RFC4766</keyword>
     <keyword>IDMEF</keyword>
@@ -955,6 +955,17 @@ Source(0).IP</sourcecode>
                                             <t>Incident has been reported.</t>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td>
+                                            <t>6</t>
+                                        </td>
+                                        <td>
+                                            <t>Obsolete</t>
+                                        </td>
+                                        <td>
+                                            <t>Incident is obsolete, usually by another incident.</t>
+                                        </td>
+                                    </tr>
                                 </tbody>
                         </table>
                     </dd>
@@ -1166,6 +1177,7 @@ Source(0).IP</sourcecode>
 | GEOLOC   GeoLocation  |
 | UNLOCODE UnLocation   |
 | STRING   Location     |
+| STRING   CaptureZone  |
 +-----------------------+</artwork>
         </figure>
         <t>The Analyzer class has the following attributes:</t>
@@ -1182,7 +1194,7 @@ Source(0).IP</sourcecode>
                 
                     <dt>Name</dt>
                     <dd>
-                        <t>Mandatory. Name of the analyzer, which must be reasonably unique, however still bear some meaningful sense.</t>
+                        <t>Recommended. Name of the analyzer, which must be reasonably unique, however still bear some meaningful sense.</t>
                         <t>This attribute usually denotes the hierarchy of organizational units
                             the detector belongs to and its own name.
                             It MAY also be used to distinguish multiple analyzers running with
@@ -1251,6 +1263,14 @@ Source(0).IP</sourcecode>
                     <dd>
                         <t>Optional. Internal name for the location of the analyzer.</t>
                     </dd>
+                
+                    <dt>CaptureZone</dt>
+                    <dd>
+                        <t>Optional. A string that describes the "capture zone" of the analyzer (if the analyzer is also a sensor), as a JSON-serialized string.</t>
+                        <t>Depending on the type of sensor, the capture zone may for instance refer to:</t>
+                        <t>A JSON object describing a camera's settings (elevation, horizontal and vertical field of view, azimuth, etc.)</t>
+                        <t>A description of the IP network where packet capture is taking place.</t>
+                    </dd>
                 </dl>
       </section>
       <section anchor="class_sensor">
@@ -1287,7 +1307,7 @@ Source(0).IP</sourcecode>
                 
                     <dt>Name</dt>
                     <dd>
-                        <t>Mandatory. Name of the sensor, which must be reasonably unique,
+                        <t>Recommended. Name of the sensor, which must be reasonably unique,
                             however still bear some meaningful sense.</t>
                         <t>This attribute usually denotes the hierarchy of organizational units
                             the sensor belongs to and its own name.
@@ -1372,7 +1392,7 @@ Source(0).IP</sourcecode>
         <dl newline="true">
                     <dt>ID</dt>
                     <dd>
-                        <t>Mandatory.
+                        <t>Optional.
                             Unique identifier for the source.</t>
                     </dd>
                 
@@ -1491,8 +1511,7 @@ Source(0).IP</sourcecode>
         <dl newline="true">
                     <dt>ID</dt>
                     <dd>
-                        <t>Mandatory.
-                            Unique identifier for the target.</t>
+                        <t>Optional.Unique identifier for the target.</t>
                     </dd>
                 
                     <dt>IP</dt>
@@ -1523,7 +1542,7 @@ Source(0).IP</sourcecode>
                 
                     <dt>Service</dt>
                     <dd>
-                        <t>Optional. High Level Service (messaging, internet, ...) or process impacted by the incident.</t>
+                        <t>Optional. Should be High Level Service (messaging, internet, ...), if not defined can be process impacted by the incident.</t>
                     </dd>
                 
                     <dt>User</dt>
@@ -1899,12 +1918,6 @@ Source(0).IP</sourcecode>
                 <t>The CESNET team for their work on the [IDEA0] format (based on IDMEFv1) which inspired
                     multiples concepts to IDMEFv2.</t>
             </li>
-            <li>
-                <t>The [ENISA-RIST] Reference Security Incident Taxonomy Working Group</t>
-            </li>
-            <li>
-                <t>The ReelIT company who actively contributed to the finalization of this draft</t>
-            </li>
         </ul>
     </section>
   </middle>
@@ -2079,15 +2092,6 @@ Source(0).IP</sourcecode>
           <date day="14" month="September" year="2021"/>
         </front>
         <seriesInfo name="version" value="14.0.0"/>
-      </reference>
-      <reference target="https://github.com/enisaeu/Reference-Security-Incident-Taxonomy-Task-Force/blob/master/working_copy/humanv1.md" anchor="ENISA-RIST">
-        <front>
-          <title>Reference Incident Classification Taxonomy</title>
-          <author>
-            <organization abbrev="ENISA">European Union Agency for Cybersecurity</organization>
-          </author>
-          <date day="26" month="January" year="2018"/>
-        </front>
       </reference>
       <reference anchor="IANA_media_types" target="http://www.iana.org/assignments/media-types">
   <front>
