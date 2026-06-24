@@ -1,0 +1,59 @@
+{
+  "Version": "2.D.V05",
+  "ID": "9a3e8dbe-b90f-4d55-b45e-823f0e509a2f",
+  "Status": "Incident",
+  "OrganisationName": "acme.eu",
+  "CreateTime": "2025-05-15T13:50:30Z",
+  "StartTime": "2025-05-15T13:49:55Z",
+  "Cause": "Malicious",
+  "Category": [
+    "Availability.Theft"
+  ],
+  "Priority": "High",
+  "Confidence": 0.85,
+  "Description": "Unauthorized removal of a secure laptop from a restricted server room detected via badge access logs and motion sensors.",
+  "Analyzer": {
+    "IP": "192.168.100.10",
+    "Name": "Security Control Panel",
+    "Hostname": "security-hub.acme.eu",
+    "Type": [
+      "Physical"
+    ],
+    "Model": "Honeywell Pro-Watch",
+    "Category": [
+      "IAM"
+    ],
+    "Data": [
+      "Contact",
+      "Vibrations"
+    ],
+    "Method": [
+      "Threshold"
+    ],
+    "GeoLocation": "+41.9028,+12.4964,+50",
+    "UnLocation": "IT ROM",
+    "Location": "ACME-ROME-SERVER1"
+  },
+  "Sensor": [
+    {
+      "IP": "192.168.100.10",
+      "Name": "Security Control Panel",
+      "CaptureZone": "[{\"type\":\"physical-area\",\"spec_version\":\"2.1\",\"id\": \"physical-area--abcd1234-5678-90ef-abcd-1234567890ef\",\"value\": \"Server Room A - Floor 2\"}]"
+    }
+  ],
+  "Source": [
+    {
+      "IP": "192.168.200.50",
+      "Protocol": [
+        "BadgeAccess"
+      ]
+    }
+  ],
+  "Target": [
+    {
+      "IP": "192.168.100.22",
+      "Port": [],
+      "Location": "Secure Server Room - Rack 5"
+    }
+  ]
+}

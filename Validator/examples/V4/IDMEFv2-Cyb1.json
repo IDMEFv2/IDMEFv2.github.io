@@ -1,0 +1,60 @@
+{
+  "Version": "2.D.V04",
+  "ID": "e5f9bbae-163e-42f9-a2f2-0daaf78fefb1",
+  "Status": "Incident",
+  "OrganisationName": "acme.eu",
+  "CreateTime": "2021-01-18T23:33:05.21Z",
+  "StartTime": "2021-01-18T23:33:04.52Z",
+  "Cause": "Malicious",
+  "Category": [
+    "Recon.Scanning"
+  ],
+  "Priority": "Medium",
+  "Confidence": 0.9,
+  "Description": "An IDS event of type \"Unknown IP Protocol\" was observed",
+  "Analyzer": {
+    "IP": "172.10.5.31",
+    "Name": "Core router",
+    "Hostname": "core-router.example.com",
+    "Type": [
+      "Cyber"
+    ],
+    "Model": "Cisco 4532",
+    "Category": [
+      "NIDS"
+    ],
+    "Data": [
+      "Datagram"
+    ],
+    "Method": [
+      "Signature"
+    ],
+    "GeoLocation": "+48.75726,+2.299528,+65.1",
+    "UnLocation": "GR ATH",
+    "Location": "SBDX1"
+  },
+  "Sensor": [
+    {
+      "IP": "172.10.5.31",
+      "Name": "Core router",
+      "CaptureZone": "[{\"type\":\"ipv4-addr\",\"spec_version\":\"2.1\",\"id\": \"ipv4-addr--ff26c055-6336-5bc5-b98d-13d6226742dd\",\"value\": \"172.17.0.0\"},{\"type\":\"ipv4-net-mask\",\"spec_version\":\"2.1\",\"id\":\"ipv4-net-mask--ff26c055-6336-5bc5-b98d-13d6226742dd\",\"value\":\"255.255.0.0\"}]"
+    }
+  ],
+  "Source": [
+    {
+      "IP": "77.222.222.115",
+      "Protocol": [
+        "Unknown"
+      ]
+    }
+  ],
+  "Target": [
+    {
+      "IP": "172.20.7.25",
+      "Port": [
+        645
+      ],
+      "Location": "Datacenter SBX1"
+    }
+  ]
+}

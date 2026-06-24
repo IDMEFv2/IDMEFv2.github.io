@@ -1,0 +1,86 @@
+{
+  "Version": "2.D.V04",
+  "ID": "e5f9bbae-163e-42f9-a2f2-0daaf78fef00",
+  "Status": "Incident",
+  "OrganisationName": "Aerospatiale",
+  "EntityName": "Paris",
+  "CreateTime": "2021-01-18T23:33:05.21Z",
+  "StartTime": "2021-01-18T23:33:04.52Z",
+  "Category": [
+    "Other.Undetermined"
+  ],
+  "Confidence": 0.8,
+  "Priority": "Low",
+  "Description": "Several ground objects detected near the main building",
+  "Note": " A security camera filmed 2 persons intruding into facility grounds. The camera's management server detects the intruders and sends an alert with a link to a still image where both intruders are visible.",
+  "Analyzer": {
+    "IP": "172.10.5.1",
+    "Name": "CCTV Manager",
+    "Hostname": "cctv.acme.fr",
+    "Type": [
+      "Physical"
+    ],
+    "Model": "Smart CCTV v5.7",
+    "UnLocation": "FR PAR",
+    "Location": "B507"
+  },
+  "Sensor": [
+    {
+      "IP": "172.10.5.31",
+      "Name": "Camera",
+      "Hostname": "camera1.acme.fr",
+      "Model": "Netatmo 42B",
+      "GeoLocation": "+48.75726,+2.299528,+65.1",
+      "UnLocation": "GR ATH",
+      "Location": "Front Door"
+    }
+  ],
+  "Target": [
+    {
+      "Location": "Northern Hallway"
+    }
+  ],
+  "Vector": [
+    {
+      "Category": [
+        "Man"
+      ],
+      "Name": "Intruder #1",
+      "UnLocation": "GR ATH",
+      "GeoLocation": "+48.75726, +2.299528, +65.1",
+      "GeoRadius": 42.5,
+      "Location": "Northern Hallway",
+      "Attachment": [
+        "attach1"
+      ]
+    },
+    {
+      "Category": [
+        "Human"
+      ],
+      "Name": "Intruder #2",
+      "UnLocation": "GR ATH",
+      "GeoLocation": "+48.75726, +2.299528, +65.1",
+      "GeoRadius": 42.5,
+      "Location": "Northern Hallway",
+      "Attachment": [
+        "attach1"
+      ]
+    }
+  ],
+  "Attachment": [
+    {
+      "Name": "attach1",
+      "FileName": "c1-2021.04.12-64216343.jpg",
+      "Hash": [
+        "sha-256:01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+      ],
+      "Size": 2132078,
+      "ExternalURI": [
+        "https://sec-center.example.com/archive?sensor=c1&ref=2021.04.12-64216343"
+      ],
+      "Note": "Still image from 'Front Door Camera' depicting Intruder #1 and Intruder #2",
+      "ContentType": "image/jpeg"
+    }
+  ]
+}

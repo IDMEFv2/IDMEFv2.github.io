@@ -1,0 +1,64 @@
+{
+  "Version": "2.D.V05",
+  "ID": "b7c6f3d9-8f12-4a4e-a56b-9d38e0277d1e",
+  "Status": "Incident",
+  "OrganisationName": "acme.eu",
+  "CreateTime": "2025-05-15T11:45:00Z",
+  "StartTime": "2025-05-15T11:40:30Z",
+  "Cause": "Malicious",
+  "Category": [
+    "Recon.Scanning",
+    "Malicious.Botnet"
+  ],
+  "Priority": "High",
+  "Confidence": 0.92,
+  "Description": "Detected botnet-driven reconnaissance scanning activity targeting internal network assets.",
+  "Analyzer": {
+    "IP": "10.1.1.1",
+    "Name": "Internal IDS",
+    "Hostname": "ids01.acme.eu",
+    "Type": [
+      "Cyber"
+    ],
+    "Model": "Snort 3.1",
+    "Category": [
+      "NIDS"
+    ],
+    "Data": [
+      "Datagram"
+    ],
+    "Method": [
+      "Signature",
+      "Heuristic"
+    ],
+    "GeoLocation": "+48.8566,+2.3522,+35.0",
+    "UnLocation": "FR PAR",
+    "Location": "Internal Network Zone"
+  },
+  "Sensor": [
+    {
+      "IP": "10.1.1.1",
+      "Name": "Internal IDS",
+      "CaptureZone": "[{\"type\":\"ipv4-addr\",\"spec_version\":\"2.1\",\"id\":\"ipv4-addr--a0e3f344-8d0f-478a-b8d8-c9b4aee2c865\",\"value\":\"10.1.0.0\"},{\"type\":\"ipv4-net-mask\",\"spec_version\":\"2.1\",\"id\":\"ipv4-net-mask--d92588a1-5e49-4f5d-8f37-cc62b917f7b9\",\"value\":\"255.255.0.0\"}]"
+    }
+  ],
+  "Source": [
+    {
+      "IP": "198.51.100.200",
+      "Protocol": [
+        "TCP",
+        "UDP"
+      ]
+    }
+  ],
+  "Target": [
+    {
+      "IP": "10.1.5.75",
+      "Port": [
+        22,
+        80
+      ],
+      "Location": "Internal Server Cluster"
+    }
+  ]
+}

@@ -7,6 +7,13 @@ var savedSchema = "";
 var currentVersion = "latest";
 var json = {};
 var observer;
+var customSchemaAvailable = false;
+var customSchema = null;
+var githubRateLimitHit = false;
+var draft4MetaSchemaCache = null;
+var examplesManifest = null;
+var draftsManifest = null;
+var currentExamplesVersion = "latest";
 const openMenuBtn = document.getElementById('openMenuBtn');
 const openExercisesMenuBtn = document.getElementById('openExercisesMenuBtn');
 const contextMenuExamples = document.getElementById('contextMenuExamples');
@@ -18,45 +25,58 @@ var files = [];
 
 var container = document.getElementById('jsoneditor');
 
-const schemaURL = "https://raw.githubusercontent.com/IDMEFv2/IDMEFv2-Drafts/refs/heads/main/IDMEFv2/latest/IDMEFv2.schema";
+const DRAFTS_BASE_CANDIDATES = ["./drafts/IDMEFv2"];
+const EXAMPLES_BASE_CANDIDATES = ["./examples"];
+const LATEST_SCHEMA_FOLDER = "latest-stable";
+const LATEST_DEV_SCHEMA_FOLDER = "latest-dev";
+const schemaURL = `${DRAFTS_BASE_CANDIDATES[0]}/${LATEST_SCHEMA_FOLDER}/IDMEFv2.schema`;
 let validationEnabled = true;
+var currentSchemaURI = `${DRAFTS_BASE_CANDIDATES[0]}/${LATEST_SCHEMA_FOLDER}/IDMEFv2.schema`;
 let editor;
 
 require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.38.0/min/vs' } });
 require(["vs/editor/editor.main"], function () {
-  async function loadSchema(url) {
-    try {
-      const response = await fetch(url);
-      return await response.json();
-    } catch (error) {
-      console.error("Error while loading the JSON Schema:", error);
-      return null;
-    }
-  }
 
   async function initEditor() {
-    const schema = await loadSchema(schemaURL);
+    const resolved = await resolveInitialSchema();
+
+    if (!resolved) {
+      console.error("Cannot load any valid schema from repo.");
+      updateValidation(false, null);
+      return;
+    }
+
+    updateValidation(validationEnabled, resolved.schema, resolved.url);
 
     fetchVersionFolderPairs();
-    updateValidation(validationEnabled, schema);
 
     editor = monaco.editor.create(document.getElementById("jsoneditor"), {
       value: "{}",
       language: "json",
       theme: "vs-light"
     });
+
+    if (resolved.folder !== "latest") {
+      $("#warning-text").text(`Latest schema is invalid. Using ${resolved.folder} instead. If the issue persists, please open an issue on Github.`);
+      showPopUp("warning-popup", 3000);
+    }
+
+    currentVersion = mapSchemaToFolder(resolved.folder);
+    await initFilesList(resolved.folder);
+    await initSchema(resolved.folder);
   }
 
-  function updateValidation(enable, schema = null) {
+  function updateValidation(enable, schema = null, schemaUri = schemaURL) {
     monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
       validate: enable,
       schemas: enable && schema ? [{
-        uri: schemaURL,
+        uri: schemaUri,
         fileMatch: ["*"],
         schema: schema
       }] : []
     });
   }
+
   initEditor();
 });
 
@@ -80,7 +100,7 @@ toggleButton.addEventListener('click', () => {
 
 $('#version-dropdown').on('change', function () {
   const selectedValue = $(this).val();
-  currentVersion = mapSchemaToFolder(selectedValue);
+  currentVersion = selectedValue === "custom" ? "custom" : mapSchemaToFolder(selectedValue);
   selectVersion();
 });
 
@@ -108,7 +128,7 @@ $(document).ready(async function () {
         var result = event.target.result;
         try {
           var json = JSON.parse(result);
-          editor.setValue(JSON.stringify(json, null, 2));
+          setEditorContentAndReset(JSON.stringify(json, null, 2));
           $('#selectedFileName').val(file.name);
         } catch (error) {
           console.error("Error parsing JSON:", error);
@@ -118,10 +138,19 @@ $(document).ready(async function () {
       reader.readAsText(file);
     }
   });
+
+  const schemaFileInput = document.getElementById('schemaFile');
+  const schemaFileName = document.getElementById('schemaFileName');
+
+  if (schemaFileInput && schemaFileName) {
+    schemaFileInput.addEventListener('change', function (event) {
+      const selectedFile = event.target.files[0];
+      schemaFileName.value = selectedFile ? selectedFile.name : "";
+    });
+  }
 });
 
 // Functions related to the copy popup
-
 function showPopUp(id, timeout) {
 
   popUp = document.getElementById(id);
@@ -140,6 +169,50 @@ function hidePopUp(id) {
   popUp.classList.add('popup-hidden');
 }
 
+function showSuccessMessage(message, timeout = 3000, title = "Success") {
+  const successTitle = document.getElementById('success-title');
+  const successText = document.getElementById('success-text');
+
+  if (successTitle) {
+    successTitle.textContent = title;
+  }
+
+  if (successText) {
+    successText.textContent = message;
+  }
+
+  showPopUp("success-popup", timeout);
+}
+
+function setEditorContentAndReset(content) {
+  if (!editor || typeof monaco === 'undefined' || !monaco.editor) {
+    return;
+  }
+
+  try {
+    const previousModel = editor.getModel();
+    const languageId = previousModel && typeof previousModel.getLanguageId === 'function'
+      ? previousModel.getLanguageId()
+      : 'json';
+
+    const nextModel = monaco.editor.createModel(content, languageId);
+    editor.setModel(nextModel);
+
+    if (previousModel && !previousModel.isDisposed()) {
+      previousModel.dispose();
+    }
+
+    const topLeftPosition = { lineNumber: 1, column: 1 };
+    editor.setPosition(topLeftPosition);
+    editor.setSelection(new monaco.Range(1, 1, 1, 1));
+    editor.revealLineNearTop(1);
+    editor.setScrollTop(0);
+    editor.setScrollLeft(0);
+  } catch (error) {
+    console.error("Unable to reset editor content safely:", error);
+  }
+}
+
 // ---------------------------
 
 // Functions for the custom buttons
@@ -147,22 +220,32 @@ function printExercise(exercise) {
   cleanResult()
   json = jsonArray.find(json => json.name == exercise);
   $('#selectedFileName').val(json.name);
-  editor.setValue(JSON.stringify(json.json, null, 2));
+  setEditorContentAndReset(JSON.stringify(json.json, null, 2));
 }
 
 // Cycles between the examples found inside the repository
-function printExample(example) {
+async function printExample(example) {
   enableValidation();
   cleanResult();
 
   if (files.length > 0) {
-    var url = `https://raw.githubusercontent.com/IDMEFv2/IDMEFv2-Examples/refs/heads/main/${currentVersion}/` + example;
+    var localVersion = currentExamplesVersion || normalizeExamplesVersion(currentVersion);
+    if (!localVersion) {
+      console.error("Unable to resolve examples version from current schema selection");
+      return;
+    }
 
-    $.getJSON(url, function (exampleJson) {
-      json = exampleJson;
-      $('#selectedFileName').val(example);
-      editor.setValue(JSON.stringify(json, null, 2));
-    });
+    const exampleResult = await tryLoadExampleFromCandidates(getExampleUrlCandidates(localVersion, example));
+    if (!exampleResult) {
+      console.error(`Unable to load example ${example} for ${localVersion}`);
+      $("#warning-text").text(`Unable to load example ${example}. Please check repository paths.`);
+      showPopUp("warning-popup", 3000);
+      return;
+    }
+
+    json = exampleResult.data;
+    $('#selectedFileName').val(example);
+    setEditorContentAndReset(JSON.stringify(json, null, 2));
   } else {
     console.error("No files have been found inside the repository");
   }
@@ -210,7 +293,7 @@ function copy_text() {
   document.execCommand("copy");
 
   document.body.removeChild(tempInput);
-  showPopUp("success-popup", 3000);
+  showSuccessMessage("Your Json has been copied to clipboard", 3000, "Copied");
 }
 
 function clear_text() {
@@ -218,13 +301,22 @@ function clear_text() {
   cleanResult()
   json = {};
   $('#selectedFileName').val('');
-  editor.setValue('{}');
+  setEditorContentAndReset('{}');
 }
 
 function validate() {
   enableValidation();
   let result = document.getElementById("idmefv2_text_result");
   result.innerHTML = "";
+
+  if (typeof ajv_validate !== 'function') {
+    result.innerHTML = `
+      <p class="message">
+        The selected schema could not be loaded for validation.<br>
+        Please choose another schema version or upload a custom schema.
+      </p>`;
+    return;
+  }
 
   json = editor.getValue()
 
@@ -315,44 +407,240 @@ function openSave() {
   document.getElementById('overlay').style.display = "block";
 }
 
+// Open Schema modal
+function openSchemaUpload() {
+  document.getElementById('schema-modal').style.display = "block";
+  document.getElementById('overlay').style.display = "block";
+}
+
+function uploadSchema() {
+  const schemaFileInput = document.getElementById('schemaFile');
+  const schemaFileName = document.getElementById('schemaFileName');
+  const selectedFile = schemaFileInput?.files?.[0];
+
+  if (!selectedFile) {
+    $("#warning-text").text("Please select a JSON schema file before confirming.");
+    showPopUp("warning-popup", 3000);
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = async (event) => {
+    try {
+      const parsedSchema = JSON.parse(event.target.result);
+
+      customSchemaAvailable = true;
+      customSchema = {
+        name: selectedFile.name,
+        schema: parsedSchema
+      };
+
+      if (schemaFileName) {
+        schemaFileName.value = selectedFile.name;
+      }
+
+      syncCustomSchemaOption();
+
+      if (githubRateLimitHit) {
+        enableCustomOnlyVersionDropdown();
+      }
+
+      const dropdown = $('#version-dropdown');
+      dropdown.prop('disabled', false);
+      dropdown.val('custom');
+      currentVersion = 'custom';
+
+      const customSchemaLoaded = await initCustomSchema();
+
+      if (customSchemaLoaded) {
+        enableValidation();
+        cleanResult();
+        showSuccessMessage("Custom schema uploaded and selected successfully.");
+      }
+
+      closeModal();
+    } catch (error) {
+      customSchemaAvailable = false;
+      customSchema = null;
+      $("#warning-text").text("The selected file is not a valid JSON document.");
+      showPopUp("warning-popup", 3000);
+      console.error("Invalid custom schema JSON:", error);
+    }
+  };
+
+  reader.readAsText(selectedFile);
+}
+
+function triggerSchemaFileUpload() {
+  const schemaFileInput = document.getElementById('schemaFile');
+
+  if (schemaFileInput) {
+    schemaFileInput.click();
+  }
+}
+
+function clearSchemaUpload() {
+  const schemaFileInput = document.getElementById('schemaFile');
+  const schemaFileName = document.getElementById('schemaFileName');
+
+  if (schemaFileInput) {
+    schemaFileInput.value = "";
+  }
+
+  if (schemaFileName) {
+    schemaFileName.value = "";
+  }
+}
+
+async function getExamplesManifest() {
+  if (examplesManifest) {
+    return examplesManifest;
+  }
+
+  examplesManifest = await $.getJSON("examples-manifest.json");
+  return examplesManifest;
+}
+
+async function getDraftsManifest() {
+  if (draftsManifest) {
+    return draftsManifest;
+  }
+
+  draftsManifest = await $.getJSON("drafts-manifest.json");
+  return draftsManifest;
+}
+
+async function getDraft4MetaSchema() {
+  if (draft4MetaSchemaCache) {
+    return draft4MetaSchemaCache;
+  }
+
+  draft4MetaSchemaCache = await $.getJSON("https://raw.githubusercontent.com/json-schema-org/json-schema-spec/draft-04/schema.json");
+  return draft4MetaSchemaCache;
+}
+
+async function initCustomSchema() {
+  if (!customSchemaAvailable || !customSchema || !customSchema.schema) {
+    return false;
+  }
+
+  try {
+    const metaschema = await getDraft4MetaSchema();
+    savedSchema = customSchema.schema;
+
+    var ajv = new Ajv({ schemaId: 'id', allErrors: true });
+    ajv.addMetaSchema(metaschema);
+    ajv_validate = ajv.compile(savedSchema);
+
+    monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
+      validate: validationEnabled,
+      schemas: [
+        {
+          uri: `custom://${customSchema.name}`,
+          fileMatch: ["*"],
+          schema: savedSchema
+        }
+      ]
+    });
+
+    $('#version-output').text(`Schema version custom (${customSchema.name})`);
+      currentSchemaURI = `custom://${customSchema.name}`;
+    $('#title').text('IDMEFv2 - JSON Validator - Custom Schema');
+    return true;
+  } catch (error) {
+    ajv_validate = null;
+    savedSchema = null;
+    console.error("Error while applying custom schema:", error);
+    $("#warning-text").text("Custom schema could not be applied.");
+    showPopUp("warning-popup", 3000);
+    return false;
+  }
+}
+
+function syncCustomSchemaOption() {
+  const dropdown = $('#version-dropdown');
+  const optionValue = 'custom';
+  const optionText = customSchemaAvailable && customSchema
+    ? `Custom Schema - ${customSchema.name}`
+    : 'Custom Schema';
+
+  if (customSchemaAvailable && customSchema) {
+    const existingOption = dropdown.find(`option[value="${optionValue}"]`);
+
+    if (existingOption.length > 0) {
+      existingOption.text(optionText);
+    } else {
+      dropdown.append(`<option value="${optionValue}">${optionText}</option>`);
+    }
+  } else {
+    dropdown.find(`option[value="${optionValue}"]`).remove();
+  }
+}
+
+function enableCustomOnlyVersionDropdown() {
+  if (!customSchemaAvailable || !customSchema) {
+    return;
+  }
+
+  const dropdown = $('#version-dropdown');
+  dropdown.empty();
+  dropdown.append(`<option value="custom">Custom Schema - ${customSchema.name}</option>`);
+  dropdown.val('custom');
+  dropdown.prop('disabled', false);
+  currentVersion = 'custom';
+}
+
+function setVersionDropdownRateLimitState() {
+  const dropdown = $('#version-dropdown');
+  dropdown.empty();
+  dropdown.append('<option value="latest">Schema list unavailable (GitHub API limit)</option>');
+  dropdown.prop('disabled', true);
+  $("#warning-text").text("GitHub API rate limit reached (403). Upload a custom schema to continue.");
+  showPopUp("warning-popup", 3500);
+}
+
 // Close all modals and remove the overlay
 function closeModal() {
   document.getElementById('overlay').style.display = "none";
   document.getElementById('save-modal').style.display = "none";
+  document.getElementById('schema-modal').style.display = "none";
   document.getElementById('fileName').value = "";
+  clearSchemaUpload();
 }
 
-// Function to recover the file names form github
+// Function to recover the file names from github
 async function initFilesList(version = "latest") {
-  const baseUrl = "https://api.github.com/repos/IDMEFv2/IDMEFv2-Examples/contents/";
+  const normalizedVersion = normalizeExamplesVersion(version);
+  let resolvedExamplesVersion = normalizedVersion;
 
-  // Normalizing the version name to adapt it to the ones used in the other repository
-  let normalizedVersion = version === "latest" ? "latest" : `V${parseInt(version, 10)}`;
-  let apiUrl = `${baseUrl}${normalizedVersion}`;
-  let data;
+  const manifest = await getExamplesManifest();
+  let fileNames = manifest[normalizedVersion];
 
-  try {
-    data = await $.getJSON(apiUrl);
-  } catch (error) {
-    $("#warning-text").text(`No examples available for ${normalizedVersion}, displaying 'Latest Schema'.`);
-    showPopUp("warning-popup", 3000);
-    try {
-      data = await $.getJSON(`${baseUrl}latest`);
-    } catch (fallbackError) {
-      console.error("Error recovering 'Latest Schema'.", fallbackError);
-      return;
+  if (!fileNames) {
+    if (normalizedVersion === LATEST_DEV_SCHEMA_FOLDER) {
+      $("#warning-text").text("No dev examples available.");
+      showPopUp("warning-popup", 3000);
+      fileNames = [];
+      resolvedExamplesVersion = LATEST_DEV_SCHEMA_FOLDER;
+    } else {
+      $("#warning-text").text(`No examples available for ${normalizedVersion}, displaying latest.`);
+      showPopUp("warning-popup", 3000);
+      fileNames = manifest["latest"] || [];
+      resolvedExamplesVersion = "latest";
     }
   }
 
-  files = data.map(file => file.name);
+  currentExamplesVersion = resolvedExamplesVersion;
+
+  files = fileNames;
   const filesMenu = document.getElementById("contextMenuExamplesUl");
   filesMenu.innerHTML = "";
 
-  data.forEach(file => {
+  fileNames.forEach(fileName => {
     const listItem = document.createElement("li");
     listItem.classList.add("context-option");
-    listItem.setAttribute("data-value", file.name);
-    listItem.textContent = file.name;
+    listItem.setAttribute("data-value", fileName);
+    listItem.textContent = fileName;
     filesMenu.appendChild(listItem);
   });
 
@@ -370,43 +658,59 @@ async function initFilesList(version = "latest") {
 
 // Preparing the schema for validation
 async function initSchema(folder) {
-  const schemaURL = `https://raw.githubusercontent.com/IDMEFv2/IDMEFv2-Drafts/refs/heads/main/IDMEFv2/${folder}/IDMEFv2.schema`;
+  const resolvedFolder = resolveSchemaFolderPath(folder);
 
-  await $.getJSON(`https://raw.githubusercontent.com/json-schema-org/json-schema-spec/draft-04/schema.json`, async function (metaschema) {
-    await $.getJSON(schemaURL, function (schema) {
-      savedSchema = schema;
-      const description = schema.description;
+  try {
+    const metaschema = await getDraft4MetaSchema();
+    const schemaResult = await tryLoadSchemaFromCandidates(getSchemaUrlCandidates(resolvedFolder));
 
-      const regex = /revision\s([\w\.]+)\)/;
-      const match = description.match(regex);
+    if (!schemaResult) {
+      throw new Error(`Schema file not found for folder ${resolvedFolder}`);
+    }
 
-      if (match) {
-        const version = match[1];
-        $('#autocomplete').text('enabled');
-        $('#version-output').text('Schema version ' + version);
-        $('#title').text('IDMEFv2 - JSON Validator - Version ' + version);
-      } else {
-        console.log('No revision has been found');
-      }
+    const schema = schemaResult.schema;
+    const localSchemaURL = schemaResult.url;
 
-      var ajv = new Ajv({ schemaId: 'id', allErrors: true, coerceTypes: true });
-      ajv.addMetaSchema(metaschema);
-      ajv_validate = ajv.compile(schema);
+    savedSchema = schema;
+    currentSchemaURI = localSchemaURL;
+    const description = schema.description;
 
-      monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
-        validate: validationEnabled,
-        schemas: [
-          {
-            uri: schemaURL,
-            fileMatch: ["*"],
-            schema: savedSchema
-          }
-        ]
-      });
+    const regex = /revision\s([\w\.]+)\)/;
+    const match = description.match(regex);
+
+    if (match) {
+      const version = match[1];
+      $('#autocomplete').text('enabled');
+      $('#version-output').text('Schema version ' + version);
+      $('#title').text('IDMEFv2 - JSON Validator - Version ' + version);
+    } else {
+      console.log('No revision has been found');
+    }
+
+    var ajv = new Ajv({ schemaId: 'id', allErrors: true });
+    ajv.addMetaSchema(metaschema);
+    ajv_validate = ajv.compile(schema);
+
+    monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
+      validate: validationEnabled,
+      schemas: [
+        {
+          uri: localSchemaURL,
+          fileMatch: ["*"],
+          schema: savedSchema
+        }
+      ]
     });
-  });
+    return true;
+  } catch(e) {
+    ajv_validate = null;
+    savedSchema = null;
+    console.error(e);
+    $("#warning-text").text(`Schema ${resolvedFolder} is invalid or cannot be loaded. Validation is disabled until a valid schema is selected.`);
+    showPopUp("warning-popup", 3000);
+    return false;
+  }
 }
-
 
 openMenuBtn.addEventListener('click', (event) => {
   event.stopPropagation();
@@ -471,7 +775,7 @@ function enableValidation() {
     validate: validationEnabled,
     schemas: [
       {
-        uri: "https://raw.githubusercontent.com/IDMEFv2/IDMEFv2-Drafts/refs/heads/main/IDMEFv2/latest/IDMEFv2.schema",
+        uri: currentSchemaURI,
         fileMatch: ["*"],
         schema: savedSchema
       },
@@ -487,7 +791,7 @@ function disableValidation() {
     schemas: validationEnabled
       ? [
         {
-          uri: "https://raw.githubusercontent.com/IDMEFv2/IDMEFv2-Drafts/refs/heads/main/IDMEFv2/latest/IDMEFv2.schema",
+          uri: schemaURL,
           fileMatch: ["*"],
         },
       ]
@@ -508,34 +812,30 @@ function toggleAutocomplete() {
 }
 
 async function fetchVersionFolderPairs() {
-  const repo = "IDMEFv2/IDMEFv2-Drafts";
-  const path = "IDMEFv2";
-  const apiUrl = `https://api.github.com/repos/${repo}/contents/${path}`;
-  const rawBase = `https://raw.githubusercontent.com/${repo}/main/${path}`;
-
   const versionMap = new Map();
 
-  const folders = await fetch(apiUrl)
-    .then(res => res.json())
-    .then(data => data.filter(item => item.type === "dir").map(item => item.name));
+  const folders = await listDraftFolders();
 
   folders.sort((a, b) => {
-    if (a === "latest") return -1;
-    if (b === "latest") return 1;
+    if (a === LATEST_SCHEMA_FOLDER) return -1;
+    if (b === LATEST_SCHEMA_FOLDER) return 1;
+    if (a === LATEST_DEV_SCHEMA_FOLDER) return -1;
+    if (b === LATEST_DEV_SCHEMA_FOLDER) return 1;
     return a.localeCompare(b);
   });
 
   const validFolders = folders.filter(folder => {
-    return folder === "latest" || parseInt(folder, 10) >= 4;
+    return folder === LATEST_SCHEMA_FOLDER || folder === LATEST_DEV_SCHEMA_FOLDER || parseInt(folder, 10) >= 4;
   });
 
   for (const folder of validFolders) {
-    const schemaUrl = `${rawBase}/${folder}/IDMEFv2.schema`;
-
     try {
-      const res = await fetch(schemaUrl);
-      const schemaText = await res.text();
-      const schema = JSON.parse(schemaText);
+      const schemaResult = await tryLoadSchemaFromCandidates(getSchemaUrlCandidates(folder));
+      const schema = schemaResult ? schemaResult.schema : null;
+
+      if (!schema) {
+        continue;
+      }
 
       const versionEnum = schema?.properties?.Version?.enum;
       if (Array.isArray(versionEnum)) {
@@ -555,30 +855,60 @@ async function fetchVersionFolderPairs() {
     .sort((a, b) => (a.version > b.version ? 1 : -1));
 
   result.sort((a, b) => {
-    if (a.folder === "latest") return -1;
-    if (b.folder === "latest") return 1;
+    if (a.folder === LATEST_SCHEMA_FOLDER) return -1;
+    if (b.folder === LATEST_SCHEMA_FOLDER) return 1;
+    if (a.folder === LATEST_DEV_SCHEMA_FOLDER) return -1;
+    if (b.folder === LATEST_DEV_SCHEMA_FOLDER) return 1;
     return b.version.localeCompare(a.version);
   });
 
   $('#version-dropdown').empty();
 
   result.forEach(({ version, folder }) => {
-    if (folder !== "latest") {
-      $('#version-dropdown').append(`<option value="${folder}">${version}</option>`);
-    } else {
-      $('#version-dropdown').append(`<option value="${folder}">Latest Schema - ${version}</option>`);
-    }
+    const optionValue = getFrontendSchemaValue(folder);
+    const optionLabel = getSchemaDropdownLabel(version, folder);
+    $('#version-dropdown').append(`<option value="${optionValue}">${optionLabel}</option>`);
   });
 
+  githubRateLimitHit = false;
+  syncCustomSchemaOption();
   $('#version-dropdown').prop('disabled', false);
 }
 
 async function selectVersion() {
-  folder = $('#version-dropdown').val();
-  await initSchema(folder);
+  const folder = $('#version-dropdown').val();
+
+  if (folder === 'custom') {
+    if (!customSchemaAvailable || !customSchema) {
+      $("#warning-text").text("No custom schema available. Please upload one first.");
+      showPopUp("warning-popup", 3000);
+      return;
+    }
+
+    const customSchemaLoaded = await initCustomSchema();
+
+    if (!customSchemaLoaded) {
+      disableValidation();
+      cleanResult();
+      return;
+    }
+
+    enableValidation();
+    cleanResult();
+    return;
+  }
+
+  const schemaLoaded = await initSchema(folder);
+
+  if (!schemaLoaded) {
+    disableValidation();
+    cleanResult();
+    return;
+  }
+
   enableValidation();
   await initFilesList(folder);
-  cleanResult()
+  cleanResult();
 }
 
 async function loadExercisesFromFile() {
@@ -604,8 +934,202 @@ async function loadExercisesFromFile() {
 }
 
 function mapSchemaToFolder(value) {
-  if (value.toLowerCase() === "latest") {
+  if (value.toLowerCase() === "latest" || value.toLowerCase() === LATEST_SCHEMA_FOLDER) {
     return "latest";
   }
+  if (value.toLowerCase() === LATEST_DEV_SCHEMA_FOLDER) {
+    return LATEST_DEV_SCHEMA_FOLDER;
+  }
+  if (value.toLowerCase() === "custom") {
+    return "custom";
+  }
+  const devMatch = value.match(/^(?:V)?(\d+)-dev$/i);
+  if (devMatch) {
+    return `V${parseInt(devMatch[1], 10)}-Dev`;
+  }
   return "V" + parseInt(value, 10);
+}
+
+function resolveSchemaFolderPath(folderValue) {
+  const normalized = String(folderValue).trim();
+
+  if (normalized.toLowerCase() === "latest" || normalized.toLowerCase() === LATEST_SCHEMA_FOLDER) {
+    return LATEST_SCHEMA_FOLDER;
+  }
+
+  return normalized;
+}
+
+function getFrontendSchemaValue(folderName) {
+  return folderName === LATEST_SCHEMA_FOLDER ? "latest" : folderName;
+}
+
+function getSchemaDropdownLabel(version, folderName) {
+  if (folderName === LATEST_SCHEMA_FOLDER) {
+    return `Latest Schema - ${version}`;
+  }
+
+  if (folderName === LATEST_DEV_SCHEMA_FOLDER) {
+    return `Latest Dev Schema - ${version}`;
+  }
+
+  if (/\-Dev$/i.test(folderName)) {
+    return `${version} - Dev`;
+  }
+
+  return version;
+}
+
+function normalizeExamplesVersion(versionValue) {
+  if (!versionValue) {
+    return null;
+  }
+
+  const normalized = String(versionValue).trim();
+  if (normalized.toLowerCase() === "latest") {
+    return "latest";
+  }
+
+  if (normalized.toLowerCase() === LATEST_DEV_SCHEMA_FOLDER) {
+    return LATEST_DEV_SCHEMA_FOLDER;
+  }
+
+  const vMatch = normalized.match(/^V(\d+)$/i);
+  if (vMatch) {
+    return `V${parseInt(vMatch[1], 10)}`;
+  }
+
+  const vDevMatch = normalized.match(/^V(\d+)-Dev$/i);
+  if (vDevMatch) {
+    return LATEST_DEV_SCHEMA_FOLDER;
+  }
+
+  const devMatch = normalized.match(/^(\d+)-Dev$/i);
+  if (devMatch) {
+    return LATEST_DEV_SCHEMA_FOLDER;
+  }
+
+  if (/^\d+$/.test(normalized)) {
+    return `V${parseInt(normalized, 10)}`;
+  }
+
+  return null;
+}
+
+async function fetchTextOrThrow(url) {
+  const res = await fetch(url, { cache: "no-store" });
+  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+  return await res.text();
+}
+
+function getSchemaUrlCandidates(folder) {
+  const candidates = [];
+
+  DRAFTS_BASE_CANDIDATES.forEach((basePath) => {
+    candidates.push(`${basePath}/${folder}/IDMEFv2.schema`);
+    candidates.push(`${basePath}/${folder}/idmefv2.schema`);
+  });
+
+  return candidates;
+}
+
+function getExampleUrlCandidates(version, example) {
+  return EXAMPLES_BASE_CANDIDATES.map(basePath => `${basePath}/${version}/${example}`);
+}
+
+async function tryLoadSchema(url) {
+  try {
+    const text = await fetchTextOrThrow(url);
+    return JSON.parse(text);
+  } catch (e) {
+    return null;
+  }
+}
+
+async function tryLoadSchemaFromCandidates(urls) {
+  for (const url of urls) {
+    const schema = await tryLoadSchema(url);
+    if (schema) {
+      return { schema, url };
+    }
+  }
+
+  return null;
+}
+
+async function tryLoadExampleFromCandidates(urls) {
+  for (const url of urls) {
+    try {
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) {
+        continue;
+      }
+
+      const data = await response.json();
+      return { data, url };
+    } catch (e) {
+      // Keep trying fallback paths.
+      console.log(`Failed to load example from ${url}: ${e.message}`);
+    }
+  }
+
+  return null;
+}
+
+async function listDraftFolders() {
+  const manifest = await getDraftsManifest();
+  return Array.isArray(manifest?.folders) ? manifest.folders : [];
+}
+
+function sortFoldersForFallback(folders) {
+  return folders
+    .filter(folder => folder === LATEST_DEV_SCHEMA_FOLDER || /^\d+$/.test(folder) || /^\d+-Dev$/i.test(folder))
+    .map(folder => {
+      if (folder === LATEST_DEV_SCHEMA_FOLDER) {
+        return {
+          folder,
+          version: Number.MAX_SAFE_INTEGER,
+          isDev: true
+        };
+      }
+
+      const match = folder.match(/^(\d+)(-Dev)?$/i);
+      return {
+        folder,
+        version: match ? parseInt(match[1], 10) : -1,
+        isDev: /-Dev$/i.test(folder)
+      };
+    })
+    .filter(entry => entry.version >= 4)
+    .sort((a, b) => {
+      if (a.version !== b.version) {
+        return b.version - a.version;
+      }
+
+      if (a.isDev === b.isDev) {
+        return a.folder.localeCompare(b.folder);
+      }
+
+      return a.isDev ? -1 : 1;
+    })
+    .map(entry => entry.folder);
+}
+
+async function resolveInitialSchema() {
+  const latestResult = await tryLoadSchemaFromCandidates(getSchemaUrlCandidates(LATEST_SCHEMA_FOLDER));
+  if (latestResult) {
+    return { folder: "latest", url: latestResult.url, schema: latestResult.schema };
+  }
+
+  const folders = await listDraftFolders();
+  const candidates = sortFoldersForFallback(folders);
+
+  for (const folder of candidates) {
+    const schemaResult = await tryLoadSchemaFromCandidates(getSchemaUrlCandidates(folder));
+    if (schemaResult) {
+      return { folder, url: schemaResult.url, schema: schemaResult.schema };
+    }
+  }
+
+  return null;
 }

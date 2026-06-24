@@ -1,0 +1,63 @@
+{
+  "Version": "2.D.V05",
+  "ID": "2c7f789e-4fa2-47e4-a1e0-4b61d4b1723a",
+  "Status": "Incident",
+  "OrganisationName": "acme.eu",
+  "CreateTime": "2025-05-15T14:23:00Z",
+  "StartTime": "2025-05-15T14:22:55Z",
+  "Cause": "Malicious",
+  "Category": [
+    "Attempt.Exploit"
+  ],
+  "Priority": "High",
+  "Confidence": 0.95,
+  "Description": "Exploit attempt detected targeting vulnerable web application",
+  "Analyzer": {
+    "IP": "10.0.0.5",
+    "Name": "SIEM-Analyzer-01",
+    "Hostname": "siem01.acme.eu",
+    "Type": ["Cyber"],
+    "Model": "Elastic Stack",
+    "Category": [
+      "SIEM"
+    ],
+    "Data": [
+      "Log",
+      "Alert"
+    ],
+    "Method": [
+      "Signature",
+      "Correlation"
+    ],
+    "GeoLocation": "+45.4642,+9.1900,+120",
+    "UnLocation": "IT MIL",
+    "Location": "ACME-DC01"
+  },
+  "Sensor": [
+    {
+      "IP": "10.0.0.5",
+      "Name": "SIEM-Analyzer-01",
+      "CaptureZone": "[{\"type\":\"ipv4-addr\",\"spec_version\":\"2.1\",\"id\": \"ipv4-addr--12345678-abcd-ef00-1234-56789abcdef0\",\"value\": \"10.0.0.0\"},{\"type\":\"ipv4-net-mask\",\"spec_version\":\"2.1\",\"id\":\"ipv4-net-mask--12345678-abcd-ef00-1234-56789abcdef0\",\"value\":\"255.255.0.0\"}]"
+    }
+  ],
+  "Source": [
+    {
+      "IP": "203.0.113.55",
+      "Protocol": [
+        "TCP"
+      ],
+      "Port": [
+        443
+      ]
+    }
+  ],
+  "Target": [
+    {
+      "IP": "10.0.10.25",
+      "Port": [
+        8080
+      ],
+      "Location": "Application Server Cluster A"
+    }
+  ]
+}
