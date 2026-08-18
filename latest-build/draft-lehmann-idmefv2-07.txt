@@ -130,7 +130,7 @@ Internet-Draft                   IDMEFv2                     August 2026
    5.  The IDMEF Data Model  . . . . . . . . . . . . . . . . . . . .  17
      5.1.  Overview  . . . . . . . . . . . . . . . . . . . . . . . .  17
      5.2.  The Alert Class . . . . . . . . . . . . . . . . . . . . .  18
-     5.3.  The Analyzer Class  . . . . . . . . . . . . . . . . . . .  27
+     5.3.  The Analyzer Class  . . . . . . . . . . . . . . . . . . .  26
      5.4.  The Sensor Class  . . . . . . . . . . . . . . . . . . . .  29
      5.5.  The Source Class  . . . . . . . . . . . . . . . . . . . .  30
      5.6.  The Target Class  . . . . . . . . . . . . . . . . . . . .  33
@@ -1311,9 +1311,7 @@ Internet-Draft                   IDMEFv2                     August 2026
            |      |               | incident was a false          |
            |      |               | positive.                     |
            +------+---------------+-------------------------------+
-           | 5    | Reported      | Incident has been reported.   |
-           +------+---------------+-------------------------------+
-           | 6    | Obsolete      | Incident is obsolete, usually |
+           | 5    | Obsolete      | Incident is obsolete, usually |
            |      |               | by another incident.          |
            +------+---------------+-------------------------------+
 
@@ -1323,28 +1321,6 @@ Internet-Draft                   IDMEFv2                     August 2026
       Optional.  Priority of the alert.  Priority is defined by
       combining impact and urgency.  It indicates how fast the incident
       should be taken care of.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Lehmann                 Expires 19 February 2027               [Page 24]
-
-Internet-Draft                   IDMEFv2                     August 2026
-
 
          +======+=========+=========================================+
          | Rank | Keyword | Description                             |
@@ -1361,6 +1337,14 @@ Internet-Draft                   IDMEFv2                     August 2026
          +------+---------+-----------------------------------------+
 
                          Table 4: Incident priorities
+
+
+
+
+Lehmann                 Expires 19 February 2027               [Page 24]
+
+Internet-Draft                   IDMEFv2                     August 2026
+
 
    Confidence
       Optional.  A floating-point value between 0 and 1 indicating the
@@ -1395,13 +1379,6 @@ Internet-Draft                   IDMEFv2                     August 2026
       Optional.  Timestamp indicating the reporting time of the event,
       usually to an external CSIRT or a central SIEM.
 
-
-
-Lehmann                 Expires 19 February 2027               [Page 25]
-
-Internet-Draft                   IDMEFv2                     August 2026
-
-
    AltNames
       Optional.  Alternative identifiers; strings which help pair the
       event to internal systems' information (for example ticket IDs
@@ -1415,6 +1392,15 @@ Internet-Draft                   IDMEFv2                     August 2026
    Ref
       Optional.  References to sources of information related to the
       incident and/or vulnerability, and specific to this incident.
+
+
+
+
+
+Lehmann                 Expires 19 February 2027               [Page 25]
+
+Internet-Draft                   IDMEFv2                     August 2026
+
 
       This MAY be a URL to additional info, or a URN in a registered or
       unregistered ad-hoc namespace bearing reasonable information value
@@ -1448,6 +1434,20 @@ Internet-Draft                   IDMEFv2                     August 2026
       Optional.  A list containing the identifiers of other messages
       related to this message.
 
+5.3.  The Analyzer Class
+
+   The Analyzer class describes the module that has analyzed the data
+   captured by the sensors, identified an event of interest and decided
+   to create an alert.
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1457,12 +1457,6 @@ Lehmann                 Expires 19 February 2027               [Page 26]
 
 Internet-Draft                   IDMEFv2                     August 2026
 
-
-5.3.  The Analyzer Class
-
-   The Analyzer class describes the module that has analyzed the data
-   captured by the sensors, identified an event of interest and decided
-   to create an alert.
 
                          +-----------------------+
                          |       Analyzer        |
@@ -1506,6 +1500,12 @@ Internet-Draft                   IDMEFv2                     August 2026
    Hostname
       Optional.  Hostname of this analyzer.
 
+      SHOULD be a fully-qualified domain name.
+
+   Model
+      Optional.  Analyzer model description (usually its generic name,
+      brand and version).
+
 
 
 
@@ -1513,12 +1513,6 @@ Lehmann                 Expires 19 February 2027               [Page 27]
 
 Internet-Draft                   IDMEFv2                     August 2026
 
-
-      SHOULD be a fully-qualified domain name.
-
-   Model
-      Optional.  Analyzer model description (usually its generic name,
-      brand and version).
 
    Category
       Optional.  Analyzer categories.
@@ -1561,6 +1555,12 @@ Internet-Draft                   IDMEFv2                     August 2026
       analyzer (if the analyzer is also a sensor), as a JSON-serialized
       string.
 
+      Depending on the type of sensor, the capture zone may for instance
+      refer to:
+
+      A JSON object describing a camera's settings (elevation,
+      horizontal and vertical field of view, azimuth, etc.)
+
 
 
 
@@ -1569,12 +1569,6 @@ Lehmann                 Expires 19 February 2027               [Page 28]
 
 Internet-Draft                   IDMEFv2                     August 2026
 
-
-      Depending on the type of sensor, the capture zone may for instance
-      refer to:
-
-      A JSON object describing a camera's settings (elevation,
-      horizontal and vertical field of view, azimuth, etc.)
 
       A description of the IP network where packet capture is taking
       place.
@@ -1618,6 +1612,12 @@ Internet-Draft                   IDMEFv2                     August 2026
       to distinguish multiple sensors running with the same IP address.
 
    Hostname
+      Optional.  The sensor's hostname.
+
+      This SHOULD be a fully qualified domain name, but may not conform
+      exactly because values extracted from logs, messages, DNS, etc.
+      may themselves be malformed.
+
 
 
 
@@ -1625,12 +1625,6 @@ Lehmann                 Expires 19 February 2027               [Page 29]
 
 Internet-Draft                   IDMEFv2                     August 2026
 
-
-      Optional.  The sensor's hostname.
-
-      This SHOULD be a fully qualified domain name, but may not conform
-      exactly because values extracted from logs, messages, DNS, etc.
-      may themselves be malformed.
 
       An empty string MAY be used to explicitly state that this value
       was inquired but not found (missing DNS entry).
@@ -1665,6 +1659,12 @@ Internet-Draft                   IDMEFv2                     August 2026
 
    The Source class describes the origin(s) of the event(s) leading up
    to the creation of this alert.
+
+
+
+
+
+
 
 
 
