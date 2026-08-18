@@ -1590,6 +1590,7 @@ Source(0).IP</literal_block>
 | UUID       ID          |
 | IP         IP          |
 | STRING     Hostname    |
+| STRING     Name        |
 | ENUM[]     Category    |
 | STRING     Note        |
 | STRING[]   TI          |
@@ -1628,6 +1629,13 @@ Source(0).IP</literal_block>
                             may themselves be malformed.</paragraph>
                         <paragraph>An empty string MAY be used to explicitly state that this value
                             was inquired but not found (missing DNS entry).</paragraph>
+                    </definition>
+                </definition_list_item>
+                <definition_list_item>
+                    <term>Name</term>
+                    <definition>
+                        <paragraph>Optional. Name of this source.</paragraph>
+                        <paragraph>Naming the source might be necessary for non digital source like a human, a vehicle, a drone, etc.</paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1729,6 +1737,7 @@ Source(0).IP</literal_block>
 | UUID       ID          |
 | IP         IP          |
 | STRING     Hostname    |
+| STRING     Name        |
 | ENUM[]     Category    |
 | STRING     Note        |
 | STRING     Service     |
@@ -1765,6 +1774,13 @@ Source(0).IP</literal_block>
                             may themselves be malformed.</paragraph>
                         <paragraph>An empty string MAY be used to explicitly state that this value
                             was inquired but not found (missing DNS entry).</paragraph>
+                    </definition>
+                </definition_list_item>
+                <definition_list_item>
+                    <term>Name</term>
+                    <definition>
+                        <paragraph>Optional. Name of this target.</paragraph>
+                        <paragraph>Naming the target might be necessary for non digital targets like a human, a vehicle, a building, etc.</paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>

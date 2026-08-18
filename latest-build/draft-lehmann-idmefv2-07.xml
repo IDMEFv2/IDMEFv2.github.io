@@ -12,7 +12,7 @@
         <email>gilles.lehmann@telecom-sudparis.eu</email>
       </address>
     </author>
-    <date day="17" month="June" year="2026"/>
+    <date day="18" month="August" year="2026"/>
     <keyword>RFC4765</keyword>
     <keyword>RFC4766</keyword>
     <keyword>IDMEF</keyword>
@@ -1375,6 +1375,7 @@ Source(0).IP</sourcecode>
 | UUID       ID          |
 | IP         IP          |
 | STRING     Hostname    |
+| STRING     Name        |
 | ENUM[]     Category    |
 | STRING     Note        |
 | STRING[]   TI          |
@@ -1409,6 +1410,12 @@ Source(0).IP</sourcecode>
                             may themselves be malformed.</t>
                         <t>An empty string MAY be used to explicitly state that this value
                             was inquired but not found (missing DNS entry).</t>
+                    </dd>
+                
+                    <dt>Name</dt>
+                    <dd>
+                        <t>Optional. Name of this source.</t>
+                        <t>Naming the source might be necessary for non digital source like a human, a vehicle, a drone, etc.</t>
                     </dd>
                 
                     <dt>Category</dt>
@@ -1495,6 +1502,7 @@ Source(0).IP</sourcecode>
 | UUID       ID          |
 | IP         IP          |
 | STRING     Hostname    |
+| STRING     Name        |
 | ENUM[]     Category    |
 | STRING     Note        |
 | STRING     Service     |
@@ -1527,6 +1535,12 @@ Source(0).IP</sourcecode>
                             may themselves be malformed.</t>
                         <t>An empty string MAY be used to explicitly state that this value
                             was inquired but not found (missing DNS entry).</t>
+                    </dd>
+                
+                    <dt>Name</dt>
+                    <dd>
+                        <t>Optional. Name of this target.</t>
+                        <t>Naming the target might be necessary for non digital targets like a human, a vehicle, a building, etc.</t>
                     </dd>
                 
                     <dt>Category</dt>

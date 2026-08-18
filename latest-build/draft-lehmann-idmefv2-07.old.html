@@ -1189,11 +1189,11 @@ li > p:last-of-type {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">IDMEFv2</td>
-<td class="right">June 2026</td>
+<td class="right">August 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Lehmann</td>
-<td class="center">Expires 19 December 2026</td>
+<td class="center">Expires 19 February 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1209,12 +1209,12 @@ li > p:last-of-type {
 <a href="https://www.rfc-editor.org/rfc/rfc4765" class="eref">4765</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-06-17" class="published">17 June 2026</time>
+<time datetime="2026-08-18" class="published">18 August 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-12-19">19 December 2026</time></dd>
+<dd class="expires"><time datetime="2027-02-19">19 February 2027</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1259,7 +1259,7 @@ li > p:last-of-type {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 19 December 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 19 February 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -3068,6 +3068,7 @@ Source(0).IP</pre><a href="#section-3.3.12-10" class="pilcrow">¶</a>
 | UUID       ID          |
 | IP         IP          |
 | STRING     Hostname    |
+| STRING     Name        |
 | ENUM[]     Category    |
 | STRING     Note        |
 | STRING[]   TI          |
@@ -3108,76 +3109,82 @@ Source(0).IP</pre><a href="#section-3.3.12-10" class="pilcrow">¶</a>
                             was inquired but not found (missing DNS entry).<a href="#section-5.5-4.6.3" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.5-4.7">Category</dt>
+<dt id="section-5.5-4.7">Name</dt>
           <dd style="margin-left: 1.5em" id="section-5.5-4.8">
-            <p id="section-5.5-4.8.1">Optional. Source category<a href="#section-5.5-4.8.1" class="pilcrow">¶</a></p>
-<p id="section-5.5-4.8.2">Enumeration available here <a href="#id23" class="xref">Table 11</a><a href="#section-5.5-4.8.2" class="pilcrow">¶</a></p>
+            <p id="section-5.5-4.8.1">Optional. Name of this source.<a href="#section-5.5-4.8.1" class="pilcrow">¶</a></p>
+<p id="section-5.5-4.8.2">Naming the source might be necessary for non digital source like a human, a vehicle, a drone, etc.<a href="#section-5.5-4.8.2" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.5-4.9">Note</dt>
+<dt id="section-5.5-4.9">Category</dt>
           <dd style="margin-left: 1.5em" id="section-5.5-4.10">
-            <p id="section-5.5-4.10.1">Optional. Free text human-readable additional note for this source.<a href="#section-5.5-4.10.1" class="pilcrow">¶</a></p>
+            <p id="section-5.5-4.10.1">Optional. Source category<a href="#section-5.5-4.10.1" class="pilcrow">¶</a></p>
+<p id="section-5.5-4.10.2">Enumeration available here <a href="#id23" class="xref">Table 11</a><a href="#section-5.5-4.10.2" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.5-4.11">TI</dt>
+<dt id="section-5.5-4.11">Note</dt>
           <dd style="margin-left: 1.5em" id="section-5.5-4.12">
-            <p id="section-5.5-4.12.1">Optional. Threat Intelligence data about the source.<a href="#section-5.5-4.12.1" class="pilcrow">¶</a></p>
-<p id="section-5.5-4.12.2">Values in this list MUST use the format "attribute:origin",
+            <p id="section-5.5-4.12.1">Optional. Free text human-readable additional note for this source.<a href="#section-5.5-4.12.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-5.5-4.13">TI</dt>
+          <dd style="margin-left: 1.5em" id="section-5.5-4.14">
+            <p id="section-5.5-4.14.1">Optional. Threat Intelligence data about the source.<a href="#section-5.5-4.14.1" class="pilcrow">¶</a></p>
+<p id="section-5.5-4.14.2">Values in this list MUST use the format "attribute:origin",
                             where "attribute" refers to the attribute inside this source
                             found inside a Threat Intelligence database, and "origin"
                             contains a short identifier for the Threat Intelligence database.
-                            E.g. "IP:Dshield".<a href="#section-5.5-4.12.2" class="pilcrow">¶</a></p>
-<p id="section-5.5-4.12.3">Please note that the same attribute may appear multiple times
+                            E.g. "IP:Dshield".<a href="#section-5.5-4.14.2" class="pilcrow">¶</a></p>
+<p id="section-5.5-4.14.3">Please note that the same attribute may appear multiple times
                             inside the list (because a match was found in multiple
-                            Threat Intelligence databases).<a href="#section-5.5-4.12.3" class="pilcrow">¶</a></p>
+                            Threat Intelligence databases).<a href="#section-5.5-4.14.3" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.5-4.13">User</dt>
-          <dd style="margin-left: 1.5em" id="section-5.5-4.14">
-            <p id="section-5.5-4.14.1">Optional. User ID or login responsible for the incident.<a href="#section-5.5-4.14.1" class="pilcrow">¶</a></p>
-</dd>
-          <dd class="break"></dd>
-<dt id="section-5.5-4.15">Email</dt>
+<dt id="section-5.5-4.15">User</dt>
           <dd style="margin-left: 1.5em" id="section-5.5-4.16">
-            <p id="section-5.5-4.16.1">Optional. Email address responsible for the incident.<a href="#section-5.5-4.16.1" class="pilcrow">¶</a></p>
-<p id="section-5.5-4.16.2">E.g. the value of the "Reply-To" or "From" header inside
-                            a phishing e-mail.<a href="#section-5.5-4.16.2" class="pilcrow">¶</a></p>
+            <p id="section-5.5-4.16.1">Optional. User ID or login responsible for the incident.<a href="#section-5.5-4.16.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.5-4.17">Protocol</dt>
+<dt id="section-5.5-4.17">Email</dt>
           <dd style="margin-left: 1.5em" id="section-5.5-4.18">
-            <p id="section-5.5-4.18.1">Optional. Protocols related to connections from/to this source.<a href="#section-5.5-4.18.1" class="pilcrow">¶</a></p>
-<p id="section-5.5-4.18.2">If several protocols are stacked, they MUST be ordered from
-                            the lowest (the closest to the medium) to the highest (the closest
-                            to the application) according to the ISO/OSI model.<a href="#section-5.5-4.18.2" class="pilcrow">¶</a></p>
+            <p id="section-5.5-4.18.1">Optional. Email address responsible for the incident.<a href="#section-5.5-4.18.1" class="pilcrow">¶</a></p>
+<p id="section-5.5-4.18.2">E.g. the value of the "Reply-To" or "From" header inside
+                            a phishing e-mail.<a href="#section-5.5-4.18.2" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.5-4.19">Port</dt>
+<dt id="section-5.5-4.19">Protocol</dt>
           <dd style="margin-left: 1.5em" id="section-5.5-4.20">
-            <p id="section-5.5-4.20.1">Optional. Source ports involved in the incident.<a href="#section-5.5-4.20.1" class="pilcrow">¶</a></p>
-<p id="section-5.5-4.20.2">Values in this list MUST be integers and MUST be in the range 1-65535.<a href="#section-5.5-4.20.2" class="pilcrow">¶</a></p>
+            <p id="section-5.5-4.20.1">Optional. Protocols related to connections from/to this source.<a href="#section-5.5-4.20.1" class="pilcrow">¶</a></p>
+<p id="section-5.5-4.20.2">If several protocols are stacked, they MUST be ordered from
+                            the lowest (the closest to the medium) to the highest (the closest
+                            to the application) according to the ISO/OSI model.<a href="#section-5.5-4.20.2" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.5-4.21">GeoLocation</dt>
+<dt id="section-5.5-4.21">Port</dt>
           <dd style="margin-left: 1.5em" id="section-5.5-4.22">
-            <p id="section-5.5-4.22.1">Optional. GPS coordinates for the source.<a href="#section-5.5-4.22.1" class="pilcrow">¶</a></p>
+            <p id="section-5.5-4.22.1">Optional. Source ports involved in the incident.<a href="#section-5.5-4.22.1" class="pilcrow">¶</a></p>
+<p id="section-5.5-4.22.2">Values in this list MUST be integers and MUST be in the range 1-65535.<a href="#section-5.5-4.22.2" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.5-4.23">UnLocation</dt>
+<dt id="section-5.5-4.23">GeoLocation</dt>
           <dd style="margin-left: 1.5em" id="section-5.5-4.24">
-            <p id="section-5.5-4.24.1">Optional. Standard UN/Locode for the source.<a href="#section-5.5-4.24.1" class="pilcrow">¶</a></p>
+            <p id="section-5.5-4.24.1">Optional. GPS coordinates for the source.<a href="#section-5.5-4.24.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.5-4.25">Location</dt>
+<dt id="section-5.5-4.25">UnLocation</dt>
           <dd style="margin-left: 1.5em" id="section-5.5-4.26">
-            <p id="section-5.5-4.26.1">Optional. Internal name for the location of the source.<a href="#section-5.5-4.26.1" class="pilcrow">¶</a></p>
+            <p id="section-5.5-4.26.1">Optional. Standard UN/Locode for the source.<a href="#section-5.5-4.26.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.5-4.27">Attachment</dt>
+<dt id="section-5.5-4.27">Location</dt>
           <dd style="margin-left: 1.5em" id="section-5.5-4.28">
-            <p id="section-5.5-4.28.1">Optional. Identifiers for attachments related to this source.<a href="#section-5.5-4.28.1" class="pilcrow">¶</a></p>
-<p id="section-5.5-4.28.2">Each identifier listed here MUST match the "Name" attribute for one
-                            of the attachments described using the <span><a href="#class_attachment" class="xref">Attachment class</a> (<a href="#class_attachment" class="xref">Section 5.7</a>)</span>.<a href="#section-5.5-4.28.2" class="pilcrow">¶</a></p>
+            <p id="section-5.5-4.28.1">Optional. Internal name for the location of the source.<a href="#section-5.5-4.28.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-5.5-4.29">Attachment</dt>
+          <dd style="margin-left: 1.5em" id="section-5.5-4.30">
+            <p id="section-5.5-4.30.1">Optional. Identifiers for attachments related to this source.<a href="#section-5.5-4.30.1" class="pilcrow">¶</a></p>
+<p id="section-5.5-4.30.2">Each identifier listed here MUST match the "Name" attribute for one
+                            of the attachments described using the <span><a href="#class_attachment" class="xref">Attachment class</a> (<a href="#class_attachment" class="xref">Section 5.7</a>)</span>.<a href="#section-5.5-4.30.2" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 </dl>
@@ -3198,6 +3205,7 @@ Source(0).IP</pre><a href="#section-3.3.12-10" class="pilcrow">¶</a>
 | UUID       ID          |
 | IP         IP          |
 | STRING     Hostname    |
+| STRING     Name        |
 | ENUM[]     Category    |
 | STRING     Note        |
 | STRING     Service     |
@@ -3236,59 +3244,65 @@ Source(0).IP</pre><a href="#section-3.3.12-10" class="pilcrow">¶</a>
                             was inquired but not found (missing DNS entry).<a href="#section-5.6-4.6.3" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.6-4.7">Category</dt>
+<dt id="section-5.6-4.7">Name</dt>
           <dd style="margin-left: 1.5em" id="section-5.6-4.8">
-            <p id="section-5.6-4.8.1">Optional. Target category<a href="#section-5.6-4.8.1" class="pilcrow">¶</a></p>
-<p id="section-5.6-4.8.2">Enumeration available here <a href="#id24" class="xref">Table 12</a><a href="#section-5.6-4.8.2" class="pilcrow">¶</a></p>
+            <p id="section-5.6-4.8.1">Optional. Name of this target.<a href="#section-5.6-4.8.1" class="pilcrow">¶</a></p>
+<p id="section-5.6-4.8.2">Naming the target might be necessary for non digital targets like a human, a vehicle, a building, etc.<a href="#section-5.6-4.8.2" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.6-4.9">Note</dt>
+<dt id="section-5.6-4.9">Category</dt>
           <dd style="margin-left: 1.5em" id="section-5.6-4.10">
-            <p id="section-5.6-4.10.1">Optional. Free text human-readable additional note for this target.<a href="#section-5.6-4.10.1" class="pilcrow">¶</a></p>
+            <p id="section-5.6-4.10.1">Optional. Target category<a href="#section-5.6-4.10.1" class="pilcrow">¶</a></p>
+<p id="section-5.6-4.10.2">Enumeration available here <a href="#id24" class="xref">Table 12</a><a href="#section-5.6-4.10.2" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.6-4.11">Service</dt>
+<dt id="section-5.6-4.11">Note</dt>
           <dd style="margin-left: 1.5em" id="section-5.6-4.12">
-            <p id="section-5.6-4.12.1">Optional. Should be High Level Service (messaging, internet, ...), if not defined can be process impacted by the incident.<a href="#section-5.6-4.12.1" class="pilcrow">¶</a></p>
+            <p id="section-5.6-4.12.1">Optional. Free text human-readable additional note for this target.<a href="#section-5.6-4.12.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.6-4.13">User</dt>
+<dt id="section-5.6-4.13">Service</dt>
           <dd style="margin-left: 1.5em" id="section-5.6-4.14">
-            <p id="section-5.6-4.14.1">Optional. User ID or login impacted by the incident.<a href="#section-5.6-4.14.1" class="pilcrow">¶</a></p>
+            <p id="section-5.6-4.14.1">Optional. Should be High Level Service (messaging, internet, ...), if not defined can be process impacted by the incident.<a href="#section-5.6-4.14.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.6-4.15">Email</dt>
+<dt id="section-5.6-4.15">User</dt>
           <dd style="margin-left: 1.5em" id="section-5.6-4.16">
-            <p id="section-5.6-4.16.1">Optional. Email address impacted by the incident.<a href="#section-5.6-4.16.1" class="pilcrow">¶</a></p>
-<p id="section-5.6-4.16.2">E.g. the value of the "To" header inside a phishing e-mail.<a href="#section-5.6-4.16.2" class="pilcrow">¶</a></p>
+            <p id="section-5.6-4.16.1">Optional. User ID or login impacted by the incident.<a href="#section-5.6-4.16.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.6-4.17">Port</dt>
+<dt id="section-5.6-4.17">Email</dt>
           <dd style="margin-left: 1.5em" id="section-5.6-4.18">
-            <p id="section-5.6-4.18.1">Optional. Target ports involved in the incident.<a href="#section-5.6-4.18.1" class="pilcrow">¶</a></p>
-<p id="section-5.6-4.18.2">Values in this list MUST be integers and MUST be in the range 1-65535.<a href="#section-5.6-4.18.2" class="pilcrow">¶</a></p>
+            <p id="section-5.6-4.18.1">Optional. Email address impacted by the incident.<a href="#section-5.6-4.18.1" class="pilcrow">¶</a></p>
+<p id="section-5.6-4.18.2">E.g. the value of the "To" header inside a phishing e-mail.<a href="#section-5.6-4.18.2" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.6-4.19">GeoLocation</dt>
+<dt id="section-5.6-4.19">Port</dt>
           <dd style="margin-left: 1.5em" id="section-5.6-4.20">
-            <p id="section-5.6-4.20.1">Optional. GPS coordinates for the target.<a href="#section-5.6-4.20.1" class="pilcrow">¶</a></p>
+            <p id="section-5.6-4.20.1">Optional. Target ports involved in the incident.<a href="#section-5.6-4.20.1" class="pilcrow">¶</a></p>
+<p id="section-5.6-4.20.2">Values in this list MUST be integers and MUST be in the range 1-65535.<a href="#section-5.6-4.20.2" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.6-4.21">UnLocation</dt>
+<dt id="section-5.6-4.21">GeoLocation</dt>
           <dd style="margin-left: 1.5em" id="section-5.6-4.22">
-            <p id="section-5.6-4.22.1">Optional. Standard UN/Locode for the target.<a href="#section-5.6-4.22.1" class="pilcrow">¶</a></p>
+            <p id="section-5.6-4.22.1">Optional. GPS coordinates for the target.<a href="#section-5.6-4.22.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.6-4.23">Location</dt>
+<dt id="section-5.6-4.23">UnLocation</dt>
           <dd style="margin-left: 1.5em" id="section-5.6-4.24">
-            <p id="section-5.6-4.24.1">Optional. Internal name for the location of the target.<a href="#section-5.6-4.24.1" class="pilcrow">¶</a></p>
+            <p id="section-5.6-4.24.1">Optional. Standard UN/Locode for the target.<a href="#section-5.6-4.24.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.6-4.25">Attachment</dt>
+<dt id="section-5.6-4.25">Location</dt>
           <dd style="margin-left: 1.5em" id="section-5.6-4.26">
-            <p id="section-5.6-4.26.1">Optional. Identifiers for attachments related to this target.<a href="#section-5.6-4.26.1" class="pilcrow">¶</a></p>
-<p id="section-5.6-4.26.2">Each identifier listed here MUST match the "Name" attribute for one
-                            of the attachments described using the <span><a href="#class_attachment" class="xref">Attachment class</a> (<a href="#class_attachment" class="xref">Section 5.7</a>)</span>.<a href="#section-5.6-4.26.2" class="pilcrow">¶</a></p>
+            <p id="section-5.6-4.26.1">Optional. Internal name for the location of the target.<a href="#section-5.6-4.26.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-5.6-4.27">Attachment</dt>
+          <dd style="margin-left: 1.5em" id="section-5.6-4.28">
+            <p id="section-5.6-4.28.1">Optional. Identifiers for attachments related to this target.<a href="#section-5.6-4.28.1" class="pilcrow">¶</a></p>
+<p id="section-5.6-4.28.2">Each identifier listed here MUST match the "Name" attribute for one
+                            of the attachments described using the <span><a href="#class_attachment" class="xref">Attachment class</a> (<a href="#class_attachment" class="xref">Section 5.7</a>)</span>.<a href="#section-5.6-4.28.2" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 </dl>
