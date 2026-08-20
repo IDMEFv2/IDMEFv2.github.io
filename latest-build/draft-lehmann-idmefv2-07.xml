@@ -12,7 +12,7 @@
         <email>gilles.lehmann@telecom-sudparis.eu</email>
       </address>
     </author>
-    <date day="18" month="August" year="2026"/>
+    <date day="20" month="August" year="2026"/>
     <keyword>RFC4765</keyword>
     <keyword>RFC4766</keyword>
     <keyword>IDMEF</keyword>
@@ -1498,6 +1498,8 @@ Source(0).IP</sourcecode>
 | STRING     User        |
 | EMAIL      Email       |
 | INT[]      Port        |
+| STRING     Polygon     |
+| STRING     Circle      |
 | GEOLOC     GeoLocation |
 | UNLOCODE   UnLocation  |
 | STRING     Location    |
@@ -1563,6 +1565,18 @@ Source(0).IP</sourcecode>
                     <dd>
                         <t>Optional. Target ports involved in the incident.</t>
                         <t>Values in this list MUST be integers and MUST be in the range 1-65535.</t>
+                    </dd>
+                
+                    <dt>Polygon</dt>
+                    <dd>
+                        <t>Optional. Pollygonal incident affected area.
+                            Whitespace-delimited list of WGS 84 'latitude,longitude' pairs. Minimum 4 pairs, first equals last</t>
+                    </dd>
+                
+                    <dt>Circle</dt>
+                    <dd>
+                        <t>Optional. Circular incident infected area.
+                            WGS 84 center point 'latitude,longitude' followed by a space and radius in kilometers</t>
                     </dd>
                 
                     <dt>GeoLocation</dt>

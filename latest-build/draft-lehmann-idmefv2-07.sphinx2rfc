@@ -1733,6 +1733,8 @@ Source(0).IP</literal_block>
 | STRING     User        |
 | EMAIL      Email       |
 | INT[]      Port        |
+| STRING     Polygon     |
+| STRING     Circle      |
 | GEOLOC     GeoLocation |
 | UNLOCODE   UnLocation  |
 | STRING     Location    |
@@ -1809,6 +1811,20 @@ Source(0).IP</literal_block>
                     <definition>
                         <paragraph>Optional. Target ports involved in the incident.</paragraph>
                         <paragraph>Values in this list MUST be integers and MUST be in the range 1-65535.</paragraph>
+                    </definition>
+                </definition_list_item>
+                <definition_list_item>
+                    <term>Polygon</term>
+                    <definition>
+                        <paragraph>Optional. Pollygonal incident affected area.
+                            Whitespace-delimited list of WGS 84 'latitude,longitude' pairs. Minimum 4 pairs, first equals last</paragraph>
+                    </definition>
+                </definition_list_item>
+                <definition_list_item>
+                    <term>Circle</term>
+                    <definition>
+                        <paragraph>Optional. Circular incident infected area.
+                            WGS 84 center point 'latitude,longitude' followed by a space and radius in kilometers</paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
