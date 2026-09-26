@@ -24,7 +24,6 @@
 }
 
 .results-height {
-    height: calc(100% - 2rem);
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
@@ -325,6 +324,8 @@ input:focus {
     border-left: 0px;
     background-color: #ffffff;
     color:#333;
+    min-height: 450px;
+    height: calc(100vh - 24rem);
 }
 
 .results-bar {

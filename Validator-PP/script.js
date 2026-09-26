@@ -34,6 +34,27 @@ let validationEnabled = true;
 var currentSchemaURI = `${DRAFTS_BASE_CANDIDATES[0]}/${LATEST_SCHEMA_FOLDER}/IDMEFv2.schema`;
 let editor;
 
+// Accepts either a single IDMEFv2 object or an array of them, so Monaco's
+// live diagnostics agree with what validate() actually supports.
+// "definitions" must stay at the wrapper's root: "#/definitions/..." refs
+// inside the schema resolve against the document root, not the oneOf branch.
+function buildValidationSchemas(uri, schema) {
+  if (!schema) {
+    return [{ uri, fileMatch: ["*"] }];
+  }
+
+  const { definitions, ...schemaWithoutDefinitions } = schema;
+
+  return [{
+    uri,
+    fileMatch: ["*"],
+    schema: {
+      definitions: definitions || {},
+      oneOf: [schemaWithoutDefinitions, { type: "array", items: schemaWithoutDefinitions }]
+    }
+  }];
+}
+
 require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.38.0/min/vs' } });
 require(["vs/editor/editor.main"], function () {
 
@@ -69,11 +90,7 @@ require(["vs/editor/editor.main"], function () {
   function updateValidation(enable, schema = null, schemaUri = schemaURL) {
     monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
       validate: enable,
-      schemas: enable && schema ? [{
-        uri: schemaUri,
-        fileMatch: ["*"],
-        schema: schema
-      }] : []
+      schemas: enable && schema ? buildValidationSchemas(schemaUri, schema) : []
     });
   }
 
@@ -108,8 +125,11 @@ $('#version-dropdown').on('change', function () {
 $(document).ready(async function () {
   await loadExercisesFromFile();
 
-  await initFilesList("latest");
-  await initSchema("latest")
+  // Schema and file-list loading is handled by initEditor() once the schema
+  // resolution finishes (see the require(["vs/editor/editor.main"]) block
+  // above) — calling it again here raced the same fetch against that one,
+  // occasionally failing the "latest" load and firing a false "schema
+  // invalid" warning even though initEditor()'s own load succeeded right after.
 
   // Using the button to call the upload function
   document.getElementById('upload').addEventListener('click', function () {
@@ -328,8 +348,9 @@ function validate() {
     return;
   } else {
 
+    var parsed;
     try {
-      var valid = ajv_validate(JSON.parse(json));
+      parsed = JSON.parse(json);
     } catch (e) {
       result.innerHTML = `
         <p class="message">
@@ -339,17 +360,62 @@ function validate() {
       return;
     }
 
-    if (!valid) {
-      ajv_validate.errors.forEach(function (err) {
-        let path = err.dataPath ? err.dataPath.substr(1) : "Root";
-        if (err.keyword === "additionalProperties") {
-          path += "." + err.params.additionalProperty;
-        }
-        result.innerHTML += `Path: <b>${path}</b>, Error: ${err.message} <br/>`;
-      });
+    if (Array.isArray(parsed)) {
+      validateArray(parsed, result);
     } else {
-      result.innerHTML = "<p class=\"message\">The JSON is valid and conforms to the selected schema.</p>";
+      validateSingle(parsed, result);
     }
+
+    result.innerHTML += '<p class="message">&nbsp;</p>';
+  }
+}
+
+function formatValidationErrors(errors) {
+  return errors.map(function (err) {
+    let path = err.dataPath ? err.dataPath.substr(1) : "Root";
+    if (err.keyword === "additionalProperties") {
+      path += "." + err.params.additionalProperty;
+    }
+    return `Path: <b>${path}</b>, Error: ${err.message}`;
+  }).join("<br/>");
+}
+
+function validateSingle(obj, result) {
+  var valid = ajv_validate(obj);
+
+  if (!valid) {
+    result.innerHTML = formatValidationErrors(ajv_validate.errors) + "<br/>";
+  } else {
+    result.innerHTML = "<p class=\"message\">The JSON is valid and conforms to the selected schema.</p>";
+  }
+}
+
+function validateArray(items, result) {
+  if (items.length === 0) {
+    result.innerHTML = `
+      <p class="message">
+        The array is empty. Please provide at least one JSON object to validate.
+      </p>`;
+    return;
+  }
+
+  let html = "";
+  let invalidCount = 0;
+
+  items.forEach(function (item, index) {
+    var valid = ajv_validate(item);
+
+    if (!valid) {
+      invalidCount++;
+      html += `<p class="message"><b>Object [${index}]</b> is invalid:</p>`;
+      html += formatValidationErrors(ajv_validate.errors) + "<br/>";
+    }
+  });
+
+  if (invalidCount === 0) {
+    result.innerHTML = `<p class="message">All ${items.length} objects in the array are valid and conform to the selected schema.</p>`;
+  } else {
+    result.innerHTML = `<p class="message">${invalidCount} of ${items.length} object(s) failed validation:</p>` + html;
   }
 }
 
@@ -534,13 +600,7 @@ async function initCustomSchema() {
 
     monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
       validate: validationEnabled,
-      schemas: [
-        {
-          uri: `custom://${customSchema.name}`,
-          fileMatch: ["*"],
-          schema: savedSchema
-        }
-      ]
+      schemas: buildValidationSchemas(`custom://${customSchema.name}`, savedSchema)
     });
 
     $('#version-output').text(`Schema version custom (${customSchema.name})`);
@@ -693,13 +753,7 @@ async function initSchema(folder) {
 
     monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
       validate: validationEnabled,
-      schemas: [
-        {
-          uri: localSchemaURL,
-          fileMatch: ["*"],
-          schema: savedSchema
-        }
-      ]
+      schemas: buildValidationSchemas(localSchemaURL, savedSchema)
     });
     return true;
   } catch(e) {
@@ -773,13 +827,7 @@ function enableValidation() {
   $('#autocomplete').text('enabled');
   monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
     validate: validationEnabled,
-    schemas: [
-      {
-        uri: currentSchemaURI,
-        fileMatch: ["*"],
-        schema: savedSchema
-      },
-    ],
+    schemas: buildValidationSchemas(currentSchemaURI, savedSchema),
   });
 }
 
