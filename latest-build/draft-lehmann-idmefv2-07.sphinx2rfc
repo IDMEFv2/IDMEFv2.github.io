@@ -1161,7 +1161,7 @@ Source(0).IP</literal_block>
                                             <paragraph>Info</paragraph>
                                         </entry>
                                         <entry>
-                                            <paragraph>No priority, the alert is informational</paragraph>
+                                            <paragraph>Informational event with no current impact; no action or follow-up is required.</paragraph>
                                         </entry>
                                     </row>
                                     <row>
@@ -1172,7 +1172,7 @@ Source(0).IP</literal_block>
                                             <paragraph>Low</paragraph>
                                         </entry>
                                         <entry>
-                                            <paragraph>Low priority</paragraph>
+                                            <paragraph>Minor incident with negligible impact; a workaround exists, and resolution can be scheduled.</paragraph>
                                         </entry>
                                     </row>
                                     <row>
@@ -1183,7 +1183,7 @@ Source(0).IP</literal_block>
                                             <paragraph>Medium</paragraph>
                                         </entry>
                                         <entry>
-                                            <paragraph>Medium priority</paragraph>
+                                            <paragraph>Moderate incident affecting a limited scope; requires timely attention but is not immediately business-threatening.</paragraph>
                                         </entry>
                                     </row>
                                     <row>
@@ -1194,7 +1194,18 @@ Source(0).IP</literal_block>
                                             <paragraph>High</paragraph>
                                         </entry>
                                         <entry>
-                                            <paragraph>High priority</paragraph>
+                                            <paragraph>Significant incident with major service degradation or impact on important assets; demands an urgent response.</paragraph>
+                                        </entry>
+                                    </row>
+                                    <row>
+                                        <entry>
+                                            <paragraph>5</paragraph>
+                                        </entry>
+                                        <entry>
+                                            <paragraph>Critical</paragraph>
+                                        </entry>
+                                        <entry>
+                                            <paragraph>Severe incident with business-critical systems down or vital interests threatened; requires immediate action and escalation.</paragraph>
                                         </entry>
                                     </row>
                                 </tbody>

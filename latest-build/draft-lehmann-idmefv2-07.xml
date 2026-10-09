@@ -998,7 +998,7 @@ Source(0).IP</sourcecode>
                                             <t>Info</t>
                                         </td>
                                         <td>
-                                            <t>No priority, the alert is informational</t>
+                                            <t>Informational event with no current impact; no action or follow-up is required.</t>
                                         </td>
                                     </tr>
                                     <tr>
@@ -1009,7 +1009,7 @@ Source(0).IP</sourcecode>
                                             <t>Low</t>
                                         </td>
                                         <td>
-                                            <t>Low priority</t>
+                                            <t>Minor incident with negligible impact; a workaround exists, and resolution can be scheduled.</t>
                                         </td>
                                     </tr>
                                     <tr>
@@ -1020,7 +1020,7 @@ Source(0).IP</sourcecode>
                                             <t>Medium</t>
                                         </td>
                                         <td>
-                                            <t>Medium priority</t>
+                                            <t>Moderate incident affecting a limited scope; requires timely attention but is not immediately business-threatening.</t>
                                         </td>
                                     </tr>
                                     <tr>
@@ -1031,7 +1031,18 @@ Source(0).IP</sourcecode>
                                             <t>High</t>
                                         </td>
                                         <td>
-                                            <t>High priority</t>
+                                            <t>Significant incident with major service degradation or impact on important assets; demands an urgent response.</t>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <t>5</t>
+                                        </td>
+                                        <td>
+                                            <t>Critical</t>
+                                        </td>
+                                        <td>
+                                            <t>Severe incident with business-critical systems down or vital interests threatened; requires immediate action and escalation.</t>
                                         </td>
                                     </tr>
                                 </tbody>

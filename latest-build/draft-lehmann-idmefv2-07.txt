@@ -130,7 +130,7 @@ Internet-Draft                   IDMEFv2                    October 2026
    5.  The IDMEF Data Model  . . . . . . . . . . . . . . . . . . . .  17
      5.1.  Overview  . . . . . . . . . . . . . . . . . . . . . . . .  17
      5.2.  The Alert Class . . . . . . . . . . . . . . . . . . . . .  18
-     5.3.  The Analyzer Class  . . . . . . . . . . . . . . . . . . .  26
+     5.3.  The Analyzer Class  . . . . . . . . . . . . . . . . . . .  27
      5.4.  The Sensor Class  . . . . . . . . . . . . . . . . . . . .  29
      5.5.  The Source Class  . . . . . . . . . . . . . . . . . . . .  30
      5.6.  The Target Class  . . . . . . . . . . . . . . . . . . . .  33
@@ -1322,21 +1322,21 @@ Internet-Draft                   IDMEFv2                    October 2026
       combining impact and urgency.  It indicates how fast the incident
       should be taken care of.
 
-         +======+=========+=========================================+
-         | Rank | Keyword | Description                             |
-         +======+=========+=========================================+
-         | 0    | Unknown | Priority unknown                        |
-         +------+---------+-----------------------------------------+
-         | 1    | Info    | No priority, the alert is informational |
-         +------+---------+-----------------------------------------+
-         | 2    | Low     | Low priority                            |
-         +------+---------+-----------------------------------------+
-         | 3    | Medium  | Medium priority                         |
-         +------+---------+-----------------------------------------+
-         | 4    | High    | High priority                           |
-         +------+---------+-----------------------------------------+
 
-                         Table 4: Incident priorities
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1345,6 +1345,33 @@ Lehmann                   Expires 12 April 2027                [Page 24]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
+
+      +======+==========+=============================================+
+      | Rank | Keyword  | Description                                 |
+      +======+==========+=============================================+
+      | 0    | Unknown  | Priority unknown                            |
+      +------+----------+---------------------------------------------+
+      | 1    | Info     | Informational event with no current impact; |
+      |      |          | no action or follow-up is required.         |
+      +------+----------+---------------------------------------------+
+      | 2    | Low      | Minor incident with negligible impact; a    |
+      |      |          | workaround exists, and resolution can be    |
+      |      |          | scheduled.                                  |
+      +------+----------+---------------------------------------------+
+      | 3    | Medium   | Moderate incident affecting a limited       |
+      |      |          | scope; requires timely attention but is not |
+      |      |          | immediately business-threatening.           |
+      +------+----------+---------------------------------------------+
+      | 4    | High     | Significant incident with major service     |
+      |      |          | degradation or impact on important assets;  |
+      |      |          | demands an urgent response.                 |
+      +------+----------+---------------------------------------------+
+      | 5    | Critical | Severe incident with business-critical      |
+      |      |          | systems down or vital interests threatened; |
+      |      |          | requires immediate action and escalation.   |
+      +------+----------+---------------------------------------------+
+
+                         Table 4: Incident priorities
 
    Confidence
       Optional.  A floating-point value between 0 and 1 indicating the
@@ -1367,6 +1394,13 @@ Internet-Draft                   IDMEFv2                    October 2026
 
    StartTime
       Optional.  Timestamp indicating the deduced start of the event.
+
+
+
+Lehmann                   Expires 12 April 2027                [Page 25]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
 
       StartTime can be later than CreateTime in case or Alerts created
       from forecast information (e.g.  Snow Storm expected in two days
@@ -1393,15 +1427,6 @@ Internet-Draft                   IDMEFv2                    October 2026
       Optional.  References to sources of information related to the
       incident and/or vulnerability, and specific to this incident.
 
-
-
-
-
-Lehmann                   Expires 12 April 2027                [Page 25]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
-
       This MAY be a URL to additional info, or a URN in a registered or
       unregistered ad-hoc namespace bearing reasonable information value
       and uniqueness, such as "urn:cve:CVE-2013-2266".
@@ -1424,6 +1449,15 @@ Internet-Draft                   IDMEFv2                    October 2026
       with this attribute to describe the aggregation window.
 
    PredID
+
+
+
+
+Lehmann                   Expires 12 April 2027                [Page 26]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
       Optional.  A list containing the identifiers of previous messages
       which are obsoleted by this message.
 
@@ -1439,24 +1473,6 @@ Internet-Draft                   IDMEFv2                    October 2026
    The Analyzer class describes the module that has analyzed the data
    captured by the sensors, identified an event of interest and decided
    to create an alert.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Lehmann                   Expires 12 April 2027                [Page 26]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
 
                          +-----------------------+
                          |       Analyzer        |
@@ -1489,6 +1505,15 @@ Internet-Draft                   IDMEFv2                    October 2026
       Optional.  Analyzer IP address.
 
    Name
+
+
+
+
+Lehmann                   Expires 12 April 2027                [Page 27]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
       Recommended.  Name of the analyzer, which must be reasonably
       unique, however still bear some meaningful sense.
 
@@ -1505,14 +1530,6 @@ Internet-Draft                   IDMEFv2                    October 2026
    Model
       Optional.  Analyzer model description (usually its generic name,
       brand and version).
-
-
-
-
-Lehmann                   Expires 12 April 2027                [Page 27]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
 
    Category
       Optional.  Analyzer categories.
@@ -1545,6 +1562,14 @@ Internet-Draft                   IDMEFv2                    October 2026
       Optional.  GPS coordinates for the analyzer.
 
    UnLocation
+
+
+
+Lehmann                   Expires 12 April 2027                [Page 28]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
       Optional.  Standard UN/Locode for the analyzer.
 
    Location
@@ -1560,15 +1585,6 @@ Internet-Draft                   IDMEFv2                    October 2026
 
       A JSON object describing a camera's settings (elevation,
       horizontal and vertical field of view, azimuth, etc.)
-
-
-
-
-
-Lehmann                   Expires 12 April 2027                [Page 28]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
 
       A description of the IP network where packet capture is taking
       place.
@@ -1603,6 +1619,13 @@ Internet-Draft                   IDMEFv2                    October 2026
    IP
       Optional.  The sensor's IP address.
 
+
+
+Lehmann                   Expires 12 April 2027                [Page 29]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
    Name
       Recommended.  Name of the sensor, which must be reasonably unique,
       however still bear some meaningful sense.
@@ -1617,14 +1640,6 @@ Internet-Draft                   IDMEFv2                    October 2026
       This SHOULD be a fully qualified domain name, but may not conform
       exactly because values extracted from logs, messages, DNS, etc.
       may themselves be malformed.
-
-
-
-
-Lehmann                   Expires 12 April 2027                [Page 29]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
 
       An empty string MAY be used to explicitly state that this value
       was inquired but not found (missing DNS entry).
@@ -1659,21 +1674,6 @@ Internet-Draft                   IDMEFv2                    October 2026
 
    The Source class describes the origin(s) of the event(s) leading up
    to the creation of this alert.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
