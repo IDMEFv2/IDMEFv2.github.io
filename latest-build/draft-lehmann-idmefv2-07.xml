@@ -12,7 +12,7 @@
         <email>gilles.lehmann@telecom-sudparis.eu</email>
       </address>
     </author>
-    <date day="20" month="August" year="2026"/>
+    <date day="9" month="October" year="2026"/>
     <keyword>RFC4765</keyword>
     <keyword>RFC4766</keyword>
     <keyword>IDMEF</keyword>
@@ -3866,7 +3866,7 @@ Source(0).IP</sourcecode>
                                 <t>Access.Unauthorized</t>
                             </td>
                             <td>
-                                <t>An incident involving physical entry into a restricted building, room, or area without proper authorization.</t>
+                                <t>Incident involving unauthorized access — physical or digital — to a restricted building, room, area, system, network, application, account, or data resource, whether actual or attempted.</t>
                             </td>
                         </tr>
                         <tr>
