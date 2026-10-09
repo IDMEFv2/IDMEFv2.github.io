@@ -147,17 +147,17 @@ Internet-Draft                   IDMEFv2                    October 2026
      A.2.  Alert Category  . . . . . . . . . . . . . . . . . . . . .  54
      A.3.  Analyzer Category . . . . . . . . . . . . . . . . . . . .  73
      A.4.  Analyzer Data . . . . . . . . . . . . . . . . . . . . . .  79
-     A.5.  Analyzer Method . . . . . . . . . . . . . . . . . . . . .  81
-     A.6.  Source Category . . . . . . . . . . . . . . . . . . . . .  86
-     A.7.  Target Category . . . . . . . . . . . . . . . . . . . . .  99
-   Appendix B.  Examples . . . . . . . . . . . . . . . . . . . . . . 102
-     B.1.  Physical intrusion  . . . . . . . . . . . . . . . . . . . 102
-     B.2.  Cyberattack . . . . . . . . . . . . . . . . . . . . . . . 104
-     B.3.  Server outage . . . . . . . . . . . . . . . . . . . . . . 105
-     B.4.  Combined incident . . . . . . . . . . . . . . . . . . . . 106
-     B.5.  Hazard incident . . . . . . . . . . . . . . . . . . . . . 108
-   Appendix C.  JSON Validation Schema (Non-normative) . . . . . . . 109
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . . 136
+     A.5.  Analyzer Method . . . . . . . . . . . . . . . . . . . . .  82
+     A.6.  Source Category . . . . . . . . . . . . . . . . . . . . .  88
+     A.7.  Target Category . . . . . . . . . . . . . . . . . . . . . 101
+   Appendix B.  Examples . . . . . . . . . . . . . . . . . . . . . . 103
+     B.1.  Physical intrusion  . . . . . . . . . . . . . . . . . . . 104
+     B.2.  Cyberattack . . . . . . . . . . . . . . . . . . . . . . . 105
+     B.3.  Server outage . . . . . . . . . . . . . . . . . . . . . . 106
+     B.4.  Combined incident . . . . . . . . . . . . . . . . . . . . 107
+     B.5.  Hazard incident . . . . . . . . . . . . . . . . . . . . . 109
+   Appendix C.  JSON Validation Schema (Non-normative) . . . . . . . 110
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . . 137
 
 
 
@@ -4396,28 +4396,28 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 A.4.  Analyzer Data
 
-   +======+================+===========================================+
-   | Rank | Item           | Description                               |
-   +======+================+===========================================+
-   | 0    | Undetermined   | Analyser data is undetermed.              |
-   +------+----------------+-------------------------------------------+
-   | 1    | Light          | ambient light levels, flicker             |
-   |      |                | detection                                 |
-   +------+----------------+-------------------------------------------+
-   | 2    | Acoustics      | sound pressure, specific                  |
-   |      |                | frequencies                               |
-   +------+----------------+-------------------------------------------+
-   | 3    | Contact        | physical interaction, switch              |
-   |      |                | state                                     |
-   +------+----------------+-------------------------------------------+
-   | 4    | Vibration      | mechanical oscillation,                   |
-   |      |                | structural health                         |
-   +------+----------------+-------------------------------------------+
-   | 5    | Temperature    | ambient, device, or surface               |
-   +------+----------------+-------------------------------------------+
-   | 6    | Humidity       | relative humidity, moisture in            |
-   |      |                | air                                       |
-   +------+----------------+-------------------------------------------+
+   +======+==============+============================================+
+   | Rank | Item         | Description                                |
+   +======+==============+============================================+
+   | 0    | Undetermined | The analyzed data type is unknown or not   |
+   |      |              | yet classified.  Used as a placeholder     |
+   |      |              | when no other value applies.  Example: a   |
+   |      |              | generic analyzer whose input could not be  |
+   |      |              | identified.                                |
+   +------+--------------+--------------------------------------------+
+   | 1    | Acoustics    | Sound pressure or specific frequency       |
+   |      |              | measurements captured by a microphone or   |
+   |      |              | acoustic sensor.  Example: gunshot         |
+   |      |              | detection, glass break detection, machine  |
+   |      |              | noise spectrum.                            |
+   +------+--------------+--------------------------------------------+
+   | 2    | Alert        | IDMEFv2 or equivalent alert produced by an |
+   |      |              | upstream analyzer and consumed as input by |
+   |      |              | a correlator, aggregator or hypervisor.    |
+   |      |              | Example: IDMEFv2 JSON alert from a local   |
+   |      |              | SOC processed by a central SOC correlator. |
+   +------+--------------+--------------------------------------------+
+   | 3    | Contact      | Physical interaction or binary state       |
 
 
 
@@ -4426,54 +4426,54 @@ Lehmann                   Expires 12 April 2027                [Page 79]
 Internet-Draft                   IDMEFv2                    October 2026
 
 
-   | 7    | Rain           | precipitation detection                   |
-   +------+----------------+-------------------------------------------+
-   | 8    | Water          | leak detection, immersion,                |
-   |      |                | water flow                                |
-   +------+----------------+-------------------------------------------+
-   | 9    | Fog            | visibility reduction, optical             |
-   |      |                | density                                   |
-   +------+----------------+-------------------------------------------+
-   | 10   | Particles      | dust, smoke, airborne                     |
-   |      |                | contaminants                              |
-   +------+----------------+-------------------------------------------+
-   | 11   | Seismic        | ground motion, earthquakes,               |
-   |      |                | vibrations                                |
-   +------+----------------+-------------------------------------------+
-   | 12   | Magnetic       | magnetic anomaly detection,               |
-   |      |                | proximity                                 |
-   +------+----------------+-------------------------------------------+
-   | 13   | Images         | visible spectrum cameras                  |
-   +------+----------------+-------------------------------------------+
-   | 14   | Thermal        | infrared imaging, heat                    |
-   |      |                | signatures                                |
-   +------+----------------+-------------------------------------------+
-   | 15   | Lidar          | laser-based distance                      |
-   |      |                | measurement, 3D mapping                   |
-   +------+----------------+-------------------------------------------+
-   | 16   | Network        | traffic, bandwidth,                       |
-   |      |                | connectivity                              |
-   +------+----------------+-------------------------------------------+
-   | 17   | Flow           | netflow, packet flow analysis             |
-   +------+----------------+-------------------------------------------+
-   | 18   | Protocol       | protocol anomalies, compliance            |
-   +------+----------------+-------------------------------------------+
-   | 19   | Datagram       | packet-level inspection                   |
-   +------+----------------+-------------------------------------------+
-   | 20   | Host           | server or device health,                  |
-   |      |                | uptime                                    |
-   +------+----------------+-------------------------------------------+
-   | 21   | Connection     | session establishment, drops              |
-   +------+----------------+-------------------------------------------+
-   | 22   | Port           | open/closed, scanning activity            |
-   +------+----------------+-------------------------------------------+
-   | 23   | SNMP           | simple network management                 |
-   |      |                | protocol data                             |
-   +------+----------------+-------------------------------------------+
-   | 24   | Authentication | login attempts, failures,                 |
-   |      |                | anomalies                                 |
-   +------+----------------+-------------------------------------------+
-   | 25   | Log            | system, application, security             |
+   |      |              | change detected by a contact sensor.       |
+   |      |              | Example: door contact switch, cabinet open |
+   |      |              | detection, tamper switch.                  |
+   +------+--------------+--------------------------------------------+
+   | 4    | Content      | Payload or body of a communication         |
+   |      |              | inspected at the application layer.        |
+   |      |              | Example: HTTP body, email message, SMTP    |
+   |      |              | DATA section, file transfer payload, DPI-  |
+   |      |              | matched bytes.                             |
+   +------+--------------+--------------------------------------------+
+   | 5    | Data         | Generic or opaque data stream whose        |
+   |      |              | structure is not further specified.        |
+   |      |              | Example: raw sensor telemetry, vendor-     |
+   |      |              | specific binary stream, serial output.     |
+   +------+--------------+--------------------------------------------+
+   | 6    | Datagram     | Raw packet-level data captured at the      |
+   |      |              | network layer.  Example: Ethernet frame,   |
+   |      |              | IPv4/IPv6 packet, TCP segment, UDP         |
+   |      |              | datagram, ICMP message.                    |
+   +------+--------------+--------------------------------------------+
+   | 7    | External     | Data originating from a third party such   |
+   |      |              | as a threat intelligence feed or an        |
+   |      |              | external CERT.  Example: STIX/TAXII feed,  |
+   |      |              | IOC list, external CERT notification,      |
+   |      |              | vendor advisory.                           |
+   +------+--------------+--------------------------------------------+
+   | 8    | File         | Content or metadata of a file read by the  |
+   |      |              | analyzer for inspection, integrity or      |
+   |      |              | change detection.  Example: file hash, PE  |
+   |      |              | header, document content, file             |
+   |      |              | permissions, modification timestamp.       |
+   +------+--------------+--------------------------------------------+
+   | 9    | Flow         | Network flow records aggregating packets   |
+   |      |              | by 5-tuple or similar criteria.  Example:  |
+   |      |              | NetFlow, IPFIX, sFlow records exported by  |
+   |      |              | routers or probes.                         |
+   +------+--------------+--------------------------------------------+
+   | 10   | Fog          | Visibility reduction or optical density    |
+   |      |              | measured by a fog sensor.  Example: fog    |
+   |      |              | detection on a perimeter road, visibility  |
+   |      |              | monitoring for cameras.                    |
+   +------+--------------+--------------------------------------------+
+   | 11   | Humidity     | Relative humidity or moisture content in   |
+   |      |              | the air measured by a hygrometer.          |
+   |      |              | Example: datacenter humidity level,        |
+   |      |              | warehouse moisture monitoring.             |
+   +------+--------------+--------------------------------------------+
+   | 12   | Images       | Visible-spectrum image or video frames     |
 
 
 
@@ -4482,35 +4482,94 @@ Lehmann                   Expires 12 April 2027                [Page 80]
 Internet-Draft                   IDMEFv2                    October 2026
 
 
-   |      |                | logs                                      |
-   +------+----------------+-------------------------------------------+
-   | 26   | File           | file integrity, access,                   |
-   |      |                | changes                                   |
-   +------+----------------+-------------------------------------------+
-   | 27   | Content        | payload inspection, data                  |
-   |      |                | content                                   |
-   +------+----------------+-------------------------------------------+
-   | 28   | Data           | generic data streams, sensor              |
-   |      |                | data                                      |
-   +------+----------------+-------------------------------------------+
-   | 29   | Reporting      | summary reports, alerts from              |
-   |      |                | other systems                             |
-   +------+----------------+-------------------------------------------+
-   | 30   | Alert          | triggered notifications                   |
-   +------+----------------+-------------------------------------------+
-   | 31   | Relay          | alert forwarding, escalation              |
-   +------+----------------+-------------------------------------------+
-   | 32   | External       | third-party alerts, threat                |
-   |      |                | intelligence feeds                        |
-   +------+----------------+-------------------------------------------+
-   | 33   | ext-value      | A value used to indicate that             |
-   |      |                | this attribute is extended and            |
-   |      |                | the actual value is provided              |
-   |      |                | using the corresponding ext-*             |
-   |      |                | attribute. (see Section 4.1.1)            |
-   +------+----------------+-------------------------------------------+
+   |      |              | captured by a camera.  Example: CCTV       |
+   |      |              | frame, IP camera stream, facial            |
+   |      |              | recognition input.                         |
+   +------+--------------+--------------------------------------------+
+   | 13   | Lidar        | Point cloud or distance measurements       |
+   |      |              | produced by a laser-based sensor.          |
+   |      |              | Example: 3D point cloud from a rotating    |
+   |      |              | lidar, perimeter scanning lidar.           |
+   +------+--------------+--------------------------------------------+
+   | 14   | Light        | Ambient light level or flicker detected by |
+   |      |              | a photodetector.  Example: lux             |
+   |      |              | measurement, room lighting state, strobe   |
+   |      |              | or flicker detection.                      |
+   +------+--------------+--------------------------------------------+
+   | 15   | Log          | Structured or unstructured event records   |
+   |      |              | produced by systems, applications or       |
+   |      |              | security devices.  Example: syslog         |
+   |      |              | messages, Windows EventLog entries,        |
+   |      |              | journald records, firewall logs,           |
+   |      |              | application traces.                        |
+   +------+--------------+--------------------------------------------+
+   | 16   | Magnetic     | Magnetic field strength or anomaly         |
+   |      |              | detected by a magnetometer.  Example: door |
+   |      |              | open/close magnetic contact, vehicle       |
+   |      |              | detection, magnetic anomaly near           |
+   |      |              | equipment.                                 |
+   +------+--------------+--------------------------------------------+
+   | 17   | Particles    | Concentration of dust, smoke or airborne   |
+   |      |              | contaminants measured by a particle        |
+   |      |              | sensor.  Example: smoke detector, PM2.5    |
+   |      |              | sensor, dust monitoring in a facility.     |
+   +------+--------------+--------------------------------------------+
+   | 18   | PCAP         | Packet capture files stored on disk and    |
+   |      |              | analyzed offline.  Example: .pcap and      |
+   |      |              | .pcapng files produced by tcpdump, dumpcap |
+   |      |              | or Wireshark.                              |
+   +------+--------------+--------------------------------------------+
+   | 19   | Rain         | Precipitation detected or measured by a    |
+   |      |              | rain sensor.  Example: rainfall detection  |
+   |      |              | on an outdoor site, rain gauge.            |
+   +------+--------------+--------------------------------------------+
+   | 20   | Seismic      | Ground motion or earthquake-related        |
+   |      |              | signals captured by a seismograph.         |
+   |      |              | Example: earthquake detection, ground      |
+   |      |              | vibration near a datacenter.               |
+   +------+--------------+--------------------------------------------+
+   | 21   | SNMP         | Data retrieved via the Simple Network      |
+   |      |              | Management Protocol from managed devices.  |
 
-                          Table 9: Analyzer Datas
+
+
+Lehmann                   Expires 12 April 2027                [Page 81]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
+   |      |              | Example: SNMP GET/WALK results, MIB object |
+   |      |              | values, traps and informs.                 |
+   +------+--------------+--------------------------------------------+
+   | 22   | Temperature  | Ambient, device or surface temperature     |
+   |      |              | measured by a thermometer or thermal       |
+   |      |              | probe.  Example: server room temperature,  |
+   |      |              | device CPU temperature, cold-chain         |
+   |      |              | monitoring.                                |
+   +------+--------------+--------------------------------------------+
+   | 23   | Thermal      | Infrared image or heat signature data      |
+   |      |              | captured by a thermal sensor.  Example:    |
+   |      |              | thermal camera frame, heat map of a room   |
+   |      |              | or equipment.                              |
+   +------+--------------+--------------------------------------------+
+   | 24   | Vibration    | Mechanical oscillation or structural       |
+   |      |              | movement measured by an accelerometer or   |
+   |      |              | vibration sensor.  Example: seismic-grade  |
+   |      |              | vibration of a server rack, structural     |
+   |      |              | health monitoring of a bridge.             |
+   +------+--------------+--------------------------------------------+
+   | 25   | Water        | Presence, flow or level of water detected  |
+   |      |              | by a sensor.  Example: leak detection      |
+   |      |              | under a raised floor, flood sensor, water  |
+   |      |              | flow meter.                                |
+   +------+--------------+--------------------------------------------+
+   | 26   | ext-value    | A value used to indicate that this         |
+   |      |              | attribute is extended and the actual value |
+   |      |              | is provided using the corresponding ext-*  |
+   |      |              | attribute. (see Section 4.1.1)             |
+   +------+--------------+--------------------------------------------+
+
+                       Table 9: enum_analyzer_data
 
 A.5.  Analyzer Method
 
@@ -4527,17 +4586,17 @@ A.5.  Analyzer Method
    +------+----------------+-------------------------------------------+
    | 2    | Anomaly        | An analyzer that identifies               |
    |      |                | deviations from established norms or      |
-   |      |                | baselines without relying on              |
-   |      |                | predefined signatures, often flagging     |
-   |      |                | unusual patterns in traffic,              |
 
 
 
-Lehmann                   Expires 12 April 2027                [Page 81]
+Lehmann                   Expires 12 April 2027                [Page 82]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
 
+   |      |                | baselines without relying on              |
+   |      |                | predefined signatures, often flagging     |
+   |      |                | unusual patterns in traffic,              |
    |      |                | behavior, or system activity.             |
    +------+----------------+-------------------------------------------+
    | 3    | Behavioral     | An analyzer that monitors and             |
@@ -4583,17 +4642,17 @@ Internet-Draft                   IDMEFv2                    October 2026
    +------+----------------+-------------------------------------------+
    | 9    | Fingerprinting | An analyzer that creates unique           |
    |      |                | identifiers or "fingerprints" for         |
-   |      |                | devices, applications, or network         |
-   |      |                | stacks to detect spoofing,                |
-   |      |                | unauthorized devices, or                  |
 
 
 
-Lehmann                   Expires 12 April 2027                [Page 82]
+Lehmann                   Expires 12 April 2027                [Page 83]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
 
+   |      |                | devices, applications, or network         |
+   |      |                | stacks to detect spoofing,                |
+   |      |                | unauthorized devices, or                  |
    |      |                | configuration changes.                    |
    +------+----------------+-------------------------------------------+
    | 10   | Frequency      | An analyzer that detects incidents        |
@@ -4639,17 +4698,17 @@ Internet-Draft                   IDMEFv2                    October 2026
    |      |                | to lure, detect, and analyze              |
    |      |                | malicious activity by mimicking a         |
    |      |                | legitimate target, diverting              |
-   |      |                | attackers away from real assets.          |
-   +------+----------------+-------------------------------------------+
-   | 17   | Hygiene        | An analyzer that continuously checks      |
 
 
 
-Lehmann                   Expires 12 April 2027                [Page 83]
+Lehmann                   Expires 12 April 2027                [Page 84]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
 
+   |      |                | attackers away from real assets.          |
+   +------+----------------+-------------------------------------------+
+   | 17   | Hygiene        | An analyzer that continuously checks      |
    |      |                | systems and configurations against        |
    |      |                | security best practices, compliance       |
    |      |                | standards, or hardening guidelines to     |
@@ -4695,17 +4754,17 @@ Internet-Draft                   IDMEFv2                    October 2026
    |      |                | individual elements appear benign.        |
    +------+----------------+-------------------------------------------+
    | 24   | Policy         | An analyzer that evaluates events,        |
-   |      |                | configurations, or behaviors against      |
-   |      |                | a set of predefined rules,                |
-   |      |                | configurations, or compliance             |
 
 
 
-Lehmann                   Expires 12 April 2027                [Page 84]
+Lehmann                   Expires 12 April 2027                [Page 85]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
 
+   |      |                | configurations, or behaviors against      |
+   |      |                | a set of predefined rules,                |
+   |      |                | configurations, or compliance             |
    |      |                | requirements to detect violations or      |
    |      |                | misconfigurations.                        |
    +------+----------------+-------------------------------------------+
@@ -4751,17 +4810,17 @@ Internet-Draft                   IDMEFv2                    October 2026
    |      |                | threats by matching events or             |
    |      |                | patterns against a database of            |
    |      |                | specific signatures, hashes, or           |
-   |      |                | Indicators of Compromise (IoCs).          |
-   +------+----------------+-------------------------------------------+
-   | 32   | Statistical    | An analyzer that detects anomalies by     |
 
 
 
-Lehmann                   Expires 12 April 2027                [Page 85]
+Lehmann                   Expires 12 April 2027                [Page 86]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
 
+   |      |                | Indicators of Compromise (IoCs).          |
+   +------+----------------+-------------------------------------------+
+   | 32   | Statistical    | An analyzer that detects anomalies by     |
    |      |                | establishing a baseline of normal         |
    |      |                | behavior and identifying events that      |
    |      |                | deviate significantly from expected       |
@@ -4802,6 +4861,19 @@ Internet-Draft                   IDMEFv2                    October 2026
 
                          Table 10: Analyzer Methods
 
+
+
+
+
+
+
+
+
+Lehmann                   Expires 12 April 2027                [Page 87]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
 A.6.  Source Category
 
    +====+=========================================+====================+
@@ -4810,14 +4882,6 @@ A.6.  Source Category
    |0   | Undetermined                            |Source Category is  |
    |    |                                         |undetermined.       |
    +----+-----------------------------------------+--------------------+
-
-
-
-Lehmann                   Expires 12 April 2027                [Page 86]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
-
    |1   | Acoustic.Sound.GlassBreak               |Specific frequencies|
    |    |                                         |(glass breaking,    |
    |    |                                         |gunshots)           |
@@ -4858,6 +4922,14 @@ Internet-Draft                   IDMEFv2                    October 2026
    +----+-----------------------------------------+--------------------+
    |11  | ChemBio.Gases.CO                        |Carbon Monoxide (CO)|
    +----+-----------------------------------------+--------------------+
+
+
+
+Lehmann                   Expires 12 April 2027                [Page 88]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
    |12  | ChemBio.Gases.CWA                       |CWA (Chemical       |
    |    |                                         |Warfare Agents -    |
    |    |                                         |Nerve gas, Blister  |
@@ -4866,14 +4938,6 @@ Internet-Draft                   IDMEFv2                    October 2026
    |13  | ChemBio.Gases.Freon                     |Refrigerant leaks   |
    |    |                                         |(Freon)             |
    +----+-----------------------------------------+--------------------+
-
-
-
-Lehmann                   Expires 12 April 2027                [Page 87]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
-
    |14  | ChemBio.Gases.Hydrogen                  |Hydrogen            |
    +----+-----------------------------------------+--------------------+
    |15  | ChemBio.Gases.Methane                   |Natural Gas /       |
@@ -4914,6 +4978,14 @@ Internet-Draft                   IDMEFv2                    October 2026
    |    |                                         |database query (SQL |
    |    |                                         |Injection).         |
    +----+-----------------------------------------+--------------------+
+
+
+
+Lehmann                   Expires 12 April 2027                [Page 89]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
    |28  | Cyber.Application.XSSPayload            |The script injected |
    |    |                                         |into a webpage to   |
    |    |                                         |steal data or       |
@@ -4922,14 +4994,6 @@ Internet-Draft                   IDMEFv2                    October 2026
    |29  | Cyber.Cloud.APIToken                    |A compromised key   |
    |    |                                         |used to access cloud|
    |    |                                         |resources (AWS,     |
-
-
-
-Lehmann                   Expires 12 April 2027                [Page 88]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
-
    |    |                                         |Azure) or SaaS      |
    |    |                                         |platforms.          |
    +----+-----------------------------------------+--------------------+
@@ -4970,6 +5034,14 @@ Internet-Draft                   IDMEFv2                    October 2026
    |37  | Cyber.Email.ReturnPath                  |The address where   |
    |    |                                         |non-delivery        |
    |    |                                         |receipts go; used in|
+
+
+
+Lehmann                   Expires 12 April 2027                [Page 90]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
    |    |                                         |spoofing analysis.  |
    +----+-----------------------------------------+--------------------+
    |38  | Cyber.Email.SenderEmail                 |The "From" address  |
@@ -4978,14 +5050,6 @@ Internet-Draft                   IDMEFv2                    October 2026
    +----+-----------------------------------------+--------------------+
    |39  | Cyber.Email.XOrigIP                     |The original IP     |
    |    |                                         |address of the      |
-
-
-
-Lehmann                   Expires 12 April 2027                [Page 89]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
-
    |    |                                         |sender (if recorded |
    |    |                                         |by the mail server).|
    +----+-----------------------------------------+--------------------+
@@ -5026,6 +5090,14 @@ Internet-Draft                   IDMEFv2                    October 2026
    |    |                                         |malicious executable|
    |    |                                         |file running on the |
    |    |                                         |endpoint.           |
+
+
+
+Lehmann                   Expires 12 April 2027                [Page 91]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
    +----+-----------------------------------------+--------------------+
    |47  | Cyber.Endpoint.RegistryKey              |The Windows Registry|
    |    |                                         |path used for       |
@@ -5034,14 +5106,6 @@ Internet-Draft                   IDMEFv2                    October 2026
    |    |                                         |changes.            |
    +----+-----------------------------------------+--------------------+
    |48  | Cyber.Endpoint.ScheduledTask            |The name of a task  |
-
-
-
-Lehmann                   Expires 12 April 2027                [Page 90]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
-
    |    |                                         |created by the      |
    |    |                                         |attacker for        |
    |    |                                         |persistence or      |
@@ -5082,6 +5146,14 @@ Internet-Draft                   IDMEFv2                    October 2026
    |55  | Cyber.Identity.Username                 |The specific user   |
    |    |                                         |account that was    |
    |    |                                         |compromised or used |
+
+
+
+Lehmann                   Expires 12 April 2027                [Page 92]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
    |    |                                         |for lateral         |
    |    |                                         |movement.           |
    +----+-----------------------------------------+--------------------+
@@ -5090,14 +5162,6 @@ Internet-Draft                   IDMEFv2                    October 2026
    |    |                                         |& Control (C2)      |
    |    |                                         |server, or a        |
    |    |                                         |malicious scan.     |
-
-
-
-Lehmann                   Expires 12 April 2027                [Page 91]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
-
    +----+-----------------------------------------+--------------------+
    |57  | Cyber.Network.IPv6                      |The source IP in    |
    |    |                                         |IPv6 format;        |
@@ -5138,6 +5202,14 @@ Internet-Draft                   IDMEFv2                    October 2026
    |    |                                         |was on before       |
    |    |                                         |clicking the        |
    |    |                                         |malicious link.     |
+
+
+
+Lehmann                   Expires 12 April 2027                [Page 93]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
    +----+-----------------------------------------+--------------------+
    |64  | Cyber.Web.SessionID                     |A hijacked session  |
    |    |                                         |token used to       |
@@ -5146,14 +5218,6 @@ Internet-Draft                   IDMEFv2                    October 2026
    +----+-----------------------------------------+--------------------+
    |65  | Cyber.Web.URIPath                       |The specific        |
    |    |                                         |directory or file   |
-
-
-
-Lehmann                   Expires 12 April 2027                [Page 92]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
-
    |    |                                         |requested on the web|
    |    |                                         |server.             |
    +----+-----------------------------------------+--------------------+
@@ -5194,6 +5258,14 @@ Internet-Draft                   IDMEFv2                    October 2026
    |    |                                         |(electrical arcing) |
    +----+-----------------------------------------+--------------------+
    |75  | ElectroMag.Ultraviolet.FlameUV          |Flames (fire        |
+
+
+
+Lehmann                   Expires 12 April 2027                [Page 94]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
    |    |                                         |detection)          |
    +----+-----------------------------------------+--------------------+
    |76  | ElectroMag.Ultraviolet.ForgeryUV        |Forgery (detecting  |
@@ -5202,14 +5274,6 @@ Internet-Draft                   IDMEFv2                    October 2026
    +----+-----------------------------------------+--------------------+
    |77  | ElectroMag.Light.BiometricEye           |Biological          |
    |    |                                         |signatures (retinas,|
-
-
-
-Lehmann                   Expires 12 April 2027                [Page 93]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
-
    |    |                                         |irises) - Failed    |
    |    |                                         |recognition         |
    |    |                                         |indicates intrusion |
@@ -5250,6 +5314,14 @@ Internet-Draft                   IDMEFv2                    October 2026
    |87  | Force.Fluid.Airflow                     |Airflow             |
    |    |                                         |(differential       |
    |    |                                         |pressure)           |
+
+
+
+Lehmann                   Expires 12 April 2027                [Page 95]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
    +----+-----------------------------------------+--------------------+
    |88  | Force.Fluid.WaterPressure               |Water pressure (for |
    |    |                                         |leak detection via  |
@@ -5258,14 +5330,6 @@ Internet-Draft                   IDMEFv2                    October 2026
    |89  | Force.Touch.GripStrength                |Grip strength       |
    +----+-----------------------------------------+--------------------+
    |90  | Force.Touch.PhysicalContact             |Physical contact    |
-
-
-
-Lehmann                   Expires 12 April 2027                [Page 94]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
-
    |    |                                         |(bumpers on robots, |
    |    |                                         |touch screens)      |
    +----+-----------------------------------------+--------------------+
@@ -5306,6 +5370,14 @@ Internet-Draft                   IDMEFv2                    October 2026
    +----+-----------------------------------------+--------------------+
    |104 | Magnetic.General.Orientation            |Orientation (Compass|
    |    |                                         |/ Magnetometer -    |
+
+
+
+Lehmann                   Expires 12 April 2027                [Page 96]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
    |    |                                         |detecting Earth's   |
    |    |                                         |magnetic field)     |
    +----+-----------------------------------------+--------------------+
@@ -5314,14 +5386,6 @@ Internet-Draft                   IDMEFv2                    October 2026
    +----+-----------------------------------------+--------------------+
    |106 | Magnetic.General.Voltage                |Voltage (non-contact|
    |    |                                         |voltage testers)    |
-
-
-
-Lehmann                   Expires 12 April 2027                [Page 95]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
-
    +----+-----------------------------------------+--------------------+
    |107 | Object.Indoor.Container                 |Bottles / Cups /    |
    |    |                                         |Cutlery             |
@@ -5362,6 +5426,14 @@ Internet-Draft                   IDMEFv2                    October 2026
    +----+-----------------------------------------+--------------------+
    |119 | Object.Outdoor.Pothole                  |Potholes / Road     |
    |    |                                         |cracks              |
+
+
+
+Lehmann                   Expires 12 April 2027                [Page 97]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
    +----+-----------------------------------------+--------------------+
    |120 | Object.Outdoor.RoadSign                 |Road signs / Traffic|
    |    |                                         |lights              |
@@ -5370,14 +5442,6 @@ Internet-Draft                   IDMEFv2                    October 2026
    |    |                                         |Vegetation          |
    +----+-----------------------------------------+--------------------+
    |122 | Object.SpecificScenes.FireVisual        |Fire / Flames       |
-
-
-
-Lehmann                   Expires 12 April 2027                [Page 96]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
-
    |    |                                         |(visual spectrum)   |
    +----+-----------------------------------------+--------------------+
    |123 | Object.SpecificScenes.Flood             |Flooding / Water    |
@@ -5418,6 +5482,14 @@ Internet-Draft                   IDMEFv2                    October 2026
    +----+-----------------------------------------+--------------------+
    |135 | Particulate.Aerosols.Pollen             |Pollen and allergens|
    +----+-----------------------------------------+--------------------+
+
+
+
+Lehmann                   Expires 12 April 2027                [Page 98]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
    |136 | Particulate.Aerosols.SmokeIonization    |Combustion particles|
    |    |                                         |(Ionization smoke   |
    |    |                                         |detectors)          |
@@ -5426,14 +5498,6 @@ Internet-Draft                   IDMEFv2                    October 2026
    |    |                                         |obscuration         |
    |    |                                         |(Photoelectric smoke|
    |    |                                         |detectors)          |
-
-
-
-Lehmann                   Expires 12 April 2027                [Page 97]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
-
    +----+-----------------------------------------+--------------------+
    |138 | Particulate.Liquids.ChemicalSpill       |Chemical spills     |
    |    |                                         |(specific           |
@@ -5474,6 +5538,14 @@ Internet-Draft                   IDMEFv2                    October 2026
    |148 | Software.Detected.CyberAttack           |Cyber-attack        |
    |    |                                         |(Anomalous network  |
    |    |                                         |traffic patterns)   |
+
+
+
+Lehmann                   Expires 12 April 2027                [Page 99]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
    +----+-----------------------------------------+--------------------+
    |149 | Software.Detected.Drowsiness            |Drowsiness (Eye     |
    |    |                                         |closure detection   |
@@ -5482,14 +5554,6 @@ Internet-Draft                   IDMEFv2                    October 2026
    |150 | Software.Detected.Explosion             |Explosion (Sudden   |
    |    |                                         |light flash +       |
    |    |                                         |pressure wave +     |
-
-
-
-Lehmann                   Expires 12 April 2027                [Page 98]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
-
    |    |                                         |sound)              |
    +----+-----------------------------------------+--------------------+
    |151 | Software.Detected.FailedBiometric       |Failed retina/iris  |
@@ -5524,6 +5588,20 @@ Internet-Draft                   IDMEFv2                    October 2026
 
                         Table 11: Source Categories
 
+
+
+
+
+
+
+
+
+
+Lehmann                   Expires 12 April 2027               [Page 100]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
 A.7.  Target Category
 
     +======+==============================+==========================+
@@ -5538,14 +5616,6 @@ A.7.  Target Category
     | 2    | Commercial.Partnerships      | Strategic alliances,     |
     |      |                              | partner networks         |
     +------+------------------------------+--------------------------+
-
-
-
-Lehmann                   Expires 12 April 2027                [Page 99]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
-
     | 3    | Commercial.Reputation        | Brand image, online      |
     |      |                              | reputation, goodwill     |
     +------+------------------------------+--------------------------+
@@ -5580,6 +5650,14 @@ Internet-Draft                   IDMEFv2                    October 2026
     | 13   | Infrastructure.CivilWorks    | Bridges, loading docks,  |
     |      |                              | quays                    |
     +------+------------------------------+--------------------------+
+
+
+
+Lehmann                   Expires 12 April 2027               [Page 101]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
     | 14   | Infrastructure.Foundations   | Special foundations,     |
     |      |                              | internal roads,          |
     |      |                              | pavements                |
@@ -5594,14 +5672,6 @@ Internet-Draft                   IDMEFv2                    October 2026
     | 17   | IP.Patents                   | Registered patents,      |
     |      |                              | inventions               |
     +------+------------------------------+--------------------------+
-
-
-
-Lehmann                   Expires 12 April 2027               [Page 100]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
-
     | 18   | IP.Trademarks                | Brand names, logos,      |
     |      |                              | registered designs       |
     +------+------------------------------+--------------------------+
@@ -5636,6 +5706,14 @@ Internet-Draft                   IDMEFv2                    October 2026
     +------+------------------------------+--------------------------+
     | 29   | Production.Machinery         | Assembly lines,          |
     |      |                              | industrial robots,       |
+
+
+
+Lehmann                   Expires 12 April 2027               [Page 102]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
     |      |                              | conveyors                |
     +------+------------------------------+--------------------------+
     | 30   | Production.MachineTools      | Lathes, milling          |
@@ -5650,14 +5728,6 @@ Internet-Draft                   IDMEFv2                    October 2026
     |      |                              | or agricultural grounds  |
     +------+------------------------------+--------------------------+
     | 33   | RealEstate.SpecialStructures | Hangars, silos, parking  |
-
-
-
-Lehmann                   Expires 12 April 2027               [Page 101]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
-
     |      |                              | lots                     |
     +------+------------------------------+--------------------------+
     | 34   | Software.Applications        | ERP, CRM, SaaS platforms |
@@ -5688,6 +5758,18 @@ Appendix B.  Examples
    For each example, the serialization method listed in Section 5 was
    used on the original IDMEF message to produce a JSON representation.
 
+
+
+
+
+
+
+
+Lehmann                   Expires 12 April 2027               [Page 103]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
 B.1.  Physical intrusion
 
    Listing 1 describes an incident where an unidentified man was
@@ -5706,14 +5788,6 @@ B.1.  Physical intrusion
      "StartTime": "2021-05-10T16:52:13+00:00",
      "Category": [
        "Access.Forced"
-
-
-
-Lehmann                   Expires 12 April 2027               [Page 102]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
-
      ],
      "Analyzer": {
        "Name": "BigBrother",
@@ -5744,6 +5818,14 @@ Internet-Draft                   IDMEFv2                    October 2026
      "Source": [
        {
          "Note": "Black Organization, aka. APT 4869"
+
+
+
+Lehmann                   Expires 12 April 2027               [Page 104]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
        }
      ],
      "Attachment": [
@@ -5762,14 +5844,6 @@ Internet-Draft                   IDMEFv2                    October 2026
          "ExternalURI": ["ftps://192.0.2.1/cam23/20210510165211.jpg"],
          "ContentType": "image/jpg"
        }
-
-
-
-Lehmann                   Expires 12 April 2027               [Page 103]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
-
      ]
    }
 
@@ -5800,6 +5874,14 @@ B.2.  Cyberattack
        ],
        "Data": [
          "Log"
+
+
+
+Lehmann                   Expires 12 April 2027               [Page 105]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
        ],
        "Method": [
          "Monitor",
@@ -5818,14 +5900,6 @@ B.2.  Cyberattack
      ],
      "Target": [
        {
-
-
-
-Lehmann                   Expires 12 April 2027               [Page 104]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
-
          "IP": "192.0.2.2",
          "Hostname": "www.acme.com",
          "Location": "Server room A1, rack 10",
@@ -5859,25 +5933,7 @@ B.3.  Server outage
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Lehmann                   Expires 12 April 2027               [Page 105]
+Lehmann                   Expires 12 April 2027               [Page 106]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -5933,7 +5989,7 @@ B.4.  Combined incident
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 106]
+Lehmann                   Expires 12 April 2027               [Page 107]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -5989,7 +6045,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 107]
+Lehmann                   Expires 12 April 2027               [Page 108]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6045,7 +6101,7 @@ B.5.  Hazard incident
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 108]
+Lehmann                   Expires 12 April 2027               [Page 109]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6101,7 +6157,7 @@ Appendix C.  JSON Validation Schema (Non-normative)
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 109]
+Lehmann                   Expires 12 April 2027               [Page 110]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6157,7 +6213,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 110]
+Lehmann                   Expires 12 April 2027               [Page 111]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6213,7 +6269,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 111]
+Lehmann                   Expires 12 April 2027               [Page 112]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6269,7 +6325,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 112]
+Lehmann                   Expires 12 April 2027               [Page 113]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6325,7 +6381,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 113]
+Lehmann                   Expires 12 April 2027               [Page 114]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6381,7 +6437,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 114]
+Lehmann                   Expires 12 April 2027               [Page 115]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6437,7 +6493,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 115]
+Lehmann                   Expires 12 April 2027               [Page 116]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6493,7 +6549,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 116]
+Lehmann                   Expires 12 April 2027               [Page 117]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6549,7 +6605,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 117]
+Lehmann                   Expires 12 April 2027               [Page 118]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6605,7 +6661,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 118]
+Lehmann                   Expires 12 April 2027               [Page 119]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6661,7 +6717,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 119]
+Lehmann                   Expires 12 April 2027               [Page 120]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6717,7 +6773,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 120]
+Lehmann                   Expires 12 April 2027               [Page 121]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6773,7 +6829,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 121]
+Lehmann                   Expires 12 April 2027               [Page 122]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6829,7 +6885,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 122]
+Lehmann                   Expires 12 April 2027               [Page 123]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6885,7 +6941,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 123]
+Lehmann                   Expires 12 April 2027               [Page 124]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6941,7 +6997,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 124]
+Lehmann                   Expires 12 April 2027               [Page 125]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6997,7 +7053,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 125]
+Lehmann                   Expires 12 April 2027               [Page 126]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7053,7 +7109,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 126]
+Lehmann                   Expires 12 April 2027               [Page 127]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7109,7 +7165,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 127]
+Lehmann                   Expires 12 April 2027               [Page 128]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7165,7 +7221,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 128]
+Lehmann                   Expires 12 April 2027               [Page 129]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7221,7 +7277,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 129]
+Lehmann                   Expires 12 April 2027               [Page 130]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7277,7 +7333,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 130]
+Lehmann                   Expires 12 April 2027               [Page 131]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7333,7 +7389,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 131]
+Lehmann                   Expires 12 April 2027               [Page 132]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7389,7 +7445,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 132]
+Lehmann                   Expires 12 April 2027               [Page 133]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7445,7 +7501,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 133]
+Lehmann                   Expires 12 April 2027               [Page 134]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7501,7 +7557,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 134]
+Lehmann                   Expires 12 April 2027               [Page 135]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7557,7 +7613,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 135]
+Lehmann                   Expires 12 April 2027               [Page 136]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7613,4 +7669,4 @@ Author's Address
 
 
 
-Lehmann                   Expires 12 April 2027               [Page 136]
+Lehmann                   Expires 12 April 2027               [Page 137]

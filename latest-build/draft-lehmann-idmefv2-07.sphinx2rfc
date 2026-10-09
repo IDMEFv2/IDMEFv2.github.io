@@ -1418,7 +1418,7 @@ Source(0).IP</literal_block>
                     <term>Data</term>
                     <definition>
                         <paragraph>Optional. Type of data analyzed during the detection.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id21"><inline classes="std std-ref">Analyzer Datas</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id21"><inline classes="std std-ref">enum_analyzer_data</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -6391,7 +6391,7 @@ Source(0).IP</literal_block>
             <title>Analyzer Data</title>
             <target refid="id21"></target>
             <table align="default" classes="colwidths-auto" ids="id28 id21" names="analyzer_data">
-                <title>Analyzer Datas</title>
+                <title>enum_analyzer_data</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
                     <colspec colwidth="33"></colspec>
@@ -6418,7 +6418,7 @@ Source(0).IP</literal_block>
                                 <paragraph>Undetermined</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Analyser data is undetermed.</paragraph>
+                                <paragraph>The analyzed data type is unknown or not yet classified. Used as a placeholder when no other value applies. Example: a generic analyzer whose input could not be identified.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6426,10 +6426,10 @@ Source(0).IP</literal_block>
                                 <paragraph>1</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Light</paragraph>
+                                <paragraph>Acoustics</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>ambient light levels, flicker detection</paragraph>
+                                <paragraph>Sound pressure or specific frequency measurements captured by a microphone or acoustic sensor. Example: gunshot detection, glass break detection, machine noise spectrum.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6437,10 +6437,10 @@ Source(0).IP</literal_block>
                                 <paragraph>2</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Acoustics</paragraph>
+                                <paragraph>Alert</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>sound pressure, specific frequencies</paragraph>
+                                <paragraph>IDMEFv2 or equivalent alert produced by an upstream analyzer and consumed as input by a correlator, aggregator or hypervisor. Example: IDMEFv2 JSON alert from a local SOC processed by a central SOC correlator.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6451,7 +6451,7 @@ Source(0).IP</literal_block>
                                 <paragraph>Contact</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>physical interaction, switch state</paragraph>
+                                <paragraph>Physical interaction or binary state change detected by a contact sensor. Example: door contact switch, cabinet open detection, tamper switch.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6459,10 +6459,10 @@ Source(0).IP</literal_block>
                                 <paragraph>4</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Vibration</paragraph>
+                                <paragraph>Content</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>mechanical oscillation, structural health</paragraph>
+                                <paragraph>Payload or body of a communication inspected at the application layer. Example: HTTP body, email message, SMTP DATA section, file transfer payload, DPI-matched bytes.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6470,10 +6470,10 @@ Source(0).IP</literal_block>
                                 <paragraph>5</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Temperature</paragraph>
+                                <paragraph>Data</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>ambient, device, or surface</paragraph>
+                                <paragraph>Generic or opaque data stream whose structure is not further specified. Example: raw sensor telemetry, vendor-specific binary stream, serial output.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6481,10 +6481,10 @@ Source(0).IP</literal_block>
                                 <paragraph>6</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Humidity</paragraph>
+                                <paragraph>Datagram</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>relative humidity, moisture in air</paragraph>
+                                <paragraph>Raw packet-level data captured at the network layer. Example: Ethernet frame, IPv4/IPv6 packet, TCP segment, UDP datagram, ICMP message.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6492,10 +6492,10 @@ Source(0).IP</literal_block>
                                 <paragraph>7</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Rain</paragraph>
+                                <paragraph>External</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>precipitation detection</paragraph>
+                                <paragraph>Data originating from a third party such as a threat intelligence feed or an external CERT. Example: STIX/TAXII feed, IOC list, external CERT notification, vendor advisory.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6503,10 +6503,10 @@ Source(0).IP</literal_block>
                                 <paragraph>8</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Water</paragraph>
+                                <paragraph>File</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>leak detection, immersion, water flow</paragraph>
+                                <paragraph>Content or metadata of a file read by the analyzer for inspection, integrity or change detection. Example: file hash, PE header, document content, file permissions, modification timestamp.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6514,10 +6514,10 @@ Source(0).IP</literal_block>
                                 <paragraph>9</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Fog</paragraph>
+                                <paragraph>Flow</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>visibility reduction, optical density</paragraph>
+                                <paragraph>Network flow records aggregating packets by 5-tuple or similar criteria. Example: NetFlow, IPFIX, sFlow records exported by routers or probes.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6525,10 +6525,10 @@ Source(0).IP</literal_block>
                                 <paragraph>10</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Particles</paragraph>
+                                <paragraph>Fog</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>dust, smoke, airborne contaminants</paragraph>
+                                <paragraph>Visibility reduction or optical density measured by a fog sensor. Example: fog detection on a perimeter road, visibility monitoring for cameras.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6536,10 +6536,10 @@ Source(0).IP</literal_block>
                                 <paragraph>11</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Seismic</paragraph>
+                                <paragraph>Humidity</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>ground motion, earthquakes, vibrations</paragraph>
+                                <paragraph>Relative humidity or moisture content in the air measured by a hygrometer. Example: datacenter humidity level, warehouse moisture monitoring.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6547,10 +6547,10 @@ Source(0).IP</literal_block>
                                 <paragraph>12</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Magnetic</paragraph>
+                                <paragraph>Images</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>magnetic anomaly detection, proximity</paragraph>
+                                <paragraph>Visible-spectrum image or video frames captured by a camera. Example: CCTV frame, IP camera stream, facial recognition input.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6558,10 +6558,10 @@ Source(0).IP</literal_block>
                                 <paragraph>13</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Images</paragraph>
+                                <paragraph>Lidar</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>visible spectrum cameras</paragraph>
+                                <paragraph>Point cloud or distance measurements produced by a laser-based sensor. Example: 3D point cloud from a rotating lidar, perimeter scanning lidar.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6569,10 +6569,10 @@ Source(0).IP</literal_block>
                                 <paragraph>14</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Thermal</paragraph>
+                                <paragraph>Light</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>infrared imaging, heat signatures</paragraph>
+                                <paragraph>Ambient light level or flicker detected by a photodetector. Example: lux measurement, room lighting state, strobe or flicker detection.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6580,10 +6580,10 @@ Source(0).IP</literal_block>
                                 <paragraph>15</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Lidar</paragraph>
+                                <paragraph>Log</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>laser-based distance measurement, 3D mapping</paragraph>
+                                <paragraph>Structured or unstructured event records produced by systems, applications or security devices. Example: syslog messages, Windows EventLog entries, journald records, firewall logs, application traces.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6591,10 +6591,10 @@ Source(0).IP</literal_block>
                                 <paragraph>16</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Network</paragraph>
+                                <paragraph>Magnetic</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>traffic, bandwidth, connectivity</paragraph>
+                                <paragraph>Magnetic field strength or anomaly detected by a magnetometer. Example: door open/close magnetic contact, vehicle detection, magnetic anomaly near equipment.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6602,10 +6602,10 @@ Source(0).IP</literal_block>
                                 <paragraph>17</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Flow</paragraph>
+                                <paragraph>Particles</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>netflow, packet flow analysis</paragraph>
+                                <paragraph>Concentration of dust, smoke or airborne contaminants measured by a particle sensor. Example: smoke detector, PM2.5 sensor, dust monitoring in a facility.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6613,10 +6613,10 @@ Source(0).IP</literal_block>
                                 <paragraph>18</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Protocol</paragraph>
+                                <paragraph>PCAP</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>protocol anomalies, compliance</paragraph>
+                                <paragraph>Packet capture files stored on disk and analyzed offline. Example: .pcap and .pcapng files produced by tcpdump, dumpcap or Wireshark.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6624,10 +6624,10 @@ Source(0).IP</literal_block>
                                 <paragraph>19</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Datagram</paragraph>
+                                <paragraph>Rain</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>packet-level inspection</paragraph>
+                                <paragraph>Precipitation detected or measured by a rain sensor. Example: rainfall detection on an outdoor site, rain gauge.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6635,10 +6635,10 @@ Source(0).IP</literal_block>
                                 <paragraph>20</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Host</paragraph>
+                                <paragraph>Seismic</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>server or device health, uptime</paragraph>
+                                <paragraph>Ground motion or earthquake-related signals captured by a seismograph. Example: earthquake detection, ground vibration near a datacenter.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6646,10 +6646,10 @@ Source(0).IP</literal_block>
                                 <paragraph>21</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Connection</paragraph>
+                                <paragraph>SNMP</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>session establishment, drops</paragraph>
+                                <paragraph>Data retrieved via the Simple Network Management Protocol from managed devices. Example: SNMP GET/WALK results, MIB object values, traps and informs.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6657,10 +6657,10 @@ Source(0).IP</literal_block>
                                 <paragraph>22</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Port</paragraph>
+                                <paragraph>Temperature</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>open/closed, scanning activity</paragraph>
+                                <paragraph>Ambient, device or surface temperature measured by a thermometer or thermal probe. Example: server room temperature, device CPU temperature, cold-chain monitoring.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6668,10 +6668,10 @@ Source(0).IP</literal_block>
                                 <paragraph>23</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>SNMP</paragraph>
+                                <paragraph>Thermal</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>simple network management protocol data</paragraph>
+                                <paragraph>Infrared image or heat signature data captured by a thermal sensor. Example: thermal camera frame, heat map of a room or equipment.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6679,10 +6679,10 @@ Source(0).IP</literal_block>
                                 <paragraph>24</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Authentication</paragraph>
+                                <paragraph>Vibration</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>login attempts, failures, anomalies</paragraph>
+                                <paragraph>Mechanical oscillation or structural movement measured by an accelerometer or vibration sensor. Example: seismic-grade vibration of a server rack, structural health monitoring of a bridge.</paragraph>
                             </entry>
                         </row>
                         <row>
@@ -6690,92 +6690,15 @@ Source(0).IP</literal_block>
                                 <paragraph>25</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>Log</paragraph>
+                                <paragraph>Water</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>system, application, security logs</paragraph>
+                                <paragraph>Presence, flow or level of water detected by a sensor. Example: leak detection under a raised floor, flood sensor, water flow meter.</paragraph>
                             </entry>
                         </row>
                         <row>
                             <entry>
                                 <paragraph>26</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>File</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>file integrity, access, changes</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>27</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Content</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>payload inspection, data content</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>28</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Data</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>generic data streams, sensor data</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>29</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Reporting</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>summary reports, alerts from other systems</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>30</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Alert</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>triggered notifications</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>31</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>Relay</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>alert forwarding, escalation</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>32</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>External</paragraph>
-                            </entry>
-                            <entry>
-                                <paragraph>third-party alerts, threat intelligence feeds</paragraph>
-                            </entry>
-                        </row>
-                        <row>
-                            <entry>
-                                <paragraph>33</paragraph>
                             </entry>
                             <entry>
                                 <paragraph>ext-value</paragraph>
