@@ -12,7 +12,7 @@
         <email>gilles.lehmann@telecom-sudparis.eu</email>
       </address>
     </author>
-    <date day="9" month="October" year="2026"/>
+    <date day="13" month="October" year="2026"/>
     <keyword>RFC4765</keyword>
     <keyword>RFC4766</keyword>
     <keyword>IDMEF</keyword>
@@ -743,6 +743,17 @@ Source(0).IP</sourcecode>
                                     <tr>
                                         <td>
                                             <t>3</t>
+                                        </td>
+                                        <td>
+                                            <t>NatHaz</t>
+                                        </td>
+                                        <td>
+                                            <t>Natural Hazards incident</t>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <t>4</t>
                                         </td>
                                         <td>
                                             <t>Combined</t>
