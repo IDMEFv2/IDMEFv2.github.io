@@ -2583,10 +2583,9 @@ Source(0).IP</literal_block>
                     multiples concepts to IDMEFv2.</paragraph>
             </list_item>
         </bullet_list>
-        <transition></transition>
-        <target refid="appendix-examples"></target>
     </section>
-    <section dupnames="enumerations" ids="appendix-examples id15" names="appendix_examples">
+    <transition></transition>
+    <section dupnames="enumerations" ids="id15">
         <title>Enumerations</title>
         <section ids="entity-sector" names="entity\ sector">
             <title>Entity Sector</title>
@@ -9365,9 +9364,10 @@ Source(0).IP</literal_block>
                     </tbody>
                 </tgroup>
             </table>
+            <target refid="appendix-examples"></target>
         </section>
     </section>
-    <section ids="examples" names="examples">
+    <section ids="examples appendix-examples" names="examples appendix_examples">
         <title>Examples</title>
         <paragraph>This section contains several examples of events/incidents which may be
             described using the IDMEF Data Model defined in.</paragraph>
