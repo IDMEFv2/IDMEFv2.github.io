@@ -819,7 +819,7 @@ Source(0).IP</literal_block>
                     <definition>
                         <paragraph>Optional. The economic sector(s) and sub-sector(s) in which the entity operates. Values follow the dot notation sector.subsector based on the critical infrastructure taxonomy defined in the NIS2 Directive and CER (Critical Entities Resilience) Directive.</paragraph>
                         <paragraph>This attribute enables sector-based correlation, regulatory compliance reporting, and risk context for incident detection.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id17"><inline classes="std std-ref">enum_alert_entitysector</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id16"><inline classes="std std-ref">enum_alert_entitysector</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -910,7 +910,7 @@ Source(0).IP</literal_block>
                     <term>Category</term>
                     <definition>
                         <paragraph>Optional. Incident category.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id18"><inline classes="std std-ref">enum_alert_category</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id17"><inline classes="std std-ref">enum_alert_category</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1415,7 +1415,7 @@ Source(0).IP</literal_block>
                     <term>Category</term>
                     <definition>
                         <paragraph>Optional. Analyzer categories.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id21"><inline classes="std std-ref">Analyzer Categories</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id20"><inline classes="std std-ref">Analyzer Categories</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1429,7 +1429,7 @@ Source(0).IP</literal_block>
                     <term>Data</term>
                     <definition>
                         <paragraph>Optional. Type of data analyzed during the detection.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id22"><inline classes="std std-ref">enum_analyzer_data</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id21"><inline classes="std std-ref">enum_analyzer_data</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1443,7 +1443,7 @@ Source(0).IP</literal_block>
                     <term>Method</term>
                     <definition>
                         <paragraph>Optional. Detection method.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id23"><inline classes="std std-ref">Analyzer Methods</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id22"><inline classes="std std-ref">Analyzer Methods</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1653,7 +1653,7 @@ Source(0).IP</literal_block>
                     <term>Category</term>
                     <definition>
                         <paragraph>Optional. Source category</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id24"><inline classes="std std-ref">Source Categories</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id23"><inline classes="std std-ref">Source Categories</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1800,7 +1800,7 @@ Source(0).IP</literal_block>
                     <term>Category</term>
                     <definition>
                         <paragraph>Optional. Target category</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id25"><inline classes="std std-ref">Target Categories</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id24"><inline classes="std std-ref">Target Categories</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -2586,443 +2586,367 @@ Source(0).IP</literal_block>
         <transition></transition>
         <paragraph># Using IDMEFv2 in Ephemeral Environments (Informative)
             # ====================================================</paragraph>
-        <target refid="appendix-ephemeral-environments"></target>
     </section>
-    <section ids="using-idmefv2-with-ephemeral-entities-informative appendix-ephemeral-environments" names="using\ idmefv2\ with\ ephemeral\ entities\ (informative) appendix_ephemeral_environments">
-        <title>Using IDMEFv2 with Ephemeral Entities (Informative)</title>
-        <paragraph>The guidance in this appendix is informative. It describes implementation
-            practices for representing resources whose lifetime may be shorter than the
-            retention period of the alerts and telemetry associated with them. It does not
-            change the IDMEFv2 data model or the definition of any IDMEFv2 attribute.</paragraph>
-        <paragraph>The examples are illustrative and are not complete IDMEFv2 messages unless
-            stated otherwise. Platform-specific reference formats shown below are local
-            implementation conventions; they are not URI schemes standardized by IDMEFv2.</paragraph>
-        <paragraph>The key words <literal>MUST</literal>, <literal>MUST NOT</literal>, <literal>SHOULD</literal>, <literal>SHOULD NOT</literal>, and <literal>MAY</literal>
-            in this appendix are to be interpreted as described in <inline classes="xref std std-ref">RFC2119</inline>. Because
-            this appendix is informative, these words describe recommended implementation
-            behavior in the stated context and do not introduce additional requirements
-            for conformance to the IDMEFv2 data model.</paragraph>
-        <section ids="the-ephemeral-asset-problem" names="the\ ephemeral\ asset\ problem">
-            <title>The Ephemeral Asset Problem</title>
-            <paragraph>Container orchestration platforms, cloud runtimes, and distributed monitoring
-                systems create and terminate resources dynamically. IP addresses assigned to
-                workloads, event sources, analyzers, and sensors may change or be reassigned.
-                Hostnames and other operational names may be reused, and a component involved
-                in an event may no longer exist when an investigation takes place.</paragraph>
-            <paragraph>Consequently, an IP address or hostname alone may be insufficient for reliable
-                incident correlation and post-incident investigation. This applies not only to
-                the target affected by an event, but also to the origin of the event and to the
-                components that collect, analyze, or report it.</paragraph>
-            <paragraph>The relevant IDMEFv2 classes have different roles:</paragraph>
-            <bullet_list bullet="*">
-                <list_item>
-                    <paragraph><literal>Source</literal> describes the origin or origins of the event(s) leading to the
-                        alert. <literal>Source.IP</literal> records an address associated with a source in the event
-                        context; it is not necessarily a persistent identity.</paragraph>
-                </list_item>
-                <list_item>
-                    <paragraph><literal>Target</literal> describes the target(s) impacted by the event(s). <literal>Target.ID</literal>
-                        identifies the target in the IDMEFv2 data model, while <literal>Target.IP</literal> and
-                        <literal>Target.Hostname</literal> provide network and operational context.</paragraph>
-                </list_item>
-                <list_item>
-                    <paragraph><literal>Analyzer</literal> describes the module that analyzed captured data, identified an
-                        event of interest, and decided to create an alert. Its network address, when
-                        represented by <literal>Analyzer.IP</literal>, may be transient.</paragraph>
-                </list_item>
-                <list_item>
-                    <paragraph><literal>Sensor</literal> describes the module that captured data before sending it to an
-                        analyzer. Its network address, when represented by <literal>Sensor.IP</literal>, may also
-                        be transient.</paragraph>
-                </list_item>
-            </bullet_list>
-            <paragraph>The same general principle therefore applies to <literal>Source.IP</literal>, <literal>Target.IP</literal>,
-                <literal>Analyzer.IP</literal>, and <literal>Sensor.IP</literal>: an IP address records network context, but
-                should not be treated as a stable identity for a logical entity or for a
-                particular runtime instance. The exact attributes available for describing an
-                entity depend on the corresponding IDMEFv2 class and the applicable version of
-                the specification.</paragraph>
-            <paragraph>These attributes are complementary; none of them, by itself, guarantees that
-                historical metadata or the resource itself will remain available after the
-                resource terminates.</paragraph>
+    <section ids="using-idmefv2-in-ephemeral-environments" names="using\ idmefv2\ in\ ephemeral\ environments">
+        <title>Using IDMEFv2 in Ephemeral Environments</title>
+        <section ids="the-ephemeral-asset-problem" names="1.\ the\ ephemeral\ asset\ problem">
+            <title>1. The Ephemeral Asset Problem</title>
+            <paragraph>Modern container orchestration platforms and cloud runtime environments
+                create and terminate resources dynamically. IP addresses may change or be
+                reassigned, resource names may be reused, and an entity involved in a security
+                incident may no longer exist when an investigation takes place.</paragraph>
+            <paragraph>Consequently, identifying a resource solely by its IP address or hostname is
+                insufficient for reliable incident correlation and post-incident investigation.</paragraph>
+            <paragraph>IDMEFv2 provides complementary attributes that can describe ephemeral
+                entities in the <literal>Analyzer</literal>, <literal>Sensor</literal>, <literal>Source</literal>, and <literal>Target</literal> classes.
+                The <literal>ID</literal> attribute identifies an entity in the IDMEFv2 data model, while
+                <literal>IP</literal>, <literal>Hostname</literal>, and <literal>Location</literal> provide additional information about
+                its network presence, operational hostname, and infrastructure context.</paragraph>
+            <paragraph>These attributes serve different purposes and SHOULD be used together when
+                the relevant information is available. They do not, by themselves, guarantee
+                the long-term availability of historical records or the continued existence of
+                the resource.</paragraph>
         </section>
-        <section ids="identification-and-correlation" names="identification\ and\ correlation">
-            <title>Identification and Correlation</title>
-            <section ids="target-id" names="target.id">
-                <title>Target.ID</title>
-                <paragraph><literal>Target.ID</literal> is the identifier of the target within the IDMEFv2 data model and
-                    MUST be populated as specified by the applicable IDMEFv2 version. It should
-                    not automatically be treated as the native identifier assigned by a cloud
-                    provider or orchestrator: the two identifiers can have different scopes and
-                    lifetimes.</paragraph>
-                <paragraph>Implementations that correlate multiple alerts about the same resource SHOULD
-                    document how values of <literal>Target.ID</literal> are assigned and how they map to
-                    platform-native resource identifiers. When a platform reuses an operational
-                    name, implementations SHOULD distinguish successive resource instances when
-                    that distinction is needed for the intended correlation and investigation use
-                    case.</paragraph>
-                <paragraph>A <literal>Target.ID</literal> value does not, by itself, guarantee access to the resource or
-                    to historical metadata after termination. Implementations should preserve the
-                    mapping between IDMEFv2 identifiers and native identifiers for as long as the
-                    relevant investigation requirements apply.</paragraph>
+        <section ids="complementary-identification-attributes" names="2.\ complementary\ identification\ attributes">
+            <title>2. Complementary Identification Attributes</title>
+            <paragraph>The following attributes have complementary roles when describing
+                ephemeral resources.</paragraph>
+            <section ids="id" names="2.1.\ id">
+                <title>2.1. ID</title>
+                <paragraph>The <literal>ID</literal> attribute identifies an entity in the IDMEFv2 data model. It MUST
+                    be populated in accordance with the applicable IDMEFv2 specification.</paragraph>
+                <paragraph>An IDMEFv2 identifier and a platform-native identifier are different concepts.
+                    For example, a Kubernetes pod UID identifies a Kubernetes object instance;
+                    it is not a substitute for the IDMEFv2 <literal>ID</literal> attribute. Implementations that
+                    need to correlate multiple alerts concerning the same resource SHOULD define
+                    a consistent mapping between the resource identity and the IDMEFv2 entity
+                    identifier. They SHOULD also distinguish successive resource instances when
+                    a platform reuses an operational name.</paragraph>
+                <paragraph>The identifier MUST NOT be assumed to provide access to a resource or to its
+                    historical metadata after termination.</paragraph>
             </section>
-            <section ids="target-ip" names="target.ip">
-                <title>Target.IP</title>
-                <paragraph><literal>Target.IP</literal> records the network address associated with the target in the
-                    context of the event. It can support correlation with network telemetry,
-                    firewall logs, flow records, and other monitoring data. An IP address is a
-                    time-dependent network attribute and should not be treated as a persistent
-                    identifier of an ephemeral resource.</paragraph>
-                <paragraph>When available, the event timestamp and relevant network context should be
-                    retained to support interpretation of the address at the time of the incident.
-                    Implementations should distinguish addresses belonging to different
+            <section ids="ip" names="2.2.\ ip">
+                <title>2.2. IP</title>
+                <paragraph>The <literal>IP</literal> attribute records the network address associated with the entity in
+                    the context of the event.</paragraph>
+                <paragraph>It supports correlation with network telemetry, firewall logs, flow records, and
+                    other security monitoring data. However, an IP address is a time-dependent
+                    network attribute and MUST NOT be treated as a persistent identifier of an
+                    ephemeral resource.</paragraph>
+                <paragraph>When available, the event timestamp and relevant network context SHOULD
+                    be retained to support the interpretation of the address at the time of the
+                    incident.</paragraph>
+                <paragraph>Implementations SHOULD distinguish addresses belonging to different
                     infrastructure layers, such as a pod, container, node, NAT gateway, or proxy,
-                    when that distinction matters to the investigation.</paragraph>
+                    when this distinction is relevant to the investigation.</paragraph>
             </section>
-            <section ids="target-hostname" names="target.hostname">
-                <title>Target.Hostname</title>
-                <paragraph><literal>Target.Hostname</literal> records the operational hostname or resource name observed
-                    for the target. Examples include a Kubernetes pod name, a container name, a
-                    Nomad allocation-related name, or a runtime-specific hostname.</paragraph>
-                <paragraph>A hostname can help identify and correlate a resource during its lifetime.
-                    However, names may be reused, and their uniqueness may be limited to a
-                    namespace, cluster, runtime, or time interval. A hostname should therefore not
-                    be considered globally unique or permanently stable without additional
-                    context.</paragraph>
+            <section ids="hostname" names="2.3.\ hostname">
+                <title>2.3. Hostname</title>
+                <paragraph>The <literal>Hostname</literal> attribute records the hostname observed or configured for
+                    the entity. It SHOULD contain an actual hostname, not an unrelated platform
+                    identifier.</paragraph>
+                <paragraph>For a Kubernetes pod, the hostname can be configured through the pod's
+                    hostname settings or obtained from the runtime environment. A pod name and
+                    the hostname used inside the pod may happen to be the same, but they are not
+                    interchangeable by definition. Implementations SHOULD record the actual
+                    hostname observed or configured for the pod.</paragraph>
+                <paragraph>Hostnames can facilitate operational identification and correlation during a
+                    resource's lifetime. However, hostnames may be reused, and their uniqueness
+                    may be limited to a particular namespace, cluster, runtime, or time interval.
+                    Consequently, <literal>Hostname</literal> SHOULD NOT be considered a globally unique or
+                    permanently stable identifier without additional context.</paragraph>
             </section>
-            <section ids="target-location-and-platform-specific-references" names="target.location\ and\ platform-specific\ references">
-                <title>Target.Location and Platform-Specific References</title>
-                <paragraph>The meaning of <literal>Target.Location</literal> remains the meaning defined by the
-                    applicable IDMEFv2 specification. Using this attribute to carry a
-                    platform-specific resource reference is an implementation convention; it does
-                    not redefine the attribute or establish a common reference syntax for all
-                    IDMEFv2 implementations.</paragraph>
-                <paragraph>Where an implementation adopts this convention, the value may contain a
-                    platform resource identifier, an orchestration resource path, a container
-                    identifier qualified by its runtime, or a documented combination of
-                    identifiers. Implementations SHOULD prefer a reference to the individual
-                    resource involved in the event rather than a reference only to its parent
-                    cluster, service, or workload definition, when individual-instance
-                    identification is needed.</paragraph>
-                <paragraph>Implementations using platform-specific references SHOULD document at least:</paragraph>
-                <bullet_list bullet="*">
-                    <list_item>
-                        <paragraph>the syntax and interpretation of the reference;</paragraph>
-                    </list_item>
-                    <list_item>
-                        <paragraph>the scope in which the reference is unique;</paragraph>
-                    </list_item>
-                    <list_item>
-                        <paragraph>whether the reference identifies a resource instance, a configuration, or a
-                            parent resource;</paragraph>
-                    </list_item>
-                    <list_item>
-                        <paragraph>the expected stability and lifetime of the reference; and</paragraph>
-                    </list_item>
-                    <list_item>
-                        <paragraph>how the reference is associated with event time and retained historical
-                            records.</paragraph>
-                    </list_item>
-                </bullet_list>
-                <paragraph>A <literal>Target.Location</literal> value does not, by itself, guarantee that a terminated
-                    resource can be retrieved or that its historical metadata remains available.
-                    Systems that require post-incident traceability need to retain the relevant
-                    metadata and security telemetry in their surrounding monitoring and logging
+            <section ids="location" names="2.4.\ location">
+                <title>2.4. Location</title>
+                <paragraph>The <literal>Location</literal> attribute can carry a platform-specific resource reference
+                    that provides additional context for identifying an entity within its
                     infrastructure.</paragraph>
+                <paragraph>Depending on the environment, this reference MAY contain a cloud resource
+                    identifier, an orchestration resource path, a container identifier qualified by
+                    its runtime, or a combination of identifiers that uniquely identifies the
+                    relevant resource within its scope.</paragraph>
+                <paragraph>Implementations SHOULD prefer references that identify the individual
+                    resource involved in the event rather than only its parent cluster, service, or
+                    workload definition.</paragraph>
+                <paragraph>Where appropriate, a reference MAY include additional context, such as a
+                    cluster identifier, namespace, node identifier, container identifier, or
+                    resource UID.</paragraph>
+                <paragraph>Implementations using platform-specific references SHOULD document their
+                    syntax, scope, uniqueness properties, and interpretation.</paragraph>
+                <paragraph>A <literal>Location</literal> value does not, by itself, guarantee that a terminated resource
+                    can be retrieved or that its historical metadata remains available. Systems
+                    requiring post-incident traceability MUST retain the relevant historical
+                    metadata and security telemetry for the required investigation period.</paragraph>
             </section>
         </section>
-        <section ids="platform-specific-examples" names="platform-specific\ examples">
-            <title>Platform-Specific Examples</title>
-            <paragraph>The following examples illustrate possible implementation conventions. The
-                schemes <literal>k8s://</literal>, <literal>gke://</literal>, <literal>aks://</literal>, <literal>nomad://</literal>, <literal>docker://</literal>, and
-                <literal>podman://</literal> are illustrative labels only. They are not defined or
-                standardized by IDMEFv2, and the examples do not imply that these schemes are
-                registered URI schemes or official resource URI formats for the named
-                platforms.</paragraph>
-            <paragraph>The values are fictitious examples. In a deployment, implementations should
-                use identifiers obtained from the relevant platform and follow the platform's
-                rules for identifying the resource concerned.</paragraph>
-            <section ids="kubernetes" names="kubernetes">
-                <title>Kubernetes</title>
-                <paragraph>A Kubernetes pod name may not be sufficient to distinguish successive pod
-                    instances. When available and relevant, the pod UID can be retained along with
-                    the cluster and namespace context. Container-specific information may also be
-                    included when the incident concerns an individual container.</paragraph>
+        <section ids="platform-specific-resource-references" names="3.\ platform-specific\ resource\ references">
+            <title>3. Platform-Specific Resource References</title>
+            <paragraph>The examples below illustrate how <literal>Location</literal> can be populated in different
+                environments. The URI schemes used in these examples, including <literal>k8s://</literal>,
+                <literal>gke://</literal>, <literal>aks://</literal>, <literal>nomad://</literal>, and <literal>docker://</literal>, are illustrative
+                implementation conventions. They are not defined or standardized by IDMEFv2.</paragraph>
+            <paragraph>The values are illustrative and MUST be replaced with identifiers and hostnames
+                obtained from the relevant platform in an actual deployment. UUID-shaped
+                values shown in the examples are illustrative IDMEFv2 entity identifiers; they
+                are not Kubernetes UIDs unless explicitly placed in a platform reference.</paragraph>
+            <section ids="kubernetes" names="3.1.\ kubernetes">
+                <title>3.1. Kubernetes</title>
+                <paragraph>In Kubernetes, a pod name alone may not be sufficient to distinguish
+                    successive instances that share the same name. The pod UID SHOULD be
+                    retained when available.</paragraph>
+                <paragraph>A reference SHOULD include the cluster context, namespace, pod name, and
+                    pod UID. Container-specific information MAY be added when the investigation
+                    concerns an individual container.</paragraph>
+                <paragraph>The <literal>ID</literal> values below identify IDMEFv2 entities. The <literal>Hostname</literal> values
+                    are illustrative actual hostnames configured or observed for the respective
+                    pods; they are not merely Kubernetes pod names. The pod names and UIDs are
+                    retained in <literal>Location</literal>.</paragraph>
                 <paragraph>Example:</paragraph>
-                <literal_block force="False" language="none" linenos="False" xml:space="preserve">{
-  "Target": [
+                <literal_block force="False" highlight_args="{}" language="json" linenos="False" xml:space="preserve">{
+  "CreateTime": "2026-10-19T10:15:30Z",
+  "Analyzer": [
     {
       "ID": "7d6a3c21-1b4e-4f80-9a12-6e5b2c8d901f",
-      "IP": "10.244.2.15",
-      "Hostname": "payment-worker-5c8d9f-abc123",
-      "Location": "k8s://cluster-prod-eu/namespace-paiement/pod/payment-worker-5c8d9f-abc123?uid=6a1f8b42-3c9d-4e70-a521-8b7d9c2e104f&amp;container=worker&amp;node=node-worker-03",
-      "Service": "finance"
+      "Hostname": "secops-collector-01.example.net",
+      "Location": "k8s://cluster-secops/namespace-monitoring/pod/idmefv2-analyzer?uid=11111111-1111-4111-8111-111111111111"
     }
-  ]
-}</literal_block>
-                <paragraph>The <literal>k8s://</literal> value is an illustrative convention. The pod UID identifies a
-                    Kubernetes object instance; cluster and namespace context help interpret the
-                    reference. Node-level information may be included when useful for correlation
-                    with network sensors or host-level telemetry.</paragraph>
-            </section>
-            <section ids="google-kubernetes-engine-gke" names="google\ kubernetes\ engine\ (gke)">
-                <title>Google Kubernetes Engine (GKE)</title>
-                <paragraph>For GKE, an implementation may combine project and cluster context with the
-                    Kubernetes namespace, pod name, and pod UID. A cluster resource identifier
-                    alone identifies the cluster, not the individual pod involved in the incident.</paragraph>
-                <paragraph>Example:</paragraph>
-                <literal_block force="False" language="none" linenos="False" xml:space="preserve">{
-  "Target": [
+  ],
+  "Sensor": [
     {
       "ID": "8e7b4d32-2c5f-4a91-8b23-7f6c3d9e012a",
-      "IP": "10.244.2.15",
-      "Hostname": "payment-worker-5c8d9f-abc123",
-      "Location": "gke://projects/my-project-123/locations/us-west1/clusters/cluster-prod-eu/namespaces/namespace-paiement/pods/payment-worker-5c8d9f-abc123?uid=6a1f8b42-3c9d-4e70-a521-8b7d9c2e104f&amp;container=worker",
-      "Service": "finance"
+      "IP": "10.10.0.12",
+      "Hostname": "network-sensor-01.example.net",
+      "Location": "k8s://cluster-prod-eu/namespace-monitoring/pod/network-sensor?uid=22222222-2222-4222-8222-222222222222"
     }
-  ]
-}</literal_block>
-                <paragraph>The <literal>gke://</literal> value is an illustrative convention, not an official Google
-                    Cloud resource URI format. An implementation may instead record a documented
-                    Google Cloud resource identifier together with the Kubernetes identifiers
-                    needed to identify the individual pod.</paragraph>
-            </section>
-            <section ids="amazon-elastic-container-service-ecs" names="amazon\ elastic\ container\ service\ (ecs)">
-                <title>Amazon Elastic Container Service (ECS)</title>
-                <paragraph>In Amazon ECS, a task ARN identifies a task instance, whereas a task definition
-                    ARN identifies a task definition revision. When investigating a particular task
-                    execution, the reference should identify the task instance rather than only its
-                    task definition. The task definition ARN may be retained separately as
-                    configuration context.</paragraph>
-                <paragraph>Example:</paragraph>
-                <literal_block force="False" language="none" linenos="False" xml:space="preserve">{
-  "Target": [
+  ],
+  "Source": [
     {
       "ID": "9f8c5e43-3d60-4ba2-9c34-8a7d4e0f123b",
-      "IP": "10.0.1.42",
-      "Hostname": "payment-worker-5c8d9f-abc123",
-      "Location": "arn:aws:ecs:us-west-1:123456789012:task/cluster-prod-eu/0123456789abcdef0123456789abcdef",
-      "Service": "finance"
+      "IP": "10.244.2.15",
+      "Hostname": "payment-worker-01.namespace-paiement.example.net",
+      "Location": "k8s://cluster-prod-eu/namespace-paiement/pod/payment-worker-5c8d9f-abc123?uid=6a1f8b42-3c9d-4e70-a521-8b7d9c2e104f&amp;container=worker&amp;node=node-worker-03"
     }
-  ]
-}</literal_block>
-                <paragraph>The ARN is illustrative. A deployment should use the actual task ARN returned
-                    by ECS and retain sufficient cluster context to interpret the reference when
-                    needed. If the incident concerns an individual container within a task, the
-                    relevant container identifier may also be retained. A task definition ARN
-                    should not be substituted for a task-instance identifier when distinguishing
-                    individual executions is required.</paragraph>
-            </section>
-            <section ids="azure-kubernetes-service-aks" names="azure\ kubernetes\ service\ (aks)">
-                <title>Azure Kubernetes Service (AKS)</title>
-                <paragraph>In AKS, the Azure Resource Manager (ARM) resource ID of a managed cluster
-                    identifies the cluster, not an individual pod. A pod-level reference may
-                    combine subscription, resource group, and cluster context with the Kubernetes
-                    namespace, pod name, and pod UID.</paragraph>
-                <paragraph>Example:</paragraph>
-                <literal_block force="False" language="none" linenos="False" xml:space="preserve">{
+  ],
   "Target": [
     {
       "ID": "a09d6f54-4e71-4cb3-8d45-9b8e5f10234c",
-      "IP": "10.240.0.15",
-      "Hostname": "payment-worker-5c8d9f-abc123",
-      "Location": "aks://subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/my-rg/managedClusters/cluster-prod-eu/namespaces/namespace-paiement/pods/payment-worker-5c8d9f-abc123?uid=6a1f8b42-3c9d-4e70-a521-8b7d9c2e104f",
+      "IP": "10.244.3.20",
+      "Hostname": "payment-api-01.namespace-paiement.example.net",
+      "Location": "k8s://cluster-prod-eu/namespace-paiement/pod/payment-api-7b8c9d-xyz789?uid=33333333-3333-4333-8333-333333333333&amp;container=api&amp;node=node-worker-04",
       "Service": "finance"
     }
   ]
 }</literal_block>
-                <paragraph>The <literal>aks://</literal> value is an illustrative convention, not an official ARM
-                    resource identifier for a pod. An implementation may retain the cluster ARM
-                    resource ID separately or include it in a documented platform-specific
-                    representation. The reference should distinguish the individual Kubernetes
-                    resource from its parent cluster when that distinction is required.</paragraph>
+                <paragraph>The <literal>k8s://</literal> reference is an illustrative convention. The pod UID identifies
+                    the Kubernetes object instance, while the cluster and namespace provide the
+                    context required to interpret the reference.</paragraph>
+                <paragraph>Node-level information MAY be included when it helps correlate the event with
+                    network sensors or host-level telemetry.</paragraph>
             </section>
-            <section ids="hashicorp-nomad" names="hashicorp\ nomad">
-                <title>HashiCorp Nomad</title>
-                <paragraph>In Nomad, an allocation identifier can refer to a particular workload
-                    allocation. The reference should include sufficient context to distinguish
-                    allocations across clusters, regions, namespaces, or jobs, as applicable.</paragraph>
+            <section ids="docker-and-podman" names="3.2.\ docker\ and\ podman">
+                <title>3.2. Docker and Podman</title>
+                <paragraph>For standalone container runtimes such as Docker and Podman, a container
+                    name alone may be insufficient because names can be reused after a container
+                    is removed.</paragraph>
+                <paragraph><literal>Location</literal> SHOULD identify the container instance and, where necessary, the
+                    runtime host or engine. The full container identifier SHOULD be preferred
+                    over the human-readable container name.</paragraph>
                 <paragraph>Example:</paragraph>
-                <literal_block force="False" language="none" linenos="False" xml:space="preserve">{
+                <literal_block force="False" highlight_args="{}" language="json" linenos="False" xml:space="preserve">{
   "Target": [
     {
       "ID": "b10e7a65-5f82-4dc4-9e56-0c9f6a21345d",
-      "IP": "172.17.0.5",
-      "Hostname": "payment-worker-5c8d9f-abc123",
-      "Location": "nomad://region-eu/cluster-prod/job-payment/alloc-01234567-89ab-cdef-0123-456789abcdef?task=worker",
-      "Service": "finance"
-    }
-  ]
-}</literal_block>
-                <paragraph>The <literal>nomad://</literal> value is an illustrative convention. Implementations should
-                    use the allocation identifier supplied by Nomad and document any context
-                    needed to interpret it. Task-level or container-level information may be
-                    included when necessary to distinguish the runtime entity involved.</paragraph>
-            </section>
-            <section ids="docker-and-podman" names="docker\ and\ podman">
-                <title>Docker and Podman</title>
-                <paragraph>For standalone container runtimes such as Docker and Podman, a container name
-                    may be insufficient because names can be reused after a container is removed.
-                    A reference should identify the container instance and, where necessary, the
-                    runtime host or engine. The full container identifier is generally preferable
-                    to a human-readable name.</paragraph>
-                <paragraph>Example:</paragraph>
-                <literal_block force="False" language="none" linenos="False" xml:space="preserve">{
-  "Target": [
-    {
-      "ID": "c21f8b76-6083-4ed5-af67-1d0a7b32456e",
       "IP": "172.17.0.3",
-      "Hostname": "web-app-1",
+      "Hostname": "web-app-01.example.net",
       "Location": "docker://server-web-01/containers/a1b2c3d4e5f67890123456789012345678901234567890123456789012345678",
       "Service": "e-commerce"
     }
   ]
 }</literal_block>
-                <paragraph>The <literal>docker://</literal> value is an illustrative convention, not an official Docker
-                    URI scheme. A corresponding convention may be defined for Podman, for example
-                    using <literal>podman://</literal>. Implementations should document whether the reference
-                    identifies the container, runtime instance, host, or a combination of these
-                    entities. Where multiple runtime hosts or engines are involved, the reference
-                    should include enough context to avoid ambiguity.</paragraph>
+                <paragraph>The <literal>docker://</literal> scheme is an illustrative convention, not an official Docker
+                    URI scheme. A corresponding convention MAY be defined for Podman, for example
+                    using a <literal>podman://</literal> scheme. Implementations SHOULD document whether the
+                    reference identifies the container, the runtime instance, the host, or a
+                    combination of these entities.</paragraph>
+                <paragraph>Where multiple runtime hosts or engines are involved, the reference SHOULD
+                    include enough context to avoid ambiguity.</paragraph>
+            </section>
+            <section ids="google-cloud-gke" names="3.3.\ google\ cloud\ gke">
+                <title>3.3. Google Cloud GKE</title>
+                <paragraph>For Google Kubernetes Engine (GKE), a reference can combine the Google
+                    Cloud project and cluster context with the Kubernetes namespace, pod name,
+                    and pod UID.</paragraph>
+                <paragraph>The cluster resource identifier alone identifies the cluster, not the individual
+                    pod involved in the incident.</paragraph>
+                <paragraph>Example:</paragraph>
+                <literal_block force="False" highlight_args="{}" language="json" linenos="False" xml:space="preserve">{
+  "Target": [
+    {
+      "ID": "c21f8b76-6083-4ed5-af67-1d0a7b32456e",
+      "IP": "10.244.2.15",
+      "Hostname": "payment-worker-01.namespace-paiement.example.net",
+      "Location": "gke://projects/my-project-123/locations/us-west1/clusters/cluster-prod-eu/namespaces/namespace-paiement/pods/payment-worker-5c8d9f-abc123?uid=6a1f8b42-3c9d-4e70-a521-8b7d9c2e104f&amp;container=worker",
+      "Service": "finance"
+    }
+  ]
+}</literal_block>
+                <paragraph>The <literal>gke://</literal> scheme is an illustrative convention rather than an official
+                    Google Cloud resource URI format. Implementations MAY instead use a
+                    documented Google Cloud resource identifier together with the Kubernetes
+                    identifiers required to identify the individual pod.</paragraph>
+            </section>
+            <section ids="aws-ecs" names="3.4.\ aws\ ecs">
+                <title>3.4. AWS ECS</title>
+                <paragraph>In Amazon Elastic Container Service (ECS), the task ARN identifies a task
+                    instance, whereas the task definition ARN identifies a versioned task
+                    definition.</paragraph>
+                <paragraph>For incident investigation involving a particular running or terminated task,
+                    <literal>Location</literal> SHOULD identify the task instance rather than only its task
+                    definition. The task definition ARN MAY be retained separately as supplementary
+                    configuration context.</paragraph>
+                <paragraph>Example:</paragraph>
+                <literal_block force="False" highlight_args="{}" language="json" linenos="False" xml:space="preserve">{
+  "Target": [
+    {
+      "ID": "d32f8a76-4b19-4c52-9d63-0a8e7f6b1234",
+      "IP": "10.0.1.42",
+      "Hostname": "payment-worker-01.example.net",
+      "Location": "arn:aws:ecs:us-west-1:123456789012:task/cluster-prod-eu/0123456789abcdef0123456789abcdef",
+      "Service": "finance"
+    }
+  ]
+}</literal_block>
+                <paragraph>The ARN is illustrative. Implementations MUST use the actual task ARN
+                    returned by ECS and SHOULD retain the cluster context when needed to
+                    interpret the reference.</paragraph>
+                <paragraph>When the incident concerns an individual container within a task, the relevant
+                    container identifier SHOULD also be retained when available.</paragraph>
+                <paragraph>The task definition ARN MAY be recorded as additional information to identify
+                    the configuration used by the task. It MUST NOT be substituted for the task
+                    instance identifier when the objective is to distinguish individual task
+                    executions.</paragraph>
+            </section>
+            <section ids="microsoft-azure-aks" names="3.5.\ microsoft\ azure\ aks">
+                <title>3.5. Microsoft Azure AKS</title>
+                <paragraph>In Azure Kubernetes Service (AKS), the Azure Resource Manager (ARM)
+                    resource ID of a managed cluster identifies the cluster, not an individual pod.</paragraph>
+                <paragraph>A pod-level reference SHOULD therefore combine the Azure subscription,
+                    resource group, and cluster context with the Kubernetes namespace, pod
+                    name, and pod UID.</paragraph>
+                <paragraph>Example:</paragraph>
+                <literal_block force="False" highlight_args="{}" language="json" linenos="False" xml:space="preserve">{
+  "Target": [
+    {
+      "ID": "e43f9b87-5c20-4d63-8e74-1b9f6a20345d",
+      "IP": "10.240.0.15",
+      "Hostname": "payment-worker-01.namespace-paiement.example.net",
+      "Location": "aks://subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/my-rg/managedClusters/cluster-prod-eu/namespaces/namespace-paiement/pods/payment-worker-5c8d9f-abc123?uid=6a1f8b42-3c9d-4e70-a521-8b7d9c2e104f",
+      "Service": "finance"
+    }
+  ]
+}</literal_block>
+                <paragraph>The <literal>aks://</literal> scheme is an illustrative convention, not an official ARM
+                    resource identifier for a pod.</paragraph>
+                <paragraph>Implementations MAY retain the cluster ARM resource ID as a separate
+                    reference or incorporate it into a documented platform-specific representation.
+                    The reference SHOULD distinguish the individual Kubernetes resource from its
+                    parent cluster.</paragraph>
+            </section>
+            <section ids="hashicorp-nomad" names="3.6.\ hashicorp\ nomad">
+                <title>3.6. HashiCorp Nomad</title>
+                <paragraph>In HashiCorp Nomad, an allocation identifier can provide a reference to a
+                    particular workload allocation. The reference SHOULD include sufficient
+                    context to distinguish allocations across clusters, regions, namespaces, or
+                    jobs, as applicable.</paragraph>
+                <paragraph>Example:</paragraph>
+                <literal_block force="False" highlight_args="{}" language="json" linenos="False" xml:space="preserve">{
+  "Target": [
+    {
+      "ID": "f54a0c98-6d31-4e75-9a82-2c7f1b60345e",
+      "IP": "172.17.0.5",
+      "Hostname": "payment-worker-01.example.net",
+      "Location": "nomad://region-eu/cluster-prod/job-payment/alloc-01234567-89ab-cdef-0123-456789abcdef?task=worker",
+      "Service": "finance"
+    }
+  ]
+}</literal_block>
+                <paragraph>The <literal>nomad://</literal> scheme is an illustrative convention. Implementations SHOULD
+                    use the actual allocation identifier provided by Nomad and document the
+                    context required to interpret it.</paragraph>
+                <paragraph>Task-level or container-level information MAY be included when necessary to
+                    distinguish the specific runtime entity involved in the event.</paragraph>
             </section>
         </section>
-        <section ids="ephemeral-sources-analyzers-and-sensors" names="ephemeral\ sources,\ analyzers,\ and\ sensors">
-            <title>Ephemeral Sources, Analyzers, and Sensors</title>
-            <paragraph>The ephemeral-resource problem is not limited to <literal>Target</literal>. In cloud-native
-                and distributed monitoring environments, the source of an event and the
-                components that collect or analyze telemetry may also run as short-lived
-                workloads. Their IP addresses can change during redeployment, be reassigned to
-                another instance, or be visible only within a particular network namespace.</paragraph>
-            <section dupnames="source" ids="id15">
-                <title>Source</title>
-                <paragraph><literal>Source.IP</literal> should be interpreted as an address associated with the event
-                    source in the event context, not as a durable identifier of the originating
-                    entity. Where available, implementations should preserve the event timestamp
-                    and enough network or infrastructure context to interpret the address at that
-                    time. If a source is an ephemeral workload, a hostname or platform-native
-                    resource reference may be recorded only where supported by the applicable
-                    IDMEFv2 class and attribute definitions, or through a documented extension or
-                    implementation-specific mechanism.</paragraph>
-                <paragraph>Implementations should avoid correlating sources solely because they used the
-                    same IP address at different times. Conversely, they should not assume that
-                    different IP addresses necessarily indicate different logical sources; a
-                    single workload may be reassigned an address during its lifetime.</paragraph>
-            </section>
-            <section ids="analyzer" names="analyzer">
-                <title>Analyzer</title>
-                <paragraph>An analyzer may itself run in a container, pod, serverless runtime, or other
-                    ephemeral environment. <literal>Analyzer.IP</literal>, when present, describes network
-                    addressing context for the analyzer; it should not be treated as a permanent
-                    identifier of the analyzer implementation or instance.</paragraph>
-                <paragraph>Implementations that need to correlate alerts produced by an analyzer across
-                    restarts or redeployments should use the analyzer-identification mechanisms
-                    provided by the applicable IDMEFv2 version and document how those identifiers
-                    map to runtime instances. They should retain the time-bounded mapping between
-                    analyzer identity, network addresses, and deployment metadata when that
-                    information is needed for investigation. An address change alone should not
-                    necessarily be interpreted as a change of logical analyzer, and reuse of an
-                    address should not be taken to mean that the analyzer instance is unchanged.</paragraph>
-            </section>
-            <section ids="sensor" names="sensor">
-                <title>Sensor</title>
-                <paragraph>A sensor may also be deployed as an ephemeral workload or may be attached to
-                    a network or runtime whose addressing changes. <literal>Sensor.IP</literal>, when present,
-                    should be treated as network context rather than as a durable sensor identity.
-                    Where the sensor and analyzer are separate components, implementations should
-                    preserve enough context to distinguish the component that captured the data
-                    from the component that analyzed it, even if their addresses are reassigned or
-                    the components are redeployed independently.</paragraph>
-                <paragraph>Implementations should use the identity and descriptive attributes defined by
-                    the applicable IDMEFv2 version, together with documented deployment metadata
-                    where needed, rather than relying on an IP address alone. They should not
-                    assume that a sensor and an analyzer are the same logical component merely
-                    because they share an address, hostname, or deployment environment.</paragraph>
-            </section>
-            <section ids="general-correlation-guidance" names="general\ correlation\ guidance">
-                <title>General Correlation Guidance</title>
-                <paragraph>For <literal>Source</literal>, <literal>Target</literal>, <literal>Analyzer</literal>, and <literal>Sensor</literal>, implementations
-                    should distinguish, where relevant, between:</paragraph>
-                <bullet_list bullet="*">
-                    <list_item>
-                        <paragraph>the logical entity represented in IDMEFv2;</paragraph>
-                    </list_item>
-                    <list_item>
-                        <paragraph>a particular runtime or resource instance;</paragraph>
-                    </list_item>
-                    <list_item>
-                        <paragraph>the network address observed at the time of the event; and</paragraph>
-                    </list_item>
-                    <list_item>
-                        <paragraph>the deployment or infrastructure context needed to interpret that address.</paragraph>
-                    </list_item>
-                </bullet_list>
-                <paragraph>The IDMEFv2 attributes available to represent these concepts are not identical
-                    across the four classes. Implementations must not assume that an attribute
-                    available on <literal>Target</literal> is also available on <literal>Source</literal>, <literal>Analyzer</literal>, or
-                    <literal>Sensor</literal>. Any platform-specific reference or mapping should use attributes
-                    supported by the applicable class, or a documented extension mechanism, and
-                    should not silently redefine an existing attribute.</paragraph>
-                <paragraph>When correlation across time is required, implementations should retain the
-                    mapping between the relevant IDMEFv2 entity, runtime instance, address, and
-                    event time for the required investigation period. This mapping is an operational
-                    property of the monitoring system; it is not guaranteed by the IP attribute.</paragraph>
-            </section>
-        </section>
-        <section ids="service-attribute" names="service\ attribute">
-            <title>Service Attribute</title>
-            <paragraph>The <literal>Target.Service</literal> attribute should be used consistently with the
-                attribute definition in the applicable IDMEFv2 specification. Values such as
-                <literal>finance</literal>, <literal>messaging</literal>, and <literal>e-commerce</literal> may identify high-level business
-                services associated with a target.</paragraph>
-            <paragraph>Implementations should avoid using <literal>Service</literal> as an undocumented substitute
+        <section ids="scope-of-the-service-attribute" names="4.\ scope\ of\ the\ service\ attribute">
+            <title>4. Scope of the Service Attribute</title>
+            <paragraph>The <literal>Service</literal> attribute in the <literal>Target</literal> class SHOULD describe the
+                high-level service or process affected, consistently with the IDMEFv2
+                specification.</paragraph>
+            <paragraph>For example, values such as <literal>finance</literal>, <literal>messaging</literal>, and <literal>e-commerce</literal>
+                can identify business-level services associated with the target.</paragraph>
+            <paragraph>Implementations SHOULD avoid using <literal>Service</literal> as an undocumented substitute
                 for platform-specific resource identifiers, such as pod names, container IDs,
-                allocation IDs, task ARNs, or cluster resource IDs. Where business services
-                and technical runtime services must be distinguished, implementations should
-                document the mapping between those concepts and the relevant IDMEFv2
-                attributes.</paragraph>
+                allocation IDs, task ARNs, or cluster resource IDs.</paragraph>
+            <paragraph>Where business services and technical runtime services must be distinguished,
+                implementations SHOULD document the mapping between these concepts and
+                the relevant IDMEFv2 attributes.</paragraph>
+            <paragraph>The use of <literal>Service</literal> for a particular purpose MUST remain consistent with
+                the attribute definition in the applicable version of the IDMEFv2 specification.</paragraph>
         </section>
-        <section ids="temporal-context-and-historical-retention" names="temporal\ context\ and\ historical\ retention">
-            <title>Temporal Context and Historical Retention</title>
-            <paragraph>Reliable post-incident investigation requires more than a resource reference.
-                Implementations should preserve the event timestamp and sufficient context to
-                determine which resource instance, network address, and runtime environment
-                were involved at the time of the event.</paragraph>
-            <paragraph>Depending on the environment and investigation requirements, relevant records
-                may include orchestration events, container lifecycle records, cloud audit
-                logs, network flow records, and mappings between resource identifiers and
-                network addresses. Systems that require long-term traceability need to retain
-                the historical metadata and security telemetry needed for the intended
-                investigation period.</paragraph>
-            <paragraph>A <literal>Target.Location</literal> value may be used as a lookup key into retained
-                historical records when the implementation has documented that convention.
-                The availability and retention of those records are properties of the
-                surrounding monitoring and logging infrastructure, not guarantees provided by
-                the <literal>Location</literal> attribute itself.</paragraph>
+        <section ids="temporal-context-and-historical-retention" names="5.\ temporal\ context\ and\ historical\ retention">
+            <title>5. Temporal Context and Historical Retention</title>
+            <paragraph>Reliable post-incident investigation requires more than a stable resource
+                reference.</paragraph>
+            <paragraph>Implementations SHOULD preserve the event timestamp and sufficient
+                contextual information to determine which resource instance, network
+                address, and runtime environment were involved at the time of the event.</paragraph>
+            <paragraph>The IDMEFv2 time attributes SHOULD be used according to their defined
+                semantics. In particular, <literal>CreateTime</literal> indicates when the alert was created,
+                whereas <literal>StartTime</literal> describes the start of the activity or situation being
+                reported when that information is available. They are not interchangeable,
+                and neither should be assumed to represent the exact measurement time of
+                every individual attribute. Implementations SHOULD retain any additional
+                timestamps required to interpret time-sensitive measurements accurately.</paragraph>
+            <paragraph>Systems requiring long-term traceability MUST retain the historical metadata
+                and security telemetry needed for the intended investigation period. Such
+                information can include orchestration events, container lifecycle records,
+                cloud audit logs, network flow records, and mappings between resource
+                identifiers and network addresses.</paragraph>
+            <paragraph>A <literal>Location</literal> value MAY be used as a lookup key into retained historical
+                records. However, the availability and retention of those records are properties
+                of the surrounding monitoring and logging infrastructure, not guarantees
+                provided by the <literal>Location</literal> attribute itself.</paragraph>
         </section>
-        <section ids="summary" names="summary">
-            <title>Summary</title>
-            <paragraph>Ephemeral environments require a distinction between target identification,
-                network correlation, and historical resource context. <literal>Target.ID</literal> remains
-                the target identifier defined by IDMEFv2; <literal>Target.IP</literal> records a network
-                address associated with the event; <literal>Target.Hostname</literal> provides an operational
-                name; and <literal>Target.Location</literal> retains the meaning assigned to it by the
-                applicable IDMEFv2 specification, although implementations may document a
-                convention for carrying a platform-specific reference in that attribute.</paragraph>
-            <paragraph>For reliable correlation, implementations should distinguish successive
-                resource instances when required, retain sufficient temporal and infrastructure
-                context, and document the syntax and scope of platform-specific references.
-                Long-term traceability also depends on the retention and availability of
-                historical metadata and security records. These practices allow IDMEFv2 to be
-                used with ephemeral resources without requiring a separate IDMEFv2 extension
-                for every orchestration platform or container runtime.</paragraph>
+        <section ids="summary" names="6.\ summary">
+            <title>6. Summary</title>
+            <paragraph>Ephemeral environments require a distinction between entity identification,
+                network correlation, and historical resource context.</paragraph>
+            <paragraph>The <literal>ID</literal> attribute identifies the entity in the IDMEFv2 data model. <literal>IP</literal>
+                records the network address observed in the context of the event, <literal>Hostname</literal>
+                provides the actual configured or observed hostname, and <literal>Location</literal> can
+                carry a platform-specific reference to the relevant resource.</paragraph>
+            <paragraph>Implementations SHOULD use resource references that identify individual
+                instances rather than only their parent clusters or configuration definitions.
+                They SHOULD preserve sufficient temporal and infrastructure context to
+                distinguish successive instances and correlate events across security telemetry
+                sources.</paragraph>
+            <paragraph>Long-term traceability additionally depends on the retention and availability
+                of historical metadata and security records.</paragraph>
+            <paragraph>This approach enables IDMEFv2 to represent ephemeral resources across
+                different orchestration platforms and container runtimes without requiring a
+                separate IDMEFv2 extension for each environment. Platform-specific reference
+                formats remain implementation conventions and SHOULD be documented to
+                support interoperability.</paragraph>
+            <paragraph>The JSON fragments are illustrative. Their exact structure MUST conform to
+                the applicable IDMEFv2 serialization and schema.</paragraph>
         </section>
     </section>
-    <section dupnames="enumerations" ids="id16">
+    <section dupnames="enumerations" ids="id15">
         <title>Enumerations</title>
         <section ids="entity-sector" names="entity\ sector">
             <title>Entity Sector</title>
-            <target refid="id17"></target>
-            <table align="default" classes="colwidths-auto" ids="id26 id17" names="entity_sector">
+            <target refid="id16"></target>
+            <table align="default" classes="colwidths-auto" ids="id25 id16" names="entity_sector">
                 <title>enum_alert_entitysector</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -4500,8 +4424,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="alert-category" names="alert\ category">
             <title>Alert Category</title>
-            <target refid="id18"></target>
-            <table align="default" classes="colwidths-auto" ids="id27 id18" names="alert_category">
+            <target refid="id17"></target>
+            <table align="default" classes="colwidths-auto" ids="id26 id17" names="alert_category">
                 <title>enum_alert_category</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -5926,7 +5850,7 @@ Source(0).IP</literal_block>
                                 <paragraph>Other.ext-value</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>A value used to indicate that this attribute is extended and the actual value is provided using the corresponding ext-* attribute. (see :ref:<problematic ids="id20" refid="id19">`</problematic>private_extension_enum)</paragraph>
+                                <paragraph>A value used to indicate that this attribute is extended and the actual value is provided using the corresponding ext-* attribute. (see :ref:<problematic ids="id19" refid="id18">`</problematic>private_extension_enum)</paragraph>
                             </entry>
                         </row>
                     </tbody>
@@ -5935,8 +5859,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="analyzer-category" names="analyzer\ category">
             <title>Analyzer Category</title>
-            <target refid="id21"></target>
-            <table align="default" classes="colwidths-auto" ids="id28 id21" names="analyzer_category">
+            <target refid="id20"></target>
+            <table align="default" classes="colwidths-auto" ids="id27 id20" names="analyzer_category">
                 <title>Analyzer Categories</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -6831,8 +6755,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="analyzer-data" names="analyzer\ data">
             <title>Analyzer Data</title>
-            <target refid="id22"></target>
-            <table align="default" classes="colwidths-auto" ids="id29 id22" names="analyzer_data">
+            <target refid="id21"></target>
+            <table align="default" classes="colwidths-auto" ids="id28 id21" names="analyzer_data">
                 <title>enum_analyzer_data</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -7155,8 +7079,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="analyzer-method" names="analyzer\ method">
             <title>Analyzer Method</title>
-            <target refid="id23"></target>
-            <table align="default" classes="colwidths-auto" ids="id30 id23" names="analyzer_method">
+            <target refid="id22"></target>
+            <table align="default" classes="colwidths-auto" ids="id29 id22" names="analyzer_method">
                 <title>Analyzer Methods</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -7600,8 +7524,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="source-category" names="source\ category">
             <title>Source Category</title>
-            <target refid="id24"></target>
-            <table align="default" classes="colwidths-auto" ids="id31 id24" names="source_category">
+            <target refid="id23"></target>
+            <table align="default" classes="colwidths-auto" ids="id30 id23" names="source_category">
                 <title>Source Categories</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -9354,8 +9278,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="target-category" names="target\ category">
             <title>Target Category</title>
-            <target refid="id25"></target>
-            <table align="default" classes="colwidths-auto" ids="id32 id25" names="target_category">
+            <target refid="id24"></target>
+            <table align="default" classes="colwidths-auto" ids="id31 id24" names="target_category">
                 <title>Target Categories</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
