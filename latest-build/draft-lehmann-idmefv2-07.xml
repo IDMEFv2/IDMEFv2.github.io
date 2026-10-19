@@ -686,7 +686,7 @@ Source(0).IP</sourcecode>
                     <dd>
                         <t>Optional. The economic sector(s) and sub-sector(s) in which the entity operates. Values follow the dot notation sector.subsector based on the critical infrastructure taxonomy defined in the NIS2 Directive and CER (Critical Entities Resilience) Directive.</t>
                         <t>This attribute enables sector-based correlation, regulatory compliance reporting, and risk context for incident detection.</t>
-                        <t>Enumeration available here <xref target="id17"/></t>
+                        <t>Enumeration available here <xref target="id16"/></t>
                     </dd>
                 
                     <dt>Type</dt>
@@ -769,7 +769,7 @@ Source(0).IP</sourcecode>
                     <dt>Category</dt>
                     <dd>
                         <t>Optional. Incident category.</t>
-                        <t>Enumeration available here <xref target="id18"/></t>
+                        <t>Enumeration available here <xref target="id17"/></t>
                     </dd>
                 
                     <dt>ext-Category</dt>
@@ -1227,7 +1227,7 @@ Source(0).IP</sourcecode>
                     <dt>Category</dt>
                     <dd>
                         <t>Optional. Analyzer categories.</t>
-                        <t>Enumeration available here <xref target="id21"/></t>
+                        <t>Enumeration available here <xref target="id20"/></t>
                     </dd>
                 
                     <dt>ext-Category</dt>
@@ -1239,7 +1239,7 @@ Source(0).IP</sourcecode>
                     <dt>Data</dt>
                     <dd>
                         <t>Optional. Type of data analyzed during the detection.</t>
-                        <t>Enumeration available here <xref target="id22"/></t>
+                        <t>Enumeration available here <xref target="id21"/></t>
                     </dd>
                 
                     <dt>ext-Data</dt>
@@ -1251,7 +1251,7 @@ Source(0).IP</sourcecode>
                     <dt>Method</dt>
                     <dd>
                         <t>Optional. Detection method.</t>
-                        <t>Enumeration available here <xref target="id23"/></t>
+                        <t>Enumeration available here <xref target="id22"/></t>
                     </dd>
                 
                     <dt>ext-Method</dt>
@@ -1432,7 +1432,7 @@ Source(0).IP</sourcecode>
                     <dt>Category</dt>
                     <dd>
                         <t>Optional. Source category</t>
-                        <t>Enumeration available here <xref target="id24"/></t>
+                        <t>Enumeration available here <xref target="id23"/></t>
                     </dd>
                 
                     <dt>Note</dt>
@@ -1559,7 +1559,7 @@ Source(0).IP</sourcecode>
                     <dt>Category</dt>
                     <dd>
                         <t>Optional. Target category</t>
-                        <t>Enumeration available here <xref target="id25"/></t>
+                        <t>Enumeration available here <xref target="id24"/></t>
                     </dd>
                 
                     <dt>Note</dt>
@@ -1958,6 +1958,8 @@ Source(0).IP</sourcecode>
                     multiples concepts to IDMEFv2.</t>
             </li>
         </ul>
+      <t># Using IDMEFv2 in Ephemeral Environments (Informative)
+            # ====================================================</t>
     </section>
   </middle>
   <back>
@@ -2235,9 +2237,6 @@ Source(0).IP</sourcecode>
         </front>
       </reference>
     </references>
-    <section>
-      <name>Using IDMEFv2 in Ephemeral Environments (Informative)</name>
-    </section>
     <section>
       <name>Using IDMEFv2 in Ephemeral Environments (Informative)</name>
       <t>The guidance in this appendix is informative. It describes implementation
@@ -2577,7 +2576,7 @@ Source(0).IP</sourcecode>
       <name>Enumerations</name>
       <section>
         <name>Entity Sector</name>
-        <table anchor="id17"><name>enum_alert_entitysector</name>
+        <table anchor="id16"><name>enum_alert_entitysector</name>
                 
                 <thead>
                         <tr>
@@ -4049,7 +4048,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Alert Category</name>
-        <table anchor="id18"><name>enum_alert_category</name>
+        <table anchor="id17"><name>enum_alert_category</name>
                 
                 <thead>
                         <tr>
@@ -5477,7 +5476,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Analyzer Category</name>
-        <table anchor="id21"><name>Analyzer Categories</name>
+        <table anchor="id20"><name>Analyzer Categories</name>
                 
                 <thead>
                         <tr>
@@ -6366,7 +6365,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Analyzer Data</name>
-        <table anchor="id22"><name>enum_analyzer_data</name>
+        <table anchor="id21"><name>enum_analyzer_data</name>
                 
                 <thead>
                         <tr>
@@ -6683,7 +6682,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Analyzer Method</name>
-        <table anchor="id23"><name>Analyzer Methods</name>
+        <table anchor="id22"><name>Analyzer Methods</name>
                 
                 <thead>
                         <tr>
@@ -7121,7 +7120,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Source Category</name>
-        <table anchor="id24"><name>Source Categories</name>
+        <table anchor="id23"><name>Source Categories</name>
                 
                 <thead>
                         <tr>
@@ -8868,7 +8867,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Target Category</name>
-        <table anchor="id25"><name>Target Categories</name>
+        <table anchor="id24"><name>Target Categories</name>
                 
                 <thead>
                         <tr>

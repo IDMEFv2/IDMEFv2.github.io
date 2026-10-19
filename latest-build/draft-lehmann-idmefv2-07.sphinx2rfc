@@ -819,7 +819,7 @@ Source(0).IP</literal_block>
                     <definition>
                         <paragraph>Optional. The economic sector(s) and sub-sector(s) in which the entity operates. Values follow the dot notation sector.subsector based on the critical infrastructure taxonomy defined in the NIS2 Directive and CER (Critical Entities Resilience) Directive.</paragraph>
                         <paragraph>This attribute enables sector-based correlation, regulatory compliance reporting, and risk context for incident detection.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id17"><inline classes="std std-ref">enum_alert_entitysector</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id16"><inline classes="std std-ref">enum_alert_entitysector</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -910,7 +910,7 @@ Source(0).IP</literal_block>
                     <term>Category</term>
                     <definition>
                         <paragraph>Optional. Incident category.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id18"><inline classes="std std-ref">enum_alert_category</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id17"><inline classes="std std-ref">enum_alert_category</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1415,7 +1415,7 @@ Source(0).IP</literal_block>
                     <term>Category</term>
                     <definition>
                         <paragraph>Optional. Analyzer categories.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id21"><inline classes="std std-ref">Analyzer Categories</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id20"><inline classes="std std-ref">Analyzer Categories</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1429,7 +1429,7 @@ Source(0).IP</literal_block>
                     <term>Data</term>
                     <definition>
                         <paragraph>Optional. Type of data analyzed during the detection.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id22"><inline classes="std std-ref">enum_analyzer_data</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id21"><inline classes="std std-ref">enum_analyzer_data</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1443,7 +1443,7 @@ Source(0).IP</literal_block>
                     <term>Method</term>
                     <definition>
                         <paragraph>Optional. Detection method.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id23"><inline classes="std std-ref">Analyzer Methods</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id22"><inline classes="std std-ref">Analyzer Methods</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1653,7 +1653,7 @@ Source(0).IP</literal_block>
                     <term>Category</term>
                     <definition>
                         <paragraph>Optional. Source category</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id24"><inline classes="std std-ref">Source Categories</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id23"><inline classes="std std-ref">Source Categories</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1800,7 +1800,7 @@ Source(0).IP</literal_block>
                     <term>Category</term>
                     <definition>
                         <paragraph>Optional. Target category</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id25"><inline classes="std std-ref">Target Categories</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id24"><inline classes="std std-ref">Target Categories</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -2583,13 +2583,12 @@ Source(0).IP</literal_block>
                     multiples concepts to IDMEFv2.</paragraph>
             </list_item>
         </bullet_list>
-    </section>
-    <transition></transition>
-    <section dupnames="using\ idmefv2\ in\ ephemeral\ environments\ (informative)" ids="using-idmefv2-in-ephemeral-environments-informative">
-        <title>Using IDMEFv2 in Ephemeral Environments (Informative)</title>
+        <transition></transition>
+        <paragraph># Using IDMEFv2 in Ephemeral Environments (Informative)
+            # ====================================================</paragraph>
         <target refid="appendix-ephemeral-environments"></target>
     </section>
-    <section dupnames="using\ idmefv2\ in\ ephemeral\ environments\ (informative)" ids="appendix-ephemeral-environments id15" names="appendix_ephemeral_environments">
+    <section ids="using-idmefv2-in-ephemeral-environments-informative appendix-ephemeral-environments" names="using\ idmefv2\ in\ ephemeral\ environments\ (informative) appendix_ephemeral_environments">
         <title>Using IDMEFv2 in Ephemeral Environments (Informative)</title>
         <paragraph>The guidance in this appendix is informative. It describes implementation
             practices for representing resources whose lifetime may be shorter than the
@@ -2924,12 +2923,12 @@ Source(0).IP</literal_block>
                 for every orchestration platform or container runtime.</paragraph>
         </section>
     </section>
-    <section dupnames="enumerations" ids="id16">
+    <section dupnames="enumerations" ids="id15">
         <title>Enumerations</title>
         <section ids="entity-sector" names="entity\ sector">
             <title>Entity Sector</title>
-            <target refid="id17"></target>
-            <table align="default" classes="colwidths-auto" ids="id26 id17" names="entity_sector">
+            <target refid="id16"></target>
+            <table align="default" classes="colwidths-auto" ids="id25 id16" names="entity_sector">
                 <title>enum_alert_entitysector</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -4407,8 +4406,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="alert-category" names="alert\ category">
             <title>Alert Category</title>
-            <target refid="id18"></target>
-            <table align="default" classes="colwidths-auto" ids="id27 id18" names="alert_category">
+            <target refid="id17"></target>
+            <table align="default" classes="colwidths-auto" ids="id26 id17" names="alert_category">
                 <title>enum_alert_category</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -5833,7 +5832,7 @@ Source(0).IP</literal_block>
                                 <paragraph>Other.ext-value</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>A value used to indicate that this attribute is extended and the actual value is provided using the corresponding ext-* attribute. (see :ref:<problematic ids="id20" refid="id19">`</problematic>private_extension_enum)</paragraph>
+                                <paragraph>A value used to indicate that this attribute is extended and the actual value is provided using the corresponding ext-* attribute. (see :ref:<problematic ids="id19" refid="id18">`</problematic>private_extension_enum)</paragraph>
                             </entry>
                         </row>
                     </tbody>
@@ -5842,8 +5841,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="analyzer-category" names="analyzer\ category">
             <title>Analyzer Category</title>
-            <target refid="id21"></target>
-            <table align="default" classes="colwidths-auto" ids="id28 id21" names="analyzer_category">
+            <target refid="id20"></target>
+            <table align="default" classes="colwidths-auto" ids="id27 id20" names="analyzer_category">
                 <title>Analyzer Categories</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -6738,8 +6737,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="analyzer-data" names="analyzer\ data">
             <title>Analyzer Data</title>
-            <target refid="id22"></target>
-            <table align="default" classes="colwidths-auto" ids="id29 id22" names="analyzer_data">
+            <target refid="id21"></target>
+            <table align="default" classes="colwidths-auto" ids="id28 id21" names="analyzer_data">
                 <title>enum_analyzer_data</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -7062,8 +7061,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="analyzer-method" names="analyzer\ method">
             <title>Analyzer Method</title>
-            <target refid="id23"></target>
-            <table align="default" classes="colwidths-auto" ids="id30 id23" names="analyzer_method">
+            <target refid="id22"></target>
+            <table align="default" classes="colwidths-auto" ids="id29 id22" names="analyzer_method">
                 <title>Analyzer Methods</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -7507,8 +7506,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="source-category" names="source\ category">
             <title>Source Category</title>
-            <target refid="id24"></target>
-            <table align="default" classes="colwidths-auto" ids="id31 id24" names="source_category">
+            <target refid="id23"></target>
+            <table align="default" classes="colwidths-auto" ids="id30 id23" names="source_category">
                 <title>Source Categories</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -9261,8 +9260,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="target-category" names="target\ category">
             <title>Target Category</title>
-            <target refid="id25"></target>
-            <table align="default" classes="colwidths-auto" ids="id32 id25" names="target_category">
+            <target refid="id24"></target>
+            <table align="default" classes="colwidths-auto" ids="id31 id24" names="target_category">
                 <title>Target Categories</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
