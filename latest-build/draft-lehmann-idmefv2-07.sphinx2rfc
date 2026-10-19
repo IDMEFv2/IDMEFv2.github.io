@@ -2589,8 +2589,8 @@ Source(0).IP</literal_block>
     </section>
     <section ids="using-idmefv2-in-ephemeral-environments" names="using\ idmefv2\ in\ ephemeral\ environments">
         <title>Using IDMEFv2 in Ephemeral Environments</title>
-        <section ids="the-ephemeral-asset-problem" names="1.\ the\ ephemeral\ asset\ problem">
-            <title>1. The Ephemeral Asset Problem</title>
+        <section ids="the-ephemeral-asset-problem" names="the\ ephemeral\ asset\ problem">
+            <title>The Ephemeral Asset Problem</title>
             <paragraph>Modern container orchestration platforms and cloud runtime environments
                 create and terminate resources dynamically. IP addresses may change or be
                 reassigned, resource names may be reused, and an entity involved in a security
@@ -2607,12 +2607,12 @@ Source(0).IP</literal_block>
                 the long-term availability of historical records or the continued existence of
                 the resource.</paragraph>
         </section>
-        <section ids="complementary-identification-attributes" names="2.\ complementary\ identification\ attributes">
-            <title>2. Complementary Identification Attributes</title>
+        <section ids="complementary-identification-attributes" names="complementary\ identification\ attributes">
+            <title>Complementary Identification Attributes</title>
             <paragraph>The following attributes have complementary roles when describing
                 ephemeral resources.</paragraph>
-            <section ids="id" names="2.1.\ id">
-                <title>2.1. ID</title>
+            <section ids="id" names="id">
+                <title>ID</title>
                 <paragraph>The <literal>ID</literal> attribute identifies an entity in the IDMEFv2 data model. It MUST
                     be populated in accordance with the applicable IDMEFv2 specification.</paragraph>
                 <paragraph>An IDMEFv2 identifier and a platform-native identifier are different concepts.
@@ -2625,8 +2625,8 @@ Source(0).IP</literal_block>
                 <paragraph>The identifier MUST NOT be assumed to provide access to a resource or to its
                     historical metadata after termination.</paragraph>
             </section>
-            <section ids="ip" names="2.2.\ ip">
-                <title>2.2. IP</title>
+            <section ids="ip" names="ip">
+                <title>IP</title>
                 <paragraph>The <literal>IP</literal> attribute records the network address associated with the entity in
                     the context of the event.</paragraph>
                 <paragraph>It supports correlation with network telemetry, firewall logs, flow records, and
@@ -2640,8 +2640,8 @@ Source(0).IP</literal_block>
                     infrastructure layers, such as a pod, container, node, NAT gateway, or proxy,
                     when this distinction is relevant to the investigation.</paragraph>
             </section>
-            <section ids="hostname" names="2.3.\ hostname">
-                <title>2.3. Hostname</title>
+            <section ids="hostname" names="hostname">
+                <title>Hostname</title>
                 <paragraph>The <literal>Hostname</literal> attribute records the hostname observed or configured for
                     the entity. It SHOULD contain an actual hostname, not an unrelated platform
                     identifier.</paragraph>
@@ -2656,8 +2656,8 @@ Source(0).IP</literal_block>
                     Consequently, <literal>Hostname</literal> SHOULD NOT be considered a globally unique or
                     permanently stable identifier without additional context.</paragraph>
             </section>
-            <section ids="location" names="2.4.\ location">
-                <title>2.4. Location</title>
+            <section ids="location" names="location">
+                <title>Location</title>
                 <paragraph>The <literal>Location</literal> attribute can carry a platform-specific resource reference
                     that provides additional context for identifying an entity within its
                     infrastructure.</paragraph>
@@ -2679,8 +2679,8 @@ Source(0).IP</literal_block>
                     metadata and security telemetry for the required investigation period.</paragraph>
             </section>
         </section>
-        <section ids="platform-specific-resource-references" names="3.\ platform-specific\ resource\ references">
-            <title>3. Platform-Specific Resource References</title>
+        <section ids="platform-specific-resource-references" names="platform-specific\ resource\ references">
+            <title>Platform-Specific Resource References</title>
             <paragraph>The examples below illustrate how <literal>Location</literal> can be populated in different
                 environments. The URI schemes used in these examples, including <literal>k8s://</literal>,
                 <literal>gke://</literal>, <literal>aks://</literal>, <literal>nomad://</literal>, and <literal>docker://</literal>, are illustrative
@@ -2689,8 +2689,8 @@ Source(0).IP</literal_block>
                 obtained from the relevant platform in an actual deployment. UUID-shaped
                 values shown in the examples are illustrative IDMEFv2 entity identifiers; they
                 are not Kubernetes UIDs unless explicitly placed in a platform reference.</paragraph>
-            <section ids="kubernetes" names="3.1.\ kubernetes">
-                <title>3.1. Kubernetes</title>
+            <section ids="kubernetes" names="kubernetes">
+                <title>Kubernetes</title>
                 <paragraph>In Kubernetes, a pod name alone may not be sufficient to distinguish
                     successive instances that share the same name. The pod UID SHOULD be
                     retained when available.</paragraph>
@@ -2743,8 +2743,8 @@ Source(0).IP</literal_block>
                 <paragraph>Node-level information MAY be included when it helps correlate the event with
                     network sensors or host-level telemetry.</paragraph>
             </section>
-            <section ids="docker-and-podman" names="3.2.\ docker\ and\ podman">
-                <title>3.2. Docker and Podman</title>
+            <section ids="docker-and-podman" names="docker\ and\ podman">
+                <title>Docker and Podman</title>
                 <paragraph>For standalone container runtimes such as Docker and Podman, a container
                     name alone may be insufficient because names can be reused after a container
                     is removed.</paragraph>
@@ -2771,8 +2771,8 @@ Source(0).IP</literal_block>
                 <paragraph>Where multiple runtime hosts or engines are involved, the reference SHOULD
                     include enough context to avoid ambiguity.</paragraph>
             </section>
-            <section ids="google-cloud-gke" names="3.3.\ google\ cloud\ gke">
-                <title>3.3. Google Cloud GKE</title>
+            <section ids="google-cloud-gke" names="google\ cloud\ gke">
+                <title>Google Cloud GKE</title>
                 <paragraph>For Google Kubernetes Engine (GKE), a reference can combine the Google
                     Cloud project and cluster context with the Kubernetes namespace, pod name,
                     and pod UID.</paragraph>
@@ -2795,8 +2795,8 @@ Source(0).IP</literal_block>
                     documented Google Cloud resource identifier together with the Kubernetes
                     identifiers required to identify the individual pod.</paragraph>
             </section>
-            <section ids="aws-ecs" names="3.4.\ aws\ ecs">
-                <title>3.4. AWS ECS</title>
+            <section ids="aws-ecs" names="aws\ ecs">
+                <title>AWS ECS</title>
                 <paragraph>In Amazon Elastic Container Service (ECS), the task ARN identifies a task
                     instance, whereas the task definition ARN identifies a versioned task
                     definition.</paragraph>
@@ -2826,8 +2826,8 @@ Source(0).IP</literal_block>
                     instance identifier when the objective is to distinguish individual task
                     executions.</paragraph>
             </section>
-            <section ids="microsoft-azure-aks" names="3.5.\ microsoft\ azure\ aks">
-                <title>3.5. Microsoft Azure AKS</title>
+            <section ids="microsoft-azure-aks" names="microsoft\ azure\ aks">
+                <title>Microsoft Azure AKS</title>
                 <paragraph>In Azure Kubernetes Service (AKS), the Azure Resource Manager (ARM)
                     resource ID of a managed cluster identifies the cluster, not an individual pod.</paragraph>
                 <paragraph>A pod-level reference SHOULD therefore combine the Azure subscription,
@@ -2852,8 +2852,8 @@ Source(0).IP</literal_block>
                     The reference SHOULD distinguish the individual Kubernetes resource from its
                     parent cluster.</paragraph>
             </section>
-            <section ids="hashicorp-nomad" names="3.6.\ hashicorp\ nomad">
-                <title>3.6. HashiCorp Nomad</title>
+            <section ids="hashicorp-nomad" names="hashicorp\ nomad">
+                <title>HashiCorp Nomad</title>
                 <paragraph>In HashiCorp Nomad, an allocation identifier can provide a reference to a
                     particular workload allocation. The reference SHOULD include sufficient
                     context to distinguish allocations across clusters, regions, namespaces, or
@@ -2877,8 +2877,8 @@ Source(0).IP</literal_block>
                     distinguish the specific runtime entity involved in the event.</paragraph>
             </section>
         </section>
-        <section ids="scope-of-the-service-attribute" names="4.\ scope\ of\ the\ service\ attribute">
-            <title>4. Scope of the Service Attribute</title>
+        <section ids="scope-of-the-service-attribute" names="scope\ of\ the\ service\ attribute">
+            <title>Scope of the Service Attribute</title>
             <paragraph>The <literal>Service</literal> attribute in the <literal>Target</literal> class SHOULD describe the
                 high-level service or process affected, consistently with the IDMEFv2
                 specification.</paragraph>
@@ -2893,8 +2893,8 @@ Source(0).IP</literal_block>
             <paragraph>The use of <literal>Service</literal> for a particular purpose MUST remain consistent with
                 the attribute definition in the applicable version of the IDMEFv2 specification.</paragraph>
         </section>
-        <section ids="temporal-context-and-historical-retention" names="5.\ temporal\ context\ and\ historical\ retention">
-            <title>5. Temporal Context and Historical Retention</title>
+        <section ids="temporal-context-and-historical-retention" names="temporal\ context\ and\ historical\ retention">
+            <title>Temporal Context and Historical Retention</title>
             <paragraph>Reliable post-incident investigation requires more than a stable resource
                 reference.</paragraph>
             <paragraph>Implementations SHOULD preserve the event timestamp and sufficient
@@ -2917,8 +2917,8 @@ Source(0).IP</literal_block>
                 of the surrounding monitoring and logging infrastructure, not guarantees
                 provided by the <literal>Location</literal> attribute itself.</paragraph>
         </section>
-        <section ids="summary" names="6.\ summary">
-            <title>6. Summary</title>
+        <section ids="summary" names="summary">
+            <title>Summary</title>
             <paragraph>Ephemeral environments require a distinction between entity identification,
                 network correlation, and historical resource context.</paragraph>
             <paragraph>The <literal>ID</literal> attribute identifies the entity in the IDMEFv2 data model. <literal>IP</literal>

@@ -143,22 +143,22 @@ Internet-Draft                   IDMEFv2                    October 2026
      9.1.  Normative References  . . . . . . . . . . . . . . . . . .  41
      9.2.  Informative References  . . . . . . . . . . . . . . . . .  42
    Appendix A.  Using IDMEFv2 in Ephemeral Environments  . . . . . .  43
-     A.1.  1.  The Ephemeral Asset Problem . . . . . . . . . . . . .  43
-     A.2.  2.  Complementary Identification Attributes . . . . . . .  43
-       A.2.1.  2.1.  ID  . . . . . . . . . . . . . . . . . . . . . .  44
-       A.2.2.  2.2.  IP  . . . . . . . . . . . . . . . . . . . . . .  44
-       A.2.3.  2.3.  Hostname  . . . . . . . . . . . . . . . . . . .  44
-       A.2.4.  2.4.  Location  . . . . . . . . . . . . . . . . . . .  45
-     A.3.  3.  Platform-Specific Resource References . . . . . . . .  45
-       A.3.1.  3.1.  Kubernetes  . . . . . . . . . . . . . . . . . .  46
-       A.3.2.  3.2.  Docker and Podman . . . . . . . . . . . . . . .  47
-       A.3.3.  3.3.  Google Cloud GKE  . . . . . . . . . . . . . . .  48
-       A.3.4.  3.4.  AWS ECS . . . . . . . . . . . . . . . . . . . .  49
-       A.3.5.  3.5.  Microsoft Azure AKS . . . . . . . . . . . . . .  50
-       A.3.6.  3.6.  HashiCorp Nomad . . . . . . . . . . . . . . . .  50
-     A.4.  4.  Scope of the Service Attribute  . . . . . . . . . . .  51
-     A.5.  5.  Temporal Context and Historical Retention . . . . . .  51
-     A.6.  6.  Summary . . . . . . . . . . . . . . . . . . . . . . .  52
+     A.1.  The Ephemeral Asset Problem . . . . . . . . . . . . . . .  43
+     A.2.  Complementary Identification Attributes . . . . . . . . .  43
+       A.2.1.  ID  . . . . . . . . . . . . . . . . . . . . . . . . .  44
+       A.2.2.  IP  . . . . . . . . . . . . . . . . . . . . . . . . .  44
+       A.2.3.  Hostname  . . . . . . . . . . . . . . . . . . . . . .  44
+       A.2.4.  Location  . . . . . . . . . . . . . . . . . . . . . .  45
+     A.3.  Platform-Specific Resource References . . . . . . . . . .  45
+       A.3.1.  Kubernetes  . . . . . . . . . . . . . . . . . . . . .  46
+       A.3.2.  Docker and Podman . . . . . . . . . . . . . . . . . .  47
+       A.3.3.  Google Cloud GKE  . . . . . . . . . . . . . . . . . .  48
+       A.3.4.  AWS ECS . . . . . . . . . . . . . . . . . . . . . . .  49
+       A.3.5.  Microsoft Azure AKS . . . . . . . . . . . . . . . . .  50
+       A.3.6.  HashiCorp Nomad . . . . . . . . . . . . . . . . . . .  50
+     A.4.  Scope of the Service Attribute  . . . . . . . . . . . . .  51
+     A.5.  Temporal Context and Historical Retention . . . . . . . .  51
+     A.6.  Summary . . . . . . . . . . . . . . . . . . . . . . . . .  52
    Appendix B.  Enumerations . . . . . . . . . . . . . . . . . . . .  53
      B.1.  Entity Sector . . . . . . . . . . . . . . . . . . . . . .  53
      B.2.  Alert Category  . . . . . . . . . . . . . . . . . . . . .  64
@@ -2371,7 +2371,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 Appendix A.  Using IDMEFv2 in Ephemeral Environments
 
-A.1.  1.  The Ephemeral Asset Problem
+A.1.  The Ephemeral Asset Problem
 
    Modern container orchestration platforms and cloud runtime
    environments create and terminate resources dynamically.  IP
@@ -2394,7 +2394,7 @@ A.1.  1.  The Ephemeral Asset Problem
    themselves, guarantee the long-term availability of historical
    records or the continued existence of the resource.
 
-A.2.  2.  Complementary Identification Attributes
+A.2.  Complementary Identification Attributes
 
    The following attributes have complementary roles when describing
    ephemeral resources.
@@ -2410,7 +2410,7 @@ Lehmann                   Expires 22 April 2027                [Page 43]
 Internet-Draft                   IDMEFv2                    October 2026
 
 
-A.2.1.  2.1.  ID
+A.2.1.  ID
 
    The attribute identifies an entity in the IDMEFv2 data model.  It
    MUST be populated in accordance with the applicable IDMEFv2
@@ -2428,7 +2428,7 @@ A.2.1.  2.1.  ID
    The identifier MUST NOT be assumed to provide access to a resource or
    to its historical metadata after termination.
 
-A.2.2.  2.2.  IP
+A.2.2.  IP
 
    The attribute records the network address associated with the entity
    in the context of the event.
@@ -2446,7 +2446,7 @@ A.2.2.  2.2.  IP
    infrastructure layers, such as a pod, container, node, NAT gateway,
    or proxy, when this distinction is relevant to the investigation.
 
-A.2.3.  2.3.  Hostname
+A.2.3.  Hostname
 
    The attribute records the hostname observed or configured for the
    entity.  It SHOULD contain an actual hostname, not an unrelated
@@ -2473,7 +2473,7 @@ Internet-Draft                   IDMEFv2                    October 2026
    globally unique or permanently stable identifier without additional
    context.
 
-A.2.4.  2.4.  Location
+A.2.4.  Location
 
    The attribute can carry a platform-specific resource reference that
    provides additional context for identifying an entity within its
@@ -2501,7 +2501,7 @@ A.2.4.  2.4.  Location
    historical metadata and security telemetry for the required
    investigation period.
 
-A.3.  3.  Platform-Specific Resource References
+A.3.  Platform-Specific Resource References
 
    The examples below illustrate how can be populated in different
    environments.  The URI schemes used in these examples, including , ,
@@ -2522,7 +2522,7 @@ Lehmann                   Expires 22 April 2027                [Page 45]
 Internet-Draft                   IDMEFv2                    October 2026
 
 
-A.3.1.  3.1.  Kubernetes
+A.3.1.  Kubernetes
 
    In Kubernetes, a pod name alone may not be sufficient to distinguish
    successive instances that share the same name.  The pod UID SHOULD be
@@ -2621,7 +2621,7 @@ Internet-Draft                   IDMEFv2                    October 2026
    Node-level information MAY be included when it helps correlate the
    event with network sensors or host-level telemetry.
 
-A.3.2.  3.2.  Docker and Podman
+A.3.2.  Docker and Podman
 
    For standalone container runtimes such as Docker and Podman, a
    container name alone may be insufficient because names can be reused
@@ -2661,7 +2661,7 @@ Internet-Draft                   IDMEFv2                    October 2026
    Where multiple runtime hosts or engines are involved, the reference
    SHOULD include enough context to avoid ambiguity.
 
-A.3.3.  3.3.  Google Cloud GKE
+A.3.3.  Google Cloud GKE
 
    For Google Kubernetes Engine (GKE), a reference can combine the
    Google Cloud project and cluster context with the Kubernetes
@@ -2707,7 +2707,7 @@ Internet-Draft                   IDMEFv2                    October 2026
    documented Google Cloud resource identifier together with the
    Kubernetes identifiers required to identify the individual pod.
 
-A.3.4.  3.4.  AWS ECS
+A.3.4.  AWS ECS
 
    In Amazon Elastic Container Service (ECS), the task ARN identifies a
    task instance, whereas the task definition ARN identifies a versioned
@@ -2751,7 +2751,7 @@ Internet-Draft                   IDMEFv2                    October 2026
    substituted for the task instance identifier when the objective is to
    distinguish individual task executions.
 
-A.3.5.  3.5.  Microsoft Azure AKS
+A.3.5.  Microsoft Azure AKS
 
    In Azure Kubernetes Service (AKS), the Azure Resource Manager (ARM)
    resource ID of a managed cluster identifies the cluster, not an
@@ -2783,7 +2783,7 @@ A.3.5.  3.5.  Microsoft Azure AKS
    representation.  The reference SHOULD distinguish the individual
    Kubernetes resource from its parent cluster.
 
-A.3.6.  3.6.  HashiCorp Nomad
+A.3.6.  HashiCorp Nomad
 
    In HashiCorp Nomad, an allocation identifier can provide a reference
    to a particular workload allocation.  The reference SHOULD include
@@ -2822,7 +2822,7 @@ Internet-Draft                   IDMEFv2                    October 2026
    necessary to distinguish the specific runtime entity involved in the
    event.
 
-A.4.  4.  Scope of the Service Attribute
+A.4.  Scope of the Service Attribute
 
    The attribute in the class SHOULD describe the high-level service or
    process affected, consistently with the IDMEFv2 specification.
@@ -2842,7 +2842,7 @@ A.4.  4.  Scope of the Service Attribute
    attribute definition in the applicable version of the IDMEFv2
    specification.
 
-A.5.  5.  Temporal Context and Historical Retention
+A.5.  Temporal Context and Historical Retention
 
    Reliable post-incident investigation requires more than a stable
    resource reference.
@@ -2883,7 +2883,7 @@ Internet-Draft                   IDMEFv2                    October 2026
    properties of the surrounding monitoring and logging infrastructure,
    not guarantees provided by the attribute itself.
 
-A.6.  6.  Summary
+A.6.  Summary
 
    Ephemeral environments require a distinction between entity
    identification, network correlation, and historical resource context.

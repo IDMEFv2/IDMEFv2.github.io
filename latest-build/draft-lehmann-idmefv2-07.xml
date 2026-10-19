@@ -2240,7 +2240,7 @@ Source(0).IP</sourcecode>
     <section>
       <name>Using IDMEFv2 in Ephemeral Environments</name>
       <section>
-        <name>1. The Ephemeral Asset Problem</name>
+        <name>The Ephemeral Asset Problem</name>
         <t>Modern container orchestration platforms and cloud runtime environments
                 create and terminate resources dynamically. IP addresses may change or be
                 reassigned, resource names may be reused, and an entity involved in a security
@@ -2258,11 +2258,11 @@ Source(0).IP</sourcecode>
                 the resource.</t>
       </section>
       <section>
-        <name>2. Complementary Identification Attributes</name>
+        <name>Complementary Identification Attributes</name>
         <t>The following attributes have complementary roles when describing
                 ephemeral resources.</t>
         <section>
-          <name>2.1. ID</name>
+          <name>ID</name>
           <t>The  attribute identifies an entity in the IDMEFv2 data model. It MUST
                     be populated in accordance with the applicable IDMEFv2 specification.</t>
           <t>An IDMEFv2 identifier and a platform-native identifier are different concepts.
@@ -2276,7 +2276,7 @@ Source(0).IP</sourcecode>
                     historical metadata after termination.</t>
         </section>
         <section>
-          <name>2.2. IP</name>
+          <name>IP</name>
           <t>The  attribute records the network address associated with the entity in
                     the context of the event.</t>
           <t>It supports correlation with network telemetry, firewall logs, flow records, and
@@ -2291,7 +2291,7 @@ Source(0).IP</sourcecode>
                     when this distinction is relevant to the investigation.</t>
         </section>
         <section>
-          <name>2.3. Hostname</name>
+          <name>Hostname</name>
           <t>The  attribute records the hostname observed or configured for
                     the entity. It SHOULD contain an actual hostname, not an unrelated platform
                     identifier.</t>
@@ -2307,7 +2307,7 @@ Source(0).IP</sourcecode>
                     permanently stable identifier without additional context.</t>
         </section>
         <section>
-          <name>2.4. Location</name>
+          <name>Location</name>
           <t>The  attribute can carry a platform-specific resource reference
                     that provides additional context for identifying an entity within its
                     infrastructure.</t>
@@ -2330,7 +2330,7 @@ Source(0).IP</sourcecode>
         </section>
       </section>
       <section>
-        <name>3. Platform-Specific Resource References</name>
+        <name>Platform-Specific Resource References</name>
         <t>The examples below illustrate how  can be populated in different
                 environments. The URI schemes used in these examples, including ,
                 , , , and , are illustrative
@@ -2340,7 +2340,7 @@ Source(0).IP</sourcecode>
                 values shown in the examples are illustrative IDMEFv2 entity identifiers; they
                 are not Kubernetes UIDs unless explicitly placed in a platform reference.</t>
         <section>
-          <name>3.1. Kubernetes</name>
+          <name>Kubernetes</name>
           <t>In Kubernetes, a pod name alone may not be sufficient to distinguish
                     successive instances that share the same name. The pod UID SHOULD be
                     retained when available.</t>
@@ -2394,7 +2394,7 @@ Source(0).IP</sourcecode>
                     network sensors or host-level telemetry.</t>
         </section>
         <section>
-          <name>3.2. Docker and Podman</name>
+          <name>Docker and Podman</name>
           <t>For standalone container runtimes such as Docker and Podman, a container
                     name alone may be insufficient because names can be reused after a container
                     is removed.</t>
@@ -2422,7 +2422,7 @@ Source(0).IP</sourcecode>
                     include enough context to avoid ambiguity.</t>
         </section>
         <section>
-          <name>3.3. Google Cloud GKE</name>
+          <name>Google Cloud GKE</name>
           <t>For Google Kubernetes Engine (GKE), a reference can combine the Google
                     Cloud project and cluster context with the Kubernetes namespace, pod name,
                     and pod UID.</t>
@@ -2446,7 +2446,7 @@ Source(0).IP</sourcecode>
                     identifiers required to identify the individual pod.</t>
         </section>
         <section>
-          <name>3.4. AWS ECS</name>
+          <name>AWS ECS</name>
           <t>In Amazon Elastic Container Service (ECS), the task ARN identifies a task
                     instance, whereas the task definition ARN identifies a versioned task
                     definition.</t>
@@ -2477,7 +2477,7 @@ Source(0).IP</sourcecode>
                     executions.</t>
         </section>
         <section>
-          <name>3.5. Microsoft Azure AKS</name>
+          <name>Microsoft Azure AKS</name>
           <t>In Azure Kubernetes Service (AKS), the Azure Resource Manager (ARM)
                     resource ID of a managed cluster identifies the cluster, not an individual pod.</t>
           <t>A pod-level reference SHOULD therefore combine the Azure subscription,
@@ -2503,7 +2503,7 @@ Source(0).IP</sourcecode>
                     parent cluster.</t>
         </section>
         <section>
-          <name>3.6. HashiCorp Nomad</name>
+          <name>HashiCorp Nomad</name>
           <t>In HashiCorp Nomad, an allocation identifier can provide a reference to a
                     particular workload allocation. The reference SHOULD include sufficient
                     context to distinguish allocations across clusters, regions, namespaces, or
@@ -2528,7 +2528,7 @@ Source(0).IP</sourcecode>
         </section>
       </section>
       <section>
-        <name>4. Scope of the Service Attribute</name>
+        <name>Scope of the Service Attribute</name>
         <t>The  attribute in the  class SHOULD describe the
                 high-level service or process affected, consistently with the IDMEFv2
                 specification.</t>
@@ -2544,7 +2544,7 @@ Source(0).IP</sourcecode>
                 the attribute definition in the applicable version of the IDMEFv2 specification.</t>
       </section>
       <section>
-        <name>5. Temporal Context and Historical Retention</name>
+        <name>Temporal Context and Historical Retention</name>
         <t>Reliable post-incident investigation requires more than a stable resource
                 reference.</t>
         <t>Implementations SHOULD preserve the event timestamp and sufficient
@@ -2568,7 +2568,7 @@ Source(0).IP</sourcecode>
                 provided by the  attribute itself.</t>
       </section>
       <section>
-        <name>6. Summary</name>
+        <name>Summary</name>
         <t>Ephemeral environments require a distinction between entity identification,
                 network correlation, and historical resource context.</t>
         <t>The  attribute identifies the entity in the IDMEFv2 data model. 
