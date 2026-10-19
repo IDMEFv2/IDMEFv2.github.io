@@ -686,7 +686,7 @@ Source(0).IP</sourcecode>
                     <dd>
                         <t>Optional. The economic sector(s) and sub-sector(s) in which the entity operates. Values follow the dot notation sector.subsector based on the critical infrastructure taxonomy defined in the NIS2 Directive and CER (Critical Entities Resilience) Directive.</t>
                         <t>This attribute enables sector-based correlation, regulatory compliance reporting, and risk context for incident detection.</t>
-                        <t>Enumeration available here <xref target="id16"/></t>
+                        <t>Enumeration available here <xref target="id17"/></t>
                     </dd>
                 
                     <dt>Type</dt>
@@ -769,7 +769,7 @@ Source(0).IP</sourcecode>
                     <dt>Category</dt>
                     <dd>
                         <t>Optional. Incident category.</t>
-                        <t>Enumeration available here <xref target="id17"/></t>
+                        <t>Enumeration available here <xref target="id18"/></t>
                     </dd>
                 
                     <dt>ext-Category</dt>
@@ -1227,7 +1227,7 @@ Source(0).IP</sourcecode>
                     <dt>Category</dt>
                     <dd>
                         <t>Optional. Analyzer categories.</t>
-                        <t>Enumeration available here <xref target="id20"/></t>
+                        <t>Enumeration available here <xref target="id21"/></t>
                     </dd>
                 
                     <dt>ext-Category</dt>
@@ -1239,7 +1239,7 @@ Source(0).IP</sourcecode>
                     <dt>Data</dt>
                     <dd>
                         <t>Optional. Type of data analyzed during the detection.</t>
-                        <t>Enumeration available here <xref target="id21"/></t>
+                        <t>Enumeration available here <xref target="id22"/></t>
                     </dd>
                 
                     <dt>ext-Data</dt>
@@ -1251,7 +1251,7 @@ Source(0).IP</sourcecode>
                     <dt>Method</dt>
                     <dd>
                         <t>Optional. Detection method.</t>
-                        <t>Enumeration available here <xref target="id22"/></t>
+                        <t>Enumeration available here <xref target="id23"/></t>
                     </dd>
                 
                     <dt>ext-Method</dt>
@@ -1432,7 +1432,7 @@ Source(0).IP</sourcecode>
                     <dt>Category</dt>
                     <dd>
                         <t>Optional. Source category</t>
-                        <t>Enumeration available here <xref target="id23"/></t>
+                        <t>Enumeration available here <xref target="id24"/></t>
                     </dd>
                 
                     <dt>Note</dt>
@@ -1559,7 +1559,7 @@ Source(0).IP</sourcecode>
                     <dt>Category</dt>
                     <dd>
                         <t>Optional. Target category</t>
-                        <t>Enumeration available here <xref target="id24"/></t>
+                        <t>Enumeration available here <xref target="id25"/></t>
                     </dd>
                 
                     <dt>Note</dt>
@@ -2238,7 +2238,7 @@ Source(0).IP</sourcecode>
       </reference>
     </references>
     <section>
-      <name>Using IDMEFv2 in Ephemeral Environments (Informative)</name>
+      <name>Using IDMEFv2 with Ephemeral Entities (Informative)</name>
       <t>The guidance in this appendix is informative. It describes implementation
             practices for representing resources whose lifetime may be shorter than the
             retention period of the alerts and telemetry associated with them. It does not
@@ -2253,32 +2253,44 @@ Source(0).IP</sourcecode>
             for conformance to the IDMEFv2 data model.</t>
       <section>
         <name>The Ephemeral Asset Problem</name>
-        <t>Container orchestration platforms and cloud runtime environments create and
-                terminate resources dynamically. IP addresses may change or be reassigned,
-                resource names may be reused, and a resource involved in a security incident
-                may no longer exist when an investigation takes place.</t>
+        <t>Container orchestration platforms, cloud runtimes, and distributed monitoring
+                systems create and terminate resources dynamically. IP addresses assigned to
+                workloads, event sources, analyzers, and sensors may change or be reassigned.
+                Hostnames and other operational names may be reused, and a component involved
+                in an event may no longer exist when an investigation takes place.</t>
         <t>Consequently, an IP address or hostname alone may be insufficient for reliable
-                incident correlation and post-incident investigation. Implementations can
-                combine the IDMEFv2 target identifier with available network, operational, and
-                infrastructure context to make alerts easier to correlate over time.</t>
-        <t>The attributes discussed in this appendix serve different purposes:</t>
+                incident correlation and post-incident investigation. This applies not only to
+                the target affected by an event, but also to the origin of the event and to the
+                components that collect, analyze, or report it.</t>
+        <t>The relevant IDMEFv2 classes have different roles:</t>
         <ul>
                 <li>
-                    <t> identifies the target in the IDMEFv2 data model.</t>
+                    <t> describes the origin or origins of the event(s) leading to the
+                        alert.  records an address associated with a source in the event
+                        context; it is not necessarily a persistent identity.</t>
                 </li>
                 <li>
-                    <t> records an IP address associated with the target in the context
-                        of the event.</t>
+                    <t> describes the target(s) impacted by the event(s). 
+                        identifies the target in the IDMEFv2 data model, while  and
+                         provide network and operational context.</t>
                 </li>
                 <li>
-                    <t> records an operational hostname or resource name.</t>
+                    <t> describes the module that analyzed captured data, identified an
+                        event of interest, and decided to create an alert. Its network address, when
+                        represented by , may be transient.</t>
                 </li>
                 <li>
-                    <t> describes the target's location according to the
-                        IDMEFv2 attribute definition. Some implementations may use it, by documented
-                        convention, to carry a platform-specific resource reference.</t>
+                    <t> describes the module that captured data before sending it to an
+                        analyzer. Its network address, when represented by , may also
+                        be transient.</t>
                 </li>
             </ul>
+        <t>The same general principle therefore applies to , ,
+                , and : an IP address records network context, but
+                should not be treated as a stable identity for a logical entity or for a
+                particular runtime instance. The exact attributes available for describing an
+                entity depend on the corresponding IDMEFv2 class and the applicable version of
+                the specification.</t>
         <t>These attributes are complementary; none of them, by itself, guarantees that
                 historical metadata or the resource itself will remain available after the
                 resource terminates.</t>
@@ -2524,6 +2536,88 @@ Source(0).IP</sourcecode>
         </section>
       </section>
       <section>
+        <name>Ephemeral Sources, Analyzers, and Sensors</name>
+        <t>The ephemeral-resource problem is not limited to . In cloud-native
+                and distributed monitoring environments, the source of an event and the
+                components that collect or analyze telemetry may also run as short-lived
+                workloads. Their IP addresses can change during redeployment, be reassigned to
+                another instance, or be visible only within a particular network namespace.</t>
+        <section>
+          <name>Source</name>
+          <t> should be interpreted as an address associated with the event
+                    source in the event context, not as a durable identifier of the originating
+                    entity. Where available, implementations should preserve the event timestamp
+                    and enough network or infrastructure context to interpret the address at that
+                    time. If a source is an ephemeral workload, a hostname or platform-native
+                    resource reference may be recorded only where supported by the applicable
+                    IDMEFv2 class and attribute definitions, or through a documented extension or
+                    implementation-specific mechanism.</t>
+          <t>Implementations should avoid correlating sources solely because they used the
+                    same IP address at different times. Conversely, they should not assume that
+                    different IP addresses necessarily indicate different logical sources; a
+                    single workload may be reassigned an address during its lifetime.</t>
+        </section>
+        <section>
+          <name>Analyzer</name>
+          <t>An analyzer may itself run in a container, pod, serverless runtime, or other
+                    ephemeral environment. , when present, describes network
+                    addressing context for the analyzer; it should not be treated as a permanent
+                    identifier of the analyzer implementation or instance.</t>
+          <t>Implementations that need to correlate alerts produced by an analyzer across
+                    restarts or redeployments should use the analyzer-identification mechanisms
+                    provided by the applicable IDMEFv2 version and document how those identifiers
+                    map to runtime instances. They should retain the time-bounded mapping between
+                    analyzer identity, network addresses, and deployment metadata when that
+                    information is needed for investigation. An address change alone should not
+                    necessarily be interpreted as a change of logical analyzer, and reuse of an
+                    address should not be taken to mean that the analyzer instance is unchanged.</t>
+        </section>
+        <section>
+          <name>Sensor</name>
+          <t>A sensor may also be deployed as an ephemeral workload or may be attached to
+                    a network or runtime whose addressing changes. , when present,
+                    should be treated as network context rather than as a durable sensor identity.
+                    Where the sensor and analyzer are separate components, implementations should
+                    preserve enough context to distinguish the component that captured the data
+                    from the component that analyzed it, even if their addresses are reassigned or
+                    the components are redeployed independently.</t>
+          <t>Implementations should use the identity and descriptive attributes defined by
+                    the applicable IDMEFv2 version, together with documented deployment metadata
+                    where needed, rather than relying on an IP address alone. They should not
+                    assume that a sensor and an analyzer are the same logical component merely
+                    because they share an address, hostname, or deployment environment.</t>
+        </section>
+        <section>
+          <name>General Correlation Guidance</name>
+          <t>For , , , and , implementations
+                    should distinguish, where relevant, between:</t>
+          <ul>
+                    <li>
+                        <t>the logical entity represented in IDMEFv2;</t>
+                    </li>
+                    <li>
+                        <t>a particular runtime or resource instance;</t>
+                    </li>
+                    <li>
+                        <t>the network address observed at the time of the event; and</t>
+                    </li>
+                    <li>
+                        <t>the deployment or infrastructure context needed to interpret that address.</t>
+                    </li>
+                </ul>
+          <t>The IDMEFv2 attributes available to represent these concepts are not identical
+                    across the four classes. Implementations must not assume that an attribute
+                    available on  is also available on , , or
+                    . Any platform-specific reference or mapping should use attributes
+                    supported by the applicable class, or a documented extension mechanism, and
+                    should not silently redefine an existing attribute.</t>
+          <t>When correlation across time is required, implementations should retain the
+                    mapping between the relevant IDMEFv2 entity, runtime instance, address, and
+                    event time for the required investigation period. This mapping is an operational
+                    property of the monitoring system; it is not guaranteed by the IP attribute.</t>
+        </section>
+      </section>
+      <section>
         <name>Service Attribute</name>
         <t>The  attribute should be used consistently with the
                 attribute definition in the applicable IDMEFv2 specification. Values such as
@@ -2576,7 +2670,7 @@ Source(0).IP</sourcecode>
       <name>Enumerations</name>
       <section>
         <name>Entity Sector</name>
-        <table anchor="id16"><name>enum_alert_entitysector</name>
+        <table anchor="id17"><name>enum_alert_entitysector</name>
                 
                 <thead>
                         <tr>
@@ -4048,7 +4142,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Alert Category</name>
-        <table anchor="id17"><name>enum_alert_category</name>
+        <table anchor="id18"><name>enum_alert_category</name>
                 
                 <thead>
                         <tr>
@@ -5476,7 +5570,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Analyzer Category</name>
-        <table anchor="id20"><name>Analyzer Categories</name>
+        <table anchor="id21"><name>Analyzer Categories</name>
                 
                 <thead>
                         <tr>
@@ -6365,7 +6459,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Analyzer Data</name>
-        <table anchor="id21"><name>enum_analyzer_data</name>
+        <table anchor="id22"><name>enum_analyzer_data</name>
                 
                 <thead>
                         <tr>
@@ -6682,7 +6776,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Analyzer Method</name>
-        <table anchor="id22"><name>Analyzer Methods</name>
+        <table anchor="id23"><name>Analyzer Methods</name>
                 
                 <thead>
                         <tr>
@@ -7120,7 +7214,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Source Category</name>
-        <table anchor="id23"><name>Source Categories</name>
+        <table anchor="id24"><name>Source Categories</name>
                 
                 <thead>
                         <tr>
@@ -8867,7 +8961,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Target Category</name>
-        <table anchor="id24"><name>Target Categories</name>
+        <table anchor="id25"><name>Target Categories</name>
                 
                 <thead>
                         <tr>

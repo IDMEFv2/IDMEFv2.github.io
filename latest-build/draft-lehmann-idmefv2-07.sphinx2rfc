@@ -819,7 +819,7 @@ Source(0).IP</literal_block>
                     <definition>
                         <paragraph>Optional. The economic sector(s) and sub-sector(s) in which the entity operates. Values follow the dot notation sector.subsector based on the critical infrastructure taxonomy defined in the NIS2 Directive and CER (Critical Entities Resilience) Directive.</paragraph>
                         <paragraph>This attribute enables sector-based correlation, regulatory compliance reporting, and risk context for incident detection.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id16"><inline classes="std std-ref">enum_alert_entitysector</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id17"><inline classes="std std-ref">enum_alert_entitysector</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -910,7 +910,7 @@ Source(0).IP</literal_block>
                     <term>Category</term>
                     <definition>
                         <paragraph>Optional. Incident category.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id17"><inline classes="std std-ref">enum_alert_category</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id18"><inline classes="std std-ref">enum_alert_category</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1415,7 +1415,7 @@ Source(0).IP</literal_block>
                     <term>Category</term>
                     <definition>
                         <paragraph>Optional. Analyzer categories.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id20"><inline classes="std std-ref">Analyzer Categories</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id21"><inline classes="std std-ref">Analyzer Categories</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1429,7 +1429,7 @@ Source(0).IP</literal_block>
                     <term>Data</term>
                     <definition>
                         <paragraph>Optional. Type of data analyzed during the detection.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id21"><inline classes="std std-ref">enum_analyzer_data</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id22"><inline classes="std std-ref">enum_analyzer_data</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1443,7 +1443,7 @@ Source(0).IP</literal_block>
                     <term>Method</term>
                     <definition>
                         <paragraph>Optional. Detection method.</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id22"><inline classes="std std-ref">Analyzer Methods</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id23"><inline classes="std std-ref">Analyzer Methods</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1653,7 +1653,7 @@ Source(0).IP</literal_block>
                     <term>Category</term>
                     <definition>
                         <paragraph>Optional. Source category</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id23"><inline classes="std std-ref">Source Categories</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id24"><inline classes="std std-ref">Source Categories</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -1800,7 +1800,7 @@ Source(0).IP</literal_block>
                     <term>Category</term>
                     <definition>
                         <paragraph>Optional. Target category</paragraph>
-                        <paragraph>Enumeration available here <reference internal="True" refid="id24"><inline classes="std std-ref">Target Categories</inline></reference></paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id25"><inline classes="std std-ref">Target Categories</inline></reference></paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -2588,8 +2588,8 @@ Source(0).IP</literal_block>
             # ====================================================</paragraph>
         <target refid="appendix-ephemeral-environments"></target>
     </section>
-    <section ids="using-idmefv2-in-ephemeral-environments-informative appendix-ephemeral-environments" names="using\ idmefv2\ in\ ephemeral\ environments\ (informative) appendix_ephemeral_environments">
-        <title>Using IDMEFv2 in Ephemeral Environments (Informative)</title>
+    <section ids="using-idmefv2-with-ephemeral-entities-informative appendix-ephemeral-environments" names="using\ idmefv2\ with\ ephemeral\ entities\ (informative) appendix_ephemeral_environments">
+        <title>Using IDMEFv2 with Ephemeral Entities (Informative)</title>
         <paragraph>The guidance in this appendix is informative. It describes implementation
             practices for representing resources whose lifetime may be shorter than the
             retention period of the alerts and telemetry associated with them. It does not
@@ -2604,32 +2604,44 @@ Source(0).IP</literal_block>
             for conformance to the IDMEFv2 data model.</paragraph>
         <section ids="the-ephemeral-asset-problem" names="the\ ephemeral\ asset\ problem">
             <title>The Ephemeral Asset Problem</title>
-            <paragraph>Container orchestration platforms and cloud runtime environments create and
-                terminate resources dynamically. IP addresses may change or be reassigned,
-                resource names may be reused, and a resource involved in a security incident
-                may no longer exist when an investigation takes place.</paragraph>
+            <paragraph>Container orchestration platforms, cloud runtimes, and distributed monitoring
+                systems create and terminate resources dynamically. IP addresses assigned to
+                workloads, event sources, analyzers, and sensors may change or be reassigned.
+                Hostnames and other operational names may be reused, and a component involved
+                in an event may no longer exist when an investigation takes place.</paragraph>
             <paragraph>Consequently, an IP address or hostname alone may be insufficient for reliable
-                incident correlation and post-incident investigation. Implementations can
-                combine the IDMEFv2 target identifier with available network, operational, and
-                infrastructure context to make alerts easier to correlate over time.</paragraph>
-            <paragraph>The attributes discussed in this appendix serve different purposes:</paragraph>
+                incident correlation and post-incident investigation. This applies not only to
+                the target affected by an event, but also to the origin of the event and to the
+                components that collect, analyze, or report it.</paragraph>
+            <paragraph>The relevant IDMEFv2 classes have different roles:</paragraph>
             <bullet_list bullet="*">
                 <list_item>
-                    <paragraph><literal>Target.ID</literal> identifies the target in the IDMEFv2 data model.</paragraph>
+                    <paragraph><literal>Source</literal> describes the origin or origins of the event(s) leading to the
+                        alert. <literal>Source.IP</literal> records an address associated with a source in the event
+                        context; it is not necessarily a persistent identity.</paragraph>
                 </list_item>
                 <list_item>
-                    <paragraph><literal>Target.IP</literal> records an IP address associated with the target in the context
-                        of the event.</paragraph>
+                    <paragraph><literal>Target</literal> describes the target(s) impacted by the event(s). <literal>Target.ID</literal>
+                        identifies the target in the IDMEFv2 data model, while <literal>Target.IP</literal> and
+                        <literal>Target.Hostname</literal> provide network and operational context.</paragraph>
                 </list_item>
                 <list_item>
-                    <paragraph><literal>Target.Hostname</literal> records an operational hostname or resource name.</paragraph>
+                    <paragraph><literal>Analyzer</literal> describes the module that analyzed captured data, identified an
+                        event of interest, and decided to create an alert. Its network address, when
+                        represented by <literal>Analyzer.IP</literal>, may be transient.</paragraph>
                 </list_item>
                 <list_item>
-                    <paragraph><literal>Target.Location</literal> describes the target's location according to the
-                        IDMEFv2 attribute definition. Some implementations may use it, by documented
-                        convention, to carry a platform-specific resource reference.</paragraph>
+                    <paragraph><literal>Sensor</literal> describes the module that captured data before sending it to an
+                        analyzer. Its network address, when represented by <literal>Sensor.IP</literal>, may also
+                        be transient.</paragraph>
                 </list_item>
             </bullet_list>
+            <paragraph>The same general principle therefore applies to <literal>Source.IP</literal>, <literal>Target.IP</literal>,
+                <literal>Analyzer.IP</literal>, and <literal>Sensor.IP</literal>: an IP address records network context, but
+                should not be treated as a stable identity for a logical entity or for a
+                particular runtime instance. The exact attributes available for describing an
+                entity depend on the corresponding IDMEFv2 class and the applicable version of
+                the specification.</paragraph>
             <paragraph>These attributes are complementary; none of them, by itself, guarantees that
                 historical metadata or the resource itself will remain available after the
                 resource terminates.</paragraph>
@@ -2874,6 +2886,88 @@ Source(0).IP</literal_block>
                     should include enough context to avoid ambiguity.</paragraph>
             </section>
         </section>
+        <section ids="ephemeral-sources-analyzers-and-sensors" names="ephemeral\ sources,\ analyzers,\ and\ sensors">
+            <title>Ephemeral Sources, Analyzers, and Sensors</title>
+            <paragraph>The ephemeral-resource problem is not limited to <literal>Target</literal>. In cloud-native
+                and distributed monitoring environments, the source of an event and the
+                components that collect or analyze telemetry may also run as short-lived
+                workloads. Their IP addresses can change during redeployment, be reassigned to
+                another instance, or be visible only within a particular network namespace.</paragraph>
+            <section dupnames="source" ids="id15">
+                <title>Source</title>
+                <paragraph><literal>Source.IP</literal> should be interpreted as an address associated with the event
+                    source in the event context, not as a durable identifier of the originating
+                    entity. Where available, implementations should preserve the event timestamp
+                    and enough network or infrastructure context to interpret the address at that
+                    time. If a source is an ephemeral workload, a hostname or platform-native
+                    resource reference may be recorded only where supported by the applicable
+                    IDMEFv2 class and attribute definitions, or through a documented extension or
+                    implementation-specific mechanism.</paragraph>
+                <paragraph>Implementations should avoid correlating sources solely because they used the
+                    same IP address at different times. Conversely, they should not assume that
+                    different IP addresses necessarily indicate different logical sources; a
+                    single workload may be reassigned an address during its lifetime.</paragraph>
+            </section>
+            <section ids="analyzer" names="analyzer">
+                <title>Analyzer</title>
+                <paragraph>An analyzer may itself run in a container, pod, serverless runtime, or other
+                    ephemeral environment. <literal>Analyzer.IP</literal>, when present, describes network
+                    addressing context for the analyzer; it should not be treated as a permanent
+                    identifier of the analyzer implementation or instance.</paragraph>
+                <paragraph>Implementations that need to correlate alerts produced by an analyzer across
+                    restarts or redeployments should use the analyzer-identification mechanisms
+                    provided by the applicable IDMEFv2 version and document how those identifiers
+                    map to runtime instances. They should retain the time-bounded mapping between
+                    analyzer identity, network addresses, and deployment metadata when that
+                    information is needed for investigation. An address change alone should not
+                    necessarily be interpreted as a change of logical analyzer, and reuse of an
+                    address should not be taken to mean that the analyzer instance is unchanged.</paragraph>
+            </section>
+            <section ids="sensor" names="sensor">
+                <title>Sensor</title>
+                <paragraph>A sensor may also be deployed as an ephemeral workload or may be attached to
+                    a network or runtime whose addressing changes. <literal>Sensor.IP</literal>, when present,
+                    should be treated as network context rather than as a durable sensor identity.
+                    Where the sensor and analyzer are separate components, implementations should
+                    preserve enough context to distinguish the component that captured the data
+                    from the component that analyzed it, even if their addresses are reassigned or
+                    the components are redeployed independently.</paragraph>
+                <paragraph>Implementations should use the identity and descriptive attributes defined by
+                    the applicable IDMEFv2 version, together with documented deployment metadata
+                    where needed, rather than relying on an IP address alone. They should not
+                    assume that a sensor and an analyzer are the same logical component merely
+                    because they share an address, hostname, or deployment environment.</paragraph>
+            </section>
+            <section ids="general-correlation-guidance" names="general\ correlation\ guidance">
+                <title>General Correlation Guidance</title>
+                <paragraph>For <literal>Source</literal>, <literal>Target</literal>, <literal>Analyzer</literal>, and <literal>Sensor</literal>, implementations
+                    should distinguish, where relevant, between:</paragraph>
+                <bullet_list bullet="*">
+                    <list_item>
+                        <paragraph>the logical entity represented in IDMEFv2;</paragraph>
+                    </list_item>
+                    <list_item>
+                        <paragraph>a particular runtime or resource instance;</paragraph>
+                    </list_item>
+                    <list_item>
+                        <paragraph>the network address observed at the time of the event; and</paragraph>
+                    </list_item>
+                    <list_item>
+                        <paragraph>the deployment or infrastructure context needed to interpret that address.</paragraph>
+                    </list_item>
+                </bullet_list>
+                <paragraph>The IDMEFv2 attributes available to represent these concepts are not identical
+                    across the four classes. Implementations must not assume that an attribute
+                    available on <literal>Target</literal> is also available on <literal>Source</literal>, <literal>Analyzer</literal>, or
+                    <literal>Sensor</literal>. Any platform-specific reference or mapping should use attributes
+                    supported by the applicable class, or a documented extension mechanism, and
+                    should not silently redefine an existing attribute.</paragraph>
+                <paragraph>When correlation across time is required, implementations should retain the
+                    mapping between the relevant IDMEFv2 entity, runtime instance, address, and
+                    event time for the required investigation period. This mapping is an operational
+                    property of the monitoring system; it is not guaranteed by the IP attribute.</paragraph>
+            </section>
+        </section>
         <section ids="service-attribute" names="service\ attribute">
             <title>Service Attribute</title>
             <paragraph>The <literal>Target.Service</literal> attribute should be used consistently with the
@@ -2923,12 +3017,12 @@ Source(0).IP</literal_block>
                 for every orchestration platform or container runtime.</paragraph>
         </section>
     </section>
-    <section dupnames="enumerations" ids="id15">
+    <section dupnames="enumerations" ids="id16">
         <title>Enumerations</title>
         <section ids="entity-sector" names="entity\ sector">
             <title>Entity Sector</title>
-            <target refid="id16"></target>
-            <table align="default" classes="colwidths-auto" ids="id25 id16" names="entity_sector">
+            <target refid="id17"></target>
+            <table align="default" classes="colwidths-auto" ids="id26 id17" names="entity_sector">
                 <title>enum_alert_entitysector</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -4406,8 +4500,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="alert-category" names="alert\ category">
             <title>Alert Category</title>
-            <target refid="id17"></target>
-            <table align="default" classes="colwidths-auto" ids="id26 id17" names="alert_category">
+            <target refid="id18"></target>
+            <table align="default" classes="colwidths-auto" ids="id27 id18" names="alert_category">
                 <title>enum_alert_category</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -5832,7 +5926,7 @@ Source(0).IP</literal_block>
                                 <paragraph>Other.ext-value</paragraph>
                             </entry>
                             <entry>
-                                <paragraph>A value used to indicate that this attribute is extended and the actual value is provided using the corresponding ext-* attribute. (see :ref:<problematic ids="id19" refid="id18">`</problematic>private_extension_enum)</paragraph>
+                                <paragraph>A value used to indicate that this attribute is extended and the actual value is provided using the corresponding ext-* attribute. (see :ref:<problematic ids="id20" refid="id19">`</problematic>private_extension_enum)</paragraph>
                             </entry>
                         </row>
                     </tbody>
@@ -5841,8 +5935,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="analyzer-category" names="analyzer\ category">
             <title>Analyzer Category</title>
-            <target refid="id20"></target>
-            <table align="default" classes="colwidths-auto" ids="id27 id20" names="analyzer_category">
+            <target refid="id21"></target>
+            <table align="default" classes="colwidths-auto" ids="id28 id21" names="analyzer_category">
                 <title>Analyzer Categories</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -6737,8 +6831,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="analyzer-data" names="analyzer\ data">
             <title>Analyzer Data</title>
-            <target refid="id21"></target>
-            <table align="default" classes="colwidths-auto" ids="id28 id21" names="analyzer_data">
+            <target refid="id22"></target>
+            <table align="default" classes="colwidths-auto" ids="id29 id22" names="analyzer_data">
                 <title>enum_analyzer_data</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -7061,8 +7155,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="analyzer-method" names="analyzer\ method">
             <title>Analyzer Method</title>
-            <target refid="id22"></target>
-            <table align="default" classes="colwidths-auto" ids="id29 id22" names="analyzer_method">
+            <target refid="id23"></target>
+            <table align="default" classes="colwidths-auto" ids="id30 id23" names="analyzer_method">
                 <title>Analyzer Methods</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -7506,8 +7600,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="source-category" names="source\ category">
             <title>Source Category</title>
-            <target refid="id23"></target>
-            <table align="default" classes="colwidths-auto" ids="id30 id23" names="source_category">
+            <target refid="id24"></target>
+            <table align="default" classes="colwidths-auto" ids="id31 id24" names="source_category">
                 <title>Source Categories</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
@@ -9260,8 +9354,8 @@ Source(0).IP</literal_block>
         </section>
         <section ids="target-category" names="target\ category">
             <title>Target Category</title>
-            <target refid="id24"></target>
-            <table align="default" classes="colwidths-auto" ids="id31 id24" names="target_category">
+            <target refid="id25"></target>
+            <table align="default" classes="colwidths-auto" ids="id32 id25" names="target_category">
                 <title>Target Categories</title>
                 <tgroup cols="3">
                     <colspec colwidth="33"></colspec>
