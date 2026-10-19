@@ -12,6 +12,15 @@
         <email>gilles.lehmann@telecom-sudparis.eu</email>
       </address>
     </author>
+    <author fullname="Thomas Andrejak">
+      <organization>Bytes'n AI</organization>
+      <address>
+        <postal>
+          <country>FR</country>
+        </postal>
+        <email>Thomas.Andrejak@gmail.com</email>
+      </address>
+    </author>
     <date day="19" month="October" year="2026"/>
     <keyword>RFC4765</keyword>
     <keyword>RFC4766</keyword>
@@ -1954,7 +1963,7 @@ Source(0).IP</sourcecode>
       <ul>
             <li>
                 <t>The former Prelude SIEM team :
-                    Thomas Andrejak &amp; François Poirotte (Co-authors of the first version of this document),
+                    François Poirotte (Co-author of the first version of this document),
                     Antoine Luong, Song Tran, Selim Menouar and Camille Gardet</t>
             </li>
             <li>
@@ -1968,12 +1977,18 @@ Source(0).IP</sourcecode>
                     around Europe helping greatly to improve it.</t>
             </li>
             <li>
+                <t>The Digital Europe Safe4Soc project (Standard Alert Exchange for SOC) who activaly contribute to
+                    draft evolution since V04.</t>
+            </li>
+            <li>
+                <t>All other european research project having deployed and tested IDMEFv2 on their pilots (PRECINCT,
+                    CyberNEMO, CyberSEAS, ATLANTIS, ENDURANCE, KINAITICS, TESTUDO)</t>
+            </li>
+            <li>
                 <t>The CESNET team for their work on the [IDEA0] format (based on IDMEFv1) which inspired
                     multiples concepts to IDMEFv2.</t>
             </li>
         </ul>
-      <t># Using IDMEFv2 in Ephemeral Environments (Informative)
-            # ====================================================</t>
     </section>
   </middle>
   <back>

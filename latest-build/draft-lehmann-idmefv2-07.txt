@@ -4,9 +4,9 @@
 
 Network Working Group                                         G. Lehmann
 Internet-Draft                                          Telecom SudParis
-Obsoletes: 4765 (if approved)                            19 October 2026
-Intended status: Standards Track                                        
-Expires: 22 April 2027
+Obsoletes: 4765 (if approved)                                T. Andrejak
+Intended status: Standards Track                              Bytes'n AI
+Expires: 22 April 2027                                   19 October 2026
 
 
    The Incident Detection Message Exchange Format version 2 (IDMEFv2)
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Lehmann                   Expires 22 April 2027                 [Page 1]
+Lehmann & Andrejak        Expires 22 April 2027                 [Page 1]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Lehmann                   Expires 22 April 2027                 [Page 2]
+Lehmann & Andrejak        Expires 22 April 2027                 [Page 2]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -144,7 +144,7 @@ Internet-Draft                   IDMEFv2                    October 2026
      9.2.  Informative References  . . . . . . . . . . . . . . . . .  43
    Appendix A.  Using IDMEFv2 in Ephemeral Environments  . . . . . .  44
      A.1.  The Ephemeral Asset Problem . . . . . . . . . . . . . . .  44
-     A.2.  Complementary Identification Attributes . . . . . . . . .  44
+     A.2.  Complementary Identification Attributes . . . . . . . . .  45
        A.2.1.  ID  . . . . . . . . . . . . . . . . . . . . . . . . .  45
        A.2.2.  IP  . . . . . . . . . . . . . . . . . . . . . . . . .  45
        A.2.3.  Hostname  . . . . . . . . . . . . . . . . . . . . . .  45
@@ -165,7 +165,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                 [Page 3]
+Lehmann & Andrejak        Expires 22 April 2027                 [Page 3]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -183,7 +183,7 @@ Internet-Draft                   IDMEFv2                    October 2026
      D.4.  Combined incident . . . . . . . . . . . . . . . . . . . . 137
      D.5.  Hazard incident . . . . . . . . . . . . . . . . . . . . . 139
    Appendix E.  JSON Validation Schema (Non-normative) . . . . . . . 140
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . . 167
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . . 167
 
 1.  Introduction
 
@@ -221,7 +221,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                 [Page 4]
+Lehmann & Andrejak        Expires 22 April 2027                 [Page 4]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -277,7 +277,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                 [Page 5]
+Lehmann & Andrejak        Expires 22 April 2027                 [Page 5]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -333,7 +333,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                 [Page 6]
+Lehmann & Andrejak        Expires 22 April 2027                 [Page 6]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -389,7 +389,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                 [Page 7]
+Lehmann & Andrejak        Expires 22 April 2027                 [Page 7]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -445,7 +445,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                 [Page 8]
+Lehmann & Andrejak        Expires 22 April 2027                 [Page 8]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -501,7 +501,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                 [Page 9]
+Lehmann & Andrejak        Expires 22 April 2027                 [Page 9]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -557,7 +557,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 10]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 10]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -613,7 +613,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 11]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 11]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -669,7 +669,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 12]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 12]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -725,7 +725,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 13]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 13]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -781,7 +781,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 14]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 14]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -837,7 +837,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 15]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 15]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -893,7 +893,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 16]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 16]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -949,7 +949,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 17]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 17]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -1005,7 +1005,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 18]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 18]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -1061,7 +1061,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 19]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 19]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -1117,7 +1117,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 20]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 20]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -1173,7 +1173,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 21]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 21]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -1229,7 +1229,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 22]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 22]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -1285,7 +1285,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 23]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 23]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -1341,7 +1341,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 24]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 24]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -1397,7 +1397,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 25]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 25]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -1453,7 +1453,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 26]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 26]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -1509,7 +1509,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 27]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 27]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -1565,7 +1565,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 28]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 28]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -1621,7 +1621,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 29]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 29]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -1677,7 +1677,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 30]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 30]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -1733,7 +1733,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 31]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 31]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -1789,7 +1789,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 32]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 32]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -1845,7 +1845,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 33]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 33]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -1901,7 +1901,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 34]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 34]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -1957,7 +1957,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 35]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 35]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -2013,7 +2013,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 36]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 36]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -2069,7 +2069,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 37]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 37]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -2125,7 +2125,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 38]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 38]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -2181,7 +2181,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 39]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 39]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -2237,7 +2237,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 40]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 40]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -2269,9 +2269,9 @@ Internet-Draft                   IDMEFv2                    October 2026
    The following groups and individuals contributed to the creation of
    this document and should be recognized for their efforts.
 
-   *  The former Prelude SIEM team : Thomas Andrejak & Francois Poirotte
-      (Co-authors of the first version of this document), Antoine Luong,
-      Song Tran, Selim Menouar and Camille Gardet
+   *  The former Prelude SIEM team : Francois Poirotte (Co-author of the
+      first version of this document), Antoine Luong, Song Tran, Selim
+      Menouar and Camille Gardet
 
    *  The core members of the SECEF (SECurity Exchange Format)
       consortium : Herve Debar (Author of RFC 4765 - IDMEFv1), Guillaume
@@ -2284,19 +2284,22 @@ Internet-Draft                   IDMEFv2                    October 2026
       IDMEFv2 on five pilots around Europe helping greatly to improve
       it.
 
-   *  The CESNET team for their work on the [IDEA0] format (based on
-      IDMEFv1) which inspired multiples concepts to IDMEFv2.
+   *  The Digital Europe Safe4Soc project (Standard Alert Exchange for
+      SOC) who activaly contribute to draft evolution since V04.
 
-   # Using IDMEFv2 in Ephemeral Environments (Informative) #
-   ====================================================
+   *  All other european research project having deployed and tested
+      IDMEFv2 on their pilots (PRECINCT, CyberNEMO, CyberSEAS, ATLANTIS,
+      ENDURANCE, KINAITICS, TESTUDO)
 
 
 
-
-Lehmann                   Expires 22 April 2027                [Page 41]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 41]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
+
+   *  The CESNET team for their work on the [IDEA0] format (based on
+      IDMEFv1) which inspired multiples concepts to IDMEFv2.
 
 9.  References
 
@@ -2342,17 +2345,19 @@ Internet-Draft                   IDMEFv2                    October 2026
               Encodings", RFC 4648, DOI 10.17487/RFC4648, October 2006,
               <https://www.rfc-editor.org/info/rfc4648>.
 
+
+
+
+
+Lehmann & Andrejak        Expires 22 April 2027                [Page 42]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
    [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
               Specifications: ABNF", STD 68, RFC 5234,
               DOI 10.17487/RFC5234, January 2008,
               <https://www.rfc-editor.org/info/rfc5234>.
-
-
-
-Lehmann                   Expires 22 April 2027                [Page 42]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
 
    [RFC5952]  Kawamura, S. and M. Kawashima, "A Recommendation for IPv6
               Address Text Representation", RFC 5952,
@@ -2395,20 +2400,20 @@ Internet-Draft                   IDMEFv2                    October 2026
               RFC 8126, DOI 10.17487/RFC8126, June 2017,
               <https://www.rfc-editor.org/info/rfc8126>.
 
+
+
+
+
+
+Lehmann & Andrejak        Expires 22 April 2027                [Page 43]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
    [RFC6234]  Eastlake 3rd, D. and T. Hansen, "US Secure Hash Algorithms
               (SHA and SHA-based HMAC and HKDF)", RFC 6234,
               DOI 10.17487/RFC6234, May 2011,
               <https://www.rfc-editor.org/info/rfc6234>.
-
-
-
-
-
-
-Lehmann                   Expires 22 April 2027                [Page 43]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
 
    [NIST.FIPS.202]
               Dworkin, Morris J., "SHA-3 Standard: Permutation-Based
@@ -2450,21 +2455,21 @@ A.1.  The Ephemeral Asset Problem
    themselves, guarantee the long-term availability of historical
    records or the continued existence of the resource.
 
+
+
+
+
+
+
+Lehmann & Andrejak        Expires 22 April 2027                [Page 44]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
 A.2.  Complementary Identification Attributes
 
    The following attributes have complementary roles when describing
    ephemeral resources.
-
-
-
-
-
-
-
-Lehmann                   Expires 22 April 2027                [Page 44]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
 
 A.2.1.  ID
 
@@ -2508,19 +2513,21 @@ A.2.3.  Hostname
    entity.  It SHOULD contain an actual hostname, not an unrelated
    platform identifier.
 
+
+
+
+
+Lehmann & Andrejak        Expires 22 April 2027                [Page 45]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
    For a Kubernetes pod, the hostname can be configured through the
    pod's hostname settings or obtained from the runtime environment.  A
    pod name and the hostname used inside the pod may happen to be the
    same, but they are not interchangeable by definition.
    Implementations SHOULD record the actual hostname observed or
    configured for the pod.
-
-
-
-Lehmann                   Expires 22 April 2027                [Page 45]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
 
    Hostnames can facilitate operational identification and correlation
    during a resource's lifetime.  However, hostnames may be reused, and
@@ -2564,19 +2571,18 @@ A.3.  Platform-Specific Resource References
    , , and , are illustrative implementation conventions.  They are not
    defined or standardized by IDMEFv2.
 
+
+
+Lehmann & Andrejak        Expires 22 April 2027                [Page 46]
+
+Internet-Draft                   IDMEFv2                    October 2026
+
+
    The values are illustrative and MUST be replaced with identifiers and
    hostnames obtained from the relevant platform in an actual
    deployment.  UUID-shaped values shown in the examples are
    illustrative IDMEFv2 entity identifiers; they are not Kubernetes UIDs
    unless explicitly placed in a platform reference.
-
-
-
-
-Lehmann                   Expires 22 April 2027                [Page 46]
-
-Internet-Draft                   IDMEFv2                    October 2026
-
 
 A.3.1.  Kubernetes
 
@@ -2623,13 +2629,7 @@ A.3.1.  Kubernetes
 
 
 
-
-
-
-
-
-
-Lehmann                   Expires 22 April 2027                [Page 47]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 47]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -2685,7 +2685,7 @@ A.3.2.  Docker and Podman
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 48]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 48]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -2741,7 +2741,7 @@ A.3.3.  Google Cloud GKE
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 49]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 49]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -2797,7 +2797,7 @@ A.3.4.  AWS ECS
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 50]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 50]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -2853,7 +2853,7 @@ A.3.6.  HashiCorp Nomad
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 51]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 51]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -2909,7 +2909,7 @@ A.5.  Temporal Context and Historical Retention
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 52]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 52]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -2965,7 +2965,7 @@ A.6.  Summary
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 53]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 53]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -3021,7 +3021,7 @@ B.1.  Entity Sector
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 54]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 54]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -3077,7 +3077,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 55]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 55]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -3133,7 +3133,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 56]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 56]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -3189,7 +3189,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 57]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 57]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -3245,7 +3245,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 58]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 58]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -3301,7 +3301,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 59]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 59]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -3357,7 +3357,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 60]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 60]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -3413,7 +3413,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 61]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 61]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -3469,7 +3469,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 62]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 62]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -3525,7 +3525,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 63]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 63]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -3581,7 +3581,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 64]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 64]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -3637,7 +3637,7 @@ Appendix C.  Alert Category Enumeration
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 65]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 65]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -3693,7 +3693,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 66]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 66]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -3749,7 +3749,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 67]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 67]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -3805,7 +3805,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 68]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 68]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -3861,7 +3861,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 69]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 69]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -3917,7 +3917,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 70]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 70]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -3973,7 +3973,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 71]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 71]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -4029,7 +4029,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 72]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 72]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -4085,7 +4085,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 73]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 73]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -4141,7 +4141,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 74]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 74]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -4197,7 +4197,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 75]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 75]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -4253,7 +4253,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 76]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 76]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -4309,7 +4309,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 77]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 77]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -4365,7 +4365,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 78]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 78]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -4421,7 +4421,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 79]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 79]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -4477,7 +4477,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 80]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 80]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -4533,7 +4533,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 81]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 81]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -4589,7 +4589,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 82]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 82]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -4645,7 +4645,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 83]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 83]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -4701,7 +4701,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 84]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 84]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -4757,7 +4757,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 85]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 85]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -4813,7 +4813,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 86]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 86]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -4869,7 +4869,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 87]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 87]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -4925,7 +4925,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 88]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 88]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -4981,7 +4981,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 89]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 89]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -5037,7 +5037,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 90]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 90]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -5093,7 +5093,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 91]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 91]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -5149,7 +5149,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 92]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 92]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -5205,7 +5205,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 93]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 93]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -5261,7 +5261,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 94]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 94]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -5317,7 +5317,7 @@ C.1.  Analyzer Category
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 95]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 95]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -5373,7 +5373,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 96]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 96]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -5429,7 +5429,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 97]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 97]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -5485,7 +5485,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 98]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 98]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -5541,7 +5541,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027                [Page 99]
+Lehmann & Andrejak        Expires 22 April 2027                [Page 99]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -5597,7 +5597,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 100]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 100]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -5653,7 +5653,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 101]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 101]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -5709,7 +5709,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 102]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 102]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -5765,7 +5765,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 103]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 103]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -5821,7 +5821,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 104]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 104]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -5877,7 +5877,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 105]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 105]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -5933,7 +5933,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 106]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 106]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -5989,7 +5989,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 107]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 107]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6045,7 +6045,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 108]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 108]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6101,7 +6101,7 @@ C.2.  Analyzer Data
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 109]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 109]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6157,7 +6157,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 110]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 110]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6213,7 +6213,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 111]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 111]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6269,7 +6269,7 @@ C.3.  Analyzer Method
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 112]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 112]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6325,7 +6325,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 113]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 113]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6381,7 +6381,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 114]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 114]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6437,7 +6437,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 115]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 115]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6493,7 +6493,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 116]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 116]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6549,7 +6549,7 @@ C.4.  Source Category
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 117]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 117]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6605,7 +6605,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 118]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 118]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6661,7 +6661,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 119]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 119]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6717,7 +6717,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 120]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 120]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6773,7 +6773,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 121]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 121]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6829,7 +6829,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 122]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 122]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6885,7 +6885,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 123]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 123]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6941,7 +6941,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 124]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 124]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -6997,7 +6997,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 125]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 125]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7053,7 +7053,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 126]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 126]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7109,7 +7109,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 127]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 127]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7165,7 +7165,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 128]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 128]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7221,7 +7221,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 129]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 129]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7277,7 +7277,7 @@ C.5.  Target Category
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 130]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 130]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7333,7 +7333,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 131]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 131]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7389,7 +7389,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 132]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 132]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7445,7 +7445,7 @@ D.1.  Physical intrusion
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 133]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 133]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7501,7 +7501,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 134]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 134]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7557,7 +7557,7 @@ D.2.  Cyberattack
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 135]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 135]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7613,7 +7613,7 @@ D.3.  Server outage
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 136]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 136]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7669,7 +7669,7 @@ D.4.  Combined incident
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 137]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 137]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7725,7 +7725,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 138]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 138]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7781,7 +7781,7 @@ D.5.  Hazard incident
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 139]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 139]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7837,7 +7837,7 @@ Appendix E.  JSON Validation Schema (Non-normative)
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 140]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 140]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7893,7 +7893,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 141]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 141]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -7949,7 +7949,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 142]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 142]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -8005,7 +8005,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 143]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 143]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -8061,7 +8061,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 144]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 144]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -8117,7 +8117,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 145]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 145]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -8173,7 +8173,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 146]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 146]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -8229,7 +8229,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 147]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 147]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -8285,7 +8285,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 148]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 148]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -8341,7 +8341,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 149]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 149]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -8397,7 +8397,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 150]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 150]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -8453,7 +8453,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 151]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 151]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -8509,7 +8509,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 152]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 152]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -8565,7 +8565,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 153]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 153]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -8621,7 +8621,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 154]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 154]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -8677,7 +8677,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 155]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 155]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -8733,7 +8733,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 156]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 156]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -8789,7 +8789,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 157]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 157]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -8845,7 +8845,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 158]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 158]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -8901,7 +8901,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 159]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 159]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -8957,7 +8957,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 160]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 160]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -9013,7 +9013,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 161]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 161]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -9069,7 +9069,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 162]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 162]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -9125,7 +9125,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 163]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 163]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -9181,7 +9181,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 164]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 164]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -9237,7 +9237,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 165]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 165]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -9293,7 +9293,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 
 
 
-Lehmann                   Expires 22 April 2027               [Page 166]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 166]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
@@ -9311,7 +9311,7 @@ Internet-Draft                   IDMEFv2                    October 2026
        "title": "IDMEF 2.D.V08"
    }
 
-Author's Address
+Authors' Addresses
 
    Gilles Lehmann
    Telecom SudParis
@@ -9320,6 +9320,11 @@ Author's Address
    Email: gilles.lehmann@telecom-sudparis.eu
 
 
+   Thomas Andrejak
+   Bytes'n AI
+   France
+
+   Email: Thomas.Andrejak@gmail.com
 
 
 
@@ -9344,9 +9349,4 @@ Author's Address
 
 
 
-
-
-
-
-
-Lehmann                   Expires 22 April 2027               [Page 167]
+Lehmann & Andrejak        Expires 22 April 2027               [Page 167]

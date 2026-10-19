@@ -93,6 +93,55 @@
                             </field>
                         </field_list>
                     </list_item>
+                    <list_item>
+                        <field_list>
+                            <field>
+                                <field_name>fullname</field_name>
+                                <field_body>
+                                    <paragraph>Thomas Andrejak</paragraph>
+                                </field_body>
+                            </field>
+                            <field>
+                                <field_name>organization</field_name>
+                                <field_body>
+                                    <field_list>
+                                        <field>
+                                            <field_name>name</field_name>
+                                            <field_body>
+                                                <paragraph>Bytes'n AI</paragraph>
+                                            </field_body>
+                                        </field>
+                                    </field_list>
+                                </field_body>
+                            </field>
+                            <field>
+                                <field_name>contact</field_name>
+                                <field_body>
+                                    <field_list>
+                                        <field>
+                                            <field_name>email</field_name>
+                                            <field_body>
+                                                <paragraph><reference refuri="mailto:Thomas.Andrejak@gmail.com">Thomas.Andrejak@gmail.com</reference></paragraph>
+                                            </field_body>
+                                        </field>
+                                        <field>
+                                            <field_name>postal</field_name>
+                                            <field_body>
+                                                <field_list>
+                                                    <field>
+                                                        <field_name>country</field_name>
+                                                        <field_body>
+                                                            <paragraph>FR</paragraph>
+                                                        </field_body>
+                                                    </field>
+                                                </field_list>
+                                            </field_body>
+                                        </field>
+                                    </field_list>
+                                </field_body>
+                            </field>
+                        </field_list>
+                    </list_item>
                 </bullet_list>
             </field_body>
         </field>
@@ -2581,7 +2630,7 @@ Source(0).IP</literal_block>
         <bullet_list bullet="*">
             <list_item>
                 <paragraph>The former Prelude SIEM team :
-                    Thomas Andrejak &amp; François Poirotte (Co-authors of the first version of this document),
+                    François Poirotte (Co-author of the first version of this document),
                     Antoine Luong, Song Tran, Selim Menouar and Camille Gardet</paragraph>
             </list_item>
             <list_item>
@@ -2595,14 +2644,20 @@ Source(0).IP</literal_block>
                     around Europe helping greatly to improve it.</paragraph>
             </list_item>
             <list_item>
+                <paragraph>The Digital Europe Safe4Soc project (Standard Alert Exchange for SOC) who activaly contribute to
+                    draft evolution since V04.</paragraph>
+            </list_item>
+            <list_item>
+                <paragraph>All other european research project having deployed and tested IDMEFv2 on their pilots (PRECINCT,
+                    CyberNEMO, CyberSEAS, ATLANTIS, ENDURANCE, KINAITICS, TESTUDO)</paragraph>
+            </list_item>
+            <list_item>
                 <paragraph>The CESNET team for their work on the [IDEA0] format (based on IDMEFv1) which inspired
                     multiples concepts to IDMEFv2.</paragraph>
             </list_item>
         </bullet_list>
-        <transition></transition>
-        <paragraph># Using IDMEFv2 in Ephemeral Environments (Informative)
-            # ====================================================</paragraph>
     </section>
+    <transition></transition>
     <section ids="using-idmefv2-in-ephemeral-environments" names="using\ idmefv2\ in\ ephemeral\ environments">
         <title>Using IDMEFv2 in Ephemeral Environments</title>
         <section ids="the-ephemeral-asset-problem" names="the\ ephemeral\ asset\ problem">
