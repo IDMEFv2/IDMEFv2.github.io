@@ -1499,6 +1499,8 @@ Source(0).IP</literal_block>
 | STRING   Name        |
 | STRING   Hostname    |
 | STRING   Model       |
+| ENUM[]   Data        |
+| STRING[] ext-Data    |
 | GEOLOC   GeoLocation |
 | UNLOCODE UnLocation  |
 | STRING   Location    |
@@ -1547,6 +1549,20 @@ Source(0).IP</literal_block>
                     <definition>
                         <paragraph>Optional. The sensor model's description (usually its generic name,
                             brand and version).</paragraph>
+                    </definition>
+                </definition_list_item>
+                <definition_list_item>
+                    <term>Data</term>
+                    <definition>
+                        <paragraph>Optional. Type of data captured by the sensor.</paragraph>
+                        <paragraph>Enumeration available here <reference internal="True" refid="id21"><inline classes="std std-ref">enum_analyzer_data</inline></reference></paragraph>
+                    </definition>
+                </definition_list_item>
+                <definition_list_item>
+                    <term>ext-Data</term>
+                    <definition>
+                        <paragraph>Optional.
+                            A means by which to extend the Data attribute.  (see <reference internal="True" refid="private-extension-enum"><inline classes="std std-ref">Private Extension of Enumerated Values</inline></reference>)</paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>

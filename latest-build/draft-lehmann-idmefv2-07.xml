@@ -1298,6 +1298,8 @@ Source(0).IP</sourcecode>
 | STRING   Name        |
 | STRING   Hostname    |
 | STRING   Model       |
+| ENUM[]   Data        |
+| STRING[] ext-Data    |
 | GEOLOC   GeoLocation |
 | UNLOCODE UnLocation  |
 | STRING   Location    |
@@ -1340,6 +1342,18 @@ Source(0).IP</sourcecode>
                     <dd>
                         <t>Optional. The sensor model's description (usually its generic name,
                             brand and version).</t>
+                    </dd>
+                
+                    <dt>Data</dt>
+                    <dd>
+                        <t>Optional. Type of data captured by the sensor.</t>
+                        <t>Enumeration available here <xref target="id21"/></t>
+                    </dd>
+                
+                    <dt>ext-Data</dt>
+                    <dd>
+                        <t>Optional.
+                            A means by which to extend the Data attribute.  (see <xref target="private-extension-enum"/>)</t>
                     </dd>
                 
                     <dt>GeoLocation</dt>
