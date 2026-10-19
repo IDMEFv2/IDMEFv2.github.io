@@ -1186,19 +1186,26 @@ Internet-Draft                   IDMEFv2                    October 2026
    Type
       Optional.  Incident type.
 
-              +======+==============+==========================+
-              | Rank | Keyword      | Description              |
-              +======+==============+==========================+
-              | 0    | Cyber        | Cyber incident           |
-              +------+--------------+--------------------------+
-              | 1    | Physical     | Physical incident        |
-              +------+--------------+--------------------------+
-              | 2    | Availability | Availability incident    |
-              +------+--------------+--------------------------+
-              | 3    | NatHaz       | Natural Hazards incident |
-              +------+--------------+--------------------------+
-              | 4    | Combined     | Combined incident        |
-              +------+--------------+--------------------------+
+      +======+==============+=========================================+
+      | Rank | Keyword      | Description                             |
+      +======+==============+=========================================+
+      | 0    | Cyber        | Incident involving cyberspace,          |
+      |      |              | information systems, or digital assets. |
+      +------+--------------+-----------------------------------------+
+      | 1    | Physical     | Incident involving physical assets,     |
+      |      |              | facilities, or infrastructure.          |
+      +------+--------------+-----------------------------------------+
+      | 2    | Availability | Incident affecting the availability or  |
+      |      |              | performance of a service, system, asset |
+      |      |              | or resource.                            |
+      +------+--------------+-----------------------------------------+
+      | 3    | Hazards      | Incident arising from natural,          |
+      |      |              | societal, technological, environmental, |
+      |      |              | or other hazards.                       |
+      +------+--------------+-----------------------------------------+
+      | 4    | Combined     | Incident involving two or more incident |
+      |      |              | types.                                  |
+      +------+--------------+-----------------------------------------+
 
                            Table 1: Incident types
 
@@ -1216,13 +1223,6 @@ Internet-Draft                   IDMEFv2                    October 2026
       analyzer on the way of the alert and later by the operator and/or
       the analyst if new investigation reveals and confirms a different
       cause of the event.
-
-
-
-
-
-
-
 
 
 

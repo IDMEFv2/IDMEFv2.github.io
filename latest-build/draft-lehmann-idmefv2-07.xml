@@ -715,7 +715,7 @@ Source(0).IP</sourcecode>
                                             <t>Cyber</t>
                                         </td>
                                         <td>
-                                            <t>Cyber incident</t>
+                                            <t>Incident involving cyberspace, information systems, or digital assets.</t>
                                         </td>
                                     </tr>
                                     <tr>
@@ -726,7 +726,7 @@ Source(0).IP</sourcecode>
                                             <t>Physical</t>
                                         </td>
                                         <td>
-                                            <t>Physical incident</t>
+                                            <t>Incident involving physical assets, facilities, or infrastructure.</t>
                                         </td>
                                     </tr>
                                     <tr>
@@ -737,7 +737,7 @@ Source(0).IP</sourcecode>
                                             <t>Availability</t>
                                         </td>
                                         <td>
-                                            <t>Availability incident</t>
+                                            <t>Incident affecting the availability or performance of a service, system, asset or resource.</t>
                                         </td>
                                     </tr>
                                     <tr>
@@ -745,10 +745,10 @@ Source(0).IP</sourcecode>
                                             <t>3</t>
                                         </td>
                                         <td>
-                                            <t>NatHaz</t>
+                                            <t>Hazards</t>
                                         </td>
                                         <td>
-                                            <t>Natural Hazards incident</t>
+                                            <t>Incident arising from natural, societal, technological, environmental, or other hazards.</t>
                                         </td>
                                     </tr>
                                     <tr>
@@ -759,7 +759,7 @@ Source(0).IP</sourcecode>
                                             <t>Combined</t>
                                         </td>
                                         <td>
-                                            <t>Combined incident</t>
+                                            <t>Incident involving two or more incident types.</t>
                                         </td>
                                     </tr>
                                 </tbody>
