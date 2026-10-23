@@ -594,7 +594,8 @@ Source(0).IP</sourcecode>
 | UUID[]      CorrelID         |
 | CONDITION[] AggrCondition    |
 | UUID[]      PredID           |
-| UUID[]      RelID            |
+| STRING[]    SignedAttributes |
+| STRING      Signature        |
 +------------------------------+</artwork>
         </figure>
         <t>The aggregate classes that make up Alert are:</t>
@@ -695,7 +696,7 @@ Source(0).IP</sourcecode>
                     <dd>
                         <t>Optional. The economic sector(s) and sub-sector(s) in which the entity operates. Values follow the dot notation sector.subsector based on the critical infrastructure taxonomy defined in the NIS2 Directive and CER (Critical Entities Resilience) Directive.</t>
                         <t>This attribute enables sector-based correlation, regulatory compliance reporting, and risk context for incident detection.</t>
-                        <t>Enumeration available here <xref target="id16"/></t>
+                        <t>Enumeration available here <xref target="id20"/></t>
                     </dd>
                 
                     <dt>Type</dt>
@@ -778,7 +779,7 @@ Source(0).IP</sourcecode>
                     <dt>Category</dt>
                     <dd>
                         <t>Optional. Incident category.</t>
-                        <t>Enumeration available here <xref target="id17"/></t>
+                        <t>Enumeration available here <xref target="id21"/></t>
                     </dd>
                 
                     <dt>ext-Category</dt>
@@ -1171,6 +1172,18 @@ Source(0).IP</sourcecode>
                             A list containing the identifiers of other messages related
                             to this message.</t>
                     </dd>
+                
+                    <dt>SignedAttributes</dt>
+                    <dd>
+                        <t>Optional.
+                            List of IDMEFv2 paths of the attributes included in the signature.</t>
+                    </dd>
+                
+                    <dt>Signature</dt>
+                    <dd>
+                        <t>Optional.
+                            JWS Compact Serialization string containing the signature.</t>
+                    </dd>
                 </dl>
       </section>
       <section anchor="class_analyzer">
@@ -1237,7 +1250,7 @@ Source(0).IP</sourcecode>
                     <dt>Category</dt>
                     <dd>
                         <t>Optional. Analyzer categories.</t>
-                        <t>Enumeration available here <xref target="id18"/></t>
+                        <t>Enumeration available here <xref target="id22"/></t>
                     </dd>
                 
                     <dt>ext-Category</dt>
@@ -1249,7 +1262,7 @@ Source(0).IP</sourcecode>
                     <dt>Data</dt>
                     <dd>
                         <t>Optional. Type of data analyzed during the detection.</t>
-                        <t>Enumeration available here <xref target="id19"/></t>
+                        <t>Enumeration available here <xref target="id23"/></t>
                     </dd>
                 
                     <dt>ext-Data</dt>
@@ -1261,7 +1274,7 @@ Source(0).IP</sourcecode>
                     <dt>Method</dt>
                     <dd>
                         <t>Optional. Detection method.</t>
-                        <t>Enumeration available here <xref target="id20"/></t>
+                        <t>Enumeration available here <xref target="id24"/></t>
                     </dd>
                 
                     <dt>ext-Method</dt>
@@ -1283,6 +1296,11 @@ Source(0).IP</sourcecode>
                     <dt>Location</dt>
                     <dd>
                         <t>Optional. Internal name for the location of the analyzer.</t>
+                    </dd>
+                
+                    <dt>Locator</dt>
+                    <dd>
+                        <t>Optional. Resolvable URL for the entity. May be dynamic or expire; complements Location, which is a persistent path.</t>
                     </dd>
                 
                     <dt>CaptureZone</dt>
@@ -1358,7 +1376,7 @@ Source(0).IP</sourcecode>
                     <dt>Data</dt>
                     <dd>
                         <t>Optional. Type of data captured by the sensor.</t>
-                        <t>Enumeration available here <xref target="id19"/></t>
+                        <t>Enumeration available here <xref target="id23"/></t>
                     </dd>
                 
                     <dt>ext-Data</dt>
@@ -1463,7 +1481,7 @@ Source(0).IP</sourcecode>
                     <dt>Category</dt>
                     <dd>
                         <t>Optional. Source category</t>
-                        <t>Enumeration available here <xref target="id21"/></t>
+                        <t>Enumeration available here <xref target="id25"/></t>
                     </dd>
                 
                     <dt>Note</dt>
@@ -1596,7 +1614,7 @@ Source(0).IP</sourcecode>
                     <dt>Category</dt>
                     <dd>
                         <t>Optional. Target category</t>
-                        <t>Enumeration available here <xref target="id22"/></t>
+                        <t>Enumeration available here <xref target="id26"/></t>
                     </dd>
                 
                     <dt>Note</dt>
@@ -2287,6 +2305,9 @@ Source(0).IP</sourcecode>
     </references>
     <section>
       <name>Using IDMEFv2 in Dynamic Environments</name>
+      <t>1.0</t>
+      <t>Proposal</t>
+      <t>October 2026</t>
       <section>
         <name>The Dynamic Asset Problem</name>
         <t>Modern container orchestration platforms and cloud runtime environments
@@ -2641,10 +2662,610 @@ Source(0).IP</sourcecode>
       </section>
     </section>
     <section>
+      <name>IDMEFv2 Alert Signature Specification</name>
+      <t>1.0</t>
+      <t>Proposal</t>
+      <t>October 2026</t>
+      <t>This appendix defines a standardized mechanism for signing IDMEFv2 alerts. The
+            signature ensures the integrity and authenticity of alert data while allowing
+            certain attributes to remain modifiable without invalidating the signature
+            (partial signing).</t>
+      <t>The mechanism builds upon the following standards:</t>
+      <ul>
+            <li>
+                <t><strong>JWS</strong> (RFC 7515) — signature format;</t>
+            </li>
+            <li>
+                <t><strong>JCS</strong> (RFC 8785) — JSON canonicalization;</t>
+            </li>
+            <li>
+                <t><strong>JWA</strong> (RFC 7518) — cryptographic algorithms;</t>
+            </li>
+            <li>
+                <t><strong>JWK</strong> (RFC 7517) — key representation;</t>
+            </li>
+            <li>
+                <t><strong>IDMEFv2 Paths</strong> (Section 3.3.12 of the draft) — attribute selection.</t>
+            </li>
+        </ul>
+      <t>The key words <strong>MUST</strong>, <strong>MUST NOT</strong>, <strong>SHOULD</strong>, <strong>SHOULD NOT</strong>, <strong>MAY</strong> and
+            <strong>RECOMMENDED</strong> are to be interpreted as described in RFC 2119.</t>
+      <section>
+        <name>Overview</name>
+        <t>The mechanism adds two optional attributes to the  class:</t>
+        <ol type="%d.">
+                <li>
+                    <t><strong>``SignedAttributes``</strong>: a list of IDMEFv2 paths identifying the attributes
+                        to be signed;</t>
+                </li>
+                <li>
+                    <t><strong>``Signature``</strong>: a string containing the JWS Compact Serialization of the
+                        signature.</t>
+                </li>
+            </ol>
+        <t>The signing process follows these steps:</t>
+        <ol type="%d.">
+                <li>
+                    <t>populate  with the list of IDMEFv2 paths;</t>
+                </li>
+                <li>
+                    <t>build the signed payload object as defined in <xref target="signed-attributes-and-payload-construction">Signed Attributes and Payload
+                            Construction</xref>;</t>
+                </li>
+                <li>
+                    <t>canonicalize this object using JCS (RFC 8785);</t>
+                </li>
+                <li>
+                    <t>build the protected JWS header (containing , and optionally );</t>
+                </li>
+                <li>
+                    <t>produce the JWS Compact Serialization as defined in <xref target="signature-format" format="title"/>;</t>
+                </li>
+                <li>
+                    <t>store the result in the  attribute.</t>
+                </li>
+            </ol>
+      </section>
+      <section anchor="signature-format">
+        <name>Signature Format: JWS Compact Serialization</name>
+        <t>The  attribute <strong>MUST</strong> use the JWS Compact Serialization format
+                defined in RFC 7515.</t>
+        <section>
+          <name>Structure</name>
+          <sourcecode type="none">BASE64URL(JWS Protected Header) "." BASE64URL(JWS Payload) "." BASE64URL(JWS Signature)</sourcecode>
+          <t>The JWS payload <strong>MUST</strong> be <strong>embedded</strong> (not detached) in the Compact
+                    serialization. It corresponds to the canonicalized representation of the
+                    payload object defined in <xref target="signed-attributes-and-payload-construction">Signed Attributes and Payload Construction</xref>, encoded
+                    in base64url as specified by RFC 7515.</t>
+          <blockquote>
+            <t>Note: The payload is derived from the alert itself; embedding it guarantees that
+                        the verifier has access to the exact representation that was signed,
+                        independently of any re-serialization of the alert. The unencoded payload
+                        option of RFC 7797 is <strong>not</strong> used.</t>
+          </blockquote>
+        </section>
+        <section>
+          <name>Protected Header</name>
+          <t>The protected JWS header <strong>MUST</strong> contain the  parameter. It <strong>SHOULD</strong>
+                    contain the  parameter. It <strong>MUST NOT</strong> contain any  parameter
+                    not specified by this annex.</t>
+        </section>
+        <section>
+          <name>Example</name>
+          <sourcecode type="json">"Signature": "&lt;valid JWS Compact string, to be provided in test vectors&gt;"</sourcecode>
+        </section>
+      </section>
+      <section anchor="signed-attributes-and-payload-construction">
+        <name>Signed Attributes and Payload Construction</name>
+        <section>
+          <name>Path Syntax</name>
+          <t>Attributes to be signed are identified using the IDMEFv2 path syntax defined in
+                    Section 3.3.12 of the draft.</t>
+          <table>
+                    <thead>
+                            <tr>
+                                <th>
+                                    <t>Attribute type</t>
+                                </th>
+                                <th>
+                                    <t>Example</t>
+                                </th>
+                            </tr>
+                        </thead><tbody>
+                            <tr>
+                                <td>
+                                    <t>Top-level attribute</t>
+                                </td>
+                                <td>
+                                    <t/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <t>Nested class attribute</t>
+                                </td>
+                                <td>
+                                    <t/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <t>List attribute (first element)</t>
+                                </td>
+                                <td>
+                                    <t> (index 0 implied)</t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <t>List attribute (specific index)</t>
+                                </td>
+                                <td>
+                                    <t/>
+                                </td>
+                            </tr>
+                        </tbody>
+                </table>
+        </section>
+        <section anchor="payload-structure-normative">
+          <name>Payload Structure (Normative)</name>
+          <t>The signed payload <strong>MUST</strong> be a <strong>JSON object</strong> whose structure mirrors the
+                    nesting of the paths listed in . Specifically:</t>
+          <ul>
+                    <li>
+                        <t>a top-level path  produces a key  at the root;</t>
+                    </li>
+                    <li>
+                        <t>a nested path  produces an object  containing a key ;</t>
+                    </li>
+                    <li>
+                        <t>a list path  (or  with an implied index 0) produces an
+                            <strong>array</strong> under the key , whose element at index 0 is an object
+                            containing the key ;</t>
+                    </li>
+                    <li>
+                        <t>list indices <strong>MUST</strong> be contiguous starting from 0 in the payload;
+                            unreferenced positions <strong>MUST NOT</strong> be included;</t>
+                    </li>
+                    <li>
+                        <t> <strong>MUST</strong> be included in the payload under the key
+                            , with the list of paths as provided (see
+                            <xref target="constraints-on-signedattributes">Constraints on SignedAttributes</xref>);</t>
+                    </li>
+                    <li>
+                        <t> <strong>MUST NOT</strong> be included in the payload.</t>
+                    </li>
+                </ul>
+          <t><strong>Example.</strong> For , the payload is:</t>
+          <sourcecode type="json">{
+  "Version": "2.D.V08",
+  "ID": "123e4567-e89b-12d3-a456-426614174000",
+  "Analyzer": { "Name": "Corporate EDR" },
+  "Source": [ { "IP": "198.51.100.20" } ],
+  "SignedAttributes": ["Version", "ID", "Analyzer.Name", "Source(0).IP"]
+}</sourcecode>
+        </section>
+        <section anchor="absent-or-invalid-attributes">
+          <name>Absent or Invalid Attributes</name>
+          <t>If a path listed in  does not correspond to any attribute
+                    present in the alert, the producer <strong>MUST</strong> reject the signing operation
+                    (validation error). A verifier that observes the absence of a referenced
+                    attribute <strong>MUST</strong> reject the signature.</t>
+        </section>
+        <section anchor="constraints-on-signedattributes">
+          <name>Constraints on SignedAttributes</name>
+          <ul>
+                    <li>
+                        <t> <strong>MUST NOT</strong> contain  or
+                            .</t>
+                    </li>
+                    <li>
+                        <t>The order of paths in the list is <strong>not significant</strong> (see <xref target="attribute-order-not-significant">Attribute Order:
+                                Not Significant</xref>).</t>
+                    </li>
+                    <li>
+                        <t>The list <strong>MUST</strong> be included in the payload to bind the signature to the
+                            covered set of paths.</t>
+                    </li>
+                </ul>
+        </section>
+      </section>
+      <section>
+        <name>Attributes Added to the Alert Class</name>
+        <table>
+                <thead>
+                        <tr>
+                            <th>
+                                <t>Attribute</t>
+                            </th>
+                            <th>
+                                <t>Type</t>
+                            </th>
+                            <th>
+                                <t>Description</t>
+                            </th>
+                        </tr>
+                    </thead><tbody>
+                        <tr>
+                            <td>
+                                <t/>
+                            </td>
+                            <td>
+                                <t/>
+                            </td>
+                            <td>
+                                <t>List of IDMEFv2 paths of the attributes included in the signature.</t>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <t/>
+                            </td>
+                            <td>
+                                <t/>
+                            </td>
+                            <td>
+                                <t>JWS Compact Serialization string containing the signature.</t>
+                            </td>
+                        </tr>
+                    </tbody>
+            </table>
+        <section>
+          <name>SignedAttributes</name>
+          <t>Optional. <strong>MUST</strong> be present when  is present. <strong>MUST</strong> be
+                    included in the JWS payload (see <xref target="payload-structure-normative">Payload Structure (Normative)</xref>).</t>
+        </section>
+        <section>
+          <name>Signature</name>
+          <t>Optional. Present only when the alert is signed. Contains the complete JWS
+                    Compact Serialization.</t>
+        </section>
+        <section anchor="consistency">
+          <name>Consistency</name>
+          <t>An alert that contains  without , or vice
+                    versa, <strong>MUST</strong> be considered invalid by a verifier.</t>
+        </section>
+      </section>
+      <section anchor="attribute-order-not-significant">
+        <name>Attribute Order: Not Significant</name>
+        <t>The order of attributes in  does not affect the signature
+                because:</t>
+        <ol type="%d.">
+                <li>
+                    <t>the payload is canonicalized using JCS (RFC 8785);</t>
+                </li>
+                <li>
+                    <t>JCS deterministically sorts all keys in lexicographic order;</t>
+                </li>
+                <li>
+                    <t>the same logical object therefore always produces the same canonical
+                        representation.</t>
+                    <t>Note: The  array in the payload preserves the order of the specified
+                        indices; JCS does not reorder array elements.</t>
+                </li>
+            </ol>
+      </section>
+      <section>
+        <name>Normalization: JSON Canonicalization Scheme (JCS)</name>
+        <t>All JSON objects used as the JWS payload <strong>MUST</strong> be canonicalized using JCS
+                (RFC 8785) before signing and before verification.</t>
+        <section>
+          <name>JCS Rules</name>
+          <ul>
+                    <li>
+                        <t>object keys are sorted lexicographically;</t>
+                    </li>
+                    <li>
+                        <t>whitespace outside string literals is removed;</t>
+                    </li>
+                    <li>
+                        <t>numbers are formatted according to I-JSON rules (RFC 7493);</t>
+                    </li>
+                    <li>
+                        <t>,  and  are forbidden.</t>
+                    </li>
+                </ul>
+        </section>
+        <section>
+          <name>Rationale</name>
+          <t>Without canonicalization, the same logical JSON object could be represented
+                    differently (key ordering, whitespace), leading to signature verification
+                    failures. JCS ensures deterministic serialization.</t>
+        </section>
+      </section>
+      <section>
+        <name>Signature Algorithms</name>
+        <section anchor="supported-algorithms">
+          <name>Supported Algorithms</name>
+          <t>The following algorithms <strong>MUST</strong> be supported:</t>
+          <table>
+                    <thead>
+                            <tr>
+                                <th>
+                                    <t>Algorithm</t>
+                                </th>
+                                <th>
+                                    <t>Type</t>
+                                </th>
+                                <th>
+                                    <t>Usage</t>
+                                </th>
+                            </tr>
+                        </thead><tbody>
+                            <tr>
+                                <td>
+                                    <t/>
+                                </td>
+                                <td>
+                                    <t>ECDSA P-256 / SHA-256</t>
+                                </td>
+                                <td>
+                                    <t>RECOMMENDED</t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <t/>
+                                </td>
+                                <td>
+                                    <t>RSASSA-PSS / SHA-256</t>
+                                </td>
+                                <td>
+                                    <t>RECOMMENDED</t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <t> (Ed25519)</t>
+                                </td>
+                                <td>
+                                    <t>EdDSA curve 25519</t>
+                                </td>
+                                <td>
+                                    <t>RECOMMENDED</t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <t/>
+                                </td>
+                                <td>
+                                    <t>RSA PKCS#1 v1.5 / SHA-256</t>
+                                </td>
+                                <td>
+                                    <t>IF NECESSARY</t>
+                                </td>
+                            </tr>
+                        </tbody>
+                </table>
+        </section>
+        <section>
+          <name>Excluded Algorithms</name>
+          <t>The following algorithms <strong>MUST NOT</strong> be used:</t>
+          <ul>
+                    <li>
+                        <t> (unsecured);</t>
+                    </li>
+                    <li>
+                        <t>, ,  (HMAC — inappropriate for third-party
+                            verification);</t>
+                    </li>
+                    <li>
+                        <t>any algorithm not listed in JWA (RFC 7518).</t>
+                    </li>
+                </ul>
+        </section>
+        <section anchor="verification-policy">
+          <name>Verification Policy</name>
+          <t>A verifier <strong>MUST</strong> check that the  value of the protected header
+                    corresponds to an algorithm allowed by its local policy, and <strong>MUST</strong> reject
+                    the signature otherwise (protection against algorithm confusion).</t>
+        </section>
+      </section>
+      <section anchor="key-management">
+        <name>Key Management</name>
+        <section>
+          <name>Key Identification</name>
+          <t><strong>``alg`` parameter.</strong> <strong>MUST</strong> be included in the protected JWS header. It
+                    identifies the cryptographic algorithm used to secure the JWS. The signature is
+                    not valid if  does not represent a supported algorithm, or if no key
+                    associated with the signing party is available for that algorithm. The value
+                    <strong>MUST</strong> be a case-sensitive string containing a registered algorithm name
+                    (from the IANA "JSON Web Signature and Encryption Algorithms" registry as
+                    defined in JWA) or a value that contains a Collision-Resistant Name.</t>
+          <t><strong>``kid`` parameter.</strong> <strong>SHOULD</strong> be included in the protected JWS header. It
+                    provides a hint indicating which key was used to secure the JWS, allowing the
+                    recipient to locate the verification key and facilitating key rotation. Other
+                    identification mechanisms (out-of-band agreement) <strong>MAY</strong> be used, which is why
+                    this parameter remains optional.</t>
+          <t>Example header:</t>
+          <sourcecode type="json">{ "alg": "ES256", "kid": "key-2025-01" }</sourcecode>
+        </section>
+        <section>
+          <name>Key Representation</name>
+          <t>Keys <strong>SHOULD</strong> be represented in JWK format (RFC 7517) when exchanged as part
+                    of the payload. Other mechanisms, such as referencing a key via a 
+                    understood within a pre-existing PKI, <strong>MAY</strong> be used to maintain compatibility
+                    with existing infrastructures.</t>
+        </section>
+        <section>
+          <name>Key Distribution</name>
+          <t>The key distribution mechanism is outside the scope of this annex. The
+                    following methods <strong>MAY</strong> be used: pre-shared public keys, PKI / X.509
+                    certificates, OAuth 2.0 or OpenID Connect metadata endpoints, manual exchange.</t>
+        </section>
+      </section>
+      <section anchor="verification-procedure">
+        <name>Verification Procedure</name>
+        <t>A verifier <strong>MUST</strong> apply the following steps:</t>
+        <ol type="%d.">
+                <li>
+                    <t>check for the joint presence of  and 
+                        (<xref target="consistency">Consistency</xref>); reject otherwise;</t>
+                </li>
+                <li>
+                    <t>decode the JWS Compact serialization and check that it has exactly three
+                        segments;</t>
+                </li>
+                <li>
+                    <t>check that the protected header contains  and that its value is
+                        allowed by the local policy (<xref target="verification-policy">Verification Policy</xref>); reject otherwise;</t>
+                </li>
+                <li>
+                    <t>locate the verification key using  or another mechanism
+                        (<xref target="key-management">Key Management</xref>);</t>
+                </li>
+                <li>
+                    <t>rebuild the payload object from the alert and  as
+                        defined in <xref target="payload-structure-normative">Payload Structure (Normative)</xref>; if a referenced attribute is
+                        absent, reject (<xref target="absent-or-invalid-attributes">Absent or Invalid Attributes</xref>);</t>
+                </li>
+                <li>
+                    <t>canonicalize this object with JCS and compare the result with the decoded
+                        payload; reject on any difference;</t>
+                </li>
+                <li>
+                    <t>verify the cryptographic signature using the identified key and algorithm;
+                        reject on failure;</t>
+                </li>
+                <li>
+                    <t>on success, consider as intact and authentic only the attributes listed in
+                        .</t>
+                    <t>Note: An alert whose  and  have been removed
+                        becomes an unsigned alert. Recipients <strong>SHOULD</strong> apply an explicit policy
+                        (rejection or marking) to unsigned alerts when a signature is expected.</t>
+                </li>
+            </ol>
+      </section>
+      <section>
+        <name>Security Considerations</name>
+        <section>
+          <name>Key Protection</name>
+          <t>Private keys <strong>MUST</strong> be protected against unauthorized access. Implementations
+                    <strong>SHOULD</strong> use hardware security modules (HSM) or secure enclaves for key
+                    storage.</t>
+        </section>
+        <section>
+          <name>Algorithm Agility</name>
+          <t>To ensure the long-term security of IDMEFv2 alerts, implementations <strong>SHOULD</strong>
+                    support algorithm agility, allowing migration to newer algorithms as
+                    cryptographic best practices evolve. As post-quantum signature algorithms (for
+                    example ML-DSA, SLH-DSA) are standardized and become widely available, they
+                    <strong>MAY</strong> be used in place of, or in combination with, classical algorithms (for
+                    example via hybrid signatures). The  parameter facilitates this
+                    transition by enabling different key types to be identified without changing
+                    the IDMEFv2 data model.</t>
+        </section>
+        <section>
+          <name>Replay Attacks</name>
+          <t>JWS does not inherently prevent replay attacks. Implementations <strong>SHOULD</strong>
+                    include time-based attributes among the signed attributes (for example
+                    ) and/or rely on transport-layer security. The use of JWT-like
+                    / claims is <strong>outside the scope</strong> of the IDMEFv2 model and
+                    <strong>MUST NOT</strong> be assumed by a generic verifier.</t>
+        </section>
+        <section>
+          <name>Key Rotation</name>
+          <t>Regular key rotation <strong>SHOULD</strong> be implemented. The  parameter
+                    facilitates it by allowing the recipient to identify the key used.</t>
+        </section>
+      </section>
+      <section>
+        <name>Complete Example</name>
+        <sourcecode type="json">{
+  "Version": "2.D.V08",
+  "ID": "123e4567-e89b-12d3-a456-426614174000",
+  "CreateTime": "2024-05-21T14:30:00Z",
+  "Type": "Cyber",
+  "Category": "Access.Compromise",
+  "Confidence": 0.95,
+  "Analyzer": {
+    "ID": "analyzer01",
+    "Name": "Corporate EDR",
+    "IP": "192.0.2.10"
+  },
+  "Source": [ { "IP": "198.51.100.20" } ],
+  "SignedAttributes": [
+    "Version", "ID", "CreateTime", "Type", "Category",
+    "Analyzer.ID", "Analyzer.Name", "Source(0).IP"
+  ],
+  "Signature": "&lt;valid JWS Compact string&gt;"
+}</sourcecode>
+        <t>The corresponding canonicalized payload (before base64url encoding) is:</t>
+        <sourcecode type="json">{"Analyzer":{"ID":"analyzer01","Name":"Corporate EDR"},"Category":"Access.Compromise","CreateTime":"2024-05-21T14:30:00Z","ID":"123e4567-e89b-12d3-a456-426614174000","SignedAttributes":["Version","ID","CreateTime","Type","Category","Analyzer.ID","Analyzer.Name","Source(0).IP"],"Source":[{"IP":"198.51.100.20"}],"Type":"Cyber","Version":"2.D.V08"}
+
+
+Note: ``Confidence`` and ``Analyzer.IP`` do not appear in the payload because they
+are not listed in ``SignedAttributes``. Signed and verifiable test vectors
+**MUST** accompany the final version.</sourcecode>
+      </section>
+      <section>
+        <name>Conformance and Test Vectors</name>
+        <t>An implementation is conformant with this annex if it satisfies all the
+                <strong>MUST</strong> and <strong>MUST NOT</strong> requirements above. The final version <strong>MUST</strong>
+                provide:</t>
+        <ul>
+                <li>
+                    <t>at least one test vector per supported algorithm (<xref target="supported-algorithms">Supported Algorithms</xref>);</t>
+                </li>
+                <li>
+                    <t>one negative test vector per rejection case (<xref target="absent-or-invalid-attributes">Absent or Invalid Attributes</xref>,
+                        <xref target="consistency">Consistency</xref>, <xref target="verification-policy">Verification Policy</xref>, <xref target="verification-procedure">Verification Procedure</xref>);</t>
+                </li>
+                <li>
+                    <t>the expected canonicalized payload and signature values.</t>
+                </li>
+            </ul>
+      </section>
+      <section>
+        <name>References</name>
+        <section>
+          <name>Normative References</name>
+          <ul>
+                    <li>
+                        <t>RFC 2119 — Key words for use in RFCs to Indicate Requirement Levels</t>
+                    </li>
+                    <li>
+                        <t>RFC 7515 — JSON Web Signature (JWS)</t>
+                    </li>
+                    <li>
+                        <t>RFC 7517 — JSON Web Key (JWK)</t>
+                    </li>
+                    <li>
+                        <t>RFC 7518 — JSON Web Algorithms (JWA)</t>
+                    </li>
+                    <li>
+                        <t>RFC 7493 — The I-JSON Message Format</t>
+                    </li>
+                    <li>
+                        <t>RFC 8259 — The JavaScript Object Notation (JSON) Data Interchange Format</t>
+                    </li>
+                    <li>
+                        <t>RFC 8785 — JSON Canonicalization Scheme (JCS)</t>
+                    </li>
+                    <li>
+                        <t>IDMEFv2 Draft — draft-lehmann-idmefv2-08 (Section 3.3.12)</t>
+                    </li>
+                </ul>
+        </section>
+        <section>
+          <name>Informative References</name>
+          <ul>
+                    <li>
+                        <t>RFC 7519 — JSON Web Token (JWT)</t>
+                    </li>
+                    <li>
+                        <t>RFC 7797 — JSON Web Signature (JWS) Unencoded Payload Option</t>
+                    </li>
+                </ul>
+        </section>
+      </section>
+    </section>
+    <section>
       <name>Enumerations</name>
       <section>
         <name>Entity Sector</name>
-        <table anchor="id16"><name>enum_alert_entitysector</name>
+        <table anchor="id20"><name>enum_alert_entitysector</name>
                 
                 <thead>
                         <tr>
@@ -4116,7 +4737,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Alert Category</name>
-        <table anchor="id17"><name>enum_alert_category</name>
+        <table anchor="id21"><name>enum_alert_category</name>
                 
                 <thead>
                         <tr>
@@ -5742,7 +6363,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Analyzer Category</name>
-        <table anchor="id18"><name>enum_analyzer_category</name>
+        <table anchor="id22"><name>enum_analyzer_category</name>
                 
                 <thead>
                         <tr>
@@ -6840,7 +7461,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Analyzer Data</name>
-        <table anchor="id19"><name>enum_analyzer_data</name>
+        <table anchor="id23"><name>enum_analyzer_data</name>
                 
                 <thead>
                         <tr>
@@ -7157,7 +7778,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Analyzer Method</name>
-        <table anchor="id20"><name>Analyzer Methods</name>
+        <table anchor="id24"><name>Analyzer Methods</name>
                 
                 <thead>
                         <tr>
@@ -7595,7 +8216,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Source Category</name>
-        <table anchor="id21"><name>Source Categories</name>
+        <table anchor="id25"><name>Source Categories</name>
                 
                 <thead>
                         <tr>
@@ -9342,7 +9963,7 @@ Source(0).IP</sourcecode>
       </section>
       <section>
         <name>Target Category</name>
-        <table anchor="id22"><name>Target Categories</name>
+        <table anchor="id26"><name>Target Categories</name>
                 
                 <thead>
                         <tr>
