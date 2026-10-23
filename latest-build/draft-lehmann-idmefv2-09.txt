@@ -142,16 +142,16 @@ Internet-Draft                   IDMEFv2                    October 2026
    9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  42
      9.1.  Normative References  . . . . . . . . . . . . . . . . . .  42
      9.2.  Informative References  . . . . . . . . . . . . . . . . .  43
-   Appendix A.  Using IDMEFv2 in Ephemeral Environments  . . . . . .  44
-     A.1.  The Ephemeral Asset Problem . . . . . . . . . . . . . . .  44
+   Appendix A.  Using IDMEFv2 in Dynamic Environments  . . . . . . .  44
+     A.1.  The Dynamic Asset Problem . . . . . . . . . . . . . . . .  44
      A.2.  Complementary Identification Attributes . . . . . . . . .  45
        A.2.1.  ID  . . . . . . . . . . . . . . . . . . . . . . . . .  45
        A.2.2.  IP  . . . . . . . . . . . . . . . . . . . . . . . . .  45
        A.2.3.  Hostname  . . . . . . . . . . . . . . . . . . . . . .  46
-       A.2.4.  Location  . . . . . . . . . . . . . . . . . . . . . .  46
+       A.2.4.  Locator . . . . . . . . . . . . . . . . . . . . . . .  46
      A.3.  Platform-Specific Resource References . . . . . . . . . .  47
        A.3.1.  Kubernetes  . . . . . . . . . . . . . . . . . . . . .  47
-       A.3.2.  Docker and Podman . . . . . . . . . . . . . . . . . .  48
+       A.3.2.  Docker and Podman . . . . . . . . . . . . . . . . . .  49
        A.3.3.  Google Cloud GKE  . . . . . . . . . . . . . . . . . .  49
        A.3.4.  AWS ECS . . . . . . . . . . . . . . . . . . . . . . .  50
        A.3.5.  Microsoft Azure AKS . . . . . . . . . . . . . . . . .  51
@@ -1491,6 +1491,7 @@ Internet-Draft                   IDMEFv2                    October 2026
                          | GEOLOC   GeoLocation  |
                          | UNLOCODE UnLocation   |
                          | STRING   Location     |
+                         | STRING   Locator      |
                          | STRING   CaptureZone  |
                          +-----------------------+
 
@@ -1505,7 +1506,6 @@ Internet-Draft                   IDMEFv2                    October 2026
       Optional.  Analyzer IP address.
 
    Name
-
 
 
 
@@ -1608,6 +1608,7 @@ Internet-Draft                   IDMEFv2                    October 2026
                          | GEOLOC   GeoLocation |
                          | UNLOCODE UnLocation  |
                          | STRING   Location    |
+                         | STRING   Locator     |
                          | STRING   CaptureZone |
                          +----------------------+
 
@@ -1617,7 +1618,6 @@ Internet-Draft                   IDMEFv2                    October 2026
 
    ID
       Optional.  Unique identifier for the sensor.
-
 
 
 
@@ -1669,11 +1669,11 @@ Internet-Draft                   IDMEFv2                    October 2026
    Location
       Optional.  Internal name for the location of the sensor.
 
+   Locator
+      Optional.  Resolvable URL for the entity.  May be dynamic or
+      expire; complements Location, which is a persistent path.
+
    CaptureZone
-      Optional.  A string that describes the "capture zone" of the
-      sensor, as a JSON-serialized string.
-
-
 
 
 
@@ -1681,6 +1681,9 @@ Lehmann & Andrejak        Expires 26 April 2027                [Page 30]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
+
+      Optional.  A string that describes the "capture zone" of the
+      sensor, as a JSON-serialized string.
 
       Depending on the type of sensor, the capture zone may for instance
       refer to:
@@ -1713,6 +1716,7 @@ Internet-Draft                   IDMEFv2                    October 2026
                         | GEOLOC     GeoLocation |
                         | UNLOCODE   UnLocation  |
                         | STRING     Location    |
+                        | STRING     Locator     |
                         | ID[]       Attachment  |
                         +------------------------+
 
@@ -1726,10 +1730,6 @@ Internet-Draft                   IDMEFv2                    October 2026
    IP
       Optional.  Source IP address.
 
-   Hostname
-      Optional.  Hostname of this source.
-
-
 
 
 
@@ -1737,6 +1737,9 @@ Lehmann & Andrejak        Expires 26 April 2027                [Page 31]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
+
+   Hostname
+      Optional.  Hostname of this source.
 
       This SHOULD be a fully qualified domain name, but may not conform
       exactly because values extracted from logs, messages, DNS, etc.
@@ -1783,9 +1786,6 @@ Internet-Draft                   IDMEFv2                    October 2026
       phishing e-mail.
 
    Protocol
-      Optional.  Protocols related to connections from/to this source.
-
-
 
 
 
@@ -1793,6 +1793,8 @@ Lehmann & Andrejak        Expires 26 April 2027                [Page 32]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
+
+      Optional.  Protocols related to connections from/to this source.
 
       If several protocols are stacked, they MUST be ordered from the
       lowest (the closest to the medium) to the highest (the closest to
@@ -1813,6 +1815,10 @@ Internet-Draft                   IDMEFv2                    October 2026
    Location
       Optional.  Internal name for the location of the source.
 
+   Locator
+      Optional.  Resolvable URL for the entity.  May be dynamic or
+      expire; complements Location, which is a persistent path.
+
    Attachment
       Optional.  Identifiers for attachments related to this source.
 
@@ -1824,12 +1830,6 @@ Internet-Draft                   IDMEFv2                    October 2026
 
    The Target class describes the target(s) impacted by the event(s)
    leading up to the creation of this alert.
-
-
-
-
-
-
 
 
 
@@ -1868,6 +1868,7 @@ Internet-Draft                   IDMEFv2                    October 2026
                         | GEOLOC     GeoLocation |
                         | UNLOCODE   UnLocation  |
                         | STRING     Location    |
+                        | STRING     Locator     |
                         | ID[]       Attachment  |
                         +------------------------+
 
@@ -1897,7 +1898,6 @@ Internet-Draft                   IDMEFv2                    October 2026
       Naming the target might be necessary for non digital targets like
       a human, a vehicle, a building, etc.
 
-   Category
 
 
 
@@ -1906,6 +1906,7 @@ Lehmann & Andrejak        Expires 26 April 2027                [Page 34]
 Internet-Draft                   IDMEFv2                    October 2026
 
 
+   Category
       Optional.  Target category
 
       Enumeration available here Table 12
@@ -1950,10 +1951,9 @@ Internet-Draft                   IDMEFv2                    October 2026
    Location
       Optional.  Internal name for the location of the target.
 
-   Attachment
-      Optional.  Identifiers for attachments related to this target.
-
-
+   Locator
+      Optional.  Resolvable URL for the entity.  May be dynamic or
+      expire; complements Location, which is a persistent path.
 
 
 
@@ -1961,6 +1961,9 @@ Lehmann & Andrejak        Expires 26 April 2027                [Page 35]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
+
+   Attachment
+      Optional.  Identifiers for attachments related to this target.
 
       Each identifier listed here MUST match the "Name" attribute for
       one of the attachments described using the Attachment class
@@ -2004,9 +2007,6 @@ Internet-Draft                   IDMEFv2                    October 2026
 
    Hash
       Optional.  A list of hash results for the attachment's Content.
-
-
-
 
 
 
@@ -2435,9 +2435,9 @@ Internet-Draft                   IDMEFv2                    October 2026
    [IDEA0]    CESNET, "Intrusion Detection Extensible Alert version 0",
               25 September 2015, <https://idea.cesnet.cz/en/definition>.
 
-Appendix A.  Using IDMEFv2 in Ephemeral Environments
+Appendix A.  Using IDMEFv2 in Dynamic Environments
 
-A.1.  The Ephemeral Asset Problem
+A.1.  The Dynamic Asset Problem
 
    Modern container orchestration platforms and cloud runtime
    environments create and terminate resources dynamically.  IP
@@ -2449,7 +2449,7 @@ A.1.  The Ephemeral Asset Problem
    hostname is insufficient for reliable incident correlation and post-
    incident investigation.
 
-   IDMEFv2 provides complementary attributes that can describe ephemeral
+   IDMEFv2 provides complementary attributes that can describe dynamic
    entities in the , , , and classes.  The attribute identifies an
    entity in the IDMEFv2 data model, while , , and provide additional
    information about its network presence, operational hostname, and
@@ -2474,7 +2474,7 @@ Internet-Draft                   IDMEFv2                    October 2026
 A.2.  Complementary Identification Attributes
 
    The following attributes have complementary roles when describing
-   ephemeral resources.
+   dynamic resources.
 
 A.2.1.  ID
 
@@ -2502,7 +2502,7 @@ A.2.2.  IP
    It supports correlation with network telemetry, firewall logs, flow
    records, and other security monitoring data.  However, an IP address
    is a time-dependent network attribute and MUST NOT be treated as a
-   persistent identifier of an ephemeral resource.
+   persistent identifier of an dynamic resource.
 
    When available, the event timestamp and relevant network context
    SHOULD be retained to support the interpretation of the address at
@@ -2542,7 +2542,7 @@ A.2.3.  Hostname
    globally unique or permanently stable identifier without additional
    context.
 
-A.2.4.  Location
+A.2.4.  Locator
 
    The attribute can carry a platform-specific resource reference that
    provides additional context for identifying an entity within its
@@ -2639,8 +2639,9 @@ Internet-Draft                   IDMEFv2                    October 2026
      "Analyzer": [
        {
          "ID": "7d6a3c21-1b4e-4f80-9a12-6e5b2c8d901f",
+         "IP": "10.10.0.11",
          "Hostname": "secops-collector-01.example.net",
-         "Location": "k8s://cluster-secops/namespace-monitoring/pod/idmefv2-analyzer?uid=11111111-1111-4111-8111-111111111111"
+         "Locator": "k8s://cluster-secops/namespace-monitoring/pod/idmefv2-analyzer?uid=11111111-1111-4111-8111-111111111111"
        }
      ],
      "Sensor": [
@@ -2648,7 +2649,7 @@ Internet-Draft                   IDMEFv2                    October 2026
          "ID": "8e7b4d32-2c5f-4a91-8b23-7f6c3d9e012a",
          "IP": "10.10.0.12",
          "Hostname": "network-sensor-01.example.net",
-         "Location": "k8s://cluster-prod-eu/namespace-monitoring/pod/network-sensor?uid=22222222-2222-4222-8222-222222222222"
+         "Locator": "k8s://cluster-prod-eu/namespace-monitoring/pod/network-sensor?uid=22222222-2222-4222-8222-222222222222"
        }
      ],
      "Source": [
@@ -2656,7 +2657,7 @@ Internet-Draft                   IDMEFv2                    October 2026
          "ID": "9f8c5e43-3d60-4ba2-9c34-8a7d4e0f123b",
          "IP": "10.244.2.15",
          "Hostname": "payment-worker-01.namespace-paiement.example.net",
-         "Location": "k8s://cluster-prod-eu/namespace-paiement/pod/payment-worker-5c8d9f-abc123?uid=6a1f8b42-3c9d-4e70-a521-8b7d9c2e104f&container=worker&node=node-worker-03"
+         "Locator": "k8s://cluster-prod-eu/namespace-paiement/pod/payment-worker-5c8d9f-abc123?uid=6a1f8b42-3c9d-4e70-a521-8b7d9c2e104f&container=worker&node=node-worker-03"
        }
      ],
      "Target": [
@@ -2664,7 +2665,7 @@ Internet-Draft                   IDMEFv2                    October 2026
          "ID": "a09d6f54-4e71-4cb3-8d45-9b8e5f10234c",
          "IP": "10.244.3.20",
          "Hostname": "payment-api-01.namespace-paiement.example.net",
-         "Location": "k8s://cluster-prod-eu/namespace-paiement/pod/payment-api-7b8c9d-xyz789?uid=33333333-3333-4333-8333-333333333333&container=api&node=node-worker-04",
+         "Locator": "k8s://cluster-prod-eu/namespace-paiement/pod/payment-api-7b8c9d-xyz789?uid=33333333-3333-4333-8333-333333333333&container=api&node=node-worker-04",
          "Service": "finance"
        }
      ]
@@ -2677,11 +2678,10 @@ Internet-Draft                   IDMEFv2                    October 2026
    Node-level information MAY be included when it helps correlate the
    event with network sensors or host-level telemetry.
 
-A.3.2.  Docker and Podman
 
-   For standalone container runtimes such as Docker and Podman, a
-   container name alone may be insufficient because names can be reused
-   after a container is removed.
+
+
+
 
 
 
@@ -2689,6 +2689,12 @@ Lehmann & Andrejak        Expires 26 April 2027                [Page 48]
 
 Internet-Draft                   IDMEFv2                    October 2026
 
+
+A.3.2.  Docker and Podman
+
+   For standalone container runtimes such as Docker and Podman, a
+   container name alone may be insufficient because names can be reused
+   after a container is removed.
 
    SHOULD identify the container instance and, where necessary, the
    runtime host or engine.  The full container identifier SHOULD be
@@ -2702,7 +2708,7 @@ Internet-Draft                   IDMEFv2                    October 2026
          "ID": "b10e7a65-5f82-4dc4-9e56-0c9f6a21345d",
          "IP": "172.17.0.3",
          "Hostname": "web-app-01.example.net",
-         "Location": "docker://server-web-01/containers/a1b2c3d4e5f67890123456789012345678901234567890123456789012345678",
+         "Locator": "docker://server-web-01/containers/a1b2c3d4e5f67890123456789012345678901234567890123456789012345678",
          "Service": "e-commerce"
        }
      ]
@@ -2735,12 +2741,6 @@ A.3.3.  Google Cloud GKE
 
 
 
-
-
-
-
-
-
 Lehmann & Andrejak        Expires 26 April 2027                [Page 49]
 
 Internet-Draft                   IDMEFv2                    October 2026
@@ -2752,7 +2752,7 @@ Internet-Draft                   IDMEFv2                    October 2026
          "ID": "c21f8b76-6083-4ed5-af67-1d0a7b32456e",
          "IP": "10.244.2.15",
          "Hostname": "payment-worker-01.namespace-paiement.example.net",
-         "Location": "gke://projects/my-project-123/locations/us-west1/clusters/cluster-prod-eu/namespaces/namespace-paiement/pods/payment-worker-5c8d9f-abc123?uid=6a1f8b42-3c9d-4e70-a521-8b7d9c2e104f&container=worker",
+         "Locator": "gke://projects/my-project-123/locations/us-west1/clusters/cluster-prod-eu/namespaces/namespace-paiement/pods/payment-worker-5c8d9f-abc123?uid=6a1f8b42-3c9d-4e70-a521-8b7d9c2e104f&container=worker",
          "Service": "finance"
        }
      ]
@@ -2782,7 +2782,7 @@ A.3.4.  AWS ECS
          "ID": "d32f8a76-4b19-4c52-9d63-0a8e7f6b1234",
          "IP": "10.0.1.42",
          "Hostname": "payment-worker-01.example.net",
-         "Location": "arn:aws:ecs:us-west-1:123456789012:task/cluster-prod-eu/0123456789abcdef0123456789abcdef",
+         "Locator": "arn:aws:ecs:us-west-1:123456789012:task/cluster-prod-eu/0123456789abcdef0123456789abcdef",
          "Service": "finance"
        }
      ]
@@ -2825,7 +2825,7 @@ A.3.5.  Microsoft Azure AKS
          "ID": "e43f9b87-5c20-4d63-8e74-1b9f6a20345d",
          "IP": "10.240.0.15",
          "Hostname": "payment-worker-01.namespace-paiement.example.net",
-         "Location": "aks://subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/my-rg/managedClusters/cluster-prod-eu/namespaces/namespace-paiement/pods/payment-worker-5c8d9f-abc123?uid=6a1f8b42-3c9d-4e70-a521-8b7d9c2e104f",
+         "Locator": "aks://subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/my-rg/managedClusters/cluster-prod-eu/namespaces/namespace-paiement/pods/payment-worker-5c8d9f-abc123?uid=6a1f8b42-3c9d-4e70-a521-8b7d9c2e104f",
          "Service": "finance"
        }
      ]
@@ -2864,7 +2864,7 @@ Internet-Draft                   IDMEFv2                    October 2026
          "ID": "f54a0c98-6d31-4e75-9a82-2c7f1b60345e",
          "IP": "172.17.0.5",
          "Hostname": "payment-worker-01.example.net",
-         "Location": "nomad://region-eu/cluster-prod/job-payment/alloc-01234567-89ab-cdef-0123-456789abcdef?task=worker",
+         "Locator": "nomad://region-eu/cluster-prod/job-payment/alloc-01234567-89ab-cdef-0123-456789abcdef?task=worker",
          "Service": "finance"
        }
      ]
@@ -2970,7 +2970,7 @@ Lehmann & Andrejak        Expires 26 April 2027                [Page 53]
 Internet-Draft                   IDMEFv2                    October 2026
 
 
-   This approach enables IDMEFv2 to represent ephemeral resources across
+   This approach enables IDMEFv2 to represent dynamic resources across
    different orchestration platforms and container runtimes without
    requiring a separate IDMEFv2 extension for each environment.
    Platform-specific reference formats remain implementation conventions

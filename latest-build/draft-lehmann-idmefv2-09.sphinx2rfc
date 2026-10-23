@@ -1418,6 +1418,7 @@ Source(0).IP</literal_block>
 | GEOLOC   GeoLocation  |
 | UNLOCODE UnLocation   |
 | STRING   Location     |
+| STRING   Locator      |
 | STRING   CaptureZone  |
 +-----------------------+</literal_block>
                 </legend>
@@ -1553,6 +1554,7 @@ Source(0).IP</literal_block>
 | GEOLOC   GeoLocation |
 | UNLOCODE UnLocation  |
 | STRING   Location    |
+| STRING   Locator     |
 | STRING   CaptureZone |
 +----------------------+</literal_block>
                 </legend>
@@ -1633,6 +1635,12 @@ Source(0).IP</literal_block>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
+                    <term>Locator</term>
+                    <definition>
+                        <paragraph>Optional. Resolvable URL for the entity. May be dynamic or expire; complements Location, which is a persistent path.</paragraph>
+                    </definition>
+                </definition_list_item>
+                <definition_list_item>
                     <term>CaptureZone</term>
                     <definition>
                         <paragraph>Optional. A string that describes the "capture zone" of the sensor,
@@ -1677,6 +1685,7 @@ Source(0).IP</literal_block>
 | GEOLOC     GeoLocation |
 | UNLOCODE   UnLocation  |
 | STRING     Location    |
+| STRING     Locator     |
 | ID[]       Attachment  |
 +------------------------+</literal_block>
                 </legend>
@@ -1790,6 +1799,12 @@ Source(0).IP</literal_block>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
+                    <term>Locator</term>
+                    <definition>
+                        <paragraph>Optional. Resolvable URL for the entity. May be dynamic or expire; complements Location, which is a persistent path.</paragraph>
+                    </definition>
+                </definition_list_item>
+                <definition_list_item>
                     <term>Attachment</term>
                     <definition>
                         <paragraph>Optional. Identifiers for attachments related to this source.</paragraph>
@@ -1825,6 +1840,7 @@ Source(0).IP</literal_block>
 | GEOLOC     GeoLocation |
 | UNLOCODE   UnLocation  |
 | STRING     Location    |
+| STRING     Locator     |
 | ID[]       Attachment  |
 +------------------------+</literal_block>
                 </legend>
@@ -1930,6 +1946,12 @@ Source(0).IP</literal_block>
                     <term>Location</term>
                     <definition>
                         <paragraph>Optional. Internal name for the location of the target.</paragraph>
+                    </definition>
+                </definition_list_item>
+                <definition_list_item>
+                    <term>Locator</term>
+                    <definition>
+                        <paragraph>Optional. Resolvable URL for the entity. May be dynamic or expire; complements Location, which is a persistent path.</paragraph>
                     </definition>
                 </definition_list_item>
                 <definition_list_item>
@@ -2658,20 +2680,20 @@ Source(0).IP</literal_block>
         </bullet_list>
     </section>
     <transition></transition>
-    <section ids="using-idmefv2-in-ephemeral-environments" names="using\ idmefv2\ in\ ephemeral\ environments">
-        <title>Using IDMEFv2 in Ephemeral Environments</title>
-        <section ids="the-ephemeral-asset-problem" names="the\ ephemeral\ asset\ problem">
-            <title>The Ephemeral Asset Problem</title>
+    <section ids="using-idmefv2-in-dynamic-environments" names="using\ idmefv2\ in\ dynamic\ environments">
+        <title>Using IDMEFv2 in Dynamic Environments</title>
+        <section ids="the-dynamic-asset-problem" names="the\ dynamic\ asset\ problem">
+            <title>The Dynamic Asset Problem</title>
             <paragraph>Modern container orchestration platforms and cloud runtime environments
                 create and terminate resources dynamically. IP addresses may change or be
                 reassigned, resource names may be reused, and an entity involved in a security
                 incident may no longer exist when an investigation takes place.</paragraph>
             <paragraph>Consequently, identifying a resource solely by its IP address or hostname is
                 insufficient for reliable incident correlation and post-incident investigation.</paragraph>
-            <paragraph>IDMEFv2 provides complementary attributes that can describe ephemeral
+            <paragraph>IDMEFv2 provides complementary attributes that can describe dynamic
                 entities in the <literal>Analyzer</literal>, <literal>Sensor</literal>, <literal>Source</literal>, and <literal>Target</literal> classes.
                 The <literal>ID</literal> attribute identifies an entity in the IDMEFv2 data model, while
-                <literal>IP</literal>, <literal>Hostname</literal>, and <literal>Location</literal> provide additional information about
+                <literal>IP</literal>, <literal>Hostname</literal>, and <literal>Locator</literal> provide additional information about
                 its network presence, operational hostname, and infrastructure context.</paragraph>
             <paragraph>These attributes serve different purposes and SHOULD be used together when
                 the relevant information is available. They do not, by themselves, guarantee
@@ -2681,7 +2703,7 @@ Source(0).IP</literal_block>
         <section ids="complementary-identification-attributes" names="complementary\ identification\ attributes">
             <title>Complementary Identification Attributes</title>
             <paragraph>The following attributes have complementary roles when describing
-                ephemeral resources.</paragraph>
+                dynamic resources.</paragraph>
             <section ids="id" names="id">
                 <title>ID</title>
                 <paragraph>The <literal>ID</literal> attribute identifies an entity in the IDMEFv2 data model. It MUST
@@ -2703,7 +2725,7 @@ Source(0).IP</literal_block>
                 <paragraph>It supports correlation with network telemetry, firewall logs, flow records, and
                     other security monitoring data. However, an IP address is a time-dependent
                     network attribute and MUST NOT be treated as a persistent identifier of an
-                    ephemeral resource.</paragraph>
+                    dynamic resource.</paragraph>
                 <paragraph>When available, the event timestamp and relevant network context SHOULD
                     be retained to support the interpretation of the address at the time of the
                     incident.</paragraph>
@@ -2727,9 +2749,9 @@ Source(0).IP</literal_block>
                     Consequently, <literal>Hostname</literal> SHOULD NOT be considered a globally unique or
                     permanently stable identifier without additional context.</paragraph>
             </section>
-            <section ids="location" names="location">
-                <title>Location</title>
-                <paragraph>The <literal>Location</literal> attribute can carry a platform-specific resource reference
+            <section ids="locator" names="locator">
+                <title>Locator</title>
+                <paragraph>The <literal>Locator</literal> attribute can carry a platform-specific resource reference
                     that provides additional context for identifying an entity within its
                     infrastructure.</paragraph>
                 <paragraph>Depending on the environment, this reference MAY contain a cloud resource
@@ -2744,7 +2766,7 @@ Source(0).IP</literal_block>
                     resource UID.</paragraph>
                 <paragraph>Implementations using platform-specific references SHOULD document their
                     syntax, scope, uniqueness properties, and interpretation.</paragraph>
-                <paragraph>A <literal>Location</literal> value does not, by itself, guarantee that a terminated resource
+                <paragraph>A <literal>Locator</literal> value does not, by itself, guarantee that a terminated resource
                     can be retrieved or that its historical metadata remains available. Systems
                     requiring post-incident traceability MUST retain the relevant historical
                     metadata and security telemetry for the required investigation period.</paragraph>
@@ -2752,7 +2774,7 @@ Source(0).IP</literal_block>
         </section>
         <section ids="platform-specific-resource-references" names="platform-specific\ resource\ references">
             <title>Platform-Specific Resource References</title>
-            <paragraph>The examples below illustrate how <literal>Location</literal> can be populated in different
+            <paragraph>The examples below illustrate how <literal>Locator</literal> can be populated in different
                 environments. The URI schemes used in these examples, including <literal>k8s://</literal>,
                 <literal>gke://</literal>, <literal>aks://</literal>, <literal>nomad://</literal>, and <literal>docker://</literal>, are illustrative
                 implementation conventions. They are not defined or standardized by IDMEFv2.</paragraph>
@@ -2771,15 +2793,16 @@ Source(0).IP</literal_block>
                 <paragraph>The <literal>ID</literal> values below identify IDMEFv2 entities. The <literal>Hostname</literal> values
                     are illustrative actual hostnames configured or observed for the respective
                     pods; they are not merely Kubernetes pod names. The pod names and UIDs are
-                    retained in <literal>Location</literal>.</paragraph>
+                    retained in <literal>Locator</literal>.</paragraph>
                 <paragraph>Example:</paragraph>
                 <literal_block force="False" highlight_args="{}" language="json" linenos="False" xml:space="preserve">{
   "CreateTime": "2026-10-19T10:15:30Z",
   "Analyzer": [
     {
       "ID": "7d6a3c21-1b4e-4f80-9a12-6e5b2c8d901f",
+      "IP": "10.10.0.11",
       "Hostname": "secops-collector-01.example.net",
-      "Location": "k8s://cluster-secops/namespace-monitoring/pod/idmefv2-analyzer?uid=11111111-1111-4111-8111-111111111111"
+      "Locator": "k8s://cluster-secops/namespace-monitoring/pod/idmefv2-analyzer?uid=11111111-1111-4111-8111-111111111111"
     }
   ],
   "Sensor": [
@@ -2787,7 +2810,7 @@ Source(0).IP</literal_block>
       "ID": "8e7b4d32-2c5f-4a91-8b23-7f6c3d9e012a",
       "IP": "10.10.0.12",
       "Hostname": "network-sensor-01.example.net",
-      "Location": "k8s://cluster-prod-eu/namespace-monitoring/pod/network-sensor?uid=22222222-2222-4222-8222-222222222222"
+      "Locator": "k8s://cluster-prod-eu/namespace-monitoring/pod/network-sensor?uid=22222222-2222-4222-8222-222222222222"
     }
   ],
   "Source": [
@@ -2795,7 +2818,7 @@ Source(0).IP</literal_block>
       "ID": "9f8c5e43-3d60-4ba2-9c34-8a7d4e0f123b",
       "IP": "10.244.2.15",
       "Hostname": "payment-worker-01.namespace-paiement.example.net",
-      "Location": "k8s://cluster-prod-eu/namespace-paiement/pod/payment-worker-5c8d9f-abc123?uid=6a1f8b42-3c9d-4e70-a521-8b7d9c2e104f&amp;container=worker&amp;node=node-worker-03"
+      "Locator": "k8s://cluster-prod-eu/namespace-paiement/pod/payment-worker-5c8d9f-abc123?uid=6a1f8b42-3c9d-4e70-a521-8b7d9c2e104f&amp;container=worker&amp;node=node-worker-03"
     }
   ],
   "Target": [
@@ -2803,7 +2826,7 @@ Source(0).IP</literal_block>
       "ID": "a09d6f54-4e71-4cb3-8d45-9b8e5f10234c",
       "IP": "10.244.3.20",
       "Hostname": "payment-api-01.namespace-paiement.example.net",
-      "Location": "k8s://cluster-prod-eu/namespace-paiement/pod/payment-api-7b8c9d-xyz789?uid=33333333-3333-4333-8333-333333333333&amp;container=api&amp;node=node-worker-04",
+      "Locator": "k8s://cluster-prod-eu/namespace-paiement/pod/payment-api-7b8c9d-xyz789?uid=33333333-3333-4333-8333-333333333333&amp;container=api&amp;node=node-worker-04",
       "Service": "finance"
     }
   ]
@@ -2819,7 +2842,7 @@ Source(0).IP</literal_block>
                 <paragraph>For standalone container runtimes such as Docker and Podman, a container
                     name alone may be insufficient because names can be reused after a container
                     is removed.</paragraph>
-                <paragraph><literal>Location</literal> SHOULD identify the container instance and, where necessary, the
+                <paragraph><literal>Locator</literal> SHOULD identify the container instance and, where necessary, the
                     runtime host or engine. The full container identifier SHOULD be preferred
                     over the human-readable container name.</paragraph>
                 <paragraph>Example:</paragraph>
@@ -2829,7 +2852,7 @@ Source(0).IP</literal_block>
       "ID": "b10e7a65-5f82-4dc4-9e56-0c9f6a21345d",
       "IP": "172.17.0.3",
       "Hostname": "web-app-01.example.net",
-      "Location": "docker://server-web-01/containers/a1b2c3d4e5f67890123456789012345678901234567890123456789012345678",
+      "Locator": "docker://server-web-01/containers/a1b2c3d4e5f67890123456789012345678901234567890123456789012345678",
       "Service": "e-commerce"
     }
   ]
@@ -2856,7 +2879,7 @@ Source(0).IP</literal_block>
       "ID": "c21f8b76-6083-4ed5-af67-1d0a7b32456e",
       "IP": "10.244.2.15",
       "Hostname": "payment-worker-01.namespace-paiement.example.net",
-      "Location": "gke://projects/my-project-123/locations/us-west1/clusters/cluster-prod-eu/namespaces/namespace-paiement/pods/payment-worker-5c8d9f-abc123?uid=6a1f8b42-3c9d-4e70-a521-8b7d9c2e104f&amp;container=worker",
+      "Locator": "gke://projects/my-project-123/locations/us-west1/clusters/cluster-prod-eu/namespaces/namespace-paiement/pods/payment-worker-5c8d9f-abc123?uid=6a1f8b42-3c9d-4e70-a521-8b7d9c2e104f&amp;container=worker",
       "Service": "finance"
     }
   ]
@@ -2872,7 +2895,7 @@ Source(0).IP</literal_block>
                     instance, whereas the task definition ARN identifies a versioned task
                     definition.</paragraph>
                 <paragraph>For incident investigation involving a particular running or terminated task,
-                    <literal>Location</literal> SHOULD identify the task instance rather than only its task
+                    <literal>Locator</literal> SHOULD identify the task instance rather than only its task
                     definition. The task definition ARN MAY be retained separately as supplementary
                     configuration context.</paragraph>
                 <paragraph>Example:</paragraph>
@@ -2882,7 +2905,7 @@ Source(0).IP</literal_block>
       "ID": "d32f8a76-4b19-4c52-9d63-0a8e7f6b1234",
       "IP": "10.0.1.42",
       "Hostname": "payment-worker-01.example.net",
-      "Location": "arn:aws:ecs:us-west-1:123456789012:task/cluster-prod-eu/0123456789abcdef0123456789abcdef",
+      "Locator": "arn:aws:ecs:us-west-1:123456789012:task/cluster-prod-eu/0123456789abcdef0123456789abcdef",
       "Service": "finance"
     }
   ]
@@ -2911,7 +2934,7 @@ Source(0).IP</literal_block>
       "ID": "e43f9b87-5c20-4d63-8e74-1b9f6a20345d",
       "IP": "10.240.0.15",
       "Hostname": "payment-worker-01.namespace-paiement.example.net",
-      "Location": "aks://subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/my-rg/managedClusters/cluster-prod-eu/namespaces/namespace-paiement/pods/payment-worker-5c8d9f-abc123?uid=6a1f8b42-3c9d-4e70-a521-8b7d9c2e104f",
+      "Locator": "aks://subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/my-rg/managedClusters/cluster-prod-eu/namespaces/namespace-paiement/pods/payment-worker-5c8d9f-abc123?uid=6a1f8b42-3c9d-4e70-a521-8b7d9c2e104f",
       "Service": "finance"
     }
   ]
@@ -2936,7 +2959,7 @@ Source(0).IP</literal_block>
       "ID": "f54a0c98-6d31-4e75-9a82-2c7f1b60345e",
       "IP": "172.17.0.5",
       "Hostname": "payment-worker-01.example.net",
-      "Location": "nomad://region-eu/cluster-prod/job-payment/alloc-01234567-89ab-cdef-0123-456789abcdef?task=worker",
+      "Locator": "nomad://region-eu/cluster-prod/job-payment/alloc-01234567-89ab-cdef-0123-456789abcdef?task=worker",
       "Service": "finance"
     }
   ]
@@ -2983,10 +3006,10 @@ Source(0).IP</literal_block>
                 information can include orchestration events, container lifecycle records,
                 cloud audit logs, network flow records, and mappings between resource
                 identifiers and network addresses.</paragraph>
-            <paragraph>A <literal>Location</literal> value MAY be used as a lookup key into retained historical
+            <paragraph>A <literal>Locator</literal> value MAY be used as a lookup key into retained historical
                 records. However, the availability and retention of those records are properties
                 of the surrounding monitoring and logging infrastructure, not guarantees
-                provided by the <literal>Location</literal> attribute itself.</paragraph>
+                provided by the <literal>Locator</literal> attribute itself.</paragraph>
         </section>
         <section ids="summary" names="summary">
             <title>Summary</title>
@@ -2994,7 +3017,7 @@ Source(0).IP</literal_block>
                 network correlation, and historical resource context.</paragraph>
             <paragraph>The <literal>ID</literal> attribute identifies the entity in the IDMEFv2 data model. <literal>IP</literal>
                 records the network address observed in the context of the event, <literal>Hostname</literal>
-                provides the actual configured or observed hostname, and <literal>Location</literal> can
+                provides the actual configured or observed hostname, and <literal>Locator</literal> can
                 carry a platform-specific reference to the relevant resource.</paragraph>
             <paragraph>Implementations SHOULD use resource references that identify individual
                 instances rather than only their parent clusters or configuration definitions.
@@ -3003,7 +3026,7 @@ Source(0).IP</literal_block>
                 sources.</paragraph>
             <paragraph>Long-term traceability additionally depends on the retention and availability
                 of historical metadata and security records.</paragraph>
-            <paragraph>This approach enables IDMEFv2 to represent ephemeral resources across
+            <paragraph>This approach enables IDMEFv2 to represent dynamic resources across
                 different orchestration platforms and container runtimes without requiring a
                 separate IDMEFv2 extension for each environment. Platform-specific reference
                 formats remain implementation conventions and SHOULD be documented to
