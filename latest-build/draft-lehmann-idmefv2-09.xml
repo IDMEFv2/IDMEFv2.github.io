@@ -594,6 +594,7 @@ Source(0).IP</sourcecode>
 | UUID[]      CorrelID         |
 | CONDITION[] AggrCondition    |
 | UUID[]      PredID           |
+| UUID[]      RelID            |
 | STRING[]    SignedAttributes |
 | STRING      Signature        |
 +------------------------------+</artwork>

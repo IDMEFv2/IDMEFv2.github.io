@@ -1095,6 +1095,7 @@ Internet-Draft                   IDMEFv2                    October 2026
                      | UUID[]      CorrelID         |
                      | CONDITION[] AggrCondition    |
                      | UUID[]      PredID           |
+                     | UUID[]      RelID            |
                      | STRING[]    SignedAttributes |
                      | STRING      Signature        |
                      +------------------------------+
@@ -1112,7 +1113,6 @@ Internet-Draft                   IDMEFv2                    October 2026
       Zero or more.  Instances of the Sensor class (Section 5.4) used to
       describe the sensor(s) that captured the information used during
       the analysis.
-
 
 
 
