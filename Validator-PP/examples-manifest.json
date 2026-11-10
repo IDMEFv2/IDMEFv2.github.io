@@ -44,5 +44,11 @@
     "IDMEFv2-Comb1.json",
     "IDMEFv2-Cyb1.json",
     "IDMEFv2-Phy1.json"
+  ],
+  "V9": [
+    "IDMEFv2-Avail1.json",
+    "IDMEFv2-Comb1.json",
+    "IDMEFv2-Cyb1.json",
+    "IDMEFv2-Phy1.json"
   ]
 }

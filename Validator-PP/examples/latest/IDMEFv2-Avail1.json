@@ -1,5 +1,5 @@
 {
-  "Version": "2.D.V08",
+  "Version": "2.D.V09",
   "ID": "f9b44c7d-3d99-4c7a-a3e4-57ef248bc631",
   "Status": ["Incident"],
   "OrganisationName": "acme.eu",
@@ -36,6 +36,9 @@
       "ID": "f9b44c7d-3d99-4c7a-a3e4-57ef248bc633",  
       "IP": "192.168.10.10",
       "Name": "Edge Firewall",
+      "Data": [
+        "Flow"
+      ],
       "CaptureZone": "[{\"type\":\"ipv4-addr\",\"spec_version\":\"2.1\",\"id\":\"ipv4-addr--dcb2c1c0-bddf-43f4-84f2-00a02cba6cf3\",\"value\":\"192.168.0.0\"},{\"type\":\"ipv4-net-mask\",\"spec_version\":\"2.1\",\"id\":\"ipv4-net-mask--c6a3a3e0-f20c-4df9-8dc4-e15ef43ffde4\",\"value\":\"255.255.0.0\"}]"
     }
   ],
@@ -62,6 +65,7 @@
       "Port": [
         443
       ],
+      "Name": "Public web infrastructure",
       "Location": "Web Farm - Zone 3"
     }
   ]
