@@ -125,12 +125,6 @@ $('#version-dropdown').on('change', function () {
 $(document).ready(async function () {
   await loadExercisesFromFile();
 
-  // Schema and file-list loading is handled by initEditor() once the schema
-  // resolution finishes (see the require(["vs/editor/editor.main"]) block
-  // above) — calling it again here raced the same fetch against that one,
-  // occasionally failing the "latest" load and firing a false "schema
-  // invalid" warning even though initEditor()'s own load succeeded right after.
-
   // Using the button to call the upload function
   document.getElementById('upload').addEventListener('click', function () {
     const fileInput = document.getElementById('idmefv2_file');
